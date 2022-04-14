@@ -46,7 +46,8 @@ ion-footer {
     --ion-background-color: var(--ion-color-negroOscuro);
 }
 
-p {
+p,
+span {
     color: var(--ion-color-blanco);
     text-align: center;
     font-size: 14px;
@@ -58,9 +59,6 @@ ion-input {
 }
 
 span {
-    text-align: center;
-    font-size: 14px;
-    color: var(--ion-color-blanco);
     font-style: italic;
     margin-bottom: 5px;
 }
