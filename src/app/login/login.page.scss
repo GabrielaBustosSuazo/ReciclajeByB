@@ -23,9 +23,9 @@ ion-icon {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 2rem;
-    width: 120px;
-    height: 160px;
+    margin-bottom: 1.5rem;
+    width: 110px;
+    height: 150px;
 }
 
 ion-label,
@@ -55,4 +55,12 @@ p {
 ion-input {
     background-color: var(--ion-color-blanco) !important;
     margin-top: 10px !important;
+}
+
+span {
+    text-align: center;
+    font-size: 14px;
+    color: var(--ion-color-blanco);
+    font-style: italic;
+    margin-bottom: 5px;
 }
