@@ -1,0 +1,35 @@
+<ion-content>
+    <form>
+        <ion-grid>
+            <ion-row class="logo_container">
+                <img class="logo" src="../../../assets/img/LogoB&B.png" />
+            </ion-row>
+        </ion-grid>
+        <ion-item lines="full">
+            <ion-label position="stacked">Nombre de usuario</ion-label>
+            <ion-input type="text" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+            <ion-label position="stacked">Contraseña</ion-label>
+            <ion-input type="password" required></ion-input>
+        </ion-item>
+        <ion-row>
+            <ion-col>
+                <ion-row class="button_container">
+                    <ion-button type="submit" color="verde" expand="block">Iniciar Sesión
+                        <ion-icon name="enter-outline"></ion-icon>
+                    </ion-button>
+                </ion-row>
+                <ion-row class="recuperar_contrasenna_link">
+                    <a [routerLink]="['/forgot-password']" class="recuperar_contrasenna">¿Olvidaste tu contraseña?</a>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <p>&copy; Todos los derechos reservados</p>
+    </ion-toolbar>
+</ion-footer>
