@@ -4,8 +4,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'valoracion',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'valoracion',
+    loadChildren: () => import('./valoracion/valoracion.module').then( m => m.ValoracionPageModule)
   },
   {
     path: 'login',
