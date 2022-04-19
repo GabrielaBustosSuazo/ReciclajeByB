@@ -1,9 +1,33 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>Valoración</ion-title>
-    </ion-toolbar>
+    <div class="toolbar__valoraciones">
+        <ion-toolbar mode="md">
+            <ion-title>Valoración</ion-title>
+            <img class="logo__grande" src="../../../assets/img/LogoPequennopng.png">
+        </ion-toolbar>
+    </div>
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+        <ion-row class="parrafo__valoracion">
+            <p>Gracias por confirmar que la recolección se efectuó. Te invitamos a evaluar como fué tu experiencia</p>
+        </ion-row>
+        <div class="separador">
+            <div class="linea__izq"></div>
+            <div class="img__separador"><img src="../../../assets/img/LogoPequennopng.png"></div>
+            <div class="linea__der"></div>
+        </div>
+        <ion-row class="parrafo__valoracion">
+            <p>¿Tuviste algún problema? Comentanos qué sucedió:</p>
+        </ion-row>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-textarea color="blanco"></ion-textarea>
+        </ion-item>
+        <ion-button type="submit" color="verde" size="small">Confirmar y terminar
+        </ion-button>
+    </ion-grid>
 </ion-content>
+
+<ion-footer>
+    <p>&copy; Todos los derechos reservados</p>
+</ion-footer>
