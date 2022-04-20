@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-recolector',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioRecolectorPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  gotoRevisarRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
+  gotoRevisarNotificaciones() {
+    this.router.navigate(['/notificaciones-enviadas']);
+  }
 }
