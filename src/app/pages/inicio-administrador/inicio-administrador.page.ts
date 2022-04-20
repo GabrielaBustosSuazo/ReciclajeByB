@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-administrador',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioAdministradorPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  agregarRutas() {
+    this.router.navigate(['/agregar-rutas']);
+  }
+
+  agregarClientes() {
+    this.router.navigate(['/agregar-clientes']);
+  }
+
+  agregarRecolectores() {
+    this.router.navigate(['/agregar-recolectores']);
+  }
+
+  agregarCamiones() {
+    this.router.navigate(['/agregar-camiones']);
+  }
+
+  seguimientoPlanillas(){
+    this.router.navigate(['/seguimiento-planillas']);
+  }
 }
