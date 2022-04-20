@@ -1,0 +1,41 @@
+ion-content {
+    --padding-top: .5rem;
+    --padding-bottom: .5rem;
+    --padding-start: .5rem;
+    --padding-end: .5rem;
+    --ion-background-color: var(--ion-color-negro)
+}
+
+
+table, th, td {
+    border: 1px solid #fff;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+th {
+    background-color: var(--ion-color-verde);
+    padding: .5rem .5rem;
+}
+
+td {
+    background-color: #000;
+    padding: .5rem .5rem;
+}
+
+.actions-top,
+.actions-bottom {
+    display: flex;
+    gap: 5px;
+}
+
+.actions-bottom {
+    margin-top: 5px;
+}
+
+.actions-icon {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
