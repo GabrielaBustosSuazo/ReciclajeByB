@@ -17,10 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/valoraciones/valoraciones.module').then( m => m.ValoracionesPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
     path: 'ingreso-evidencia',
     loadChildren: () => import('./pages/ingreso-evidencia/ingreso-evidencia.module').then( m => m.IngresoEvidenciaPageModule)
   },
@@ -39,6 +35,26 @@ const routes: Routes = [
   {
     path: 'notificaciones',
     loadChildren: () => import('./pages/notificaciones/notificaciones.module').then( m => m.NotificacionesPageModule)
+  },
+  {
+  path: 'agregar-rutas',
+  loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
+  },
+  {
+  path: 'agregar-clientes',
+  loadChildren: () => import('./pages/agregar-clientes/agregar-clientes.module').then( m => m.AgregarClientesPageModule)
+  },
+  {
+  path: 'agregar-recolectores',
+  loadChildren: () => import('./pages/agregar-recolectores/agregar-recolectores.module').then( m => m.AgregarRecolectoresPageModule)
+  },
+  {
+  path: 'agregar-camiones',
+  loadChildren: () => import('./pages/agregar-camiones/agregar-camiones.module').then( m => m.AgregarCamionesPageModule)
+  },
+  {
+  path: 'seguimiento-planillas',
+  loadChildren: () => import('./pages/seguimiento-planillas/seguimiento-planillas.module').then( m => m.SeguimientoPlanillasPageModule)
   },
   {
     path: 'eliminar-rutas',

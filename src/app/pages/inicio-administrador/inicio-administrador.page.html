@@ -1,70 +1,69 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Inicio</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="welcome">
-    <ion-row class="welcome-top">
-      <div class="dashboard-avatar">
-        <img class="" src="../../../assets/icon/admin.png" />
-      </div>
-      <p>Bienvenido<br>Juan Carlos Gomez</p>
-    </ion-row>
-    <ion-row class="welcome-bottom">
-      <img class="location-icon" src="../../../assets/icon/fa_calendar.png" />
-      <p>Lago Villarica 2751, <br> Villa Alemana.</p>
-    </ion-row>
-  </ion-grid>
+    <ion-grid class="welcome">
+        <ion-row class="welcome-top">
+            <div class="dashboard-avatar">
+                <img class="" src="../../../assets/icon/admin.png" />
+            </div>
+            <p>Bienvenido<br>Juan Carlos Gomez</p>
+        </ion-row>
+        <ion-row class="welcome-bottom">
+            <img class="location-icon" src="../../../assets/icon/fa_calendar.png" />
+            <p>Lago Villarica 2751, <br> Villa Alemana.</p>
+        </ion-row>
+    </ion-grid>
 
-  <div class="separator">
-    <div class="left-line"></div>
-    <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-    <div class="right-line"></div>
-  </div>
+    <div class="separator">
+        <div class="left-line"></div>
+        <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
+        <div class="right-line"></div>
+    </div>
 
-  <div class="menu-inicio">
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_route.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>Revisar <br> Rutas</p>
-      </div>
+    <div class="menu-inicio">
+        <div class="menu-item" (click)="agregarRutas()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_route.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>Gestión de <br> Rutas</p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="agregarClientes()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_useradd.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>Gestión de <br> Clientes</p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="agregarRecolectores()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_useradd.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>Gestión de <br> Recolectores</p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="agregarCamiones()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_truck.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>Gestión de <br> Camiones</p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="seguimientoPlanillas()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_search.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>Seguimiento de <br> planillas de ruta</p>
+            </div>
+        </div>
     </div>
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_useradd.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>Revisar <br> Notificaciones</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_useradd.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>Revisar <br> Notificaciones</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_truck.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>Revisar <br> Notificaciones</p>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_search.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>Revisar <br> Notificaciones</p>
-      </div>
-    </div>
-  </div>
 </ion-content>
-
