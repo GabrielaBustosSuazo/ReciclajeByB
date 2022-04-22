@@ -5,5 +5,38 @@
 </ion-header>
 
 <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Hora</ion-label>
+        <ion-input [disabled]="myFunction()" autocapitalize inputmode="number"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label position="stacked">Direccion</ion-label>
+        <ion-input autocapitalize inputmode="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Cliente</ion-label>
+        <ion-input autocapitalize inputmode="number"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="stacked">Conductor</ion-label>
+        <ion-input lines="none" autocapitalize inputmode="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Comentarios</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Imagenes</ion-label>
+        <button class="enviar-evidencias">
+          Ingresar Evidencias
+        </button>
+      </ion-item>
+      
+    </ion-list>
 </ion-content>

@@ -12,4 +12,7 @@ export class SeguimientoEvidenciasPage implements OnInit {
   ngOnInit() {
   }
 
+  myFunction() {
+    return false;
+  }
 }
