@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-camiones',
+    redirectTo: 'gestion-cliente',
     pathMatch: 'full'
   },
   {
@@ -41,20 +41,12 @@ const routes: Routes = [
   loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
   },
   {
-  path: 'agregar-clientes',
-  loadChildren: () => import('./pages/agregar-clientes/agregar-clientes.module').then( m => m.AgregarClientesPageModule)
-  },
-  {
   path: 'seguimiento-planillas',
   loadChildren: () => import('./pages/seguimiento-planillas/seguimiento-planillas.module').then( m => m.SeguimientoPlanillasPageModule)
   },
   {
     path: 'eliminar-rutas',
     loadChildren: () => import('./pages/eliminar-rutas/eliminar-rutas.module').then( m => m.EliminarRutasPageModule)
-  },
-  {
-    path: 'eliminar-clientes',
-    loadChildren: () => import('./pages/eliminar-clientes/eliminar-clientes.module').then( m => m.EliminarClientesPageModule)
   },
   {
     path: 'seguimiento-evidencias',
@@ -80,8 +72,10 @@ const routes: Routes = [
     path: 'gestion-camiones',
     loadChildren: () => import('./pages/gestion-camiones/gestion-camiones.module').then( m => m.GestionCamionesPageModule)
   },
-
-
+  {
+    path: 'gestion-cliente',
+    loadChildren: () => import('./pages/gestion-cliente/gestion-cliente.module').then( m => m.GestionClientePageModule)
+  },
 
 ];
 
