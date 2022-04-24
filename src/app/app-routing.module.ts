@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'seguimiento-planillas',
+    redirectTo: 'gestion-cliente',
     pathMatch: 'full'
   },
   {
@@ -41,10 +41,6 @@ const routes: Routes = [
   loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
   },
   {
-  path: 'agregar-clientes',
-  loadChildren: () => import('./pages/agregar-clientes/agregar-clientes.module').then( m => m.AgregarClientesPageModule)
-  },
-  {
   path: 'agregar-recolectores',
   loadChildren: () => import('./pages/agregar-recolectores/agregar-recolectores.module').then( m => m.AgregarRecolectoresPageModule)
   },
@@ -59,10 +55,6 @@ const routes: Routes = [
   {
     path: 'eliminar-rutas',
     loadChildren: () => import('./pages/eliminar-rutas/eliminar-rutas.module').then( m => m.EliminarRutasPageModule)
-  },
-  {
-    path: 'eliminar-clientes',
-    loadChildren: () => import('./pages/eliminar-clientes/eliminar-clientes.module').then( m => m.EliminarClientesPageModule)
   },
   {
     path: 'eliminar-recolectores',
@@ -88,6 +80,11 @@ const routes: Routes = [
     path: 'recuperar-contrasena',
     loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
+  {
+    path: 'gestion-cliente',
+    loadChildren: () => import('./pages/gestion-cliente/gestion-cliente.module').then( m => m.GestionClientePageModule)
+  },
+
 
 ];
 
