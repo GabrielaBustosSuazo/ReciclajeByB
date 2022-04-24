@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'seguimiento-planillas',
+    redirectTo: 'gestion-camiones',
     pathMatch: 'full'
   },
   {
@@ -45,14 +45,6 @@ const routes: Routes = [
   loadChildren: () => import('./pages/agregar-clientes/agregar-clientes.module').then( m => m.AgregarClientesPageModule)
   },
   {
-  path: 'agregar-recolectores',
-  loadChildren: () => import('./pages/agregar-recolectores/agregar-recolectores.module').then( m => m.AgregarRecolectoresPageModule)
-  },
-  {
-  path: 'agregar-camiones',
-  loadChildren: () => import('./pages/agregar-camiones/agregar-camiones.module').then( m => m.AgregarCamionesPageModule)
-  },
-  {
   path: 'seguimiento-planillas',
   loadChildren: () => import('./pages/seguimiento-planillas/seguimiento-planillas.module').then( m => m.SeguimientoPlanillasPageModule)
   },
@@ -63,14 +55,6 @@ const routes: Routes = [
   {
     path: 'eliminar-clientes',
     loadChildren: () => import('./pages/eliminar-clientes/eliminar-clientes.module').then( m => m.EliminarClientesPageModule)
-  },
-  {
-    path: 'eliminar-recolectores',
-    loadChildren: () => import('./pages/eliminar-recolectores/eliminar-recolectores.module').then( m => m.EliminarRecolectoresPageModule)
-  },
-  {
-    path: 'eliminar-camiones',
-    loadChildren: () => import('./pages/eliminar-camiones/eliminar-camiones.module').then( m => m.EliminarCamionesPageModule)
   },
   {
     path: 'seguimiento-evidencias',
@@ -88,6 +72,16 @@ const routes: Routes = [
     path: 'recuperar-contrasena',
     loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
+  {
+    path: 'gestion-recolector',
+    loadChildren: () => import('./pages/gestion-recolector/gestion-recolector.module').then( m => m.GestionRecolectorPageModule)
+  },
+  {
+    path: 'gestion-camiones',
+    loadChildren: () => import('./pages/gestion-camiones/gestion-camiones.module').then( m => m.GestionCamionesPageModule)
+  },
+
+
 
 ];
 
