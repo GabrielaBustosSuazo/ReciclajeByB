@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'seguimiento-planillas',
     pathMatch: 'full'
   },
   {
@@ -84,6 +84,11 @@ const routes: Routes = [
     path: 'notificaciones-enviadas',
     loadChildren: () => import('./pages/notificaciones-enviadas/notificaciones-enviadas.module').then( m => m.NotificacionesEnviadasPageModule)
   },
+  {
+    path: 'recuperar-contrasena',
+    loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+  },
+
 ];
 
 @NgModule({
