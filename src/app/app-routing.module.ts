@@ -75,12 +75,15 @@ const routes: Routes = [
   {
     path: 'gestion-cliente',
     loadChildren: () => import('./pages/gestion-cliente/gestion-cliente.module').then( m => m.GestionClientePageModule)
-  },  {
+  },
+  {
     path: 'gestion-ruta',
     loadChildren: () => import('./pages/gestion-ruta/gestion-ruta.module').then( m => m.GestionRutaPageModule)
   },
-
-
+  {
+    path: 'agregar-rutas',
+  loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
+  },
 ];
 
 @NgModule({
