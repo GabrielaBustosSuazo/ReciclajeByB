@@ -1,0 +1,28 @@
+ion-tabs {
+    color: #fff;
+}
+
+ion-content {
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --ion-background-color: var(--ion-color-negro)
+}
+
+ion-tab-bar {
+    background: var(--ion-color-negro);
+    padding: 0 !important;
+    --color: #fff !important;
+}
+
+.tab-has-label {
+    --background: #868686;
+    --color-selected: #fff;
+    --color: #fff;
+}
+
+.tab-selected {
+    --background: var(--ion-color-verde);
+    --color: #fff !important;
+}
