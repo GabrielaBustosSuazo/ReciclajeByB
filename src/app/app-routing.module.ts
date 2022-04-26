@@ -75,7 +75,11 @@ const routes: Routes = [
   {
     path: 'gestion-cliente',
     loadChildren: () => import('./pages/gestion-cliente/gestion-cliente.module').then( m => m.GestionClientePageModule)
+  },  {
+    path: 'gestion-ruta',
+    loadChildren: () => import('./pages/gestion-ruta/gestion-ruta.module').then( m => m.GestionRutaPageModule)
   },
+
 
 ];
 

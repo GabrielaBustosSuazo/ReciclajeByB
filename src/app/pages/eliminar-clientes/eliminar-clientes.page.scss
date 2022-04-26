@@ -1,0 +1,33 @@
+form {
+    padding: 1.5rem 2rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+input,
+select {
+    background-color: #fff;
+    padding: .425rem;
+}
+
+label {
+    color: #fff;
+}
+
+button {
+    background-color: var(--ion-color-verde);
+    padding: .5rem 1.5rem;
+    font-size: inherit;
+    max-width: 170px;
+}
+
+.form-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
