@@ -21,8 +21,4 @@ export class InicioClientePage implements OnInit {
     this.router.navigate(['/notificaciones']);
   }
 
-  getClientes(){
-    this.firestore.getColeccionCliente()
-  }
-
 }

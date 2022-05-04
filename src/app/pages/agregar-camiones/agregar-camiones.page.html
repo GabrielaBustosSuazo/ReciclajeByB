@@ -2,22 +2,22 @@
     <form action="">
         <div class="form-item">
             <label for="">Patente</label>
-            <input type="text">
+            <input [(ngModel)]="patente" type="text">
         </div>
         <div class="form-item">
             <label for="">Marca</label>
-            <input type="text">
+            <input [(ngModel)]="marca" type="text">
         </div>
         <div class="form-item">
             <label for="">Modelo</label>
-            <input type="text">
+            <input [(ngModel)]="modelo" type="text">
         </div>
         <div class="form-item">
             <label for="">Año</label>
-            <input type="text">
+            <input [(ngModel)]="anno" type="text">
         </div>
         <div class="form-item-button">
-            <button>Agregar camión</button>
+            <button (click)="guardarCamion()">Agregar camión</button>
         </div>
     </form>
 </ion-content>
