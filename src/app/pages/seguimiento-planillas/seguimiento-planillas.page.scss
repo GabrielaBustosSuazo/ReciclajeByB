@@ -51,3 +51,24 @@ td {
 .seguimiento-actions img:last-child {
     margin-top: 5px;
 }
+
+
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+ion-title {
+    display: flex;
+    justify-content: center;
+}

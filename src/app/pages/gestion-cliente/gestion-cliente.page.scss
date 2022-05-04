@@ -44,5 +44,7 @@ ion-header {
 }
 
 ion-title {
-    width: min-content;
+    display: flex;
+    justify-content: center;
 }
+
