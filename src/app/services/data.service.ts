@@ -7,15 +7,30 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(public firestore: AngularFirestore) {
 
   }
 
-  getColeccionCliente(){
-      console.log("Vamos a leer una colección")
-      this.firestore.collection('cliente').valueChanges().subscribe( (res ) => {
-      console.log('res ->', res)
-
-      });
+  crearDoc(data: any, path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).set(data);
   }
+  getColeccionCliente(path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).valueChanges();
+  }
+
+  deleteDoc(data: any, path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).delete();
+  }
+  updateDoc(data: any, path: string, id: string){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).update(data);
+  }
+
+  getId(){
+    return this.firestore.createId();
+  }
+
 }

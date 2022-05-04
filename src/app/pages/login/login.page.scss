@@ -12,6 +12,7 @@ ion-content {
 
 ion-button {
     background-color: var(--ion-color-verde);
+    padding-left: 12px;
     margin-left: 12px;
 }
 
@@ -62,7 +63,6 @@ span {
     font-style: italic;
     margin-bottom: 5px;
 }
-
 
 .toolbar-footer {
     text-align: center;
