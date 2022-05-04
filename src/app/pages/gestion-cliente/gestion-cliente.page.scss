@@ -20,7 +20,6 @@ ion-tab-bar {
     --background: #868686;
     --color-selected: #fff;
     --color: #fff;
-    
 }
 
 .tab-selected {
@@ -44,5 +43,7 @@ ion-header {
 }
 
 ion-title {
+    display: flex;
+    justify-content: center;
     width: min-content;
 }

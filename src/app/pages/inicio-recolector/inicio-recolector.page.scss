@@ -20,8 +20,6 @@ ion-content {
     padding-left: 6rem;
     border-radius: 5px 5px 0 0;
     background-color: var(--ion-color-verde);
-    
-
     .dashboard-avatar {
         position: absolute;
         padding: 1rem;
@@ -41,7 +39,6 @@ ion-content {
     flex-direction: row;
     padding-left: 6rem;
     align-items: center;
-
     .location-icon {
         width: 30px;
         height: 30px;
@@ -55,19 +52,16 @@ ion-content {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
-
     .left-line {
         height: 1px;
         background-color: #fff;
         width: 40%;
     }
-    
     .right-line {
         height: 1px;
         background-color: #fff;
         width: 40%;
     }
-    
     &-icon {
         width: 30px;
         height: 35px;
@@ -81,8 +75,6 @@ ion-content {
     flex-direction: column;
     gap: 10px;
     font-size: 14px;
-
-
     .menu-item {
         display: flex;
         box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -93,13 +85,11 @@ ion-content {
             display: flex;
             justify-content: center;
             align-items: center;
-
             img {
                 width: 35px;
                 height: 35px;
             }
         }
-
         &__text {
             display: flex;
             align-items: center;
@@ -113,4 +103,25 @@ ion-content {
 
 .menu-item {
     cursor: pointer;
+}
+
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+ion-title {
+    display: flex;
+    justify-content: center;
+    width: min-content;
 }

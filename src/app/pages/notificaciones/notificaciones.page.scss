@@ -12,19 +12,16 @@ ion-content {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
-
     .left-line {
         height: 1px;
         background-color: #fff;
         width: 40%;
     }
-    
     .right-line {
         height: 1px;
         background-color: #fff;
         width: 40%;
     }
-    
     &-icon {
         width: 30px;
         height: 35px;
@@ -38,8 +35,6 @@ ion-content {
     flex-direction: column;
     gap: 10px;
     font-size: 14px;
-
-
     .menu-item {
         display: flex;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -52,7 +47,6 @@ ion-content {
             align-items: center;
             border-left: 3px solid var(--ion-color-verdeClaro);
         }
-
         &__text {
             position: relative;
             display: flex;
@@ -60,7 +54,6 @@ ion-content {
             width: 75%;
             padding: 0 2rem 0 1rem;
             background-color: var(--ion-color-negro);
-
             .close-notification {
                 position: absolute;
                 top: .4rem;
@@ -70,4 +63,23 @@ ion-content {
     }
 }
 
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
+}
 
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+ion-title {
+    display: flex;
+    justify-content: center;
+    width: min-content;
+}

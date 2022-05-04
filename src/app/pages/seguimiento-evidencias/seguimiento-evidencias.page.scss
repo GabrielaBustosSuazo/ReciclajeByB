@@ -6,7 +6,8 @@ ion-content {
     --ion-background-color: var(--ion-color-negro)
 }
 
-ion-input, ion-textarea {
+ion-input,
+ion-textarea {
     background-color: #fff;
     width: 100%;
     border-radius: 5px;
@@ -14,11 +15,10 @@ ion-input, ion-textarea {
 
 ion-item {
     --inner-padding-end: 0px;
-    --padding-start:0px;
+    --padding-start: 0px;
     color: #fff;
     --ion-background-color: #000;
     font-size: 18px !important;
-
 }
 
 ion-label {
@@ -39,3 +39,21 @@ ion-list {
     margin-bottom: 2rem;
 }
 
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+ion-title {
+    width: min-content;
+}
