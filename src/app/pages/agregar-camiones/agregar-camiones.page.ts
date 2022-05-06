@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-agregar-camiones',
@@ -7,28 +7,15 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./agregar-camiones.page.scss'],
 })
 export class AgregarCamionesPage implements OnInit {
-  patente: string;
-  marca: string;
-  modelo: string;
-  anno: string;
-  private path = 'cliente/'
 
-  constructor(public dataservice: DataService) { }
+
+  constructor(private firestore: FirestoreService) { }
 
   ngOnInit() {
   }
 
-  guardarCamion(){
-    const data = {
-      patenteCamion: this.patente,
-      marcaCamion: this.marca,
-      modeloCamion: this.modelo,
-      annoCamion: this.anno
-    };
-
-    const id = this.dataservice.getId();
-
-    this.dataservice.crearDoc(data, this.path, id);
-
+  getClientes(){
+    this.firestore.getCollection()
   }
+
 }
