@@ -1,0 +1,51 @@
+<ion-content>
+    <table *ngFor="let camiones of data" class="" id="">
+        <thead>
+            <tr>
+                <th scope="col">Patente</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Año</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{camiones.patente}} </td>
+                <td> {{camiones.marca}} </td>
+                <td> {{camiones.modelo}} </td>
+                <td>
+                    {{camiones.anno}}
+                </td>
+                <td>
+                    <div class="seguimiento-actions">
+                        <img (click)="editarCamion(camiones)" class="" src="../../../assets/icon/fa_list.png" />
+                    </div>
+                    <div class="seguimiento-actions">
+                        <img class="" src="../../../assets/icon/fa_list.png" />
+                    </div>
+                </td>
+            </tr>
+    </table>
+    <ion-card *ngIf="camion">
+        <div class="form-item">
+            <label for="">Patente</label>
+            <input [(ngModel)]="camion.patente" type="text">
+        </div>
+        <div class="form-item">
+            <label for="">Marca</label>
+            <input [(ngModel)]="camion.marca" type="text">
+        </div>
+        <div class="form-item">
+            <label for="">Modelo</label>
+            <input [(ngModel)]="camion.modelo" type="text">
+        </div>
+        <div class="form-item">
+            <label for="">Año</label>
+            <input [(ngModel)]="camion.anno" type="text">
+        </div>
+        <div class="form-item-button">
+            <button (click)="guardar()">Modificar camión</button>
+        </div>
+    </ion-card>
+</ion-content>

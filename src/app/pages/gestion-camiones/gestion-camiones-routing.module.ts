@@ -27,6 +27,15 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'modificar-camiones',
+    children: [
+      {
+    path: '',
+    loadChildren: () => import('../modificar-camiones/modificar-camiones.module').then( m=> m.ModificarCamionesPageModule)
+  }
+]
+},
+  {
     path: '',
     redirectTo: 'tabs/agregar-camiones',
     pathMatch: 'full'
@@ -36,6 +45,11 @@ const routes: Routes = [
 {
   path: '',
   redirectTo: 'tabs/eliminar-camiones',
+  pathMatch: 'full'
+},
+{
+  path: '',
+  redirectTo: 'tabs/modificar-camiones',
   pathMatch: 'full'
 }
 ];

@@ -45,10 +45,6 @@ const routes: Routes = [
   loadChildren: () => import('./pages/seguimiento-planillas/seguimiento-planillas.module').then( m => m.SeguimientoPlanillasPageModule)
   },
   {
-    path: 'eliminar-rutas',
-    loadChildren: () => import('./pages/eliminar-rutas/eliminar-rutas.module').then( m => m.EliminarRutasPageModule)
-  },
-  {
     path: 'seguimiento-evidencias',
     loadChildren: () => import('./pages/seguimiento-evidencias/seguimiento-evidencias.module').then( m => m.SeguimientoEvidenciasPageModule)
   },
@@ -79,11 +75,7 @@ const routes: Routes = [
   {
     path: 'gestion-ruta',
     loadChildren: () => import('./pages/gestion-ruta/gestion-ruta.module').then( m => m.GestionRutaPageModule)
-  },
-  {
-    path: 'agregar-rutas',
-  loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
-  },
+  }
 ];
 
 @NgModule({

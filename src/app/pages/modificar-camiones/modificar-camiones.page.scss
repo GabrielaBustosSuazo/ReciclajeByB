@@ -1,0 +1,106 @@
+ion-content {
+    --padding-top: .5rem;
+    --padding-bottom: .5rem;
+    --padding-start: .5rem;
+    --padding-end: .5rem;
+    --ion-background-color: var(--ion-color-negro)
+}
+
+table,
+th,
+td {
+    border: 1px solid #fff;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+th {
+    background-color: var(--ion-color-verde);
+    padding: .5rem .5rem;
+}
+
+td {
+    background-color: #000;
+    padding: .5rem .5rem;
+}
+
+.actions-top,
+.actions-bottom {
+    display: flex;
+    gap: 5px;
+}
+
+.actions-bottom {
+    margin-top: 5px;
+}
+
+.actions-icon {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.header-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seguimiento-actions img:last-child {
+    margin-top: 5px;
+}
+
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+ion-title {
+    width: min-content;
+}
+
+form {
+    padding: 1.5rem 2rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+label {
+    color: var(--ion-color-blanco)
+}
+
+input,
+select {
+    background-color: #fff;
+    padding: .425rem;
+    color: var(--ion-color-negro) !important;
+}
+
+.form-item-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    background-color: var(--ion-color-verde);
+    padding: 0.5rem 1.5rem;
+    font-size: inherit;
+}

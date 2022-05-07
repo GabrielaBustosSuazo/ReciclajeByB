@@ -1,23 +1,21 @@
 <ion-content>
-    <form action="">
-        <div class="form-item">
-            <label for="">Patente</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Marca</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Modelo</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Año</label>
-            <input type="text">
-        </div>
-        <div class="form-item-button">
-            <button (click)="getClientes()">Agregar camión</button>
-        </div>
-    </form>
+    <div class="form-item">
+        <label for="">Patente</label>
+        <input [(ngModel)]="data.patente" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Marca</label>
+        <input [(ngModel)]="data.marca" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Modelo</label>
+        <input [(ngModel)]="data.modelo" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Año</label>
+        <input [(ngModel)]="data.anno" type="text">
+    </div>
+    <div class="form-item-button">
+        <button (click)="crearCamion()">Agregar camión</button>
+    </div>
 </ion-content>
