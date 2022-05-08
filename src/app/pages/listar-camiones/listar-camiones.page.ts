@@ -5,10 +5,10 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 
 @Component({
   selector: 'app-modificar-camiones',
-  templateUrl: './modificar-camiones.page.html',
-  styleUrls: ['./modificar-camiones.page.scss'],
+  templateUrl: './listar-camiones.page.html',
+  styleUrls: ['./listar-camiones.page.scss'],
 })
-export class ModificarCamionesPage implements OnInit {
+export class ListarCamionesPage implements OnInit {
 
   camion: Camiones;
   data: Camiones [] = [];
@@ -47,5 +47,15 @@ export class ModificarCamionesPage implements OnInit {
     await this.database.createDoc(this.camion, path, this.camion.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Camión modificado exitosamente');
+  }
+
+  async eliminarCamion(cam: Camiones){
+    const res = await this.userInteraction.presentAlert("Alerta", "¿Seguro que deseas eliminar este camión?")
+    if (res) {
+      const path = 'Camiones' 
+      await this.database.deleteDoc(path, cam.id);
+      this.userInteraction.presentToast('Camión eliminado exitosamente');
+    }
+
   }
 }

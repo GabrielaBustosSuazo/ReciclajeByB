@@ -17,21 +17,12 @@ const routes: Routes = [
       }
     ]
   },
-      {
-        path: 'eliminar-camiones',
-        children: [
-          {
-        path: '',
-        loadChildren: () => import('../eliminar-camiones/eliminar-camiones.module').then( m=> m.EliminarCamionesPageModule)
-      }
-    ]
-  },
   {
-    path: 'modificar-camiones',
+    path: 'listar-camiones',
     children: [
       {
     path: '',
-    loadChildren: () => import('../modificar-camiones/modificar-camiones.module').then( m=> m.ModificarCamionesPageModule)
+    loadChildren: () => import('../listar-camiones/listar-camiones.module').then( m=> m.ListarCamionesPageModule)
   }
 ]
 },
@@ -44,12 +35,7 @@ const routes: Routes = [
 },
 {
   path: '',
-  redirectTo: 'tabs/eliminar-camiones',
-  pathMatch: 'full'
-},
-{
-  path: '',
-  redirectTo: 'tabs/modificar-camiones',
+  redirectTo: 'tabs/listar-camiones',
   pathMatch: 'full'
 }
 ];

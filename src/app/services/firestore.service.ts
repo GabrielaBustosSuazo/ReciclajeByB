@@ -24,4 +24,8 @@ export class FirestoreService {
     const collection = this.firestore.collection<tipo>(path);
     return collection.valueChanges();
   }
+
+  deleteDoc(path: string, id: string){
+    return this.firestore.collection(path).doc(id).delete();
+  }
 }

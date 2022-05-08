@@ -36,5 +36,11 @@ export class AgregarCamionesPage implements OnInit {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Camión creado exitosamente');
     })
+    
+    this.data.patente = ""
+    this.data.marca = ""
+    this.data.modelo = ""
+    this.data.anno = ""
+
   }
 }

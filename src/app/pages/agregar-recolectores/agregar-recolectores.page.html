@@ -1,38 +1,44 @@
 <ion-content>
-    <form action="">
-        <div class="form-item">
-            <label for="">Run</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Nombre</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Dirección</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Teléfono</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="camiones">Camión desginado</label>
-            <select name="camiones" id="camiones">
+    <div class="form-item">
+        <label for="">Run</label>
+        <input [(ngModel)]="data.run" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Nombre</label>
+        <input [(ngModel)]="data.nombre" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Dirección</label>
+        <input [(ngModel)]="data.direccion" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Teléfono</label>
+        <input [(ngModel)]="data.telefono" type="text">
+    </div>
+    <div class="form-item">
+        <label for="camiones">Camión desginado</label>
+        <select name="camiones" id="camiones">
         <option value="camion1">VFFG89</option>
         <option value="camion2">DFGD99</option>
         </select>
-        </div>
-        <div class="form-item">
-            <label for="">Nombre de usuario</label>
-            <input type="text">
-        </div>
-        <div class="form-item">
-            <label for="">Password</label>
-            <input type="password">
-        </div>
-        <div class="form-item-button">
-            <button>Agregar recolector</button>
-        </div>
-    </form>
+    </div>
+    <div class="form-item">
+        <label for="">Nombre de usuario</label>
+        <input [(ngModel)]="data.usuario" type="text">
+    </div>
+    <div class="form-item">
+        <label for="">Password</label>
+        <input [(ngModel)]="data.password" type="password">
+    </div>
+    <div class="form-item">
+        <label for="rol">Rol</label>
+        <select name="rol" id="rol">
+        <option value="rol1">Cliente</option>
+        <option value="rol2">Administrador</option>
+        <option value="rol3">Recolector</option>
+        </select>
+    </div>
+    <div class="form-item-button">
+        <button>Agregar recolector</button>
+    </div>
 </ion-content>
