@@ -1,42 +1,40 @@
 <ion-content>
-<form action="">
   <div class="form-item">
     <label for="">Run</label>
-    <input type="text" required>
+    <input [(ngModel)]="data.run" type="text" required />
   </div>
   <div class="form-item">
     <label for="">Nombre</label>
-    <input type="text">
+    <input [(ngModel)]="data.nombre" type="text" />
   </div>
   <div class="form-item">
     <label for="">Dirección</label>
-    <input type="text">
+    <input [(ngModel)]="data.direccion" type="text" />
   </div>
   <div class="form-item">
     <label for="">Teléfono</label>
-    <input type="text">
+    <input [(ngModel)]="data.telefono" type="text" />
   </div>
   <div class="form-item">
     <label for="">Nombre de usuario</label>
-    <input type="text">
+    <input [(ngModel)]="data.usuario" type="text" />
   </div>
   <div class="form-item">
     <label for="">Contraseña</label>
-    <input type="password">
+    <input [(ngModel)]="data.contrasena" type="password" />
   </div>
   <div class="form-item">
     <label for="">Tipo de plan</label>
-    <select name="" id="" form="">
+    <select [(ngModel)]="data.tipoplan" name="" id="tipo-plan" form="">
       <option value="">1 Día</option>
       <option value="">2 Días</option>
     </select>
   </div>
   <div class="form-button">
-    <button>
-      Agregar cliente
-    </button>
+    <button (click)="crearCliente()">Agregar cliente</button>
   </div>
-  
-  
-</form>
+
+  <script>
+    document.querySelector("#tipo-plan").getSelected();
+  </script>
 </ion-content>
