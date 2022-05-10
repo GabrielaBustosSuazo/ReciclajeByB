@@ -1,0 +1,63 @@
+<ion-content>
+  <table style="width: 100%">
+    <tr>
+      <th scope="col">Hora</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="col">Dirección</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="col">Cliente</th>
+      <td></td>
+    </tr>
+    <tr>
+      <!-- Conductor + patente -->
+      <th scope="col">Conductor</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="col">Acciones</th>
+      <td class="acciones">
+        <button (click)="editarCliente(cliente)" class="editar boton-acciones">
+          Editar
+        </button>
+        <button
+          (click)="eliminarCliente(cliente)"
+          class="eliminar boton-acciones"
+        >
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </table>
+  <ion-card *ngIf="cliente">
+    <div class="form-item">
+      <label for="">Run</label>
+      <input [(ngModel)]="cliente.run" type="text" />
+    </div>
+    <div class="form-item">
+      <label for="">Nombre</label>
+      <input [(ngModel)]="cliente.nombre" type="text" />
+    </div>
+    <div class="form-item">
+      <label for="">Direccion</label>
+      <input [(ngModel)]="cliente.direccion" type="text" />
+    </div>
+    <div class="form-item">
+      <label for="">Teléfono</label>
+      <input [(ngModel)]="cliente.telefono" type="text" />
+    </div>
+    <div class="form-item">
+      <label for="">Tipo Plan</label>
+      <ion-select [(ngModel)]="cliente.tipoplan">
+        <ion-select-option>1 dia</ion-select-option>
+        <ion-select-option>2 dias</ion-select-option>
+      </ion-select>
+    </div>
+    <div class="form-item-button">
+      <button (click)="guardar()">Modificar cliente</button>
+    </div>
+  </ion-card>
+</ion-content>

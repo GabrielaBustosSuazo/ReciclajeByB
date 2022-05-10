@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-cliente',
+    redirectTo: 'gestion-ruta',
     pathMatch: 'full',
   },
   {
@@ -53,13 +53,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/notificaciones/notificaciones.module').then(
         (m) => m.NotificacionesPageModule
-      ),
-  },
-  {
-    path: 'agregar-rutas',
-    loadChildren: () =>
-      import('./pages/agregar-rutas/agregar-rutas.module').then(
-        (m) => m.AgregarRutasPageModule
       ),
   },
   {
