@@ -1,21 +1,27 @@
 <ion-content>
-    <div class="form-item">
-        <label for="">Patente</label>
-        <input [(ngModel)]="data.patente" type="text">
-    </div>
-    <div class="form-item">
-        <label for="">Marca</label>
-        <input [(ngModel)]="data.marca" type="text">
-    </div>
-    <div class="form-item">
-        <label for="">Modelo</label>
-        <input [(ngModel)]="data.modelo" type="text">
-    </div>
-    <div class="form-item">
-        <label for="">Año</label>
-        <input [(ngModel)]="data.anno" type="text">
-    </div>
-    <div class="form-item-button">
-        <button (click)="crearCamion()">Agregar camión</button>
-    </div>
+  <div class="form-item">
+    <label for="">Patente (XX-XX-00)</label>
+    <input [(ngModel)]="data.patente" type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Marca</label>
+    <input [(ngModel)]="data.marca" type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Modelo</label>
+    <input [(ngModel)]="data.modelo" type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Año</label>
+    <input [(ngModel)]="data.anno" type="text" />
+  </div>
+  <div class="form-item-button">
+    <button (click)="crearCamion()">
+      <img
+        class="close-notification"
+        src="../../../assets/icon/fa_truckadd.png"
+      />
+      Agregar camión
+    </button>
+  </div>
 </ion-content>

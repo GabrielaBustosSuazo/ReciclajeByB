@@ -5,88 +5,130 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'gestion-cliente',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
 
   {
     path: 'valoraciones',
-    loadChildren: () => import('./pages/valoraciones/valoraciones.module').then( m => m.ValoracionesPageModule)
+    loadChildren: () =>
+      import('./pages/valoraciones/valoraciones.module').then(
+        (m) => m.ValoracionesPageModule
+      ),
   },
   {
     path: 'ingreso-evidencia',
-    loadChildren: () => import('./pages/ingreso-evidencia/ingreso-evidencia.module').then( m => m.IngresoEvidenciaPageModule)
+    loadChildren: () =>
+      import('./pages/ingreso-evidencia/ingreso-evidencia.module').then(
+        (m) => m.IngresoEvidenciaPageModule
+      ),
   },
   {
     path: 'inicio-administrador',
-    loadChildren: () => import('./pages/inicio-administrador/inicio-administrador.module').then( m => m.InicioAdministradorPageModule)
+    loadChildren: () =>
+      import('./pages/inicio-administrador/inicio-administrador.module').then(
+        (m) => m.InicioAdministradorPageModule
+      ),
   },
   {
     path: 'inicio-cliente',
-    loadChildren: () => import('./pages/inicio-cliente/inicio-cliente.module').then( m => m.InicioClientePageModule)
+    loadChildren: () =>
+      import('./pages/inicio-cliente/inicio-cliente.module').then(
+        (m) => m.InicioClientePageModule
+      ),
   },
   {
     path: 'inicio-recolector',
-    loadChildren: () => import('./pages/inicio-recolector/inicio-recolector.module').then( m => m.InicioRecolectorPageModule)
+    loadChildren: () =>
+      import('./pages/inicio-recolector/inicio-recolector.module').then(
+        (m) => m.InicioRecolectorPageModule
+      ),
   },
   {
     path: 'notificaciones',
-    loadChildren: () => import('./pages/notificaciones/notificaciones.module').then( m => m.NotificacionesPageModule)
+    loadChildren: () =>
+      import('./pages/notificaciones/notificaciones.module').then(
+        (m) => m.NotificacionesPageModule
+      ),
   },
   {
-  path: 'agregar-rutas',
-  loadChildren: () => import('./pages/agregar-rutas/agregar-rutas.module').then( m => m.AgregarRutasPageModule)
+    path: 'agregar-rutas',
+    loadChildren: () =>
+      import('./pages/agregar-rutas/agregar-rutas.module').then(
+        (m) => m.AgregarRutasPageModule
+      ),
   },
   {
-  path: 'seguimiento-planillas',
-  loadChildren: () => import('./pages/seguimiento-planillas/seguimiento-planillas.module').then( m => m.SeguimientoPlanillasPageModule)
+    path: 'seguimiento-planillas',
+    loadChildren: () =>
+      import('./pages/seguimiento-planillas/seguimiento-planillas.module').then(
+        (m) => m.SeguimientoPlanillasPageModule
+      ),
   },
   {
     path: 'seguimiento-evidencias',
-    loadChildren: () => import('./pages/seguimiento-evidencias/seguimiento-evidencias.module').then( m => m.SeguimientoEvidenciasPageModule)
+    loadChildren: () =>
+      import(
+        './pages/seguimiento-evidencias/seguimiento-evidencias.module'
+      ).then((m) => m.SeguimientoEvidenciasPageModule),
   },
   {
     path: 'rutas',
-    loadChildren: () => import('./pages/rutas/rutas.module').then( m => m.RutasPageModule)
+    loadChildren: () =>
+      import('./pages/rutas/rutas.module').then((m) => m.RutasPageModule),
   },
   {
     path: 'notificaciones-enviadas',
-    loadChildren: () => import('./pages/notificaciones-enviadas/notificaciones-enviadas.module').then( m => m.NotificacionesEnviadasPageModule)
+    loadChildren: () =>
+      import(
+        './pages/notificaciones-enviadas/notificaciones-enviadas.module'
+      ).then((m) => m.NotificacionesEnviadasPageModule),
   },
   {
     path: 'recuperar-contrasena',
-    loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+    loadChildren: () =>
+      import('./pages/recuperar-contrasena/recuperar-contrasena.module').then(
+        (m) => m.RecuperarContrasenaPageModule
+      ),
   },
   {
     path: 'gestion-recolector',
-    loadChildren: () => import('./pages/gestion-recolector/gestion-recolector.module').then( m => m.GestionRecolectorPageModule)
+    loadChildren: () =>
+      import('./pages/gestion-recolector/gestion-recolector.module').then(
+        (m) => m.GestionRecolectorPageModule
+      ),
   },
   {
     path: 'gestion-camiones',
-    loadChildren: () => import('./pages/gestion-camiones/gestion-camiones.module').then( m => m.GestionCamionesPageModule)
+    loadChildren: () =>
+      import('./pages/gestion-camiones/gestion-camiones.module').then(
+        (m) => m.GestionCamionesPageModule
+      ),
   },
   {
     path: 'gestion-cliente',
-    loadChildren: () => import('./pages/gestion-cliente/gestion-cliente.module').then( m => m.GestionClientePageModule)
+    loadChildren: () =>
+      import('./pages/gestion-cliente/gestion-cliente.module').then(
+        (m) => m.GestionClientePageModule
+      ),
   },
   {
     path: 'gestion-ruta',
-    loadChildren: () => import('./pages/gestion-ruta/gestion-ruta.module').then( m => m.GestionRutaPageModule)
+    loadChildren: () =>
+      import('./pages/gestion-ruta/gestion-ruta.module').then(
+        (m) => m.GestionRutaPageModule
+      ),
   },
-  {
-    path: 'listar-recolectores',
-    loadChildren: () => import('./pages/listar-recolectores/listar-recolectores.module').then( m => m.ListarRecolectoresPageModule)
-  }
-
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
