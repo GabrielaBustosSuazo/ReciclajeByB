@@ -56,13 +56,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'agregar-rutas',
-    loadChildren: () =>
-      import('./pages/agregar-rutas/agregar-rutas.module').then(
-        (m) => m.AgregarRutasPageModule
-      ),
-  },
-  {
     path: 'seguimiento-planillas',
     loadChildren: () =>
       import('./pages/seguimiento-planillas/seguimiento-planillas.module').then(
