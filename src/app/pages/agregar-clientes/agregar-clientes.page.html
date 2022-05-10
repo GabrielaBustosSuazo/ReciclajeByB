@@ -25,10 +25,10 @@
   </div>
   <div class="form-item">
     <label for="">Tipo de plan</label>
-    <select [(ngModel)]="data.tipoplan" name="" id="tipo-plan" form="">
-      <option value="">1 Día</option>
-      <option value="">2 Días</option>
-    </select>
+    <ion-select [(ngModel)]="data.tipoplan">
+      <ion-select-option>1 dia</ion-select-option>
+      <ion-select-option>2 dias</ion-select-option>
+    </ion-select>
   </div>
   <div class="form-button">
     <button (click)="crearCliente()">Agregar cliente</button>

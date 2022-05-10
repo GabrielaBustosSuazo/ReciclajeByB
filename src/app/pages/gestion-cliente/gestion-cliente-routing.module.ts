@@ -12,32 +12,43 @@ const routes: Routes = [
         path: 'agregar-clientes',
         children: [
           {
-              path: '',
-              loadChildren: () => import('../agregar-clientes/agregar-clientes.module').then( m => m.AgregarClientesPageModule)
-          }
-        ]
+            path: '',
+            loadChildren: () =>
+              import('../agregar-clientes/agregar-clientes.module').then(
+                (m) => m.AgregarClientesPageModule
+              ),
+          },
+        ],
       },
       {
-        path: 'eliminar-clientes',
+        path: 'listar-clientes',
         children: [
           {
-              path: '',
-              loadChildren: () => import('../eliminar-clientes/eliminar-clientes.module').then( m => m.EliminarClientesPageModule)
-          }
-        ]
+            path: '',
+            loadChildren: () =>
+              import('../listar-clientes/listar-clientes.module').then(
+                (m) => m.ListarClientesPageModule
+              ),
+          },
+        ],
       },
       {
         path: '',
         redirectTo: 'tabs/agregar-clientes',
-        pathMatch: 'full'
-      }
-    ]
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '',
     redirectTo: 'tabs/agregar-clientes',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    redirectTo: 'tabs/listar-clientes',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
@@ -45,6 +56,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class GestionClientePageRoutingModule {}
-
-
-
