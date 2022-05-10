@@ -17,28 +17,19 @@
     </div>
     <div class="form-item">
         <label for="camiones">Camión desginado</label>
-        <select name="camiones" id="camiones">
-        <option value="camion1">VFFG89</option>
-        <option value="camion2">DFGD99</option>
-        </select>
+        <ion-select [(ngModel)]="data.camionDesignado">
+            <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
+        </ion-select>
     </div>
     <div class="form-item">
         <label for="">Nombre de usuario</label>
-        <input [(ngModel)]="data.usuario" type="text">
+        <input [(ngModel)]="data.nombreUsuario" type="text">
     </div>
     <div class="form-item">
         <label for="">Password</label>
         <input [(ngModel)]="data.password" type="password">
     </div>
-    <div class="form-item">
-        <label for="rol">Rol</label>
-        <select name="rol" id="rol">
-        <option value="rol1">Cliente</option>
-        <option value="rol2">Administrador</option>
-        <option value="rol3">Recolector</option>
-        </select>
-    </div>
     <div class="form-item-button">
-        <button>Agregar recolector</button>
+        <button (click)="crearRecolector()">Agregar recolector</button>
     </div>
 </ion-content>

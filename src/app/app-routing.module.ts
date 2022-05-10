@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-camiones',
+    redirectTo: 'gestion-cliente',
     pathMatch: 'full'
   },
   {
@@ -75,7 +75,12 @@ const routes: Routes = [
   {
     path: 'gestion-ruta',
     loadChildren: () => import('./pages/gestion-ruta/gestion-ruta.module').then( m => m.GestionRutaPageModule)
+  },
+  {
+    path: 'listar-recolectores',
+    loadChildren: () => import('./pages/listar-recolectores/listar-recolectores.module').then( m => m.ListarRecolectoresPageModule)
   }
+
 ];
 
 @NgModule({
