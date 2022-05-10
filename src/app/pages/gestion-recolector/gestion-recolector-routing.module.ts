@@ -17,11 +17,11 @@ const routes: Routes = [
       ]
     },
         {
-          path: 'eliminar-recolectores',
+          path: 'listar-recolectores',
           children: [
             {
           path: '',
-          loadChildren: () => import('../eliminar-recolectores/eliminar-recolectores.module').then( m => m.EliminarRecolectoresPageModule)
+          loadChildren: () => import('../listar-recolectores/listar-recolectores.module').then( m => m.ListarRecolectoresPageModule)
         }
       ]
     },
@@ -34,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs/eliminar-recolectores',
+    redirectTo: 'tabs/listar-recolectores',
     pathMatch: 'full'
   }
 ];
