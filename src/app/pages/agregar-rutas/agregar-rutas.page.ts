@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-agregar-rutas',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarRutasPage implements OnInit {
 
-  constructor() { }
+  constructor(private database: FirestoreService) { }
 
   ngOnInit() {
   }

@@ -29,3 +29,12 @@ export interface Cliente {
   rol: string;
   id: string;
 }
+
+export interface Rutas {
+  camionAsignado: string;
+  recolectorAsignado: string;
+  clienteAsignado: string;
+  direccion: string;
+  fecha: Date;
+  hora: string;
+}

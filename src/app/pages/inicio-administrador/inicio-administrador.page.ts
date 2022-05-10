@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-administrador.page.scss'],
 })
 export class InicioAdministradorPage implements OnInit {
+  today: any;
 
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.today = Date.now();
   }
 
   agregarRutas() {
