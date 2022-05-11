@@ -8,14 +8,24 @@
     <p class="indicaciones">Por favor, adjunta imagenes y comentarios para poder analizar lo sucedido:</p>
 
     <span>Imagenes</span>
-    <button class="adjuntar">Seleccionar archivos..</button>
+    <ion-button>
+        <label for="file-upload">
+              <button class="adjuntar">Seleccionar archivos..</button>
+              </label>
+        <input (change)="newImage($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+    </ion-button>
+
+
+    <img [src]="evidencia.foto">
+
 
     <label for="comentarios">Comentarios:</label>
-    <textarea class="comentarios" name="comentarios" rows="6" cols="33">
+    <textarea [(ngModel)]="evidencia.comentario" class="comentarios" name="comentarios" rows="6" cols="33">
   
   </textarea>
 
-    <button class="enviar-evidencias">
+    <button (click)="crearEvidencia()" class="enviar-evidencias">
     Ingresar Evidencias
   </button>
+
 </ion-content>

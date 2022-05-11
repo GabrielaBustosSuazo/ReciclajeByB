@@ -51,3 +51,9 @@ export interface Rutas {
   hora: string;
   id: string;
 }
+
+export interface Evidencias {
+  foto: any;
+  comentario: string;
+  id: string;
+}
