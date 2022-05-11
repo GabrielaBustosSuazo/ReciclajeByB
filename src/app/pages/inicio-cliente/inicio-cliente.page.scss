@@ -6,48 +6,6 @@ ion-content {
   --ion-background-color: var(--ion-color-negroOscuro);
 }
 
-.welcome {
-  margin-top: 1.5rem;
-  font-size: 14px;
-  color: #fff;
-  position: relative;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  padding: 0 !important;
-  border-radius: 0 0 5px 5px;
-}
-
-.welcome-top {
-  padding-left: 6rem;
-  border-radius: 5px 5px 0 0;
-  background-color: var(--ion-color-verde);
-  .dashboard-avatar {
-    position: absolute;
-    padding: 1rem;
-    border-radius: 50%;
-    left: 0.7rem;
-    top: 2rem;
-    background-color: #fff;
-    width: 70px;
-    height: 70px;
-  }
-}
-
-.welcome-bottom {
-  border-radius: 0 0 5px 5px;
-  background-color: var(--ion-color-negro);
-  display: flex;
-  flex-direction: row;
-  padding-left: 6rem;
-  align-items: center;
-  .location-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-  }
-}
-
 .separator {
   justify-content: center;
   display: flex;
@@ -79,13 +37,14 @@ ion-content {
   font-size: 14px;
   .menu-item {
     display: flex;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
       rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
       rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     &__icon {
       padding: 1rem;
       width: 30%;
-      background-color: var(--ion-color-negro);
+      background-color: var(--ion-color-verde);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -98,9 +57,9 @@ ion-content {
       display: flex;
       align-items: center;
       width: 70%;
-      padding-left: 1rem;
+      padding-left: 1.5rem;
       background-color: var(--ion-color-negroOscuro);
-      border-right: 3px solid var(--ion-color-verdeClaro);
+      border-right: 3px solid var(--ion-color-verde);
     }
   }
 }
