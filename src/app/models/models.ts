@@ -47,6 +47,7 @@ export interface Rutas {
   recolectorAsignado: string;
   clienteAsignado: string;
   direccion: string;
-  fecha: Date;
+  fecha: any;
   hora: string;
+  id: string;
 }

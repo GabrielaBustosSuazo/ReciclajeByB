@@ -41,11 +41,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs/agregar-rutas',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
     redirectTo: 'tabs/listar-rutas',
     pathMatch: 'full',
   },
