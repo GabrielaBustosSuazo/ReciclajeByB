@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-ruta',
+    redirectTo: 'registro',
     pathMatch: 'full',
   },
   {
@@ -114,6 +114,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/gestion-ruta/gestion-ruta.module').then(
         (m) => m.GestionRutaPageModule
+      ),
+  },
+  {
+    path: 'registro',
+    loadChildren: () =>
+      import('./pages/registro/registro.module').then(
+        (m) => m.RegistroPageModule
       ),
   },
 ];
