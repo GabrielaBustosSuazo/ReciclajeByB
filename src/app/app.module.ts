@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DatePipe } from '@angular/common';
 
 
@@ -25,7 +24,7 @@ import { DatePipe } from '@angular/common';
             AngularFireAuthModule,
             AngularFirestoreModule,
             AngularFireStorageModule,
-            AngularFireAuth
+            
 ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePipe],
   bootstrap: [AppComponent],

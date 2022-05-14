@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 
 
 @Component({
@@ -10,11 +11,11 @@ import { Router } from '@angular/router';
 export class InicioClientePage implements OnInit {
 
   constructor(private router:Router, 
-              ) { 
+              public auth: FirestoreauthService) { 
 
               }
 
-  ngOnInit() {
+ngOnInit() {
   }
 
   gotoNotifications() {

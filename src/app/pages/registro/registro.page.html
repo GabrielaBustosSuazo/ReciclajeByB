@@ -1,22 +1,25 @@
 <ion-content>
-  <div class="logo-container">
-    <img class="logo" src="../../../assets/img/LogoB&B.png" />
-  </div>
+    <div class="logo-container">
+        <img class="logo" src="../../../assets/img/LogoB&B.png" />
+    </div>
 
-  <span>Reciclar no es tu obligación, es tu responsabilidad</span>
-  <div class="form-item">
-    <label for="">Nombre de usuario</label>
-    <input type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Email</label>
-    <input type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Contraseña</label>
-    <input type="text" />
-  </div>
-  <div class="form-item-button">
-    <button>Registrarme</button>
-  </div>
+    <span>Reciclar no es tu obligación, es tu responsabilidad</span>
+    <div class="form-item">
+        <label for="">Nombre de usuario</label>
+        <input [(ngModel)]="usuario.nombreUsuario" type="text" />
+    </div>
+    <div class="form-item">
+        <label for="">Email</label>
+        <input [(ngModel)]="usuario.email" type="text" />
+    </div>
+    <div class="form-item">
+        <label for="">Contraseña</label>
+        <input [(ngModel)]="usuario.password" type="password" />
+    </div>
+    <div class="form-item-button">
+        <button (click)="registrar()">Registrarme</button>
+    </div>
+    <div class="form-item-button">
+        <button (click)="salir()">Salir</button>
+    </div>
 </ion-content>
