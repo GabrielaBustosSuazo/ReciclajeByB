@@ -1,43 +1,28 @@
 <ion-header>
-    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-    <ion-title>Seg. notificaciones</ion-title>
-    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
+  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+  <ion-title>Seg. Evidencias</ion-title>
+  <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
 </ion-header>
 
-
 <ion-content>
-    <ion-list>
-        <ion-item>
-            <ion-label position="stacked">Hora</ion-label>
-            <ion-input [disabled]="myFunction()" autocapitalize inputmode="number"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="stacked">Direccion</ion-label>
-            <ion-input autocapitalize inputmode="number"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="stacked">Cliente</ion-label>
-            <ion-input autocapitalize inputmode="number"></ion-input>
-        </ion-item>
-
-        <ion-item lines="none">
-            <ion-label position="stacked">Conductor</ion-label>
-            <ion-input lines="none" autocapitalize inputmode="number"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="stacked">Comentarios</ion-label>
-            <ion-textarea></ion-textarea>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="stacked">Imagenes</ion-label>
-            <button class="enviar-evidencias">
-          Ingresar Evidencias
-        </button>
-        </ion-item>
-
-    </ion-list>
+  <div class="form-item">
+    <label for="">Hora</label>
+    <input type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Direccion</label>
+    <input type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Cliente</label>
+    <input type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Conductor</label>
+    <input type="text" />
+  </div>
+  <div class="form-item">
+    <label for="">Comentarios</label>
+    <input type="text" />
+  </div>
 </ion-content>
