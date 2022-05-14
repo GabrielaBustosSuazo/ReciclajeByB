@@ -25,6 +25,7 @@ ion-tab-bar {
 .tab-selected {
     --background: var(--ion-color-verde);
     --color: #fff !important;
+    border-bottom: 5px solid white;
 }
 
 ion-header {

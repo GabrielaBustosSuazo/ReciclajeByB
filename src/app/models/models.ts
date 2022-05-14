@@ -56,4 +56,13 @@ export interface Evidencias {
   foto: any;
   comentario: string;
   id: string;
+  clienteAsignado: string;
+  recolectorAsignado: string;
+}
+
+export interface Usuario {
+  uid: string;
+  email: string;
+  password: string;
+  nombreUsuario: string;
 }

@@ -8,26 +8,26 @@
     <div class="form-item">
         <label for="">Recolector a asignar</label>
         <ion-select [(ngModel)]="data.recolectorAsignado">
-            <ion-select-option *ngFor="let recolector of recolectores" [value]="recolector.nombre">{{recolector.nombre}}</ion-select-option>
+            <ion-select-option *ngFor="let recolector of recolectores" [value]="recolector.nombreUsuario">{{recolector.nombreUsuario}}</ion-select-option>
         </ion-select>
     </div>
-    <div class="form-item">
-        <label for="">Cliente a asignar</label>
-        <ion-select [(ngModel)]="data.clienteAsignado">
-            <ion-select-option *ngFor="let cliente of clientes" [value]="cliente.nombre">{{cliente.nombre}}</ion-select-option>
+    <div class=" form-item ">
+        <label for=" ">Cliente a asignar</label>
+        <ion-select [(ngModel)]="data.clienteAsignado ">
+            <ion-select-option *ngFor="let cliente of clientes " [value]="cliente.nombre ">{{cliente.nombre}}</ion-select-option>
         </ion-select>
     </div>
-    <div class="form-item">
-        <label for="">Dirección</label>
-        <input [(ngModel)]="data.direccion" type="text" />
+    <div class="form-item ">
+        <label for=" ">Dirección</label>
+        <input [(ngModel)]="data.direccion " type="text " />
     </div>
-    <div class="form-item">
-        <label for="">Fecha</label>
-        <input type="text" disabled placeholder="{{data.fecha}}" />
+    <div class="form-item ">
+        <label for=" ">Fecha</label>
+        <input type="text " disabled placeholder="{{data.fecha}} " />
     </div>
-    <div class="form-item">
-        <label for="">Hora</label>
-        <input [(ngModel)]="data.hora" type="time" />
+    <div class="form-item ">
+        <label for=" ">Hora</label>
+        <input [(ngModel)]="data.hora " type="time " />
     </div>
     <div class="form-item-button ">
         <button (click)="crearRutas() ">Agregar Ruta</button>
