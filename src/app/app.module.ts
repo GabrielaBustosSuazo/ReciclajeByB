@@ -12,6 +12,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -20,9 +22,10 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
             FormsModule, AngularFireModule.initializeApp(environment.firebaseConfig),
             AngularFireAuthModule,
-            AngularFirestoreModule
+            AngularFirestoreModule,
+            AngularFireStorageModule
 ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
