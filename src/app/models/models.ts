@@ -18,18 +18,6 @@ export interface Recolectores {
   id: string;
 }
 
-export interface Recolectores {
-  run: string;
-  nombre: string;
-  direccion: string;
-  telefono: string;
-  camionDesignado: string;
-  nombreUsuario: string;
-  password: string;
-  rol: string;
-  id: string;
-}
-
 export interface Cliente {
   run: string;
   nombre: string;
@@ -47,6 +35,22 @@ export interface Rutas {
   recolectorAsignado: string;
   clienteAsignado: string;
   direccion: string;
-  fecha: Date;
+  fecha: any;
   hora: string;
+  id: string;
+}
+
+export interface Evidencias {
+  foto: any;
+  comentario: string;
+  id: string;
+  clienteAsignado: string;
+  recolectorAsignado: string;
+}
+
+export interface Usuario {
+  uid: string;
+  email: string;
+  password: string;
+  nombreUsuario: string;
 }
