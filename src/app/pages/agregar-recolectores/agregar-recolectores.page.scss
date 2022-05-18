@@ -1,50 +1,69 @@
-form {
-    padding: 1.5rem 2rem;
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.form-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 1rem;
+.form-item:not(:first-child) {
+  margin-top: 1rem;
 }
 
 label {
-    color: var(--ion-color-blanco);
+  color: var(--ion-color-blanco);
 }
 
 input,
 ion-select {
-    background-color: var(--ion-color-negro);
-    border: none;
-    padding: 0.425rem;
-    color: #fff;
-    border-radius: 5px;
+  background-color: var(--ion-color-negro);
+  border: none;
+  padding: 0.425rem;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .form-item-button {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 button {
-    background-color: var(--ion-color-verde);
-    padding: 0.7rem 1.5rem;
-    font-size: inherit;
-    border-radius: 5px;
+  background-color: var(--ion-color-verde);
+  padding: 0.7rem 1.5rem;
+  font-size: inherit;
+  border-radius: 5px;
 }
 
 ion-content {
-    --padding-top: 1.5rem;
-    --padding-bottom: 1.5rem;
-    --padding-start: 1.5rem;
-    --padding-end: 1.5rem;
-    --ion-background-color: var(--ion-color-negroOscuro);
+  --padding-top: 1.5rem;
+  --padding-bottom: 1.5rem;
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+  --ion-background-color: var(--ion-color-negroOscuro);
 }
 
 .form-item-button button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.error-message {
+  color: #f74646;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error-message img {
+  margin-top: 2.5px;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.background-red {
+  border: 1px solid #f74646;
+  transition: 1s;
 }

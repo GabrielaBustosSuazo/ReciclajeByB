@@ -10,68 +10,68 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class ListarRecolectoresPage implements OnInit {
   recolector: Recolectores;
-  data: Recolectores [] = [];
-  camiones: Camiones [] = [];
+  data: Recolectores[] = [];
+  camiones: Camiones[] = [];
 
-  constructor(private database: FirestoreService,
-              private userInteraction: UserInteractionService) { }
+  constructor(
+    private database: FirestoreService,
+    private userInteraction: UserInteractionService
+  ) {}
 
   ngOnInit() {
-    this.getRecolectores()
-    this.getCamiones()
-  }
-  
-
-  getRecolectores(){
-    this.database.getCollection<Recolectores>('Recolectores').subscribe ( res => {
-      if (res){
-        this.data = res;
-      }   
-    });
+    this.getRecolectores();
+    this.getCamiones();
   }
 
-  getCamiones(){
-    this.database.getCollection<Camiones>('Camiones').subscribe ( res => {
-      if (res){
+  getRecolectores() {
+    this.database
+      .getCollection<Recolectores>('Recolectores')
+      .subscribe((res) => {
+        if (res) {
+          this.data = res;
+        }
+      });
+  }
+
+  getCamiones() {
+    this.database.getCollection<Camiones>('Camiones').subscribe((res) => {
+      if (res) {
         this.camiones = res;
-      }   
+      }
     });
   }
 
-  editarRecolector(rec: Recolectores){
-    this.recolector ={
+  editarRecolector(rec: Recolectores) {
+    this.recolector = {
       run: '',
       nombre: '',
       direccion: '',
       telefono: '',
       camionDesignado: '',
-      nombreUsuario: '',
-      password: '',
       rol: 'recolector',
-      id: ''
-    } 
+      id: '',
+    };
     this.recolector = rec;
-    
   }
 
-  async guardar(){
+  async guardar() {
     await this.userInteraction.presentLoading('Guardando...');
-    const path = 'Recolectores' 
+    const path = 'Recolectores';
 
     await this.database.createDoc(this.recolector, path, this.recolector.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Recolector modificado exitosamente');
   }
 
-  async eliminarRecolector(rec: Recolectores){
-    const res = await this.userInteraction.presentAlert("Alerta", "¿Seguro que deseas eliminar este recolector?")
+  async eliminarRecolector(rec: Recolectores) {
+    const res = await this.userInteraction.presentAlert(
+      'Alerta',
+      '¿Seguro que deseas eliminar este recolector?'
+    );
     if (res) {
-      const path = 'Recolectores' 
+      const path = 'Recolectores';
       await this.database.deleteDoc(path, rec.id);
       this.userInteraction.presentToast('Recolector eliminado exitosamente');
     }
-
   }
 }
-
-
