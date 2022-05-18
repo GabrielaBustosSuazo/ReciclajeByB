@@ -1,51 +1,52 @@
 <ion-content>
-  <table style="width: 100%" *ngFor="let camiones of data" class="" id="">
-    <tr>
-      <th scope="col">Patente</th>
-      <td>{{camiones.patente}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Marca</th>
-      <td>{{camiones.marca}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Año</th>
-      <td>{{camiones.modelo}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Acciones</th>
-      <td class="acciones">
-        <button (click)="editarCamion(camiones)" class="editar boton-acciones">
+    <table style="width: 100%" *ngFor="let camiones of data" class="" id="">
+        <tr>
+            <th scope="col">Patente</th>
+            <td>{{camiones.patente}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Marca</th>
+            <td>{{camiones.marca}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Modelo</th>
+            <td>{{camiones.modelo}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Año</th>
+            <td>{{camiones.anno}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Acciones</th>
+            <td class="acciones">
+                <button (click)="editarCamion(camiones)" class="editar boton-acciones">
           Editar
         </button>
-        <button
-          (click)="eliminarCamion(camiones)"
-          class="eliminar boton-acciones"
-        >
+                <button (click)="eliminarCamion(camiones)" class="eliminar boton-acciones">
           Eliminar
         </button>
-      </td>
-    </tr>
-  </table>
-  <ion-card *ngIf="camion">
-    <div class="form-item">
-      <label for="">Patente</label>
-      <input [(ngModel)]="camion.patente" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Marca</label>
-      <input [(ngModel)]="camion.marca" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Modelo</label>
-      <input [(ngModel)]="camion.modelo" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Año</label>
-      <input [(ngModel)]="camion.anno" type="text" />
-    </div>
-    <div class="form-item-button">
-      <button (click)="guardar()">Modificar camión</button>
-    </div>
-  </ion-card>
+            </td>
+        </tr>
+    </table>
+    <ion-card *ngIf="camion">
+        <div class="form-item">
+            <label for="">Patente</label>
+            <input [(ngModel)]="camion.patente" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Marca</label>
+            <input [(ngModel)]="camion.marca" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Modelo</label>
+            <input [(ngModel)]="camion.modelo" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Año</label>
+            <input [(ngModel)]="camion.anno" type="text" />
+        </div>
+        <div class="form-item-button">
+            <button (click)="guardar()">Modificar camión</button>
+        </div>
+    </ion-card>
 </ion-content>

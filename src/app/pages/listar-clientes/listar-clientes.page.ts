@@ -35,10 +35,9 @@ export class ListarClientesPage implements OnInit {
       nombre: '',
       direccion: '',
       telefono: '',
-      usuario: '',
-      contrasena: '',
       tipoplan: '',
       rol: 'cliente',
+      comuna: '',
       id: '',
     };
     this.cliente = cli;

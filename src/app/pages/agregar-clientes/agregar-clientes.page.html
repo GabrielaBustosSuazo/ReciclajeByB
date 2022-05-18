@@ -1,40 +1,64 @@
 <ion-content>
-  <div class="form-item">
-    <label for="">Run</label>
-    <input [(ngModel)]="data.run" type="text" required />
-  </div>
-  <div class="form-item">
-    <label for="">Nombre</label>
-    <input [(ngModel)]="data.nombre" type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Dirección</label>
-    <input [(ngModel)]="data.direccion" type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Teléfono</label>
-    <input [(ngModel)]="data.telefono" type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Nombre de usuario</label>
-    <input [(ngModel)]="data.usuario" type="text" />
-  </div>
-  <div class="form-item">
-    <label for="">Contraseña</label>
-    <input [(ngModel)]="data.contrasena" type="password" />
-  </div>
-  <div class="form-item">
-    <label for="">Tipo de plan</label>
-    <ion-select [(ngModel)]="data.tipoplan">
-      <ion-select-option>1 dia</ion-select-option>
-      <ion-select-option>2 dias</ion-select-option>
-    </ion-select>
-  </div>
-  <div class="form-button">
-    <button (click)="crearCliente()">Agregar cliente</button>
-  </div>
-
-  <script>
-    document.querySelector("#tipo-plan").getSelected();
-  </script>
+    <form [formGroup]="clientesForm">
+        <div class="form-item">
+            <label for="">Run</label>
+            <input formControlName="run" [(ngModel)]="data.run" name="run" type="text" maxlength="12" required/>
+        </div>
+        <div *ngFor="let error of errorMessages.run">
+            <ng-container *ngIf="run.hasError(error.type) && (run.dirty || run.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Nombre</label>
+            <input formControlName="nombre" [(ngModel)]="data.nombre" maxlength="50" name="nombre" type="text" required/>
+        </div>
+        <div *ngFor="let error of errorMessages.nombre">
+            <ng-container *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Dirección</label>
+            <input formControlName="direccion" [(ngModel)]="data.direccion" maxlength="50" name="direccion" type="text" required />
+        </div>
+        <div *ngFor="let error of errorMessages.direccion">
+            <ng-container *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Comuna</label>
+            <input formControlName="comuna" [(ngModel)]="data.comuna" maxlength="30" name="comuna" type="text" required />
+        </div>
+        <div *ngFor="let error of errorMessages.comuna">
+            <ng-container *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Teléfono</label>
+            <input formControlName="telefono" [(ngModel)]="data.telefono" name="telefono" type="tel" maxlength="11" required/>
+        </div>
+        <div *ngFor="let error of errorMessages.telefono">
+            <ng-container *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Tipo de plan</label>
+            <ion-select formControlName="plan" [(ngModel)]="data.tipoplan" name="tipoplan">
+                <ion-select-option>1 dia</ion-select-option>
+                <ion-select-option>2 dias</ion-select-option>
+            </ion-select>
+        </div>
+        <div *ngFor="let error of errorMessages.plan">
+            <ng-container *ngIf="plan.hasError(error.type) && (plan.dirty || plan.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-button">
+            <button type="submit" [disabled]="!clientesForm.valid" (click)="crearCliente()">Agregar cliente</button>
+        </div>
+    </form>
 </ion-content>

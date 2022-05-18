@@ -1,70 +1,67 @@
 <ion-content>
-  <table style="width: 100%" *ngFor="let cliente of data" class="" id="">
-    <tr>
-      <th scope="col">Run</th>
-      <td>{{cliente.run}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Nombre</th>
-      <td>{{cliente.nombre}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Dirección</th>
-      <td>{{cliente.direccion}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Teléfono</th>
-      <td>{{cliente.telefono}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Usuario</th>
-      <td>{{cliente.usuario}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Tipo de plan</th>
-      <td>{{cliente.tipoplan}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Acciones</th>
-      <td class="acciones">
-        <button (click)="editarCliente(cliente)" class="editar boton-acciones">
+    <table style="width: 100%" *ngFor="let cliente of data" class="" id="">
+        <tr>
+            <th scope="col">Run</th>
+            <td>{{cliente.run}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Nombre</th>
+            <td>{{cliente.nombre}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Dirección</th>
+            <td>{{cliente.direccion}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Comuna</th>
+            <td>{{cliente.comuna}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Teléfono</th>
+            <td>{{cliente.telefono}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Tipo de plan</th>
+            <td>{{cliente.tipoplan}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Acciones</th>
+            <td class="acciones">
+                <button (click)="editarCliente(cliente)" class="editar boton-acciones">
           Editar
         </button>
-        <button
-          (click)="eliminarCliente(cliente)"
-          class="eliminar boton-acciones"
-        >
+                <button (click)="eliminarCliente(cliente)" class="eliminar boton-acciones">
           Eliminar
         </button>
-      </td>
-    </tr>
-  </table>
-  <ion-card *ngIf="cliente">
-    <div class="form-item">
-      <label for="">Run</label>
-      <input [(ngModel)]="cliente.run" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Nombre</label>
-      <input [(ngModel)]="cliente.nombre" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Direccion</label>
-      <input [(ngModel)]="cliente.direccion" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Teléfono</label>
-      <input [(ngModel)]="cliente.telefono" type="text" />
-    </div>
-    <div class="form-item">
-      <label for="">Tipo Plan</label>
-      <ion-select [(ngModel)]="cliente.tipoplan">
-        <ion-select-option>1 dia</ion-select-option>
-        <ion-select-option>2 dias</ion-select-option>
-      </ion-select>
-    </div>
-    <div class="form-item-button">
-      <button (click)="guardar()">Modificar cliente</button>
-    </div>
-  </ion-card>
+            </td>
+        </tr>
+    </table>
+    <ion-card *ngIf="cliente">
+        <div class="form-item">
+            <label for="">Run</label>
+            <input [(ngModel)]="cliente.run" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Nombre</label>
+            <input [(ngModel)]="cliente.nombre" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Direccion</label>
+            <input [(ngModel)]="cliente.direccion" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Teléfono</label>
+            <input [(ngModel)]="cliente.telefono" type="text" />
+        </div>
+        <div class="form-item">
+            <label for="">Tipo Plan</label>
+            <ion-select [(ngModel)]="cliente.tipoplan">
+                <ion-select-option>1 dia</ion-select-option>
+                <ion-select-option>2 dias</ion-select-option>
+            </ion-select>
+        </div>
+        <div class="form-item-button">
+            <button (click)="guardar()">Modificar cliente</button>
+        </div>
+    </ion-card>
 </ion-content>

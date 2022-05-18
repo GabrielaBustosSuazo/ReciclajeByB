@@ -23,10 +23,9 @@ export interface Cliente {
   nombre: string;
   direccion: string;
   telefono: string;
-  usuario: string;
-  contrasena: string;
   tipoplan: any;
   rol: string;
+  comuna: string;
   id: string;
 }
 
