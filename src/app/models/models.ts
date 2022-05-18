@@ -12,8 +12,6 @@ export interface Recolectores {
   direccion: string;
   telefono: string;
   camionDesignado: string;
-  nombreUsuario: string;
-  password: string;
   rol: string;
   id: string;
 }

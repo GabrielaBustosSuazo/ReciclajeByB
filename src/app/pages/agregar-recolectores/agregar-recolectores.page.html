@@ -1,35 +1,114 @@
 <ion-content>
+  <form [formGroup]="recolectoresForm">
     <div class="form-item">
-        <label for="">Run</label>
-        <input [(ngModel)]="data.run" type="text">
+      <label for="">Run</label>
+      <input
+        formControlName="run"
+        [ngClass]="{'background-red': run.hasError(error.type) && (run.dirty || run.touched)}"
+        [(ngModel)]="data.run"
+        type="text"
+        name="run"
+        maxlength="12"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.run">
+      <ng-container
+        *ngIf="run.hasError(error.type) && (run.dirty || run.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
     </div>
     <div class="form-item">
-        <label for="">Nombre</label>
-        <input [(ngModel)]="data.nombre" type="text">
+      <label for="">Nombre</label>
+      <input
+        formControlName="nombre"
+        [(ngModel)]="data.nombre"
+        type="text"
+        maxlength="50"
+        name="nombre"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.nombre">
+      <ng-container
+        *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
     </div>
     <div class="form-item">
-        <label for="">Dirección</label>
-        <input [(ngModel)]="data.direccion" type="text">
+      <label for="">Dirección</label>
+      <input
+        formControlName="direccion"
+        [(ngModel)]="data.direccion"
+        type="text"
+        maxlength="50"
+        name="direccion"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.direccion">
+      <ng-container
+        *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
     </div>
     <div class="form-item">
-        <label for="">Teléfono</label>
-        <input [(ngModel)]="data.telefono" type="text">
+      <label for="">Teléfono</label>
+      <input
+        formControlName="telefono"
+        [(ngModel)]="data.telefono"
+        type="tel"
+        maxlength="11"
+        name="telefono"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.telefono">
+      <ng-container
+        *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
     </div>
     <div class="form-item">
-        <label for="camiones">Camión designado</label>
-        <ion-select [(ngModel)]="data.camionDesignado">
-            <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
-        </ion-select>
+      <label for="camiones">Camión designado</label>
+      <ion-select
+        formControlName="camionDesignado"
+        [(ngModel)]="data.camionDesignado"
+        name="camionDesignado"
+      >
+        <ion-select-option
+          *ngFor="let camion of camiones"
+          [value]="camion.patente"
+          >{{camion.patente}}</ion-select-option
+        >
+      </ion-select>
     </div>
-    <div class="form-item">
-        <label for="">Nombre de usuario</label>
-        <input [(ngModel)]="data.nombreUsuario" type="text">
-    </div>
-    <div class="form-item">
-        <label for="">Password</label>
-        <input [(ngModel)]="data.password" type="password">
+    <div *ngFor="let error of errorMessages.camionDesignado">
+      <ng-container
+        *ngIf="camionDesignado.hasError(error.type) && (camionDesignado.dirty || camionDesignado.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
     </div>
     <div class="form-item-button">
-        <button (click)="crearRecolector()">Agregar recolector</button>
+      <button [disabled]="!recolectoresForm.valid" (click)="crearRecolector()">
+        Agregar recolector
+      </button>
     </div>
+  </form>
 </ion-content>
