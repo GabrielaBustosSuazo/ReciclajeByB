@@ -4,7 +4,6 @@
       <label for="">Run</label>
       <input
         formControlName="run"
-        [ngClass]="{'background-red': run.hasError(error.type) && (run.dirty || run.touched)}"
         [(ngModel)]="data.run"
         type="text"
         name="run"
