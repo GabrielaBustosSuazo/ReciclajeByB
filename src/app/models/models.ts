@@ -41,7 +41,7 @@ export interface Rutas {
 }
 
 export interface Evidencias {
-  foto: any;
+  foto: string;
   comentario: string;
   id: string;
   clienteAsignado: string;

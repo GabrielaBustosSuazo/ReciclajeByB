@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Cliente, Evidencias, Recolectores } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -23,10 +24,35 @@ export class IngresoEvidenciaPage implements OnInit {
     recolectorAsignado: '',
   };
 
+  get foto(){
+    return this.evidenciasForms.get('foto')
+  }
+  get comentario(){
+    return this.evidenciasForms.get('comentario')
+  }
+
+  public errorMessages = {
+    foto: [
+      {type: 'required', message: 'Ingrese foto'},
+    ],
+    comentario: [
+      {type: 'required', message: 'Comentario no puede estar vacío'}
+    ]
+  }
+
+  evidenciasForms = this.formBuilder.group({
+    foto: ['',
+    [Validators.required
+    ]],
+    comentario: ['',
+    [Validators.required
+    ]]
+  });
   constructor(
     private userInteraction: UserInteractionService,
     private database: FirestoreService,
-    private firestorage: FirestorageService
+    private firestorage: FirestorageService,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
