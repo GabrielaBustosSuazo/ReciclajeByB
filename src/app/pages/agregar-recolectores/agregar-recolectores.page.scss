@@ -61,13 +61,32 @@ ion-content {
 
 button {
   margin-top: 1rem;
+  color: #fff !important;
+  transition: 0.4s;
 }
 
 input.ng-touched {
   border: 1px solid #f74646;
   transition: 0.4s;
+  position: relative;
 }
 
-.ng-valid {
+input.ng-valid {
   border: 2px solid green !important;
+}
+
+button .lock-img {
+  display: none;
+}
+
+button[disabled] {
+  background-color: #dc3545;
+}
+
+button[disabled] .lock-img {
+  display: block;
+}
+
+button[disabled] .check-img {
+  display: none;
 }
