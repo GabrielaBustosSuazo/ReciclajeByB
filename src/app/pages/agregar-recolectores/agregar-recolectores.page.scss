@@ -63,7 +63,11 @@ button {
   margin-top: 1rem;
 }
 
-.background-red {
+input.ng-touched {
   border: 1px solid #f74646;
-  transition: 1s;
+  transition: 0.4s;
+}
+
+.ng-valid {
+  border: 2px solid green !important;
 }
