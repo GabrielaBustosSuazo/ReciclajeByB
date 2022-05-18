@@ -49,13 +49,13 @@ export class AgregarRutasPage implements OnInit {
 
   public errorMessages = {
     camionAsignado: [
-      {type: 'required', message: 'Elija una patente'},
+      {type: 'required', message: 'Debes seleccionar una patente'},
     ],
     recolectorAsignado: [
-      {type: 'required', message: 'Elija un recolector'}
+      {type: 'required', message: 'Debes seleccionar un recolector'}
     ],
     clienteAsignado: [
-      {type: 'required', message: 'Elija un cliente'}
+      {type: 'required', message: 'Debes seleccionar un cliente'}
     ],
     direccion: [
       {type: 'required', message: 'Dirección no puede estar vacía'}
