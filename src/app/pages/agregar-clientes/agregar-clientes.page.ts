@@ -68,8 +68,8 @@ export class AgregarClientesPage implements OnInit {
   
   clientesForm = this.formBuilder.group({
     run: ['',
-      [Validators.required,
-        Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/)
+    [Validators.required,
+    Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/)
     ]],
       nombre: ['',
     [Validators.required,
@@ -79,7 +79,7 @@ export class AgregarClientesPage implements OnInit {
     ]],
       telefono: ['',
     [Validators.required,
-      Validators.pattern(/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/)
+    Validators.pattern(/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/)
     ]],
       comuna: ['',
     [Validators.required

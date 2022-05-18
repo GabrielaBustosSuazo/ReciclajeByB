@@ -1,5 +1,6 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Camiones, Cliente, Recolectores, Rutas } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
@@ -19,17 +20,87 @@ export class AgregarRutasPage implements OnInit {
   recolectorAsignado: '',
   clienteAsignado: '',
   direccion: '',
+  comuna: '',
   fecha: formatDate(new Date(), 'dd/MM/yyyy', 'en'),
   hora: '',
   id: ''
   }
 
+  get camionAsignado(){
+    return this.rutasForm.get('camionAsignado')
+  }
+  get recolectorAsignado(){
+    return this.rutasForm.get('recolectorAsignado')
+  }
+  get clienteAsignado(){
+    return this.rutasForm.get('clienteAsignado')
+  }
 
+  get direccion(){
+    return this.rutasForm.get('direccion')
+  }
+  get comuna(){
+    return this.rutasForm.get('comuna')
+  }
+  
+  get hora(){
+    return this.rutasForm.get('hora')
+  }
+
+  public errorMessages = {
+    camionAsignado: [
+      {type: 'required', message: 'Elija una patente'},
+    ],
+    recolectorAsignado: [
+      {type: 'required', message: 'Elija un recolector'}
+    ],
+    clienteAsignado: [
+      {type: 'required', message: 'Elija un cliente'}
+    ],
+    direccion: [
+      {type: 'required', message: 'Dirección no puede estar vacía'}
+    ],
+    comuna: [
+      {type: 'required', message: 'Comuna no puede estar vacía'}
+    ],
+    hora: [
+      {type: 'required', message: 'Hora no puede estar vacía'}
+    ]
+  }
+
+
+
+  rutasForm = this.formBuilder.group({
+    camionAsignado: ['',
+    [Validators.required
+    ]],
+    recolectorAsignado: ['',
+    [
+    Validators.required
+    ]],
+    clienteAsignado: ['',
+    [
+    Validators.required
+    ]],
+    direccion: ['',
+    [
+    Validators.required
+    ]],
+    comuna: ['',
+    [
+    Validators.required
+    ]],
+    hora: ['',
+    [
+    Validators.required
+    ]],
+  });
 
 
   constructor(private database: FirestoreService,
               private userInteraction : UserInteractionService,
-              public datepipe: DatePipe) { }
+              public datepipe: DatePipe,
+              private formBuilder : FormBuilder) { }
 
   ngOnInit() {
     this.getCamiones();
@@ -55,6 +126,7 @@ export class AgregarRutasPage implements OnInit {
     this.data.recolectorAsignado= '',
     this.data.clienteAsignado= '',
     this.data.direccion= '',
+    this.data.comuna= '',
     this.data.hora= ''
   }
   

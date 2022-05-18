@@ -1,35 +1,71 @@
 <ion-content>
-    <div class="form-item">
-        <label for="">Camion a asignar</label>
-        <ion-select [(ngModel)]="data.camionAsignado">
-            <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
-        </ion-select>
-    </div>
-    <div class="form-item">
-        <label for="">Recolector a asignar</label>
-        <ion-select [(ngModel)]="data.recolectorAsignado">
-            <ion-select-option *ngFor="let recolector of recolectores" [value]="recolector.nombreUsuario">{{recolector.nombreUsuario}}</ion-select-option>
-        </ion-select>
-    </div>
-    <div class=" form-item ">
-        <label for=" ">Cliente a asignar</label>
-        <ion-select [(ngModel)]="data.clienteAsignado ">
-            <ion-select-option *ngFor="let cliente of clientes " [value]="cliente.nombre ">{{cliente.nombre}}</ion-select-option>
-        </ion-select>
-    </div>
-    <div class="form-item ">
-        <label for=" ">Dirección</label>
-        <input [(ngModel)]="data.direccion " type="text " />
-    </div>
-    <div class="form-item ">
-        <label for=" ">Fecha</label>
-        <input type="text " disabled placeholder="{{data.fecha}} " />
-    </div>
-    <div class="form-item ">
-        <label for=" ">Hora</label>
-        <input [(ngModel)]="data.hora " type="time " />
-    </div>
-    <div class="form-item-button ">
-        <button (click)="crearRutas() ">Agregar Ruta</button>
-    </div>
+    <form [formGroup]="rutasForm">
+        <div class="form-item">
+            <label for="">Camion a asignar</label>
+            <ion-select formControlName="camionAsignado" [(ngModel)]="data.camionAsignado">
+                <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
+            </ion-select>
+        </div>
+        <div *ngFor="let error of errorMessages.camionAsignado">
+            <ng-container *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Recolector a asignar</label>
+            <ion-select formControlName="recolectorAsignado" [(ngModel)]=" data.recolectorAsignado ">
+                <ion-select-option *ngFor="let recolector of recolectores " [value]="recolector.nombreUsuario ">{{recolector.nombreUsuario}}</ion-select-option>
+            </ion-select>
+        </div>
+        <div *ngFor="let error of errorMessages.recolectorAsignado">
+            <ng-container *ngIf="recolectorAsignado.hasError(error.type) && (recolectorAsignado.dirty || recolectorAsignado.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class=" form-item ">
+            <label for=" ">Cliente a asignar</label>
+            <ion-select formControlName="clienteAsignado" [(ngModel)]=" data.clienteAsignado ">
+                <ion-select-option *ngFor="let cliente of clientes " [value]="cliente.nombre ">{{cliente.nombre}}</ion-select-option>
+            </ion-select>
+        </div>
+        <div *ngFor="let error of errorMessages.clienteAsignado">
+            <ng-container *ngIf="clienteAsignado.hasError(error.type) && (clienteAsignado.dirty || clienteAsignado.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item ">
+            <label for=" ">Dirección</label>
+            <input formControlName="direccion" [(ngModel)]="data.direccion" maxlength="50" type="text " />
+        </div>
+        <div *ngFor="let error of errorMessages.direccion">
+            <ng-container *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item ">
+            <label for=" ">Comuna</label>
+            <input formControlName="comuna" [(ngModel)]="data.comuna" maxlength="30" type="text " />
+        </div>
+        <div *ngFor="let error of errorMessages.comuna">
+            <ng-container *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item ">
+            <label for=" ">Fecha</label>
+            <input type="text " disabled placeholder="{{data.fecha}} " />
+        </div>
+        <div class="form-item ">
+            <label for=" ">Hora</label>
+            <input formControlName="hora" [(ngModel)]="data.hora" type="time" />
+        </div>
+        <div *ngFor="let error of errorMessages.hora">
+            <ng-container *ngIf="hora.hasError(error.type) && (hora.dirty || hora.touched)">
+                <small class="error-message">{{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item-button ">
+            <button type="submit" [disabled]="!rutasForm.valid" (click)="crearRutas() ">Agregar Ruta</button>
+        </div>
+    </form>
 </ion-content>
