@@ -55,6 +55,10 @@ ion-content {
     color: red;
 }
 
+.error-message img {
+    margin-top: 2.5px;
+}
+
 input.ng-touched,
 ion-select.ng-touched {
     border: 1px solid #f74646;

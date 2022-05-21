@@ -14,7 +14,8 @@ export class RegistroPage implements OnInit {
     uid: '',
     email: '',
     password: '',
-    nombreUsuario: ''
+    nombreUsuario: '',
+    tipoUsuario: ''
   }
   constructor(public firestoreauth: FirestoreauthService,
               public userInteraction: UserInteractionService,
@@ -40,6 +41,7 @@ export class RegistroPage implements OnInit {
     this.usuario.email = '';
     this.usuario.password = '';
     this.usuario.nombreUsuario = '';
+    this.usuario.tipoUsuario = '';
   }
 
   crearUsuarios(){

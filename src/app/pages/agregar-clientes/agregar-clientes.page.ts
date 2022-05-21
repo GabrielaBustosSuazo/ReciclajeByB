@@ -16,14 +16,15 @@ export class AgregarClientesPage implements OnInit {
     direccion: '',
     telefono: '',
     tipoplan: '',
-    rol: 'cliente',
     comuna: '',
     id: '',
   };
 
+
   get run() {
     return this.clientesForm.get('run');
   }
+
   get nombre() {
     return this.clientesForm.get('nombre');
   }
@@ -69,7 +70,7 @@ export class AgregarClientesPage implements OnInit {
   clientesForm = this.formBuilder.group({
     run: ['',
     [Validators.required,
-    Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/)
+    Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9(k)(K)])/),
     ]],
       nombre: ['',
     [Validators.required,

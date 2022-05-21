@@ -36,7 +36,6 @@ export class ListarClientesPage implements OnInit {
       direccion: '',
       telefono: '',
       tipoplan: '',
-      rol: 'cliente',
       comuna: '',
       id: '',
     };

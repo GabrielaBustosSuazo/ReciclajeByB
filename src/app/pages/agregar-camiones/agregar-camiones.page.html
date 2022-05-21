@@ -6,7 +6,9 @@
         </div>
         <div *ngFor="let error of errorMessages.patente">
             <ng-container *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item">
@@ -15,7 +17,9 @@
         </div>
         <div *ngFor="let error of errorMessages.marca">
             <ng-container *ngIf="marca.hasError(error.type) && (marca.dirty || marca.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item">
@@ -24,7 +28,9 @@
         </div>
         <div *ngFor="let error of errorMessages.modelo">
             <ng-container *ngIf="modelo.hasError(error.type) && (modelo.dirty || modelo.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item">
@@ -33,7 +39,9 @@
         </div>
         <div *ngFor="let error of errorMessages.anno">
             <ng-container *ngIf="anno.hasError(error.type) && (anno.dirty || anno.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item-button">

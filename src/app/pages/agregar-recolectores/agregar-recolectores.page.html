@@ -1,25 +1,18 @@
 <ion-content>
-  <form [formGroup]="recolectoresForm">
-    <div class="form-item">
-      <label for="">Run</label>
-      <input
-        formControlName="run"
-        [(ngModel)]="data.run"
-        type="text"
-        name="run"
-        maxlength="12"
-      />
-    </div>
-    <div *ngFor="let error of errorMessages.run">
-      <ng-container
-        *ngIf="run.hasError(error.type) && (run.dirty || run.touched)"
-      >
-        <small class="error-message">
+    <form [formGroup]="recolectoresForm">
+        <div class="form-item">
+            <label for="">Run</label>
+            <input formControlName="run" [(ngModel)]="data.run" type="text" name="run" maxlength="12" />
+
+            <div *ngFor="let error of errorMessages.run">
+                <ng-container *ngIf="run.hasError(error.type) && (run.dirty || run.touched)">
+                    <small class="error-message">
           <img src="../../../assets/icon/fa_errorform.png" alt="" />
           {{error.message}}</small
         >
       </ng-container>
     </div>
+  </div>
     <div class="form-item">
       <label for="">Nombre</label>
       <input
@@ -29,7 +22,6 @@
         maxlength="50"
         name="nombre"
       />
-    </div>
     <div *ngFor="let error of errorMessages.nombre">
       <ng-container
         *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)"
@@ -40,6 +32,8 @@
         >
       </ng-container>
     </div>
+  </div>
+
     <div class="form-item">
       <label for="">Dirección</label>
       <input
@@ -49,7 +43,6 @@
         maxlength="50"
         name="direccion"
       />
-    </div>
     <div *ngFor="let error of errorMessages.direccion">
       <ng-container
         *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)"
@@ -60,6 +53,8 @@
         >
       </ng-container>
     </div>
+  </div>
+
     <div class="form-item">
       <label for="">Teléfono</label>
       <input
@@ -69,7 +64,6 @@
         maxlength="11"
         name="telefono"
       />
-    </div>
     <div *ngFor="let error of errorMessages.telefono">
       <ng-container
         *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)"
@@ -80,6 +74,8 @@
         >
       </ng-container>
     </div>
+  </div>
+
     <div class="form-item">
       <label for="camiones">Camión designado</label>
       <ion-select
@@ -93,7 +89,6 @@
           >{{camion.patente}}</ion-select-option
         >
       </ion-select>
-    </div>
     <div *ngFor="let error of errorMessages.camionDesignado">
       <ng-container
         *ngIf="camionDesignado.hasError(error.type) && (camionDesignado.dirty || camionDesignado.touched)"
@@ -104,6 +99,8 @@
         >
       </ng-container>
     </div>
+  </div>
+
     <div class="form-item-button">
       <button [disabled]="!recolectoresForm.valid" (click)="crearRecolector()">
         Agregar recolector

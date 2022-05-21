@@ -8,7 +8,9 @@
         </div>
         <div *ngFor="let error of errorMessages.camionAsignado">
             <ng-container *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item">
@@ -19,7 +21,9 @@
         </div>
         <div *ngFor="let error of errorMessages.recolectorAsignado">
             <ng-container *ngIf="recolectorAsignado.hasError(error.type) && (recolectorAsignado.dirty || recolectorAsignado.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class=" form-item ">
@@ -30,7 +34,9 @@
         </div>
         <div *ngFor="let error of errorMessages.clienteAsignado">
             <ng-container *ngIf="clienteAsignado.hasError(error.type) && (clienteAsignado.dirty || clienteAsignado.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item ">
@@ -39,7 +45,9 @@
         </div>
         <div *ngFor="let error of errorMessages.direccion">
             <ng-container *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item ">
@@ -48,7 +56,9 @@
         </div>
         <div *ngFor="let error of errorMessages.comuna">
             <ng-container *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item ">
@@ -61,7 +71,9 @@
         </div>
         <div *ngFor="let error of errorMessages.hora">
             <ng-container *ngIf="hora.hasError(error.type) && (hora.dirty || hora.touched)">
-                <small class="error-message">{{error.message}}</small>
+                <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small>
             </ng-container>
         </div>
         <div class="form-item-button ">
