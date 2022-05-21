@@ -72,7 +72,7 @@ input.ng-touched {
 }
 
 input.ng-valid {
-  border: 2px solid green !important;
+  border: 2px solid var(--ion-color-verde) !important;
 }
 
 button .lock-img {
