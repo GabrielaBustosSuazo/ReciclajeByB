@@ -47,7 +47,7 @@ export class AgregarRecolectoresPage implements OnInit {
     ],
     telefono: [
       { type: 'required', message: 'Teléfono no puede estar vacío' },
-      { type: 'pattern', message: 'Ingrese formato correcto: 569XXXXXXXX' },
+      { type: 'minlength', message: 'Teléfono debe tener 8 numeros' },
     ],
     camionDesignado: [
       { type: 'required', message: 'Debes seleccionar un camion' },
@@ -64,13 +64,7 @@ export class AgregarRecolectoresPage implements OnInit {
     ],
     nombre: ['', [Validators.required]],
     direccion: ['', [Validators.required]],
-    telefono: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/),
-      ],
-    ],
+    telefono: ['', [Validators.required, Validators.minLength(8)]],
     camionDesignado: ['', [Validators.required]],
   });
 

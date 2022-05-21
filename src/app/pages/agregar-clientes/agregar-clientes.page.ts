@@ -34,66 +34,50 @@ export class AgregarClientesPage implements OnInit {
     return this.clientesForm.get('telefono');
   }
 
-  get comuna(){
-    return this.clientesForm.get('comuna')
+  get comuna() {
+    return this.clientesForm.get('comuna');
   }
 
-  get plan(){
-    return this.clientesForm.get('plan')
+  get plan() {
+    return this.clientesForm.get('plan');
   }
 
   public errorMessages = {
     run: [
-      {type: 'required', message: 'Run no puede estar vacío'},
-      {type: 'pattern', message: 'Ingrese formato correcto: XX.XXX.XXX-X'}
+      { type: 'required', message: 'Run no puede estar vacío' },
+      { type: 'pattern', message: 'Ingrese formato correcto: XX.XXX.XXX-X' },
     ],
-    nombre: [
-      {type: 'required', message: 'Nombre no puede estar vacío'}
-    ],
+    nombre: [{ type: 'required', message: 'Nombre no puede estar vacío' }],
     direccion: [
-      {type: 'required', message: 'Dirección no puede estar vacío'}
+      { type: 'required', message: 'Dirección no puede estar vacío' },
     ],
     telefono: [
-      {type: 'required', message: 'Teléfono no puede estar vacío'},
-      {type: 'pattern', message: 'Ingrese formato correcto: 569XXXXXXXX'}
+      { type: 'required', message: 'Teléfono no puede estar vacío' },
+      { type: 'minlength', message: 'Teléfono debe tener 8 numeros' },
     ],
-    comuna: [
-      {type: 'required', message: 'Comuna no puede estar vacía'}
-    ],
-    plan: [
-      {type: 'required', message: 'Elija un tipo de plan'}
-    ]
+    comuna: [{ type: 'required', message: 'Comuna no puede estar vacía' }],
+    plan: [{ type: 'required', message: 'Elija un tipo de plan' }],
+  };
 
-  }
-  
   clientesForm = this.formBuilder.group({
-    run: ['',
-    [Validators.required,
-    Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/)
-    ]],
-      nombre: ['',
-    [Validators.required,
-    ]],
-      direccion: ['',
-    [Validators.required
-    ]],
-      telefono: ['',
-    [Validators.required,
-    Validators.pattern(/^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/)
-    ]],
-      comuna: ['',
-    [Validators.required
-    ]],
-      plan: ['',
-    [Validators.required
-    ]]
+    run: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/),
+      ],
+    ],
+    nombre: ['', [Validators.required]],
+    direccion: ['', [Validators.required]],
+    telefono: ['', [Validators.required, Validators.minLength(8)]],
+    comuna: ['', [Validators.required]],
+    plan: ['', [Validators.required]],
   });
-
 
   constructor(
     private database: FirestoreService,
     private userInteraction: UserInteractionService,
-    private formBuilder : FormBuilder
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {}
