@@ -7,47 +7,82 @@
         <div *ngFor="let error of errorMessages.patente">
             <ng-container *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)">
                 <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Marca</label>
-            <input formControlName="marca" [(ngModel)]="data.marca" name="marca" type="text" required/>
-        </div>
-        <div *ngFor="let error of errorMessages.marca">
-            <ng-container *ngIf="marca.hasError(error.type) && (marca.dirty || marca.touched)">
-                <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Modelo</label>
-            <input formControlName="modelo" [(ngModel)]="data.modelo" name="modelo" type="text" required />
-        </div>
-        <div *ngFor="let error of errorMessages.modelo">
-            <ng-container *ngIf="modelo.hasError(error.type) && (modelo.dirty || modelo.touched)">
-                <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Año</label>
-            <input formControlName="anno" [(ngModel)]="data.anno" name="anno" type="tel" maxlength="4" required/>
-        </div>
-        <div *ngFor="let error of errorMessages.anno">
-            <ng-container *ngIf="anno.hasError(error.type) && (anno.dirty || anno.touched)">
-                <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item-button">
-            <button type="submit" [disabled]="!camionesForm.valid" (click)="crearCamion()">
-            <img class="close-notification" src="../../../assets/icon/fa_truckadd.png" /> Agregar camión
-            </button>
-        </div>
-    </form>
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Marca</label>
+      <input
+        formControlName="marca"
+        [(ngModel)]="data.marca"
+        name="marca"
+        type="text"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.marca">
+      <ng-container
+        *ngIf="marca.hasError(error.type) && (marca.dirty || marca.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Modelo</label>
+      <input
+        formControlName="modelo"
+        [(ngModel)]="data.modelo"
+        name="modelo"
+        type="text"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.modelo">
+      <ng-container
+        *ngIf="modelo.hasError(error.type) && (modelo.dirty || modelo.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Año</label>
+      <input
+        formControlName="anno"
+        [(ngModel)]="data.anno"
+        name="anno"
+        type="tel"
+        maxlength="4"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.anno">
+      <ng-container
+        *ngIf="anno.hasError(error.type) && (anno.dirty || anno.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item-button">
+      <button
+        type="submit"
+        [disabled]="!camionesForm.valid"
+        (click)="crearCamion()"
+      >
+        Agregar camión
+        <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
+        <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
+      </button>
+    </div>
+  </form>
 </ion-content>

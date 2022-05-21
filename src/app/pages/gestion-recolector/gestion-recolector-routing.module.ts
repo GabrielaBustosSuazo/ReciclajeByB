@@ -6,37 +6,43 @@ const routes: Routes = [
   {
     path: 'tabs',
     component: GestionRecolectorPage,
-    children:[
-        {
-          path: 'agregar-recolectores',
-          children: [
-            {
+    children: [
+      {
+        path: 'agregar-recolectores',
+        children: [
+          {
             path: '',
-            loadChildren: () => import('../agregar-recolectores/agregar-recolectores.module').then( m => m.AgregarRecolectoresPageModule) 
-        }
-      ]
-    },
-        {
-          path: 'listar-recolectores',
-          children: [
-            {
-          path: '',
-          loadChildren: () => import('../listar-recolectores/listar-recolectores.module').then( m => m.ListarRecolectoresPageModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      redirectTo: 'tabs/agregar-recolectores',
-      pathMatch: 'full'
-    }
-    ]
+            loadChildren: () =>
+              import(
+                '../agregar-recolectores/agregar-recolectores.module'
+              ).then((m) => m.AgregarRecolectoresPageModule),
+          },
+        ],
+      },
+      {
+        path: 'listar-recolectores',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../listar-recolectores/listar-recolectores.module').then(
+                (m) => m.ListarRecolectoresPageModule
+              ),
+          },
+        ],
+      },
+      {
+        path: '',
+        redirectTo: 'tabs/agregar-recolectores',
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '',
     redirectTo: 'tabs/listar-recolectores',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

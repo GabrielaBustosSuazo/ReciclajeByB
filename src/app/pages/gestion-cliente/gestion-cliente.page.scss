@@ -50,3 +50,9 @@ ion-title {
   justify-content: center;
   width: min-content;
 }
+
+ion-label {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

@@ -2,13 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 1rem;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.form-item:not(:first-child) {
+    margin-top: 1rem;
 }
 
 label {
@@ -16,7 +13,6 @@ label {
 }
 
 input,
-select,
 ion-select {
     background-color: var(--ion-color-negro);
     border: none;
@@ -53,19 +49,44 @@ ion-content {
 }
 
 .error-message {
-    color: red;
+    color: #f74646;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .error-message img {
     margin-top: 2.5px;
 }
 
-input.ng-touched,
-ion-select.ng-touched {
-    border: 1px solid #f74646;
+button {
+    margin-top: 1rem;
+    color: #fff !important;
     transition: 0.4s;
 }
 
-.ng-valid {
-    border: 2px solid green !important;
+input.ng-touched {
+    border: 1px solid #f74646;
+    transition: 0.4s;
+    position: relative;
+}
+
+input.ng-valid {
+    border: 2px solid var(--ion-color-verde) !important;
+}
+
+button .lock-img {
+    display: none;
+}
+
+button[disabled] {
+    background-color: #dc3545;
+}
+
+button[disabled] .lock-img {
+    display: block;
+}
+
+button[disabled] .check-img {
+    display: none;
 }
