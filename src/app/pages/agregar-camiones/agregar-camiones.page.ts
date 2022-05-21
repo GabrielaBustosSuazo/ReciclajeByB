@@ -70,7 +70,7 @@ export class AgregarCamionesPage implements OnInit {
     modelo: ['', [Validators.required]],
     anno: ['',
           [Validators.required,
-            Validators.pattern(/([0-9])/),
+            Validators.pattern(/([0-9]{4})/),
             Validators.minLength(4),
             Validators.maxLength(4)
           ]],

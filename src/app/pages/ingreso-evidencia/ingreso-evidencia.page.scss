@@ -102,3 +102,13 @@ ion-header {
 .error-message {
     color: red;
 }
+
+input.ng-touched,
+textarea.ng-touched {
+    border: 1px solid #f74646;
+    transition: 0.4s;
+}
+
+.ng-valid {
+    border: 2px solid green !important;
+}
