@@ -29,7 +29,7 @@ export class ListarClientesPage implements OnInit {
     });
   }
 
-  editarCliente(cli: Cliente) {
+  editarCliente(cli: Cliente, element: any) {
     this.cliente = {
       run: '',
       nombre: '',
@@ -41,15 +41,39 @@ export class ListarClientesPage implements OnInit {
       id: '',
     };
     this.cliente = cli;
+
+    setTimeout(function () {
+      document.getElementById(element).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 100);
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'block';
   }
 
-  async guardar() {
+  async guardar(test) {
     await this.userInteraction.presentLoading('Guardando...');
     const path = 'Camiones';
 
     await this.database.createDoc(this.cliente, path, this.cliente.id);
     this.userInteraction.closeLoading();
-    this.userInteraction.presentToast('Camión modificado exitosamente');
+    this.userInteraction.presentToast('Cliente modificado exitosamente');
+
+    setTimeout(function () {
+      document.getElementById(test).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 500);
+
+    setTimeout(function () {
+      const card = document.querySelector('ion-card');
+      card.style.display = 'none';
+    }, 500);
   }
 
   async eliminarCliente(cli: Cliente) {

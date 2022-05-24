@@ -10,6 +10,7 @@
         id="rut"
         name="rut"
         required
+        oninput="checkRut(this)"
       />
     </div>
     <div *ngFor="let error of errorMessages.run">
@@ -129,12 +130,10 @@
     </div>
     <div class="form-item-button">
       <button [disabled]="!clientesForm.valid" (click)="crearCliente()">
-        Agregar recolector
+        Agregar cliente
         <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
         <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
       </button>
     </div>
   </form>
 </ion-content>
-
-<script src="../../../../src/script.js"></script>
