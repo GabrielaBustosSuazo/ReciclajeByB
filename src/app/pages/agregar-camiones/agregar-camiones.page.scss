@@ -65,6 +65,10 @@ button {
   transition: 0.4s;
 }
 
+.error-message img {
+    margin-top: 2.5px;
+}
+
 input.ng-touched {
   border: 1px solid #f74646;
   transition: 0.4s;

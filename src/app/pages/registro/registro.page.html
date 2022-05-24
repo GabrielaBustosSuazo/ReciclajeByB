@@ -6,19 +6,27 @@
     <span>Reciclar no es tu obligación, es tu responsabilidad</span>
     <div class="form-item">
         <label for="">Nombre de usuario</label>
-        <input [(ngModel)]="usuario.nombreUsuario" type="text" />
+        <input [(ngModel)]="usuario.nombreUsuario" type="text" name="nombreUsuario" />
     </div>
     <div class="form-item">
         <label for="">Email</label>
-        <input [(ngModel)]="usuario.email" type="text" />
+        <input [(ngModel)]="usuario.email" type="text" name="email" />
     </div>
     <div class="form-item">
         <label for="">Contraseña</label>
-        <input [(ngModel)]="usuario.password" type="password" />
+        <input [(ngModel)]="usuario.password" type="password" name="password" />
+    </div>
+    <div class="form-item">
+        <label for="">Tipo usuario</label>
+        <ion-select [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario">
+            <ion-select-option>Cliente</ion-select-option>
+            <ion-select-option>Recolector</ion-select-option>
+        </ion-select>
     </div>
     <div class="form-item-button">
         <button (click)="registrar()">Registrarme</button>
     </div>
+
     <div class="form-item-button">
         <button (click)="salir()">Salir</button>
     </div>

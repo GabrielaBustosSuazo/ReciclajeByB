@@ -12,7 +12,6 @@ export interface Recolectores {
   direccion: string;
   telefono: string;
   camionDesignado: string;
-  rol: string;
   id: string;
 }
 
@@ -22,7 +21,6 @@ export interface Cliente {
   direccion: string;
   telefono: string;
   tipoplan: any;
-  rol: string;
   comuna: string;
   id: string;
 }
@@ -51,4 +49,5 @@ export interface Usuario {
   email: string;
   password: string;
   nombreUsuario: string;
+  tipoUsuario: string;
 }

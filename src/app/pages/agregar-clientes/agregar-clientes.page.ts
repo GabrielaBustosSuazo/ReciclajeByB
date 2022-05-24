@@ -16,14 +16,15 @@ export class AgregarClientesPage implements OnInit {
     direccion: '',
     telefono: '',
     tipoplan: '',
-    rol: 'cliente',
     comuna: '',
     id: '',
   };
 
+
   get run() {
     return this.clientesForm.get('run');
   }
+
   get nombre() {
     return this.clientesForm.get('nombre');
   }

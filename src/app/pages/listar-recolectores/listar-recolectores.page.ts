@@ -48,7 +48,6 @@ export class ListarRecolectoresPage implements OnInit {
       direccion: '',
       telefono: '',
       camionDesignado: '',
-      rol: 'recolector',
       id: '',
     };
     this.recolector = rec;

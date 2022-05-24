@@ -1,21 +1,12 @@
 <ion-content>
-  <form [formGroup]="camionesForm">
-    <div class="form-item">
-      <label for="">Patente</label>
-      <input
-        formControlName="patente"
-        [(ngModel)]="data.patente"
-        name="patente"
-        type="text"
-        maxlength="6"
-        required
-      />
-    </div>
-    <div *ngFor="let error of errorMessages.patente">
-      <ng-container
-        *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)"
-      >
-        <small class="error-message">
+    <form [formGroup]="camionesForm">
+        <div class="form-item">
+            <label for="">Patente</label>
+            <input formControlName="patente" [(ngModel)]="data.patente" name="patente" type="text" maxlength="6" required />
+        </div>
+        <div *ngFor="let error of errorMessages.patente">
+            <ng-container *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)">
+                <small class="error-message">
           <img src="../../../assets/icon/fa_errorform.png" alt="" />
           {{error.message}}</small
         >
