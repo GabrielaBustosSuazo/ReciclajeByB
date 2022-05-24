@@ -74,7 +74,8 @@ ion-select.ng-touched {
     position: relative;
 }
 
-input.ng-valid {
+input.ng-valid,
+ion-select.ng-valid {
     border: 2px solid var(--ion-color-verde) !important;
 }
 

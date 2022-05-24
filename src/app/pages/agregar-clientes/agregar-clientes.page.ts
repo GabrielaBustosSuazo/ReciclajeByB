@@ -14,6 +14,7 @@ export class AgregarClientesPage implements OnInit {
     run: '',
     nombre: '',
     direccion: '',
+    prefijo: '+569',
     telefono: '',
     tipoplan: '',
     comuna: '',
@@ -88,6 +89,7 @@ export class AgregarClientesPage implements OnInit {
     const path = 'Cliente';
     const id = this.database.getId();
     this.data.id = id;
+    this.data.telefono = this.data.prefijo + this.data.telefono
 
     this.database.createDoc(this.data, path, id).then(() => {
       this.userInteraction.closeLoading();

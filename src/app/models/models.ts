@@ -10,6 +10,7 @@ export interface Recolectores {
   run: string;
   nombre: string;
   direccion: string;
+  prefijo: string;
   telefono: string;
   camionDesignado: string;
   id: string;
@@ -19,6 +20,7 @@ export interface Cliente {
   run: string;
   nombre: string;
   direccion: string;
+  prefijo: string;
   telefono: string;
   tipoplan: any;
   comuna: string;

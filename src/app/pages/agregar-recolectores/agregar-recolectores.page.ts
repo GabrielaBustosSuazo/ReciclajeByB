@@ -14,6 +14,7 @@ export class AgregarRecolectoresPage implements OnInit {
     run: '',
     nombre: '',
     direccion: '',
+    prefijo: '+569',
     telefono: '',
     camionDesignado: '',
     id: '',
@@ -90,6 +91,7 @@ export class AgregarRecolectoresPage implements OnInit {
     const path = 'Recolectores';
     const id = this.database.getId();
     this.data.id = id;
+    this.data.telefono = this.data.prefijo + this.data.telefono
 
     this.database.createDoc(this.data, path, id).then(() => {
       this.userInteraction.closeLoading();

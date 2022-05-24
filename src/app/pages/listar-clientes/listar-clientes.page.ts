@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Cliente } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
@@ -12,13 +13,16 @@ export class ListarClientesPage implements OnInit {
   cliente: Cliente;
   data: Cliente[] = [];
 
+  
   constructor(
     private database: FirestoreService,
-    private userInteraction: UserInteractionService
+    private userInteraction: UserInteractionService,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     this.getClientes();
+
   }
 
   getClientes() {
@@ -29,11 +33,13 @@ export class ListarClientesPage implements OnInit {
     });
   }
 
-  editarCliente(cli: Cliente) {
+
+  editarCliente(cli: Cliente) { 
     this.cliente = {
       run: '',
       nombre: '',
       direccion: '',
+      prefijo: '+569',
       telefono: '',
       tipoplan: '',
       comuna: '',
@@ -44,17 +50,17 @@ export class ListarClientesPage implements OnInit {
 
   async guardar() {
     await this.userInteraction.presentLoading('Guardando...');
-    const path = 'Camiones';
+    const path = 'Cliente';
 
     await this.database.createDoc(this.cliente, path, this.cliente.id);
     this.userInteraction.closeLoading();
-    this.userInteraction.presentToast('Camión modificado exitosamente');
+    this.userInteraction.presentToast('Cliente modificado exitosamente');
   }
 
   async eliminarCliente(cli: Cliente) {
     const res = await this.userInteraction.presentAlert(
       'Alerta',
-      '¿Seguro que deseas eliminar este camión?'
+      '¿Seguro que deseas eliminar este cliente?'
     );
     if (res) {
       const path = 'Cliente';

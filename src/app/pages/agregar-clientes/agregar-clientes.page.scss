@@ -65,13 +65,15 @@ button {
     transition: 0.4s;
 }
 
-input.ng-touched {
+input.ng-touched,
+ion-select.ng-touched {
     border: 1px solid #f74646;
     transition: 0.4s;
     position: relative;
 }
 
-input.ng-valid {
+input.ng-valid,
+ion-select.ng-valid {
     border: 2px solid var(--ion-color-verde) !important;
 }
 

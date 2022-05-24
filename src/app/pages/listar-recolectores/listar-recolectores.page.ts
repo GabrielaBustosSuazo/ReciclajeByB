@@ -46,6 +46,7 @@ export class ListarRecolectoresPage implements OnInit {
       run: '',
       nombre: '',
       direccion: '',
+      prefijo: '+569',
       telefono: '',
       camionDesignado: '',
       id: '',

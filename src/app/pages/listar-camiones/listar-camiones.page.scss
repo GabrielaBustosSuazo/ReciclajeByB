@@ -1,129 +1,176 @@
 ion-content {
-  --padding-top: 1rem;
-  --padding-bottom: 1rem;
-  --padding-start: 1rem;
-  --padding-end: 1rem;
-  --ion-background-color: #282828;
+    --padding-top: 1rem;
+    --padding-bottom: 1rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --ion-background-color: #282828;
 }
 
 table {
-  margin-bottom: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 table,
 th,
 td {
-  border: 1px solid #fff;
-  font-size: 12px;
-  color: #fff;
-  text-align: center;
+    border: 1px solid #fff;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
 }
 
 th {
-  background-color: var(--ion-color-verde);
-  padding: 0.5rem 0.5rem;
-  width: 100px;
-  font-weight: inherit;
+    background-color: var(--ion-color-verde);
+    padding: 0.5rem 0.5rem;
+    width: 100px;
+    font-weight: inherit;
 }
 
 td {
-  background-color: #1a1a1a;
-  padding: 0.5rem 0.5rem;
+    background-color: #1a1a1a;
+    padding: 0.5rem 0.5rem;
 }
 
 .actions-top,
 .actions-bottom {
-  display: flex;
-  gap: 5px;
+    display: flex;
+    gap: 5px;
 }
 
 .actions-bottom {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 .actions-icon {
-  border-radius: 5px;
-  padding: 5px;
-  background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
 }
 
 .header-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ion-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 1rem 1rem;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1rem;
+    align-items: center;
 }
 
 .menu-icon {
-  width: 20px !important;
-  height: 15px;
-  cursor: pointer;
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
 }
 
 ion-title {
-  width: min-content;
+    width: min-content;
 }
 
 form {
-  padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem;
 }
 
 .form-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 1rem;
 }
 
 label {
-  color: var(--ion-color-blanco);
+    color: var(--ion-color-blanco);
 }
 
 input,
 select {
-  background-color: #fff;
-  padding: 0.425rem;
-  color: var(--ion-color-negro) !important;
+    background-color: #fff;
+    padding: 0.425rem;
+    color: var(--ion-color-negro) !important;
 }
 
 .form-item-button {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 button {
-  background-color: var(--ion-color-verde);
-  padding: 0.5rem 1.5rem;
-  font-size: inherit;
+    background-color: var(--ion-color-verde);
+    padding: 0.5rem 1.5rem;
+    font-size: inherit;
 }
 
 .acciones {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .boton-acciones {
-  width: 80px;
-  padding: 0.5rem 1rem;
+    width: 80px;
+    padding: 0.5rem 1rem;
 }
 
 .eliminar {
-  background-color: #dc3545;
+    background-color: #dc3545;
 }
 
 .editar {
-  background-color: #037bff;
+    background-color: #037bff;
+}
+
+.error-message {
+    color: #f74646;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.error-message img {
+    margin-top: 2.5px;
+}
+
+button {
+    margin-top: 1rem;
+    color: #fff !important;
+    transition: 0.4s;
+}
+
+.error-message img {
+    margin-top: 2.5px;
+}
+
+input.ng-touched {
+    border: 1px solid #f74646;
+    transition: 0.4s;
+    position: relative;
+}
+
+input.ng-valid {
+    border: 2px solid var(--ion-color-verde) !important;
+}
+
+button .lock-img {
+    display: none;
+}
+
+button[disabled] {
+    background-color: #dc3545;
+}
+
+button[disabled] .lock-img {
+    display: block;
+}
+
+button[disabled] .check-img {
+    display: none;
 }
