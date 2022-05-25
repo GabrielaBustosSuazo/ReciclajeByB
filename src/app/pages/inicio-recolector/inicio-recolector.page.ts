@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-inicio-recolector',
@@ -8,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class InicioRecolectorPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private auth: FirestoreauthService,
+              private userinterface: UserInteractionService) { }
 
   ngOnInit() {
   }
@@ -20,4 +24,15 @@ export class InicioRecolectorPage implements OnInit {
   gotoRevisarNotificaciones() {
     this.router.navigate(['/notificaciones-enviadas']);
   }
+
+  logout(){
+    this.userinterface.presentLoading("Cerrando sesión")
+    setTimeout(function () {
+      location.reload();
+    }, 0);
+    this.auth.logout();
+    this.router.navigate(['/login'])
+    this.userinterface.stop();
+  }
+
 }

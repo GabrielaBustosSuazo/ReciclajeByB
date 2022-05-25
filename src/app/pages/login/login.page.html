@@ -5,14 +5,28 @@
         <img class="" src="../../../assets/icon/LogoB&B_letras.png" />
     </div>
 
-    <form>
+    <form [formGroup]="usuariosForm">
         <div class="form-item">
-            <label for="">Nombre de usuario</label>
-            <input [(ngModel)]="credenciales.email" maxlength="50" name="nombreUsuario" type="text" required />
+            <label for="">Email</label>
+            <input formControlName="email" [(ngModel)]="credenciales.email" maxlength="50" name="email" type="text" required />
+        </div>
+        <div *ngFor="let error of errorMessages.email">
+            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+                <small class="error-message">
+              <img src="../../../assets/icon/fa_errorform.png" alt="" />
+              {{error.message}}</small>
+            </ng-container>
         </div>
         <div class="form-item">
             <label for="">Contraseña</label>
-            <input [(ngModel)]="credenciales.password" maxlength="7" name="password" type="password" required />
+            <input formControlName="password" [(ngModel)]="credenciales.password" maxlength="7" name="password" type="password" required />
+        </div>
+        <div *ngFor="let error of errorMessages.password">
+            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+                <small class="error-message">
+              <img src="../../../assets/icon/fa_errorform.png" alt="" />
+              {{error.message}}</small>
+            </ng-container>
         </div>
         <div class="form-item-button">
             <button (click)="login()">Iniciar sesión</button>

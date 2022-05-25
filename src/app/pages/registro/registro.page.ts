@@ -128,7 +128,7 @@ export class RegistroPage implements OnInit {
   crearUsuarios() {
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Usuarios';
-
+    this.usuario.password = null;
     this.firestore.createDoc(this.usuario, path, this.usuario.uid).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Usuario registrado exitosamente');

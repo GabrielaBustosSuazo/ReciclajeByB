@@ -30,4 +30,8 @@ export class FirestoreauthService {
        return user.uid;
     }
  }
+
+ stateUser(){
+   return this.auth.authState
+ }
 }

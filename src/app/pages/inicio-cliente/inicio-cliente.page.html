@@ -38,27 +38,26 @@
                 </p>
             </div>
         </div>
-
-        <div class="menu-inicio">
-            <div class="menu-item">
-                <div class="menu-item__icon">
-                    <img class="" src="../../../assets/icon/fa_recyclew.png" />
-                </div>
-                <div class="menu-item__text">
-                    <p>
-                        Confirmar <br /> Recolección
-                    </p>
-                </div>
+        <div class="menu-item">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_recyclew.png" />
             </div>
-            <div class="menu-item" (click)="gotoNotifications()">
-                <div class="menu-item__icon">
-                    <img class="" src="../../../assets/icon/fa_bellw.png" />
-                </div>
-                <div class="menu-item__text">
-                    <p>
-                        Revisar <br /> Notificaciones
-                    </p>
-                </div>
+            <div class="menu-item__text">
+                <p>
+                    Confirmar <br /> Recolección
+                </p>
             </div>
         </div>
+        <div class="menu-item" (click)="gotoNotifications()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_bellw.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>
+                    Revisar <br /> Notificaciones
+                </p>
+            </div>
+        </div>
+        <button (click)="logout()">Cerrar sesión</button>
+    </div>
 </ion-content>
