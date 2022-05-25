@@ -36,47 +36,106 @@
             </td>
         </tr>
     </table>
-    <ion-card *ngIf="cliente" id="anchorId">
+    <ion-card id="anchorId">
         <h2 class="editar">Modificando Cliente</h2>
         <div class="separator">
             <div class="left-line"></div>
             <img class="separator-icon" src="../../../assets/icon/fa_pencil.png" />
             <div class="right-line"></div>
         </div>
-
-        <div class="form-item">
-            <label for="">Run</label>
-            <input [(ngModel)]="cliente.run" type="text" />
-        </div>
-        <div class="form-item">
-            <label for="">Nombre</label>
-            <input [(ngModel)]="cliente.nombre" type="text" />
-        </div>
-        <div class="form-item">
-            <label for="">Direccion</label>
-            <input [(ngModel)]="cliente.direccion" type="text" />
-        </div>
-        <div class="form-item">
-            <label for="">Comuna</label>
-            <input [(ngModel)]="cliente.comuna" type="text" />
-        </div>
-        <div class="form-item">
-            <label for="">Teléfono</label>
-            <input [(ngModel)]="cliente.telefono" type="text" />
-        </div>
-        <div class="form-item">
-            <label for="">Tipo Plan</label>
-            <ion-select [(ngModel)]="cliente.tipoplan">
-                <ion-select-option>1 dia</ion-select-option>
-                <ion-select-option>2 dias</ion-select-option>
-            </ion-select>
-        </div>
-        <div class="form-item-button">
-            <button (click)="guardar('test')">
-        Modificar cliente
-        <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
-      </button>
-            <!-- <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" /> -->
-        </div>
+        <form *ngIf="cliente" [formGroup]="clientesForm">
+            <div class="form-item">
+                <label for="">Run</label>
+                <input formControlName="run" [(ngModel)]="cliente.run" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.run">
+                <ng-container *ngIf="run.hasError(error.type) && (run.dirty || run.touched)">
+                    <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item">
+                <label for="">Nombre</label>
+                <input formControlName="nombre" [(ngModel)]="cliente.nombre" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.nombre">
+                <ng-container
+                  *ngIf="nombre.hasError(error.type) && (nombre.dirty || nombre.touched)"
+                >
+                  <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item">
+                <label for="">Direccion</label>
+                <input formControlName="direccion" [(ngModel)]="cliente.direccion" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.direccion">
+                <ng-container
+                  *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)"
+                >
+                  <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item">
+                <label for="">Comuna</label>
+                <input formControlName="comuna" [(ngModel)]="cliente.comuna" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.comuna">
+                <ng-container
+                  *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)"
+                >
+                  <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item">
+                <label for="">Teléfono</label>
+                <input formControlName="telefono" [(ngModel)]="cliente.telefono" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.telefono">
+                <ng-container
+                  *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)"
+                >
+                  <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item">
+                <label for="">Tipo Plan</label>
+                <ion-select formControlName="plan" [(ngModel)]="cliente.tipoplan">
+                    <ion-select-option>1 dia</ion-select-option>
+                    <ion-select-option>2 dias</ion-select-option>
+                </ion-select>
+            </div>
+            <div *ngFor="let error of errorMessages.plan">
+                <ng-container
+                  *ngIf="plan.hasError(error.type) && (plan.dirty || plan.touched)"
+                >
+                  <small class="error-message">
+                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                    {{error.message}}</small
+                  >
+                </ng-container>
+              </div>
+            <div class="form-item-button">
+                <button [disabled]="!clientesForm.valid" (click)="guardar('test')">
+                  Modificar cliente
+                  <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
+                  <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
+                </button>
+              </div>
+        </form>
     </ion-card>
 </ion-content>
