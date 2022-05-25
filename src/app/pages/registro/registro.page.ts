@@ -107,6 +107,7 @@ export class RegistroPage implements OnInit {
           this.usuario.password = '';
           this.usuario.nombreUsuario = '';
           this.usuario.tipoUsuario = '';
+          return false;
           }
       });
 
