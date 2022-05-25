@@ -27,12 +27,6 @@
         </figure>
     </div>
 
-    <div class="separator">
-        <div class="left-line"></div>
-        <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-        <div class="right-line"></div>
-    </div>
-
     <div class="menu-inicio">
         <div class="menu-item">
             <div class="menu-item__icon">
@@ -44,15 +38,27 @@
                 </p>
             </div>
         </div>
-        <div class="menu-item" (click)="gotoNotifications()">
-            <div class="menu-item__icon">
-                <img class="" src="../../../assets/icon/fa_bellw.png" />
+
+        <div class="menu-inicio">
+            <div class="menu-item">
+                <div class="menu-item__icon">
+                    <img class="" src="../../../assets/icon/fa_recyclew.png" />
+                </div>
+                <div class="menu-item__text">
+                    <p>
+                        Confirmar <br /> Recolección
+                    </p>
+                </div>
             </div>
-            <div class="menu-item__text">
-                <p>
-                    Revisar <br /> Notificaciones
-                </p>
+            <div class="menu-item" (click)="gotoNotifications()">
+                <div class="menu-item__icon">
+                    <img class="" src="../../../assets/icon/fa_bellw.png" />
+                </div>
+                <div class="menu-item__text">
+                    <p>
+                        Revisar <br /> Notificaciones
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 </ion-content>
