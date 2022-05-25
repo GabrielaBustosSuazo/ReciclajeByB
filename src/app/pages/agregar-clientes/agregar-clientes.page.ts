@@ -66,7 +66,7 @@ export class AgregarClientesPage implements OnInit {
       '',
       [
         Validators.required,
-        Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9])/),
+        Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9(k)(K)])/),
       ],
     ],
     nombre: ['', [Validators.required]],

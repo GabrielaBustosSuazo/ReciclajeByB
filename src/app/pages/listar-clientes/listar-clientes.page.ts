@@ -13,6 +13,60 @@ export class ListarClientesPage implements OnInit {
   cliente: Cliente;
   data: Cliente[] = [];
 
+  get run() {
+    return this.clientesForm.get('run');
+  }
+
+  get nombre() {
+    return this.clientesForm.get('nombre');
+  }
+  get direccion() {
+    return this.clientesForm.get('direccion');
+  }
+  get telefono() {
+    return this.clientesForm.get('telefono');
+  }
+
+  get comuna() {
+    return this.clientesForm.get('comuna');
+  }
+
+  get plan() {
+    return this.clientesForm.get('plan');
+  }
+
+  public errorMessages = {
+    run: [
+      { type: 'required', message: 'Run no puede estar vacío' },
+      { type: 'pattern', message: 'Ingrese formato correcto: XX.XXX.XXX-X' },
+    ],
+    nombre: [{ type: 'required', message: 'Nombre no puede estar vacío' }],
+    direccion: [
+      { type: 'required', message: 'Dirección no puede estar vacío' },
+    ],
+    telefono: [
+      { type: 'required', message: 'Teléfono no puede estar vacío' },
+      { type: 'minlength', message: 'Teléfono debe tener 8 numeros' },
+    ],
+    comuna: [{ type: 'required', message: 'Comuna no puede estar vacía' }],
+    plan: [{ type: 'required', message: 'Elija un tipo de plan' }],
+  };
+
+  clientesForm = this.formBuilder.group({
+    run: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(/([0-9]{2}.[0-9].{3}.[0-9].-[0-9(k)(K)])/),
+      ],
+    ],
+    nombre: ['', [Validators.required]],
+    direccion: ['', [Validators.required]],
+    telefono: ['', [Validators.required, Validators.minLength(8)]],
+    comuna: ['', [Validators.required]],
+    plan: ['', [Validators.required]],
+  });
+
   
   constructor(
     private database: FirestoreService,
@@ -22,6 +76,8 @@ export class ListarClientesPage implements OnInit {
 
   ngOnInit() {
     this.getClientes();
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
 
   }
 
