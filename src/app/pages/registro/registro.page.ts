@@ -86,6 +86,10 @@ export class RegistroPage implements OnInit {
             'Alerta',
             'El email ingresado ya está registrado'
           );
+          this.usuario.email = '';
+          this.usuario.password = '';
+          this.usuario.nombreUsuario = '';
+          this.usuario.tipoUsuario = '';
           return false;
         }
       });
