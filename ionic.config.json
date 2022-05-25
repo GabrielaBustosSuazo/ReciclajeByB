@@ -1,5 +1,7 @@
 {
   "name": "ReciclajeByB",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

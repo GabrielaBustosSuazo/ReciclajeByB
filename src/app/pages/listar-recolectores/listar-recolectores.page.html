@@ -23,7 +23,7 @@
         <tr>
             <th scope="col">Acciones</th>
             <td class="acciones">
-                <button (click)="editarRecolector(recolector)" class="editar boton-acciones">
+                <button (click)="editarRecolector(recolector, 'anchorId')" class="editar boton-acciones">
           Editar
         </button>
                 <button (click)="eliminarRecolector(recolector)" class="eliminar boton-acciones">
@@ -32,8 +32,14 @@
             </td>
         </tr>
     </table>
-    <ion-card>
-        <form [formGroup]="recolectoresForm" *ngIf="recolector">
+    <ion-card id="anchorId">
+        <h2 class="editar">Modificando Recoletor</h2>
+        <div class="separator">
+            <div class="left-line"></div>
+            <img class="separator-icon" src="../../../assets/icon/fa_pencil.png" />
+            <div class="right-line"></div>
+        </div>
+        <form *ngIf="recolector" [formGroup]="recolectoresForm">
             <div class="form-item">
                 <label for="">Run</label>
                 <input formControlName="run" [(ngModel)]="recolector.run" type="text" />
