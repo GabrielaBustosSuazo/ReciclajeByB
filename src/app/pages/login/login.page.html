@@ -1,34 +1,30 @@
 <ion-content mode="md">
+  <div class="login-img"></div>
+
+  <div class="logo-container">
+    <img class="" src="../../../assets/icon/LogoB&B_letras.png" />
+  </div>
+
   <form>
-    <ion-grid>
-      <ion-row class="logo_container">
-        <img class="logo" src="../../../assets/img/LogoB&B.png" />
-      </ion-row>
-      <ion-item lines="full">
-        <span>Reciclar no es tu obligación, es tu responsabilidad</span>
-        <ion-label position="stacked">Nombre de usuario</ion-label>
-        <ion-input type="text" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input type="password" required></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-row class="button_container">
-          <button>Iniciar Sesión</button>
-        </ion-row>
-        <ion-row class="recuperar_contrasenna_link">
-          <a [routerLink]="[ '/forgot-password'] " class="recuperar_contrasenna"
-            >¿Olvidaste tu contraseña?</a
-          >
-        </ion-row>
-      </ion-row>
-    </ion-grid>
+    <div class="form-item">
+      <label for="">Nombre de usuario</label>
+      <input maxlength="50" name="nombreUsuario" type="text" required />
+    </div>
+    <div class="form-item">
+      <label for="">Contraseña</label>
+      <input maxlength="7" name="password" type="password" required />
+    </div>
+    <div class="form-item-button">
+      <button>Iniciar sesión</button>
+    </div>
   </form>
+  <div class="recuperar-contrasena">
+    <a href="" class="">¿Olvidaste tu contraseña?</a>
+  </div>
 </ion-content>
 
 <ion-footer class="footer">
   <ion-toolbar class="toolbar-footer">
-    <p>&copy; Todos los derechos reservados</p>
+    <p class="footer-text">&copy; Todos los derechos reservados</p>
   </ion-toolbar>
 </ion-footer>

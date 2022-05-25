@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-usuarios',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
 
@@ -21,6 +21,11 @@ const routes: Routes = [
       import('./pages/ingreso-evidencia/ingreso-evidencia.module').then(
         (m) => m.IngresoEvidenciaPageModule
       ),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'inicio-administrador',
@@ -113,10 +118,11 @@ const routes: Routes = [
   },
   {
     path: 'gestion-usuarios',
-    loadChildren: () => import('./pages/gestion-usuarios/gestion-usuarios.module').then( m => m.GestionUsuariosPageModule)
+    loadChildren: () =>
+      import('./pages/gestion-usuarios/gestion-usuarios.module').then(
+        (m) => m.GestionUsuariosPageModule
+      ),
   },
-
-
 ];
 
 @NgModule({

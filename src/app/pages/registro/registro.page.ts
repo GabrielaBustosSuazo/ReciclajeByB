@@ -16,8 +16,8 @@ export class RegistroPage implements OnInit {
     email: '',
     password: '',
     nombreUsuario: '',
-    tipoUsuario: ''
-  }
+    tipoUsuario: '',
+  };
   get email() {
     return this.usuariosForm.get('email');
   }
@@ -37,14 +37,14 @@ export class RegistroPage implements OnInit {
       { type: 'pattern', message: 'Ingrese formato correcto: xxxx@xxxx.com' },
     ],
     nombreUsuario: [
-      { type: 'required', message: 'Nombre de Usuario no puede estar vacío' }],
+      { type: 'required', message: 'Nombre de Usuario no puede estar vacío' },
+    ],
     password: [
       { type: 'required', message: 'Password no puede estar vacía' },
       { type: 'minlength', message: 'Password debe tener min. 7 caracteres' },
     ],
     tipoUsuario: [
       { type: 'required', message: 'Debe seleccionar un tipo de usuario' },
-  
     ],
   };
 
@@ -54,41 +54,24 @@ export class RegistroPage implements OnInit {
       [
         Validators.required,
         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-      ]
+      ],
     ],
-    nombreUsuario: [
-      '',
-      [
-        Validators.required
-      ]
-    ],
-    password: [
-      '', 
-      [
-        Validators.required,
-        Validators.minLength(7),
-      ]
-    ],
-    tipoUsuario: [
-      '', 
-      [
-        Validators.required
-      ]
-    ],
+    nombreUsuario: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(7)]],
+    tipoUsuario: ['', [Validators.required]],
   });
 
+  constructor(
+    public firestoreauth: FirestoreauthService,
+    public userInteraction: UserInteractionService,
+    public firestore: FirestoreService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  constructor(public firestoreauth: FirestoreauthService,
-              public userInteraction: UserInteractionService,
-              public firestore: FirestoreService,
-              private formBuilder: FormBuilder) { }
-
-   async ngOnInit() {
+  async ngOnInit() {
     const uid = await this.firestoreauth.getUid();
-    console.log(uid)
+    console.log(uid);
   }
-
-
 
   async registrar() {
     const credenciales = {
@@ -103,11 +86,8 @@ export class RegistroPage implements OnInit {
             'Alerta',
             'El email ingresado ya está registrado'
           );
-          this.usuario.email = '';
-          this.usuario.password = '';
-          this.usuario.nombreUsuario = '';
-          this.usuario.tipoUsuario = '';
-          }
+          return false;
+        }
       });
 
     if (res) {
@@ -118,11 +98,12 @@ export class RegistroPage implements OnInit {
       this.usuario.password = '';
       this.usuario.nombreUsuario = '';
       this.usuario.tipoUsuario = '';
+
       setTimeout(function () {
         const errores = document.querySelectorAll('.error-message');
         const input = document.querySelectorAll('input');
         const ionSelect = document.querySelectorAll('ion-select');
-  
+
         errores.forEach((element) => {
           (element as HTMLElement).style.display = 'none';
         });
@@ -133,28 +114,25 @@ export class RegistroPage implements OnInit {
           (element as HTMLElement).classList.toggle('ng-touched');
         });
       }, 0);
-  
+
       setTimeout(function () {
         location.reload();
       }, 2000);
     }
   }
 
-  crearUsuarios(){
+  crearUsuarios() {
     this.userInteraction.presentLoading('Guardando...');
-    const path = 'Usuarios' 
+    const path = 'Usuarios';
 
-
-    this.firestore.createDoc(this.usuario, path, this.usuario.uid).then(() =>
-    {
+    this.firestore.createDoc(this.usuario, path, this.usuario.uid).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Usuario registrado exitosamente');
-    })
-
+    });
   }
 
-  async salir(){
-    this.firestoreauth.logout()
-    console.log('Cerro sesión con exito')
+  async salir() {
+    this.firestoreauth.logout();
+    console.log('Cerro sesión con exito');
   }
 }
