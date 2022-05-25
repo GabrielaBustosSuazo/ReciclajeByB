@@ -99,7 +99,7 @@ ion-card {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 label {
@@ -220,6 +220,8 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .error-message img {
