@@ -127,3 +127,50 @@ button {
 .editar {
     background-color: #037bff;
 }
+
+.error-message {
+    color: #f74646;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.error-message img {
+    margin-top: 2.5px;
+}
+
+button {
+    margin-top: 1rem;
+    color: #fff !important;
+    transition: 0.4s;
+}
+
+.error-message img {
+    margin-top: 2.5px;
+}
+
+input.ng-touched {
+    border: 1px solid #f74646;
+    transition: 0.4s;
+    position: relative;
+}
+
+input.ng-valid {
+    border: 2px solid var(--ion-color-verde) !important;
+}
+
+button .lock-img {
+    display: none;
+}
+
+button[disabled] {
+    background-color: #dc3545;
+}
+
+button[disabled] .lock-img {
+    display: block;
+}
+
+button[disabled] .check-img {
+    display: none;
+}

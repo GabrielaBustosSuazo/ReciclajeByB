@@ -1,54 +1,42 @@
 <ion-content>
-  <table style="width: 100%" *ngFor="let camiones of data" class="" id="test">
-    <tr>
-      <th scope="col">Patente</th>
-      <td>{{camiones.patente}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Marca</th>
-      <td>{{camiones.marca}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Modelo</th>
-      <td>{{camiones.modelo}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Año</th>
-      <td>{{camiones.anno}}</td>
-    </tr>
-    <tr>
-      <th scope="col">Acciones</th>
-      <td class="acciones">
-        <button
-          (click)="editarCamion(camiones,'anchorId')"
-          class="editar boton-acciones"
-        >
+    <table style="width: 100%" *ngFor="let camiones of data" class="" id="test">
+        <tr>
+            <th scope="col">Patente</th>
+            <td>{{camiones.patente}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Marca</th>
+            <td>{{camiones.marca}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Modelo</th>
+            <td>{{camiones.modelo}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Año</th>
+            <td>{{camiones.anno}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Acciones</th>
+            <td class="acciones">
+                <button (click)="editarCamion(camiones,'anchorId')" class="editar boton-acciones">
           Editar
         </button>
-        <button
-          (click)="eliminarCamion(camiones)"
-          class="eliminar boton-acciones"
-        >
+                <button (click)="eliminarCamion(camiones)" class="eliminar boton-acciones">
           Eliminar
         </button>
-      </td>
-    </tr>
-  </table>
-  <ion-card>
-    <form *ngIf="camion" [formGroup]="camionesForm" id="anchorId">
-      <div class="form-item">
-        <label for="">Patente</label>
-        <input
-          formControlName="patente"
-          [(ngModel)]="camion.patente"
-          type="text"
-        />
-      </div>
-      <div *ngFor="let error of errorMessages.patente">
-        <ng-container
-          *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)"
-        >
-          <small class="error-message">
+            </td>
+        </tr>
+    </table>
+    <ion-card id="anchorId">
+        <form *ngIf="camion" [formGroup]="camionesForm">
+            <div class="form-item">
+                <label for="">Patente</label>
+                <input formControlName="patente" [(ngModel)]="camion.patente" type="text" />
+            </div>
+            <div *ngFor="let error of errorMessages.patente">
+                <ng-container *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)">
+                    <small class="error-message">
             <img src="../../../assets/icon/fa_errorform.png" alt="" />
             {{error.message}}</small
           >
