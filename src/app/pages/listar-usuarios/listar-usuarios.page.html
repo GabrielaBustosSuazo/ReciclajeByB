@@ -1,0 +1,24 @@
+<ion-content>
+    <table style="width: 100%" *ngFor="let usuario of data" class="" id="">
+        <tr>
+            <th scope="col">Email</th>
+            <td>{{usuario.email}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Nombre Usuario</th>
+            <td>{{usuario.nombreUsuario}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Tipo Usuario</th>
+            <td>{{usuario.tipoUsuario}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Acciones</th>
+            <td class="acciones">
+                <button (click)="eliminarUsuario(usuario)" class="eliminar boton-acciones">
+        Eliminar
+      </button>
+            </td>
+        </tr>
+    </table>
+</ion-content>

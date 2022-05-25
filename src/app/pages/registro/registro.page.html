@@ -1,33 +1,57 @@
 <ion-content>
-    <div class="logo-container">
-        <img class="logo" src="../../../assets/img/LogoB&B.png" />
-    </div>
-
-    <span>Reciclar no es tu obligación, es tu responsabilidad</span>
-    <div class="form-item">
-        <label for="">Nombre de usuario</label>
-        <input [(ngModel)]="usuario.nombreUsuario" type="text" name="nombreUsuario" />
-    </div>
-    <div class="form-item">
-        <label for="">Email</label>
-        <input [(ngModel)]="usuario.email" type="text" name="email" />
-    </div>
-    <div class="form-item">
-        <label for="">Contraseña</label>
-        <input [(ngModel)]="usuario.password" type="password" name="password" />
-    </div>
-    <div class="form-item">
-        <label for="">Tipo usuario</label>
-        <ion-select [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario">
-            <ion-select-option>Cliente</ion-select-option>
-            <ion-select-option>Recolector</ion-select-option>
-        </ion-select>
-    </div>
-    <div class="form-item-button">
-        <button (click)="registrar()">Registrarme</button>
-    </div>
-
-    <div class="form-item-button">
-        <button (click)="salir()">Salir</button>
-    </div>
+    <form [formGroup]="usuariosForm">
+        <div class="form-item ">
+            <label for=" ">Email</label>
+            <input formControlName="email" [(ngModel)]="usuario.email" type="text" name="email" />
+        </div>
+        <div *ngFor="let error of errorMessages.email">
+            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+                <small class="error-message">
+                <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                {{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Nombre de usuario</label>
+            <input formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" type="text" name="nombreUsuario" />
+        </div>
+        <div *ngFor="let error of errorMessages.nombreUsuario">
+            <ng-container *ngIf="nombreUsuario.hasError(error.type) && (nombreUsuario.dirty || nombreUsuario.touched)">
+                <small class="error-message">
+                <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                {{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item ">
+            <label for=" ">Contraseña</label>
+            <input formControlName="password" [(ngModel)]="usuario.password" type="password" name="password" maxlength="7" />
+        </div>
+        <div *ngFor="let error of errorMessages.password">
+            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+                <small class="error-message">
+                <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                {{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item">
+            <label for="">Tipo usuario</label>
+            <ion-select formControlName="tipoUsuario" [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario">
+                <ion-select-option>Cliente</ion-select-option>
+                <ion-select-option>Recolector</ion-select-option>
+            </ion-select>
+        </div>
+        <div *ngFor="let error of errorMessages.tipoUsuario">
+            <ng-container *ngIf="tipoUsuario.hasError(error.type) && (tipoUsuario.dirty || tipoUsuario.touched)">
+                <small class="error-message">
+                <img src="../../../assets/icon/fa_errorform.png" alt="" />
+                {{error.message}}</small>
+            </ng-container>
+        </div>
+        <div class="form-item-button ">
+            <button [disabled]="!usuariosForm.valid" (click)="registrar()">Registrar
+            <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
+            <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
+            </button>
+        </div>
+    </form>
 </ion-content>
