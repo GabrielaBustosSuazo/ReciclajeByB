@@ -23,6 +23,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
     path: 'inicio-administrador',
     loadChildren: () =>
       import('./pages/inicio-administrador/inicio-administrador.module').then(
@@ -113,7 +118,10 @@ const routes: Routes = [
   },
   {
     path: 'gestion-usuarios',
-    loadChildren: () => import('./pages/gestion-usuarios/gestion-usuarios.module').then( m => m.GestionUsuariosPageModule)
+    loadChildren: () =>
+      import('./pages/gestion-usuarios/gestion-usuarios.module').then(
+        (m) => m.GestionUsuariosPageModule
+      ),
   },
   {
     path: 'login',
