@@ -113,6 +113,9 @@ export class ListarRecolectoresPage implements OnInit {
         inline: 'nearest',
       });
     }, 100);
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'block';
   }
 
   async guardar(test) {
@@ -122,6 +125,9 @@ export class ListarRecolectoresPage implements OnInit {
     await this.database.createDoc(this.recolector, path, this.recolector.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Recolector modificado exitosamente');
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
 
     setTimeout(function () {
       document.getElementById(test).scrollIntoView({
