@@ -1,14 +1,23 @@
 <ion-content>
-    <form [formGroup]="rutasForm">
-        <div class="form-item">
-            <label for="">Camion a asignar</label>
-            <ion-select formControlName="camionAsignado" [(ngModel)]="data.camionAsignado">
-                <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
-            </ion-select>
-        </div>
-        <div *ngFor="let error of errorMessages.camionAsignado">
-            <ng-container *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)">
-                <small class="error-message">
+  <form [formGroup]="rutasForm">
+    <div class="form-item">
+      <label for="">Camion a asignar</label>
+      <ion-select
+        formControlName="camionAsignado"
+        [(ngModel)]="data.camionAsignado"
+      >
+        <ion-select-option
+          *ngFor="let camion of camiones"
+          [value]="camion.patente"
+          >{{camion.patente}}</ion-select-option
+        >
+      </ion-select>
+    </div>
+    <div *ngFor="let error of errorMessages.camionAsignado">
+      <ng-container
+        *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)"
+      >
+        <small class="error-message">
           <img src="../../../assets/icon/fa_errorform.png" alt="" />
           {{error.message}}</small
         >
@@ -124,6 +133,8 @@
         (click)="crearRutas() "
       >
         Agregar Ruta
+        <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
+        <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
       </button>
     </div>
   </form>

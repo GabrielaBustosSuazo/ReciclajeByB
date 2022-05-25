@@ -118,8 +118,7 @@ select {
   justify-content: flex-end;
 }
 
-button,
-h2 {
+button {
   background-color: var(--ion-color-verde);
   padding: 0.5rem 1.5rem;
   font-size: inherit;
@@ -229,7 +228,6 @@ button {
 }
 
 button {
-  margin-top: 1rem;
   color: #fff !important;
   transition: 0.4s;
 }
@@ -262,8 +260,4 @@ button[disabled] .lock-img {
 
 button[disabled] .check-img {
   display: none;
-}
-
-h2 {
-  text-align: center;
 }
