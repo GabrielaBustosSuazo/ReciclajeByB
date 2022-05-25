@@ -91,7 +91,7 @@ export class AgregarRecolectoresPage implements OnInit {
     const path = 'Recolectores';
     const id = this.database.getId();
     this.data.id = id;
-    this.data.telefono = this.data.prefijo + this.data.telefono
+    this.data.telefono = this.data.prefijo + this.data.telefono;
 
     this.database.createDoc(this.data, path, id).then(() => {
       this.userInteraction.closeLoading();
@@ -104,5 +104,24 @@ export class AgregarRecolectoresPage implements OnInit {
     this.data.telefono = '';
     this.data.camionDesignado = '';
 
+    setTimeout(function () {
+      const errores = document.querySelectorAll('.error-message');
+      const input = document.querySelectorAll('input');
+      const ionSelect = document.querySelectorAll('ion-select');
+
+      errores.forEach((element) => {
+        (element as HTMLElement).style.display = 'none';
+      });
+      input.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+      ionSelect.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+    }, 0);
+
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
   }
 }

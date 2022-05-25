@@ -48,6 +48,8 @@ export class AgregarCamionesPage implements OnInit {
       { type: 'pattern', message: 'Año solo permite números' },
       { type: 'minlength', message: 'Año debe tener min. 4 numeros' },
       { type: 'maxlength', message: 'Año debe tener max. 4 numeros' },
+      { type: 'min', message: 'Año minimo: 1980' },
+      { type: 'max', message: `Año máximo: ${new Date().getFullYear()}` },
     ],
   };
 
@@ -67,9 +69,11 @@ export class AgregarCamionesPage implements OnInit {
       '',
       [
         Validators.required,
-        Validators.pattern(/([0-9]{4})/),
+        Validators.pattern(/([0-9])/),
         Validators.minLength(4),
         Validators.maxLength(4),
+        Validators.min(1980),
+        Validators.max(new Date().getFullYear()),
       ],
     ],
   });
@@ -97,5 +101,25 @@ export class AgregarCamionesPage implements OnInit {
     this.data.marca = '';
     this.data.modelo = '';
     this.data.anno = '';
+
+    setTimeout(function () {
+      const errores = document.querySelectorAll('.error-message');
+      const input = document.querySelectorAll('input');
+      const ionSelect = document.querySelectorAll('ion-select');
+
+      errores.forEach((element) => {
+        (element as HTMLElement).style.display = 'none';
+      });
+      input.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+      ionSelect.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+    }, 0);
+
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
   }
 }
