@@ -71,6 +71,9 @@ export class ListarRecolectoresPage implements OnInit {
   ngOnInit() {
     this.getRecolectores();
     this.getCamiones();
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
   }
 
   getRecolectores() {
@@ -91,7 +94,7 @@ export class ListarRecolectoresPage implements OnInit {
     });
   }
 
-  editarRecolector(rec: Recolectores) {
+  editarRecolector(rec: Recolectores, element: any) {
     this.recolector = {
       run: '',
       nombre: '',
@@ -102,15 +105,31 @@ export class ListarRecolectoresPage implements OnInit {
       id: '',
     };
     this.recolector = rec;
+
+    setTimeout(function () {
+      document.getElementById(element).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 100);
   }
 
-  async guardar() {
+  async guardar(test) {
     await this.userInteraction.presentLoading('Guardando...');
     const path = 'Recolectores';
 
     await this.database.createDoc(this.recolector, path, this.recolector.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Recolector modificado exitosamente');
+
+    setTimeout(function () {
+      document.getElementById(test).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 0);
   }
 
   async eliminarRecolector(rec: Recolectores) {

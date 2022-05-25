@@ -21,7 +21,6 @@ export class AgregarClientesPage implements OnInit {
     id: '',
   };
 
-
   get run() {
     return this.clientesForm.get('run');
   }
@@ -89,17 +88,44 @@ export class AgregarClientesPage implements OnInit {
     const path = 'Cliente';
     const id = this.database.getId();
     this.data.id = id;
-    this.data.telefono = this.data.prefijo + this.data.telefono
+    this.data.telefono = this.data.prefijo + this.data.telefono;
 
     this.database.createDoc(this.data, path, id).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Cliente creado exitosamente');
     });
+
+    const errores = document.querySelectorAll('.error-message');
+
+    errores.forEach((element) => {
+      (element as HTMLElement).style.display = 'none';
+    });
+
     this.data.run = '';
     this.data.nombre = '';
     this.data.direccion = '';
     this.data.telefono = '';
     this.data.comuna = '';
     this.data.tipoplan = '';
+
+    setTimeout(function () {
+      const errores = document.querySelectorAll('.error-message');
+      const input = document.querySelectorAll('input');
+      const ionSelect = document.querySelectorAll('ion-select');
+
+      errores.forEach((element) => {
+        (element as HTMLElement).style.display = 'none';
+      });
+      input.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+      ionSelect.forEach((element) => {
+        (element as HTMLElement).classList.toggle('ng-touched');
+      });
+    }, 0);
+
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
   }
 }
