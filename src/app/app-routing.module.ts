@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'gestion-usuarios',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
 
@@ -114,6 +114,10 @@ const routes: Routes = [
   {
     path: 'gestion-usuarios',
     loadChildren: () => import('./pages/gestion-usuarios/gestion-usuarios.module').then( m => m.GestionUsuariosPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
 
 

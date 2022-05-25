@@ -30,6 +30,12 @@ export class UserInteractionService {
     await this.loading.present();
   }
 
+  async stop() {
+    if(this.loading) { // Added this condition
+      this.loading.dismiss();
+    }
+  }
+  
   async closeLoading(){
     await this.loading.dismiss();
   }
