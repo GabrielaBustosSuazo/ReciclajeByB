@@ -220,6 +220,13 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.error-message {
+  color: #f74646;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
 }
