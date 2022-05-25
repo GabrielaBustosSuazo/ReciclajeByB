@@ -18,12 +18,13 @@
       <label for="">Recolector a asignar</label>
       <ion-select
         formControlName="recolectorAsignado"
-        [(ngModel)]=" data.recolectorAsignado "
+        [(ngModel)]="data.recolectorAsignado"
+        name="recolectorAsignado"
       >
         <ion-select-option
           *ngFor="let recolector of recolectores "
-          [value]="recolector.nombreUsuario "
-          >{{recolector.nombreUsuario}}</ion-select-option
+          [value]="recolector.nombre"
+          >{{recolector.nombre}}</ion-select-option
         >
       </ion-select>
     </div>
