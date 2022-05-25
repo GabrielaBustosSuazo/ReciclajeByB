@@ -1,96 +1,124 @@
 <ion-content>
-    <table style="width: 100%" *ngFor="let camiones of data" class="" id="">
-        <tr>
-            <th scope="col">Patente</th>
-            <td>{{camiones.patente}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Marca</th>
-            <td>{{camiones.marca}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Modelo</th>
-            <td>{{camiones.modelo}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Año</th>
-            <td>{{camiones.anno}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Acciones</th>
-            <td class="acciones">
-                <button (click)="editarCamion(camiones)" class="editar boton-acciones">
+  <table style="width: 100%" *ngFor="let camiones of data" class="" id="test">
+    <tr>
+      <th scope="col">Patente</th>
+      <td>{{camiones.patente}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Marca</th>
+      <td>{{camiones.marca}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Modelo</th>
+      <td>{{camiones.modelo}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Año</th>
+      <td>{{camiones.anno}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Acciones</th>
+      <td class="acciones">
+        <button
+          (click)="editarCamion(camiones,'anchorId')"
+          class="editar boton-acciones"
+        >
           Editar
         </button>
-                <button (click)="eliminarCamion(camiones)" class="eliminar boton-acciones">
+        <button
+          (click)="eliminarCamion(camiones)"
+          class="eliminar boton-acciones"
+        >
           Eliminar
         </button>
-            </td>
-        </tr>
-    </table>
-    <ion-card>
-        <form *ngIf="camion" [formGroup]="camionesForm">
-            <div class="form-item">
-                <label for="">Patente</label>
-                <input formControlName="patente" [(ngModel)]="camion.patente" type="text" />
-            </div>
-            <div *ngFor="let error of errorMessages.patente">
-                <ng-container *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)">
-                    <small class="error-message">
-              <img src="../../../assets/icon/fa_errorform.png" alt="" />
-              {{error.message}}</small
-            >
-                </ng-container>
-            </div>
-            <div class="form-item">
-                <label for="">Marca</label>
-                <input formControlName="marca" [(ngModel)]="camion.marca" type="text" />
-            </div>
-            <div *ngFor="let error of errorMessages.marca">
-                <ng-container
-                  *ngIf="marca.hasError(error.type) && (marca.dirty || marca.touched)"
-                >
-                  <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small
-                  >
-                </ng-container>
-              </div>
-            <div class="form-item">
-                <label for="">Modelo</label>
-                <input formControlName="modelo" [(ngModel)]="camion.modelo" type="text" />
-            </div>
-            <div *ngFor="let error of errorMessages.modelo">
-                <ng-container
-                  *ngIf="modelo.hasError(error.type) && (modelo.dirty || modelo.touched)"
-                >
-                  <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small
-                  >
-                </ng-container>
-              </div>
-            <div class="form-item">
-                <label for="">Año</label>
-                <input formControlName="anno" [(ngModel)]="camion.anno" type="text" />
-            </div>
-            <div *ngFor="let error of errorMessages.anno">
-                <ng-container
-                  *ngIf="anno.hasError(error.type) && (anno.dirty || anno.touched)"
-                >
-                  <small class="error-message">
-                    <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                    {{error.message}}</small
-                  >
-                </ng-container>
-              </div>
-            <div class="form-item-button">
-                <button type="submit" [disabled]="!camionesForm.valid"(click)="guardar()">
-                Modificar camión
-                <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
-                <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
-                </button>
-            </div>
-            </form>
-        </ion-card>
+      </td>
+    </tr>
+  </table>
+  <ion-card>
+    <form *ngIf="camion" [formGroup]="camionesForm" id="anchorId">
+      <div class="form-item">
+        <label for="">Patente</label>
+        <input
+          formControlName="patente"
+          [(ngModel)]="camion.patente"
+          type="text"
+        />
+      </div>
+      <div *ngFor="let error of errorMessages.patente">
+        <ng-container
+          *ngIf="patente.hasError(error.type) && (patente.dirty || patente.touched)"
+        >
+          <small class="error-message">
+            <img src="../../../assets/icon/fa_errorform.png" alt="" />
+            {{error.message}}</small
+          >
+        </ng-container>
+      </div>
+      <div class="form-item">
+        <label for="">Marca</label>
+        <input formControlName="marca" [(ngModel)]="camion.marca" type="text" />
+      </div>
+      <div *ngFor="let error of errorMessages.marca">
+        <ng-container
+          *ngIf="marca.hasError(error.type) && (marca.dirty || marca.touched)"
+        >
+          <small class="error-message">
+            <img src="../../../assets/icon/fa_errorform.png" alt="" />
+            {{error.message}}</small
+          >
+        </ng-container>
+      </div>
+      <div class="form-item">
+        <label for="">Modelo</label>
+        <input
+          formControlName="modelo"
+          [(ngModel)]="camion.modelo"
+          type="text"
+        />
+      </div>
+      <div *ngFor="let error of errorMessages.modelo">
+        <ng-container
+          *ngIf="modelo.hasError(error.type) && (modelo.dirty || modelo.touched)"
+        >
+          <small class="error-message">
+            <img src="../../../assets/icon/fa_errorform.png" alt="" />
+            {{error.message}}</small
+          >
+        </ng-container>
+      </div>
+      <div class="form-item">
+        <label for="">Año</label>
+        <input formControlName="anno" [(ngModel)]="camion.anno" type="text" />
+      </div>
+      <div *ngFor="let error of errorMessages.anno">
+        <ng-container
+          *ngIf="anno.hasError(error.type) && (anno.dirty || anno.touched)"
+        >
+          <small class="error-message">
+            <img src="../../../assets/icon/fa_errorform.png" alt="" />
+            {{error.message}}</small
+          >
+        </ng-container>
+      </div>
+      <div class="form-item-button">
+        <button
+          type="submit"
+          [disabled]="!camionesForm.valid"
+          (click)="guardar('test')"
+        >
+          Modificar camión
+          <img
+            class="lock-img"
+            src="../../../assets/icon/fa_lockw.png"
+            alt=""
+          />
+          <img
+            class="check-img"
+            src="../../../assets/icon/fa_check.png"
+            alt=""
+          />
+        </button>
+      </div>
+    </form>
+  </ion-card>
 </ion-content>

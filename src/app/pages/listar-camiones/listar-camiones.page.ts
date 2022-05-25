@@ -10,9 +10,8 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./listar-camiones.page.scss'],
 })
 export class ListarCamionesPage implements OnInit {
-
   camion: Camiones;
-  data: Camiones [] = [];
+  data: Camiones[] = [];
   get patente() {
     return this.camionesForm.get('patente');
   }
@@ -25,7 +24,7 @@ export class ListarCamionesPage implements OnInit {
   get anno() {
     return this.camionesForm.get('anno');
   }
-  
+
   public errorMessages = {
     patente: [
       { type: 'required', message: 'Patente no puede estar vacia' },
@@ -69,51 +68,77 @@ export class ListarCamionesPage implements OnInit {
     ],
   });
 
-
-  constructor(private database: FirestoreService,
-              private userInteraction: UserInteractionService,
-              private formBuilder: FormBuilder) { }
+  constructor(
+    private database: FirestoreService,
+    private userInteraction: UserInteractionService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
-    this.getCamiones()
+    this.getCamiones();
   }
 
-  getCamiones(){
-    this.database.getCollection<Camiones>('Camiones').subscribe ( res => {
-      if (res){
+  getCamiones() {
+    this.database.getCollection<Camiones>('Camiones').subscribe((res) => {
+      if (res) {
         this.data = res;
-      }   
+      }
     });
   }
 
-  editarCamion(cam: Camiones){
-    this.camion ={
+  editarCamion(cam: Camiones, element: any) {
+    this.camion = {
       patente: '',
       marca: '',
       modelo: '',
       anno: '',
-      id: ''
-    } 
+      id: '',
+    };
     this.camion = cam;
-    
+
+    setTimeout(function () {
+      document.getElementById(element).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 100);
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'block';
   }
 
-  async guardar(){
+  async guardar(test) {
     await this.userInteraction.presentLoading('Guardando...');
-    const path = 'Camiones' 
+    const path = 'Camiones';
 
     await this.database.createDoc(this.camion, path, this.camion.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Camión modificado exitosamente');
+
+    setTimeout(function () {
+      document.getElementById(test).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      });
+    }, 500);
+
+    setTimeout(function () {
+      const card = document.querySelector('ion-card');
+      card.style.display = 'none';
+    }, 500);
   }
 
-  async eliminarCamion(cam: Camiones){
-    const res = await this.userInteraction.presentAlert("Alerta", "¿Seguro que deseas eliminar este camión?")
+  async eliminarCamion(cam: Camiones) {
+    const res = await this.userInteraction.presentAlert(
+      'Alerta',
+      '¿Seguro que deseas eliminar este camión?'
+    );
     if (res) {
-      const path = 'Camiones' 
+      const path = 'Camiones';
       await this.database.deleteDoc(path, cam.id);
       this.userInteraction.presentToast('Camión eliminado exitosamente');
     }
-
   }
 }
