@@ -89,28 +89,55 @@ export class RegistroPage implements OnInit {
   }
 
 
-  async registrar(){
+
+  async registrar() {
     const credenciales = {
       email: this.usuario.email,
-      password: this.usuario.password
+      password: this.usuario.password,
     };
-    const res = await this.firestoreauth.registrar(credenciales.email, credenciales.password).catch( err => {
-      console.log('error -> ', err)
-      if (err){
-        this.userInteraction.presentAlertError("Alerta", "El email ingresado ya está registrado")
-      }
-      else{
-        this.crearUsuarios();
-      }
-    })
-    const uid = await this.firestoreauth.getUid();
-    this.usuario.uid = uid;
-    this.usuario.email = '';
-    this.usuario.password = '';
-    this.usuario.nombreUsuario = '';
-    this.usuario.tipoUsuario = '';
+    const res = await this.firestoreauth
+      .registrar(credenciales.email, credenciales.password)
+      .catch((err) => {
+        if (err) {
+          this.userInteraction.presentAlert(
+            'Alerta',
+            'El email ingresado ya está registrado'
+          );
+          this.usuario.email = '';
+          this.usuario.password = '';
+          this.usuario.nombreUsuario = '';
+          this.usuario.tipoUsuario = '';
+          }
+      });
+
+    if (res) {
+      const uid = await this.firestoreauth.getUid();
+      this.usuario.uid = uid;
+      this.crearUsuarios();
+      this.usuario.email = '';
+      this.usuario.password = '';
+      this.usuario.nombreUsuario = '';
+      this.usuario.tipoUsuario = '';
+      setTimeout(function () {
+        const errores = document.querySelectorAll('.error-message');
+        const input = document.querySelectorAll('input');
+        const ionSelect = document.querySelectorAll('ion-select');
   
-   
+        errores.forEach((element) => {
+          (element as HTMLElement).style.display = 'none';
+        });
+        input.forEach((element) => {
+          (element as HTMLElement).classList.toggle('ng-touched');
+        });
+        ionSelect.forEach((element) => {
+          (element as HTMLElement).classList.toggle('ng-touched');
+        });
+      }, 0);
+  
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
+    }
   }
 
   crearUsuarios(){
@@ -123,6 +150,7 @@ export class RegistroPage implements OnInit {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Usuario registrado exitosamente');
     })
+
   }
 
   async salir(){

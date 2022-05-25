@@ -59,31 +59,5 @@ export class UserInteractionService {
     await alert.onDidDismiss(); 
     return aceptar;
   }
-
-  async presentAlertError(header: string, message: string) {
-    let aceptar = false;
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: header,
-      message: message,
-      buttons: [
-         {
-          text: 'Aceptar',
-          handler: () => {
-            aceptar = true
-          }
-        },
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-        }
-      ]
-    });
-
-    await alert.present();
-    await alert.onDidDismiss(); 
-    return aceptar;
-  }
-  
 }
+
