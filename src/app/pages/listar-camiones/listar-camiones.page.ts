@@ -76,6 +76,9 @@ export class ListarCamionesPage implements OnInit {
 
   ngOnInit() {
     this.getCamiones();
+
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
   }
 
   getCamiones() {
@@ -116,18 +119,16 @@ export class ListarCamionesPage implements OnInit {
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Camión modificado exitosamente');
 
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
+
     setTimeout(function () {
       document.getElementById(test).scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest',
       });
-    }, 500);
-
-    setTimeout(function () {
-      const card = document.querySelector('ion-card');
-      card.style.display = 'none';
-    }, 500);
+    }, 0);
   }
 
   async eliminarCamion(cam: Camiones) {

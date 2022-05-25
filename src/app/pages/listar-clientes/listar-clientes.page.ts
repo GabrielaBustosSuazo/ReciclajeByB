@@ -67,7 +67,6 @@ export class ListarClientesPage implements OnInit {
     plan: ['', [Validators.required]],
   });
 
-  
   constructor(
     private database: FirestoreService,
     private userInteraction: UserInteractionService,
@@ -78,7 +77,6 @@ export class ListarClientesPage implements OnInit {
     this.getClientes();
     const card = document.querySelector('ion-card');
     card.style.display = 'none';
-
   }
 
   getClientes() {
@@ -122,18 +120,16 @@ export class ListarClientesPage implements OnInit {
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Cliente modificado exitosamente');
 
+    const card = document.querySelector('ion-card');
+    card.style.display = 'none';
+
     setTimeout(function () {
       document.getElementById(test).scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest',
       });
-    }, 500);
-
-    setTimeout(function () {
-      const card = document.querySelector('ion-card');
-      card.style.display = 'none';
-    }, 500);
+    }, 0);
   }
 
   async eliminarCliente(cli: Cliente) {
