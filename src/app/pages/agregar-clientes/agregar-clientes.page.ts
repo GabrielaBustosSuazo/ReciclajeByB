@@ -126,6 +126,6 @@ export class AgregarClientesPage implements OnInit {
 
     setTimeout(function () {
       location.reload();
-    }, 2000);
+    }, 0);
   }
 }
