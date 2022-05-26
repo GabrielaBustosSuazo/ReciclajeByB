@@ -81,8 +81,6 @@ usuariosForm = this.formBuilder.group({
     })
 
     if(res){
-      this.userinteraction.closeLoading()  
-      this.userinteraction.presentToast("Ingresado exitosamente")
       console.log('res ->', res)
     }
   }
@@ -97,12 +95,18 @@ getUserInfo(uid: string){
         this.tipoUsuario = respuesta.tipoUsuario
         if (this.tipoUsuario === "Cliente"){
           this.router.navigate(['/inicio-cliente'])
+          this.userinteraction.closeLoading()  
+          this.userinteraction.presentToast("Ingresado exitosamente")
         }
         if (this.tipoUsuario === "Recolector"){
           this.router.navigate(['/inicio-recolector'])
+          this.userinteraction.closeLoading()  
+          this.userinteraction.presentToast("Ingresado exitosamente")
         }
         if (this.tipoUsuario === "Admin"){
           this.router.navigate(['/inicio-administrador'])
+          this.userinteraction.closeLoading()  
+          this.userinteraction.presentToast("Ingresado exitosamente")
         }
       }
     })

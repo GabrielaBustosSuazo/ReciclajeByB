@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
@@ -10,10 +11,12 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class InicioAdministradorPage implements OnInit {
   today: any;
+  isInLogin = false;
 
   constructor(private router:Router,
               private auth: FirestoreauthService,
-              private userinterface: UserInteractionService) { }
+              private userinterface: UserInteractionService,
+              public alertController: AlertController) { }
 
   ngOnInit() {
     this.today = Date.now();
@@ -39,13 +42,30 @@ export class InicioAdministradorPage implements OnInit {
     this.router.navigate(['/seguimiento-planillas']);
   }
 
-  logout(){
-    this.userinterface.presentToast("Cerrando sesión...")
-    setTimeout(function () {
-      location.reload();
-    }, 0);
-    this.auth.logout();
-    this.userinterface.stop()
-    this.router.navigate(['/login'])
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+          {
+            text: 'Denegar',
+            handler: (blah) => {
+              console.log('Confirma Permiso Denegado: yes');
+            }
+          }, {
+            text: 'Permitir',
+            handler: () => {
+              setTimeout(function () {
+                location.reload();
+              }, 0);
+              this.auth.logout();
+              this.router.navigate(['/login'])
+              console.log('Confirma Permiso Permitido: yes');
+            }
+          }
+        ]
+      });
+      await alert.present();
+  
   }
 }
