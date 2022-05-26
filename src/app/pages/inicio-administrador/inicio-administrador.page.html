@@ -10,7 +10,7 @@
             <div class="dashboard-avatar2">
                 <img class="" src="../../../assets/icon/fa_userg.jpg" />
             </div>
-            <p>Bienvenido<br />Juan Carlos Gomez</p>
+            <p>Bienvenido<br />{{nombreUsuario}}</p>
         </ion-row>
         <ion-row class="welcome-bottom2">
             <img class="location-icon2" src="../../../assets/icon/fa_calendarw.png" />
@@ -62,6 +62,16 @@
             <div class="menu-item__text">
                 <p>
                     Gestión de <br /> Camiones
+                </p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="agregarUsuarios()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_searchfilew.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>
+                    Gestión de <br /> Usuarios
                 </p>
             </div>
         </div>
