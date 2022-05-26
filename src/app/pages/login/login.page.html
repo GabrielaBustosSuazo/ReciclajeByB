@@ -1,44 +1,64 @@
 <ion-content mode="md">
-    <div class="login-img"></div>
+  <div class="login-img"></div>
 
-    <div class="logo-container">
-        <img class="" src="../../../assets/icon/LogoB&B_letras.png" />
-    </div>
+  <div class="logo-container">
+    <img class="" src="../../../assets/icon/LogoB&B_letras.png" />
+  </div>
 
-    <form [formGroup]="usuariosForm">
-        <div class="form-item">
-            <label for="">Email</label>
-            <input formControlName="email" [(ngModel)]="credenciales.email" maxlength="50" name="email" type="text" required />
-        </div>
-        <div *ngFor="let error of errorMessages.email">
-            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
-                <small class="error-message">
-              <img src="../../../assets/icon/fa_errorform.png" alt="" />
-              {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Contraseña</label>
-            <input formControlName="password" [(ngModel)]="credenciales.password" maxlength="7" name="password" type="password" required />
-        </div>
-        <div *ngFor="let error of errorMessages.password">
-            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
-                <small class="error-message">
-              <img src="../../../assets/icon/fa_errorform.png" alt="" />
-              {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item-button">
-            <button (click)="login()">Iniciar sesión</button>
-        </div>
-    </form>
-    <div class="recuperar-contrasena">
-        <a href="" class="">¿Olvidaste tu contraseña?</a>
+  <form [formGroup]="usuariosForm">
+    <div class="form-item">
+      <label for="">Ingresa tu email</label>
+      <input
+        formControlName="email"
+        [(ngModel)]="credenciales.email"
+        maxlength="50"
+        name="email"
+        type="text"
+        required
+      />
     </div>
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container
+        *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Ingresa tu contraseña</label>
+      <input
+        formControlName="password"
+        [(ngModel)]="credenciales.password"
+        maxlength="7"
+        name="password"
+        type="password"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.password">
+      <ng-container
+        *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item-button">
+      <button (click)="login()">Iniciar sesión</button>
+    </div>
+  </form>
+  <div class="recuperar-contrasena">
+    <a href="" class="">¿Olvidaste tu contraseña?</a>
+  </div>
 </ion-content>
 
 <ion-footer class="footer">
-    <ion-toolbar class="toolbar-footer">
-        <p class="footer-text">&copy; Todos los derechos reservados</p>
-    </ion-toolbar>
+  <ion-toolbar class="toolbar-footer">
+    <p class="footer-text">&copy; Todos los derechos reservados</p>
+  </ion-toolbar>
 </ion-footer>
