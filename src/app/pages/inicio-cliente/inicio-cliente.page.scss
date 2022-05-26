@@ -23,9 +23,8 @@ ion-content {
     width: 40%;
   }
   &-icon {
-    width: 30px;
-    height: 35px;
-    width: 12%;
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -67,7 +66,7 @@ ion-content {
 #slider {
   margin-top: 1rem;
   overflow: hidden;
-  height: 125px;
+  height: 150px;
 }
 
 #slider figure {
@@ -75,7 +74,7 @@ ion-content {
   width: 500%;
   margin: 0;
   left: 0;
-  animation: 20s slider infinite;
+  animation: 5s slider infinite;
 }
 
 #slider figure img {
@@ -122,9 +121,9 @@ ion-header {
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
-  padding: 1rem 1rem;
+  padding: 1rem 1.6rem;
   align-items: center;
-  background-color: var(--ion-color-negro);
+  background-color: #1a1a1a;
 }
 
 .menu-icon {
@@ -139,7 +138,7 @@ ion-title {
 }
 
 .welcome2 {
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   font-size: 14px;
   color: #fff;
   position: relative;
@@ -161,8 +160,9 @@ ion-title {
     position: absolute;
     padding: 1rem;
     border-radius: 50%;
-    left: 6.5rem;
-    top: -2rem;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
     background-color: #fff;
     width: 70px;
     height: 70px;
@@ -182,4 +182,19 @@ ion-title {
     height: 30px;
     margin-right: 20px;
   }
+}
+
+.logout button {
+  padding: 0.6rem 2rem;
+  width: 100%;
+  background-color: #a7171a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logout img {
+  width: 20px;
+  height: 20px;
 }
