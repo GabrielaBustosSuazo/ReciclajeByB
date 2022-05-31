@@ -1,7 +1,7 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Camiones, Cliente, Recolectores, Rutas, Usuario } from 'src/app/models/models';
+import { Camiones, Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 

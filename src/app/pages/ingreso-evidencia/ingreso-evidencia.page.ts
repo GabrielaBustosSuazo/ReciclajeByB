@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Cliente, Evidencias, Recolectores } from 'src/app/models/models';
+import { Evidencias } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
@@ -11,8 +11,6 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./ingreso-evidencia.page.scss'],
 })
 export class IngresoEvidenciaPage implements OnInit {
-  clientes: Cliente[] = [];
-  recolectores: Recolectores[] = [];
   private path = 'Evidencias/';
   imageuploaded = '';
   newFile: any;
@@ -56,27 +54,9 @@ export class IngresoEvidenciaPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getClientes();
-    this.getRecolectores();
   }
 
-  getClientes() {
-    this.database.getCollection<Cliente>('Cliente').subscribe((res) => {
-      if (res) {
-        this.clientes = res;
-      }
-    });
-  }
-
-  getRecolectores() {
-    this.database
-      .getCollection<Recolectores>('Recolectores')
-      .subscribe((res) => {
-        if (res) {
-          this.recolectores = res;
-        }
-      });
-  }
+ 
 
   async crearEvidencia() {
     this.userInteraction.presentLoading('Guardando...');
