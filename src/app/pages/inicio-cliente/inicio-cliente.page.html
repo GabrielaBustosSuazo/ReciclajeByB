@@ -1,63 +1,94 @@
 <ion-header>
-    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-    <ion-title mode="ios">Inicio</ion-title>
-    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
-</ion-header>
-
-<ion-content>
-    <ion-grid class="welcome2">
-        <ion-row class="welcome2-top">
-            <div class="dashboard-avatar2">
-                <img class="" src="../../../assets/icon/fa_userg.jpg" />
-            </div>
-            <p>Bienvenido<br />{{nombreUsuario}}</p>
-        </ion-row>
-        <ion-row class="welcome-bottom2">
-            <img class="location-icon2" src="../../../assets/icon/fa_locationw.png" />
-            <p>
-                Lago Villarica 2751, <br /> Villa Alemana.
-            </p>
-        </ion-row>
-    </ion-grid>
-
-    <div id="slider">
-        <figure>
-            <img class="" src="../../../assets/img/slider1.png" />
-        </figure>
-    </div>
-
-    <div class="separator">
-        <div class="left-line"></div>
-        <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-        <div class="right-line"></div>
-    </div>
-
-    <div class="menu-inicio">
-        <div class="menu-item">
-            <div class="menu-item__icon">
-                <img class="" src="../../../assets/icon/fa_recyclew.png" />
-            </div>
-            <div class="menu-item__text">
-                <p>
-                    Confirmar <br /> Recolección
-                </p>
-            </div>
-        </div>
-        <div class="menu-item" (click)="gotoNotifications()">
-            <div class="menu-item__icon">
-                <img class="" src="../../../assets/icon/fa_bellw.png" />
-            </div>
-            <div class="menu-item__text">
-                <p>
-                    Revisar <br /> Notificaciones
-                </p>
-            </div>
-        </div>
-        <div class="logout">
-            <button (click)="logout()">
+  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+  <ion-title mode="ios">Inicio</ion-title>
+  <div id="nav-icon3" (click)="abrirMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul id="dropdown" class="dropdown">
+    <li class="dropdown-title">
+      <h3>Menu cliente</h3>
+    </li>
+    <li>
+      <img src="../../../assets/icon/fa_rutasw.png" alt="" />
+      <a href="#">Confirmar Recolección</a>
+    </li>
+    <li (click)="gotoNotifications()">
+      <img src="../../../assets/icon/fa_bellw.png" alt="" />
+      <a href="#">Revisar Notificaciones</a>
+    </li>
+    <li class="logout">
+      <button (click)="logout()">
         <img class="" src="../../../assets/icon/fa_logout.png" />
         Cerrar sesión
       </button>
-        </div>
+    </li>
+  </ul>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="welcome2">
+    <ion-row class="welcome2-top">
+      <p class="msg-bienvenida">Bienvenido<br /><span>Jimmy Baradit</span></p>
+      <img class="" src="../../../assets/icon/fa_hand.png" />
+    </ion-row>
+    <ion-row class="welcome-bottom2">
+      <img class="location-icon2" src="../../../assets/icon/fa_locationw.png" />
+      <p>
+        Lago Villarica 2751, <br />
+        Villa Alemana.
+      </p>
+    </ion-row>
+  </ion-grid>
+
+  <ion-slides [options]="option" class="ion-margin-top">
+    <ion-slide>
+      <ion-card>
+        <img src="../../../assets/img/slider1.png" alt="" />
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <img src="../../../assets/img/slider1.png" alt="" />
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <img src="../../../assets/img/slider1.png" alt="" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <div class="menu-inicio">
+    <div class="menu-item">
+      <div class="menu-item__icon">
+        <img class="" src="../../../assets/icon/fa_rutasw.png" />
+      </div>
+      <div class="menu-item__text">
+        <p>
+          Confirmar <br />
+          Recolección
+        </p>
+      </div>
     </div>
+    <div class="menu-item" (click)="gotoNotifications()">
+      <div class="menu-item__icon">
+        <img class="" src="../../../assets/icon/fa_bellw.png" />
+      </div>
+      <div class="menu-item__text">
+        <p>
+          Revisar <br />
+          Notificaciones
+        </p>
+      </div>
+    </div>
+    <div class="logout">
+      <button (click)="logout()">
+        <img class="" src="../../../assets/icon/fa_logout.png" />
+        Cerrar sesión
+      </button>
+    </div>
+  </div>
 </ion-content>

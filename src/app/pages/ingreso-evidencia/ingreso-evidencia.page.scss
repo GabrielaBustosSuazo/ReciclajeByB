@@ -1,114 +1,149 @@
-ion-content {
-    --padding-top: 1rem;
-    --padding-bottom: 1rem;
-    --padding-start: 1rem;
-    --padding-end: 1rem;
-    --ion-background-color: var(--ion-color-negroOscuro);
-}
-
 .indicaciones,
 span,
 label {
-    color: #fff;
+  color: #fff;
 }
 
-.adjuntar {
-    display: block;
-    padding: 0.5rem 2rem;
-    margin-top: 0.5rem;
-    border-radius: 1rem;
-    background-color: var(--ion-color-verde);
-    margin-bottom: 2rem;
+.adjuntarImg-title {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.adjuntarImg {
+  background-color: #037bff;
+  padding: 0.5rem 1.5rem;
+  font-size: inherit;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.adjuntarImg > * {
+  cursor: pointer;
+}
+
+.adjuntarImg label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.adjuntarImg label img {
+  width: 20px;
+  height: 20px;
 }
 
 .comentarios {
-    margin-top: 0.5rem;
-    max-width: 100%;
-    color: var(--ion-color-negro);
-    background-color: #fff;
+  margin-top: 0.5rem;
+  max-width: 100%;
+  color: var(--ion-color-negro);
+  background-color: #fff;
+}
+
+ion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 20px !important;
+  height: 15px;
+  cursor: pointer;
+}
+
+ion-title {
+  width: min-content;
+}
+
+ion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  align-items: center;
+  background-color: var(--ion-color-negro);
+}
+
+.menu-icon {
+  width: 20px !important;
+  height: 15px;
+  cursor: pointer;
+}
+
+ion-title {
+  display: flex;
+  justify-content: center;
+  width: min-content;
 }
 
 .enviar-evidencias {
-    display: block;
-    padding: 0.5rem 2rem;
-    margin-top: 0.5rem;
-    background-color: var(--ion-color-verde);
-    margin-bottom: 2rem;
-}
-
-ion-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 1rem 1rem;
-    align-items: center;
-}
-
-.menu-icon {
-    width: 20px !important;
-    height: 15px;
-    cursor: pointer;
-}
-
-ion-title {
-    width: min-content;
-}
-
-ion-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 1rem 1rem;
-    align-items: center;
-    background-color: var(--ion-color-negro);
-}
-
-.menu-icon {
-    width: 20px !important;
-    height: 15px;
-    cursor: pointer;
-}
-
-ion-title {
-    display: flex;
-    justify-content: center;
-    width: min-content;
-}
-
-button {
-    font-size: inherit;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 143, 45, 1) 0%,
+    rgba(44, 211, 50, 1) 90%
+  );
+  padding: 0.7rem 1.5rem;
+  font-size: inherit;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 ion-content {
-    --padding-top: 1rem;
-    --padding-bottom: 1rem;
-    --padding-start: 1rem;
-    --padding-end: 1rem;
-    --ion-background-color: var(--ion-color-negro);
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --ion-background-color: var(--ion-color-negroOscuro);
 }
 
 ion-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 1rem 1rem;
-    align-items: center;
-    background-color: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  align-items: center;
+  background-color: #1a1a1a;
 }
 
 .error-message {
-    color: red;
+  color: #f74646;
 }
 
 input.ng-touched,
 textarea.ng-touched {
-    border: 1px solid #f74646;
-    transition: 0.4s;
+  border: 1px solid #f74646;
+  transition: 0.4s;
 }
 
-.ng-valid {
-    border: 2px solid green !important;
+button[disabled] {
+  background: linear-gradient(
+    90deg,
+    rgba(143, 26, 26, 1) 0%,
+    rgba(220, 53, 69, 1) 90%
+  );
+}
+
+button[disabled] .lock-img {
+  display: block;
+}
+
+button[disabled] .check-img {
+  display: none;
+}
+
+button .lock-img {
+  display: none;
 }

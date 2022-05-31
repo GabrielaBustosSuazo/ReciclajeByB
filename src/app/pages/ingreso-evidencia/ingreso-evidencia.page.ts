@@ -24,29 +24,21 @@ export class IngresoEvidenciaPage implements OnInit {
     recolectorAsignado: '',
   };
 
-  get foto(){
-    return this.evidenciasForms.get('foto')
+  get foto() {
+    return this.evidenciasForms.get('foto');
   }
-  get comentario(){
-    return this.evidenciasForms.get('comentario')
+  get comentario() {
+    return this.evidenciasForms.get('comentario');
   }
 
   public errorMessages = {
-    foto: [
-      {type: 'required', message: 'Ingrese foto'},
-    ],
-    comentario: [
-      {type: 'required', message: 'Comentario no puede estar vacío'}
-    ]
-  }
+    foto: [{ type: 'required', message: 'Ingrese foto' }],
+    comentario: [{ type: 'required', message: 'Debes ingresar comentarios.' }],
+  };
 
   evidenciasForms = this.formBuilder.group({
-    foto: ['',
-    [Validators.required
-    ]],
-    comentario: ['',
-    [Validators.required
-    ]]
+    foto: ['', [Validators.required]],
+    comentario: ['', [Validators.required]],
   });
   constructor(
     private userInteraction: UserInteractionService,

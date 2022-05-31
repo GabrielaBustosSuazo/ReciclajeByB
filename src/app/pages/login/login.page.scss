@@ -92,7 +92,11 @@ ion-select {
 }
 
 button {
-  background-color: var(--ion-color-verde);
+  background: linear-gradient(
+    90deg,
+    rgba(26, 143, 45, 1) 0%,
+    rgba(24, 185, 47, 1) 90%
+  );
   padding: 0.9rem 1.5rem;
   font-size: inherit;
   border-radius: 5px;
