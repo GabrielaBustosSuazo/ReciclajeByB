@@ -15,6 +15,7 @@ export interface Rutas {
   fecha: any;
   hora: string;
   id: string;
+  estado: string;
 }
 
 export interface Evidencias {

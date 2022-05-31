@@ -41,6 +41,16 @@ export class InicioClientePage implements OnInit {
     dropdown.classList.toggle('open');
   }
 
+  option = {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    pager: true,
+    spaceBetween: 10,
+    autoplay: { delay: 5000 },
+    speed: 2000,
+  };
+
   gotoNotifications() {
     this.router.navigate(['/notificaciones']);
   }

@@ -15,9 +15,13 @@
       <img src="../../../assets/icon/fa_rutasw.png" alt="" />
       <a href="#">Confirmar Recolección</a>
     </li>
-    <li (click)="gotoNotifications()">
-      <img src="../../../assets/icon/fa_bellw.png" alt="" />
-      <a href="#">Revisar Notificaciones</a>
+    <li>
+      <img
+        (click)="gotoNotifications()"
+        src="../../../assets/icon/fa_bellw.png"
+        alt=""
+      />
+      <a (click)="gotoNotifications()">Revisar Notificaciones</a>
     </li>
     <li class="logout">
       <button (click)="logout()">
