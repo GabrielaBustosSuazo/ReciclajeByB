@@ -14,6 +14,7 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class InicioClientePage implements OnInit {
  nombreUsuario = ''
+ direccion = ''
   constructor(private router:Router, 
               public auth: FirestoreauthService,
               public userinterface: UserInteractionService,
@@ -71,6 +72,7 @@ ngOnInit() {
         this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
         console.log('respuesta ->', respuesta)
         this.nombreUsuario = respuesta.nombreUsuario
+        this.direccion = respuesta.direccion
 })
 }
 }

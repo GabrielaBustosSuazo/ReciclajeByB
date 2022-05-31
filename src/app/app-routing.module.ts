@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'inicio-cliente',
     pathMatch: 'full',
   },
 
@@ -89,24 +89,10 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'gestion-recolector',
-    loadChildren: () =>
-      import('./pages/gestion-recolector/gestion-recolector.module').then(
-        (m) => m.GestionRecolectorPageModule
-      ),
-  },
-  {
     path: 'gestion-camiones',
     loadChildren: () =>
       import('./pages/gestion-camiones/gestion-camiones.module').then(
         (m) => m.GestionCamionesPageModule
-      ),
-  },
-  {
-    path: 'gestion-cliente',
-    loadChildren: () =>
-      import('./pages/gestion-cliente/gestion-cliente.module').then(
-        (m) => m.GestionClientePageModule
       ),
   },
   {

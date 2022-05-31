@@ -1,7 +1,7 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Camiones, Cliente, Recolectores, Rutas } from 'src/app/models/models';
+import { Camiones, Cliente, Recolectores, Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
@@ -11,9 +11,8 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./agregar-rutas.page.scss'],
 })
 export class AgregarRutasPage implements OnInit {
-  clientes: Cliente[] = [];
   camiones: Camiones[] = [];
-  recolectores: Recolectores[] = [];
+  usuario: Usuario[] = [];
   data: Rutas = {
     camionAsignado: '',
     recolectorAsignado: '',
@@ -81,8 +80,7 @@ export class AgregarRutasPage implements OnInit {
 
   ngOnInit() {
     this.getCamiones();
-    this.getClientes();
-    this.getRecolectores();
+    this.getUsuarios();
   }
 
   crearRutas() {
@@ -132,21 +130,13 @@ export class AgregarRutasPage implements OnInit {
     });
   }
 
-  getClientes() {
-    this.database.getCollection<Cliente>('Cliente').subscribe((res) => {
+  getUsuarios() {
+    this.database.getCollection<Usuario>('Usuarios').subscribe((res) => {
       if (res) {
-        this.clientes = res;
+        this.usuario = res;
       }
     });
   }
+ 
 
-  getRecolectores() {
-    this.database
-      .getCollection<Recolectores>('Recolectores')
-      .subscribe((res) => {
-        if (res) {
-          this.recolectores = res;
-        }
-      });
-  }
 }
