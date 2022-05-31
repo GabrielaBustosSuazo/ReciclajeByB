@@ -6,6 +6,21 @@ ion-content {
   --ion-background-color: var(--ion-color-negroOscuro);
 }
 
+ion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1.6rem;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+ion-title {
+  display: flex;
+  justify-content: center;
+}
+
 .separator {
   justify-content: center;
   display: flex;
@@ -64,82 +79,12 @@ ion-content {
   }
 }
 
-#slider {
-  overflow: hidden;
-  height: 150px;
-}
-
-#slider figure {
-  position: relative;
-  height: 150px;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  animation: 50s slider infinite;
-}
-
-#slider figure img {
-  float: left;
-  width: 20%;
-  height: 150px;
-}
-
-@keyframes slider {
-  0% {
-    left: 0;
-  }
-  20% {
-    left: 0;
-  }
-  25% {
-    left: -100%;
-  }
-  45% {
-    left: -100%;
-  }
-  50% {
-    left: -200%;
-  }
-  70% {
-    left: -200%;
-  }
-  75% {
-    left: -300%;
-  }
-  95% {
-    left: -300%;
-  }
-  100% {
-    left: -400%;
-  }
-}
-
-.menu-item {
-  cursor: pointer;
-}
-
-ion-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 1rem 1.6rem;
-  align-items: center;
-  background-color: #1a1a1a;
-}
-
 .menu-icon {
   width: 20px !important;
   height: 15px;
-  cursor: pointer;
 }
 
-ion-title {
-  display: flex;
-  justify-content: center;
-}
-
-.welcome2 {
+.banner {
   font-size: 14px;
   color: #fff;
   position: relative;
@@ -150,7 +95,7 @@ ion-title {
   border-radius: 0 0 5px 5px;
 }
 
-.welcome2-top {
+.banner-top {
   border-radius: 5px 5px 0 0;
   background-image: url("../../../assets/img/hero-img.jpg");
   text-align: center;
@@ -159,25 +104,20 @@ ion-title {
   align-items: center;
   padding: 0.5rem 2rem;
   padding-right: 2rem;
-  .dashboard-avatar2 {
-    position: relative;
-    padding: 1rem;
-    border-radius: 50%;
-    border: 3px solid var(--ion-color-verde);
-    background-color: #fff;
-    width: 70px;
-    height: 70px;
+
+  .msg-bienvenida {
+    text-align: left;
   }
 }
 
-.welcome-bottom2 {
+.banner-bottom {
   border-radius: 0 0 5px 5px;
   background-color: var(--ion-color-negro);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  .location-icon2 {
+  .banner-bottom-icon {
     width: 30px;
     height: 30px;
     margin-right: 20px;
@@ -201,10 +141,6 @@ ion-title {
 .logout img {
   width: 20px;
   height: 20px;
-}
-
-.msg-bienvenida {
-  text-align: left;
 }
 
 .msg-bienvenida span {
