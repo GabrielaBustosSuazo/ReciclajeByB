@@ -22,6 +22,7 @@ export class AgregarRutasPage implements OnInit {
     fecha: formatDate(new Date(), 'dd/MM/yyyy', 'en'),
     hora: '',
     id: '',
+    estado: 'no finalizado',
   };
 
   get camionAsignado() {

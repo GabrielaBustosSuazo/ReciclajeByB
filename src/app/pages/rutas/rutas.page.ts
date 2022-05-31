@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -13,6 +14,7 @@ export class RutasPage implements OnInit {
   usuario: Usuario [] = []
   nombreUsuario: string;
   constructor(private database: FirestoreService,
+              private alertController: AlertController,
               private firestoreauth: FirestoreauthService) { 
     this.firestoreauth.stateUser().subscribe( resp => {
       if(resp){
@@ -54,5 +56,29 @@ export class RutasPage implements OnInit {
         this.nombreUsuario = respuesta.nombreUsuario;
         console.log(this.nombreUsuario)
         })
+  }
+
+  async confirmarRecoleccion() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar recolección',
+      message: '¿Deseas confirmar la recolección?',
+      cssClass: '.yaravi',
+      buttons: [
+          {
+            text: 'Denegar',
+            handler: (blah) => {
+              console.log('Confirma Permiso Denegado: yes');
+            }
+          }, {
+            text: 'Permitir',
+            handler: () => {
+              setTimeout(function () {
+                location.reload();
+              }, 100);
+            }
+          }
+        ]
+      });
+      await alert.present();
   }
 }

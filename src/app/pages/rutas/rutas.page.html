@@ -6,7 +6,7 @@
 <ion-content>
     <span class="number"></span>
     <ng-container *ngFor="let ruta of rutas">
-        <table style="width: 100%" *ngIf="ruta.recolectorAsignado === nombreUsuario">
+        <table style="width: 100%" *ngIf="ruta.recolectorAsignado === nombreUsuario && (ruta.estado === 'no finalizado')">
             <tr>
                 <th scope="col">
                     <img class="" src="../../../assets/icon/fa_hour.png" />
@@ -31,7 +31,7 @@
                     <button class="editar boton-acciones">
           <img class="" src="../../../assets/icon/fa_maps.png" />
         </button>
-                    <button class="eliminar boton-acciones">
+                    <button class="eliminar boton-acciones" (click)="confirmarRecoleccion()">
           <img class="" src="../../../assets/icon/fa_check.png" />
         </button>
                     <button class="eliminar boton-acciones">
