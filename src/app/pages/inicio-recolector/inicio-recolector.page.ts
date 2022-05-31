@@ -13,6 +13,7 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class InicioRecolectorPage implements OnInit {
   nombreUsuario = ''
+  patente = ''
   constructor(private router: Router,
               private auth: FirestoreauthService,
               private userinterface: UserInteractionService,
@@ -73,6 +74,7 @@ export class InicioRecolectorPage implements OnInit {
         this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
         console.log('respuesta ->', respuesta)
         this.nombreUsuario = respuesta.nombreUsuario
+        this.patente = respuesta.camionDesignado
         })
   }
 

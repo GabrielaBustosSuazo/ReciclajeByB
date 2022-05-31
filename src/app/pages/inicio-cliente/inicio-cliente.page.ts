@@ -13,6 +13,7 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class InicioClientePage implements OnInit {
   nombreUsuario = '';
+  direccion = '';
   constructor(
     private router: Router,
     public auth: FirestoreauthService,
@@ -39,16 +40,6 @@ export class InicioClientePage implements OnInit {
     const dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('open');
   }
-
-  option = {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    pager: true,
-    spaceBetween: 10,
-    autoplay: { delay: 5000 },
-    speed: 2000,
-  };
 
   gotoNotifications() {
     this.router.navigate(['/notificaciones']);
@@ -87,6 +78,7 @@ export class InicioClientePage implements OnInit {
     this.firestore.getUserInfo<Usuario>(path, id).subscribe((respuesta) => {
       console.log('respuesta ->', respuesta);
       this.nombreUsuario = respuesta.nombreUsuario;
+      this.direccion = respuesta.direccion;
     });
   }
 }

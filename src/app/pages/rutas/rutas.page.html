@@ -1,89 +1,47 @@
 <ion-header>
-  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-  <ion-title mode="ios">Rutas</ion-title>
-  <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Rutas</ion-title>
+    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
 </ion-header>
 <ion-content>
-  <span class="number"></span>
-  <table style="width: 100%">
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_hour.png" />
-      </th>
-      <td>08:00</td>
-    </tr>
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_cliente.png" />
-      </th>
-      <td>Jose Perez</td>
-    </tr>
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_locationw.png" />
-      </th>
-      <td>Lago Villarica 2451, Villa Alemana</td>
-    </tr>
-    <tr>
-      <th scope="col">Acciones</th>
-      <td class="acciones">
-        <button class="editar boton-acciones">
+    <span class="number"></span>
+    <ng-container *ngFor="let ruta of rutas">
+        <table style="width: 100%" *ngIf="ruta.recolectorAsignado === nombreUsuario">
+            <tr>
+                <th scope="col">
+                    <img class="" src="../../../assets/icon/fa_hour.png" />
+                </th>
+                <td>{{ruta.hora}}</td>
+            </tr>
+            <tr>
+                <th scope="col">
+                    <img class="" src="../../../assets/icon/fa_cliente.png" />
+                </th>
+                <td>{{ruta.clienteAsignado}}</td>
+            </tr>
+            <tr>
+                <th scope="col">
+                    <img class="" src="../../../assets/icon/fa_locationw.png" />
+                </th>
+                <td>{{ruta.direccion}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Acciones</th>
+                <td class="acciones">
+                    <button class="editar boton-acciones">
           <img class="" src="../../../assets/icon/fa_maps.png" />
         </button>
-        <button class="eliminar boton-acciones">
+                    <button class="eliminar boton-acciones">
           <img class="" src="../../../assets/icon/fa_check.png" />
         </button>
-        <button class="eliminar boton-acciones">
+                    <button class="eliminar boton-acciones">
           <img class="" src="../../../assets/icon/fa_x.png" />
         </button>
-        <button class="eliminar boton-acciones">
+                    <button class="eliminar boton-acciones">
           <img class="" src="../../../assets/icon/fa_bell.png" />
         </button>
-      </td>
-    </tr>
-  </table>
-
-  <div class="separator">
-    <div class="left-line"></div>
-    <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-    <div class="right-line"></div>
-  </div>
-
-  <table style="width: 100%">
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_hour.png" />
-      </th>
-      <td>09:00</td>
-    </tr>
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_cliente.png" />
-      </th>
-      <td>Esteban Dido</td>
-    </tr>
-    <tr>
-      <th scope="col">
-        <img class="" src="../../../assets/icon/fa_locationw.png" />
-      </th>
-      <td>Alvarez 412, Viña del Mar</td>
-    </tr>
-    <tr>
-      <th scope="col">Acciones</th>
-      <td class="acciones">
-        <button class="editar boton-acciones">
-          <img class="" src="../../../assets/icon/fa_maps.png" />
-        </button>
-        <button class="eliminar boton-acciones">
-          <img class="" src="../../../assets/icon/fa_check.png" />
-        </button>
-        <button class="eliminar boton-acciones">
-          <img class="" src="../../../assets/icon/fa_x.png" />
-        </button>
-        <button class="eliminar boton-acciones">
-          <img class="" src="../../../assets/icon/fa_bell.png" />
-        </button>
-      </td>
-    </tr>
-  </table>
+                </td>
+            </tr>
+        </table>
+    </ng-container>
 </ion-content>

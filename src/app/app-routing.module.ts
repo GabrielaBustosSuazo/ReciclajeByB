@@ -89,24 +89,10 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'gestion-recolector',
-    loadChildren: () =>
-      import('./pages/gestion-recolector/gestion-recolector.module').then(
-        (m) => m.GestionRecolectorPageModule
-      ),
-  },
-  {
     path: 'gestion-camiones',
     loadChildren: () =>
       import('./pages/gestion-camiones/gestion-camiones.module').then(
         (m) => m.GestionCamionesPageModule
-      ),
-  },
-  {
-    path: 'gestion-cliente',
-    loadChildren: () =>
-      import('./pages/gestion-cliente/gestion-cliente.module').then(
-        (m) => m.GestionClientePageModule
       ),
   },
   {

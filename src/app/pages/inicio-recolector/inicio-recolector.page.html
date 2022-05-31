@@ -1,57 +1,55 @@
 <ion-header>
-  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-  <ion-title mode="ios">Inicio</ion-title>
-  <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Inicio</ion-title>
+    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
 </ion-header>
 
 <ion-content>
-  <ion-grid class="welcome2">
-    <ion-row class="welcome2-top">
-      <div class="dashboard-avatar2">
-        <img class="" src="../../../assets/icon/fa_userg.jpg" />
-      </div>
-      <p>Bienvenido<br />{{nombreUsuario}}</p>
-    </ion-row>
-    <ion-row class="welcome-bottom2">
-      <img class="location-icon2" src="../../../assets/icon/fa_truckw.png" />
-      <p>JTRK-47</p>
-    </ion-row>
-  </ion-grid>
+    <ion-grid class="welcome2">
+        <ion-row class="welcome2-top">
+            <div class="dashboard-avatar2">
+                <img class="" src="../../../assets/icon/fa_userg.jpg" />
+            </div>
+            <p>Bienvenido<br />{{nombreUsuario}}</p>
+        </ion-row>
+        <ion-row class="welcome-bottom2">
+            <img class="location-icon2" src="../../../assets/icon/fa_truckw.png" />
+            <p>{{patente}}</p>
+        </ion-row>
+    </ion-grid>
 
-  <div class="separator">
-    <div class="left-line"></div>
-    <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-    <div class="right-line"></div>
-  </div>
+    <div class="separator">
+        <div class="left-line"></div>
+        <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
+        <div class="right-line"></div>
+    </div>
 
-  <div class="menu-inicio">
-    <div class="menu-item" (click)="gotoRevisarRutas()">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_rutasw.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>
-          Revisar <br />
-          Rutas
-        </p>
-      </div>
-    </div>
-    <div class="menu-item" (click)="gotoRevisarNotificaciones()">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_bellw.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>
-          Revisar <br />
-          Notificaciones
-        </p>
-      </div>
-    </div>
-    <div class="logout">
-      <button (click)="logout()">
+    <div class="menu-inicio">
+        <div class="menu-item" (click)="gotoRevisarRutas()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_rutasw.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>
+                    Revisar <br /> Rutas
+                </p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="gotoRevisarNotificaciones()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_bellw.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>
+                    Revisar <br /> Notificaciones
+                </p>
+            </div>
+        </div>
+        <div class="logout">
+            <button (click)="logout()">
         <img class="" src="../../../assets/icon/fa_logout.png" />
         Cerrar sesión
       </button>
+        </div>
     </div>
-  </div>
 </ion-content>
