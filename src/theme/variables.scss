@@ -257,3 +257,34 @@ ion-alert {
     ) !important;
   }
 }
+
+ion-content {
+  --padding-top: 1.5rem;
+  --padding-bottom: 1.5rem;
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+  --ion-background-color: #282828;
+}
+
+.separator {
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  .left-line {
+    height: 1px;
+    background-color: #fff;
+    width: 40%;
+  }
+  .right-line {
+    height: 1px;
+    background-color: #fff;
+    width: 40%;
+  }
+  &-icon {
+    width: 30px;
+    height: 35px;
+    width: 12%;
+  }
+}
