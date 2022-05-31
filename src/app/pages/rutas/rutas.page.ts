@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-rutas',
@@ -11,6 +12,7 @@ import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 })
 export class RutasPage implements OnInit {
   rutas: Rutas[] = [];
+  ruta: Rutas;
   usuario: Usuario[] = [];
   nombreUsuario: string;
   constructor(
@@ -28,9 +30,34 @@ export class RutasPage implements OnInit {
     });
   }
 
+
   ngOnInit() {
     this.getUsuarios();
     this.getRutas();
+  }
+
+
+  async actualizarRuta(rut: Rutas) {
+    this.ruta = {
+      camionAsignado: '',
+      recolectorAsignado: '',
+      clienteAsignado: '',
+      direccion: '',
+      comuna: '',
+      fecha: '',
+      hora: '',
+      id: '',
+      estado: '',
+    }
+
+    this.ruta = rut;
+    const path = 'Rutas';
+    this.ruta.estado = 'Finalizado'
+
+
+    await this.database.createDoc(this.ruta, path, this.ruta.id).then(() => {
+      console.log(this.ruta.estado)
+    });
   }
 
   getUsuarios() {
@@ -59,6 +86,8 @@ export class RutasPage implements OnInit {
     });
   }
 
+
+
   async confirmarRecoleccion() {
     const alert = await this.alertController.create({
       header: 'Confirmar recolección',
@@ -73,9 +102,7 @@ export class RutasPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            setTimeout(function () {
-              location.reload();
-            }, 100);
+            this.actualizarRuta(this.ruta);
           },
         },
       ],
@@ -107,3 +134,7 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 }
+
+
+
+
