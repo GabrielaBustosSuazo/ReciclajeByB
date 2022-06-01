@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { NgxQrcodeElementTypes } from '@techiediaries/ngx-qrcode';
 import { Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -12,9 +13,11 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class RutasPage implements OnInit {
   rutas: Rutas[] = [];
-  ruta: Rutas;
+  rutaActualizada: Rutas;
+  createdCode: [string, string, string, string];
   usuario: Usuario[] = [];
   nombreUsuario: string;
+  flag: boolean;
   constructor(
     private database: FirestoreService,
     private alertController: AlertController,
@@ -28,7 +31,11 @@ export class RutasPage implements OnInit {
         console.log('no esta logeado');
       }
     });
+
   }
+
+  
+
 
 
   ngOnInit() {
@@ -36,9 +43,10 @@ export class RutasPage implements OnInit {
     this.getRutas();
   }
 
+ 
 
   async actualizarRuta(rut: Rutas) {
-    this.ruta = {
+    this.rutaActualizada = {
       camionAsignado: '',
       recolectorAsignado: '',
       clienteAsignado: '',
@@ -50,14 +58,7 @@ export class RutasPage implements OnInit {
       estado: '',
     }
 
-    this.ruta = rut;
-    const path = 'Rutas';
-    this.ruta.estado = 'Finalizado'
-
-
-    await this.database.createDoc(this.ruta, path, this.ruta.id).then(() => {
-      console.log(this.ruta.estado)
-    });
+    this.rutaActualizada = rut;
   }
 
   getUsuarios() {
@@ -72,6 +73,7 @@ export class RutasPage implements OnInit {
     this.database.getCollection<Rutas>('Rutas').subscribe((res) => {
       if (res) {
         this.rutas = res;
+
       }
     });
   }
@@ -102,7 +104,17 @@ export class RutasPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            this.actualizarRuta(this.ruta);
+              this.createdCode = [
+                this.rutaActualizada.hora,
+                this.rutaActualizada.clienteAsignado,
+                this.rutaActualizada.direccion,
+                this.rutaActualizada.recolectorAsignado
+              ]
+              const path = 'Rutas';
+              this.rutaActualizada.estado = 'Finalizado'
+              this.database.createDoc(this.rutaActualizada, path, this.rutaActualizada.id).then(() => {
+                console.log(this.rutaActualizada.estado)
+              });
           },
         },
       ],
