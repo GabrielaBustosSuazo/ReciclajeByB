@@ -91,6 +91,7 @@ export class RutasPage implements OnInit {
 
 
   async confirmarRecoleccion() {
+    const codigoQR = document.querySelector('.codigo-qr');
     const alert = await this.alertController.create({
       header: 'Confirmar recolección',
       message: '¿Deseas confirmar la recolección?',
@@ -110,16 +111,31 @@ export class RutasPage implements OnInit {
                 this.rutaActualizada.direccion,
                 this.rutaActualizada.recolectorAsignado
               ]
-              const path = 'Rutas';
-              this.rutaActualizada.estado = 'Finalizado'
-              this.database.createDoc(this.rutaActualizada, path, this.rutaActualizada.id).then(() => {
-                console.log(this.rutaActualizada.estado)
-              });
+
+              codigoQR.classList.add('absolute');
+              
+
           },
         },
       ],
     });
     await alert.present();
+  }
+
+  cancelarQr() {
+    const codigoQR = document.querySelector('.codigo-qr');
+    codigoQR.classList.toggle('absolute')
+  }
+
+  desaparecerRuta(){
+    const codigoQR = document.querySelector('.codigo-qr');
+    codigoQR.classList.toggle('absolute')
+    const path = 'Rutas';
+        this.rutaActualizada.estado = 'Finalizado'
+        this.database.createDoc(this.rutaActualizada, path, this.rutaActualizada.id).then(() => {
+            console.log(this.rutaActualizada.estado)
+            });
+
   }
 
   async recoleccionFallida() {

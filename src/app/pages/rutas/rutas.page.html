@@ -23,14 +23,16 @@
                 <th scope="col">Acciones</th>
                 <td class="acciones">
                     <button class="ruta boton-acciones">
-            <img class="" src="../../../assets/icon/fa_rutaw2.png" />
-            <span>Mostrar Ruta</span>
-          </button>
+                        <img class="" src="../../../assets/icon/fa_rutaw2.png" />
+                        <span>Mostrar Ruta</span>
+                    </button>
+                    <div class="acciones-item" (click)="actualizarRuta(ruta); confirmarRecoleccion()">
+                        <button class="confirmar boton-acciones">
+                        <img class="" src="../../../assets/icon/fa_confirmar.png" />
+                        <span>Rec. Exitosa</span>
+                    </button>
+                    </div>
 
-                    <button class="confirmar boton-acciones" (click)="actualizarRuta(ruta); confirmarRecoleccion()">
-                <img class="" src="../../../assets/icon/fa_confirmar.png" />
-                <span>Rec. Exitosa</span>
-              </button>
                     <button class="fallida boton-acciones" (click)="recoleccionFallida()">
             <img class="" src="../../../assets/icon/fa_fallida.png" />
             <span>Rec. Fallida</span>
@@ -43,8 +45,28 @@
             </tr>
         </table>
     </ng-container>
-    <div>
-        <ngx-qrcode [value]="createdCode">
-        </ngx-qrcode>
+    <div class="codigo-qr">
+
+        <div class="codigo-qr-container">
+            <div class="codigo-qr-card">
+                <p>Por favor, muestra este código al cliente</p>
+                <div class="separator">
+                    <div class="left-line"></div>
+                    <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
+                    <div class="right-line"></div>
+                </div>
+                <ngx-qrcode [value]="createdCode">
+                </ngx-qrcode>
+                <div class="botones-qr"><button (click)="cancelarQr()" class="fallida boton-acciones">
+                    <small>Cancelar</small>
+                </button>
+                    <button (click)="desaparecerRuta()" class="confirmar boton-acciones">
+                    <small>Confirmar</small>
+                </button></div>
+
+            </div>
+
+        </div>
+
     </div>
 </ion-content>
