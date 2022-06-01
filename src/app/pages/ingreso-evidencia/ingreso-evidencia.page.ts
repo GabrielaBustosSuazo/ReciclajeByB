@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Evidencias } from 'src/app/models/models';
+import { Router } from '@angular/router';
+import { Evidencias, Usuario } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
@@ -12,6 +14,9 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class IngresoEvidenciaPage implements OnInit {
   private path = 'Evidencias/';
+  cliente: any;
+  recolectorAsignado: string;
+  camionDesignado: string;
   imageuploaded = '';
   newFile: any;
   evidencia: Evidencias = {
@@ -20,6 +25,7 @@ export class IngresoEvidenciaPage implements OnInit {
     id: '',
     clienteAsignado: '',
     recolectorAsignado: '',
+    camionAsignado: '',
   };
 
   get foto() {
@@ -40,12 +46,41 @@ export class IngresoEvidenciaPage implements OnInit {
   });
   constructor(
     private userInteraction: UserInteractionService,
-    private database: FirestoreService,
+    private firestore: FirestoreService,
+    private firestoreauth: FirestoreauthService,
     private firestorage: FirestorageService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.firestoreauth.stateUser().subscribe((resp) => {
+      if (resp) {
+        this.getUserInfo(resp.uid);
+        console.log('esta logeado');
+      } else {
+        console.log('no esta logeado');
+      }
+    });
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation.extras.state as {
+      cli: string;
+  };
+    this.cliente = state.cli;
+  }
+  
 
   ngOnInit() {
+  }
+
+  getUserInfo(uid: string) {
+    const path = 'Usuarios';
+    const id = uid;
+    this.firestore.getUserInfo<Usuario>(path, id).subscribe((respuesta) => {
+      console.log('respuesta ->', respuesta);
+      this.recolectorAsignado = respuesta.nombreUsuario;
+      this.camionDesignado = respuesta.camionDesignado;
+      
+      console.log(this.evidencia.recolectorAsignado + ' ' + this.evidencia.recolectorAsignado);
+    });
   }
 
  
@@ -53,8 +88,11 @@ export class IngresoEvidenciaPage implements OnInit {
   async crearEvidencia() {
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Evidencia';
-    const id = this.database.getId();
+    const id = this.firestore.getId();
     this.evidencia.id = id;
+    this.evidencia.camionAsignado = this.camionDesignado
+    this.evidencia.recolectorAsignado = this.recolectorAsignado;
+    this.evidencia.clienteAsignado = this.cliente
     const nombre = id;
     if (this.newFile !== undefined) {
       const res = await this.firestorage.uploadImage(
@@ -65,7 +103,7 @@ export class IngresoEvidenciaPage implements OnInit {
       this.evidencia.foto = res;
     }
 
-    this.database.createDoc(this.evidencia, this.path, id).then(() => {
+    this.firestore.createDoc(this.evidencia, this.path, id).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Evidencia cargada exitosamente');
     });

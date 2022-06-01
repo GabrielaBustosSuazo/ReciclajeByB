@@ -24,6 +24,7 @@ export interface Evidencias {
   id: string;
   clienteAsignado: string;
   recolectorAsignado: string;
+  camionAsignado: string;
 }
 
 export interface Usuario {

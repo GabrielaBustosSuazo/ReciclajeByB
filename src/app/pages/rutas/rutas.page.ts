@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { NgxQrcodeElementTypes } from '@techiediaries/ngx-qrcode';
 import { Rutas, Usuario } from 'src/app/models/models';
@@ -14,6 +15,8 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 export class RutasPage implements OnInit {
   rutas: Rutas[] = [];
   rutaActualizada: Rutas;
+  cliente: string;
+  datosCliente: string;
   createdCode: [string, string, string, string];
   usuario: Usuario[] = [];
   nombreUsuario: string;
@@ -21,7 +24,8 @@ export class RutasPage implements OnInit {
   constructor(
     private database: FirestoreService,
     private alertController: AlertController,
-    private firestoreauth: FirestoreauthService
+    private firestoreauth: FirestoreauthService,
+    private router: Router
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -59,6 +63,7 @@ export class RutasPage implements OnInit {
     }
 
     this.rutaActualizada = rut;
+    this.cliente = this.rutaActualizada.clienteAsignado;
   }
 
   getUsuarios() {
@@ -138,7 +143,7 @@ export class RutasPage implements OnInit {
 
   }
 
-  async recoleccionFallida() {
+  async recoleccionFallida(rut: Rutas) {
     const alert = await this.alertController.create({
       header: 'Confirmar recolección',
       message: '¿La recolección fue fallida?',
@@ -152,9 +157,27 @@ export class RutasPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            setTimeout(function () {
-              location.reload();
-            }, 100);
+            this.rutaActualizada = {
+              camionAsignado: '',
+              recolectorAsignado: '',
+              clienteAsignado: '',
+              direccion: '',
+              comuna: '',
+              fecha: '',
+              hora: '',
+              id: '',
+              estado: '',
+            }
+        
+            this.rutaActualizada = rut;
+            this.datosCliente = "La evidencia pertenece al cliente " + this.rutaActualizada.clienteAsignado + " de la dirección " +
+            this.rutaActualizada.direccion
+            const navigationExtras: NavigationExtras = {
+              state: {
+                cli: this.datosCliente
+              }
+            };
+            this.router.navigate(['/ingreso-evidencia'], navigationExtras);
           },
         },
       ],

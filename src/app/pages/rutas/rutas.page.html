@@ -33,7 +33,7 @@
                     </button>
                     </div>
 
-                    <button class="fallida boton-acciones" (click)="recoleccionFallida()">
+                    <button class="fallida boton-acciones" (click)="recoleccionFallida(ruta)">
             <img class="" src="../../../assets/icon/fa_fallida.png" />
             <span>Rec. Fallida</span>
           </button>
@@ -49,7 +49,7 @@
 
         <div class="codigo-qr-container">
             <div class="codigo-qr-card">
-                <p>Por favor, muestra este código al cliente</p>
+                <p>Por favor, muestra este código al cliente {{ cliente }}</p>
                 <div class="separator">
                     <div class="left-line"></div>
                     <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
