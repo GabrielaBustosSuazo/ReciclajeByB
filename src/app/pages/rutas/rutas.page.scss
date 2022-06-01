@@ -5,6 +5,7 @@ ion-content {
     --padding-end: 1.5rem;
     --ion-background-color: #282828;
     position: relative;
+    z-index: 10;
 }
 
 table {
@@ -146,9 +147,11 @@ ion-title {
     height: 0;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: -1;
 }
 
 .codigo-qr.absolute {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
     top: 0;
     left: 0;
@@ -160,9 +163,14 @@ ion-title {
     display: block;
 }
 
+.codigo-qr.absolute .codigo-qr-container {
+    display: block;
+}
+
 .codigo-qr-container {
+    display: none;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
@@ -204,7 +212,7 @@ ion-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     .left-line {
         height: 1px;
         background-color: #fff;

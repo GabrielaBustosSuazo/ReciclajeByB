@@ -35,19 +35,12 @@ export class RutasPage implements OnInit {
         console.log('no esta logeado');
       }
     });
-
   }
-
-  
-
-
 
   ngOnInit() {
     this.getUsuarios();
     this.getRutas();
   }
-
- 
 
   async actualizarRuta(rut: Rutas) {
     this.rutaActualizada = {
@@ -60,7 +53,7 @@ export class RutasPage implements OnInit {
       hora: '',
       id: '',
       estado: '',
-    }
+    };
 
     this.rutaActualizada = rut;
     this.cliente = this.rutaActualizada.clienteAsignado;
@@ -78,7 +71,6 @@ export class RutasPage implements OnInit {
     this.database.getCollection<Rutas>('Rutas').subscribe((res) => {
       if (res) {
         this.rutas = res;
-
       }
     });
   }
@@ -92,8 +84,6 @@ export class RutasPage implements OnInit {
       console.log(this.nombreUsuario);
     });
   }
-
-
 
   async confirmarRecoleccion() {
     const codigoQR = document.querySelector('.codigo-qr');
@@ -110,16 +100,14 @@ export class RutasPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-              this.createdCode = [
-                this.rutaActualizada.hora,
-                this.rutaActualizada.clienteAsignado,
-                this.rutaActualizada.direccion,
-                this.rutaActualizada.recolectorAsignado
-              ]
+            this.createdCode = [
+              this.rutaActualizada.hora,
+              this.rutaActualizada.clienteAsignado,
+              this.rutaActualizada.direccion,
+              this.rutaActualizada.recolectorAsignado,
+            ];
 
-              codigoQR.classList.add('absolute');
-              
-
+            codigoQR.classList.add('absolute');
           },
         },
       ],
@@ -129,23 +117,24 @@ export class RutasPage implements OnInit {
 
   cancelarQr() {
     const codigoQR = document.querySelector('.codigo-qr');
-    codigoQR.classList.toggle('absolute')
+    codigoQR.classList.toggle('absolute');
   }
 
-  desaparecerRuta(){
+  desaparecerRuta() {
     const codigoQR = document.querySelector('.codigo-qr');
-    codigoQR.classList.toggle('absolute')
+    codigoQR.classList.toggle('absolute');
     const path = 'Rutas';
-        this.rutaActualizada.estado = 'Finalizado'
-        this.database.createDoc(this.rutaActualizada, path, this.rutaActualizada.id).then(() => {
-            console.log(this.rutaActualizada.estado)
-            });
-
+    this.rutaActualizada.estado = 'Finalizado';
+    this.database
+      .createDoc(this.rutaActualizada, path, this.rutaActualizada.id)
+      .then(() => {
+        console.log(this.rutaActualizada.estado);
+      });
   }
 
   async recoleccionFallida(rut: Rutas) {
     const alert = await this.alertController.create({
-      header: 'Confirmar recolección',
+      header: 'Rechazar recolección',
       message: '¿La recolección fue fallida?',
       buttons: [
         {
@@ -185,7 +174,3 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 }
-
-
-
-
