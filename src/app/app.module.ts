@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -24,6 +25,7 @@ import { DatePipe } from '@angular/common';
             AngularFireAuthModule,
             AngularFirestoreModule,
             AngularFireStorageModule,
+            NgxQRCodeModule
             
 ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePipe],

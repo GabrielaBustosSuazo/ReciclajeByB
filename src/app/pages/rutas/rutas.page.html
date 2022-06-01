@@ -26,10 +26,11 @@
             <img class="" src="../../../assets/icon/fa_rutaw2.png" />
             <span>Mostrar Ruta</span>
           </button>
-                    <button class="confirmar boton-acciones" (click)="confirmarRecoleccion();actualizarRuta(ruta)">
-            <img class="" src="../../../assets/icon/fa_confirmar.png" />
-            <span>Rec. Exitosa</span>
-          </button>
+
+                    <button class="confirmar boton-acciones" (click)="actualizarRuta(ruta); confirmarRecoleccion()">
+                <img class="" src="../../../assets/icon/fa_confirmar.png" />
+                <span>Rec. Exitosa</span>
+              </button>
                     <button class="fallida boton-acciones" (click)="recoleccionFallida()">
             <img class="" src="../../../assets/icon/fa_fallida.png" />
             <span>Rec. Fallida</span>
@@ -42,4 +43,8 @@
             </tr>
         </table>
     </ng-container>
+    <div>
+        <ngx-qrcode [value]="createdCode">
+        </ngx-qrcode>
+    </div>
 </ion-content>
