@@ -1,14 +1,25 @@
 <ion-content>
-    <form [formGroup]="rutasForm">
-        <div class="form-item">
-            <label for="">Camion a asignar</label>
-            <ion-select formControlName="camionAsignado" [(ngModel)]="data.camionAsignado">
-                <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
-            </ion-select>
-        </div>
-        <div *ngFor="let error of errorMessages.camionAsignado">
-            <ng-container *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)">
-                <small class="error-message">
+  <form [formGroup]="rutasForm">
+    <div class="form-item">
+      <label for="">Camion a asignar</label>
+      <ion-select
+        formControlName="camionAsignado"
+        [(ngModel)]="data.camionAsignado"
+        okText="Confirmar"
+        cancelText="Cancelar"
+      >
+        <ion-select-option
+          *ngFor="let camion of camiones"
+          [value]="camion.patente"
+          >{{camion.patente}}</ion-select-option
+        >
+      </ion-select>
+    </div>
+    <div *ngFor="let error of errorMessages.camionAsignado">
+      <ng-container
+        *ngIf="camionAsignado.hasError(error.type) && (camionAsignado.dirty || camionAsignado.touched)"
+      >
+        <small class="error-message">
           <img src="../../../assets/icon/fa_errorform.png" alt="" />
           {{error.message}}</small
         >
@@ -19,14 +30,17 @@
       <ion-select
         formControlName="recolectorAsignado"
         [(ngModel)]="data.recolectorAsignado"
-        name="recolectorAsignado">
-      <ng-container *ngFor = "let recolector of usuario">
-        <ion-select-option
-          *ngIf = "recolector.tipoUsuario === 'Recolector'"
-          [value]="recolector.nombre"
-          >{{recolector.nombreUsuario}}</ion-select-option
-        >
-      </ng-container>
+        name="recolectorAsignado"
+        okText="Confirmar"
+        cancelText="Cancelar"
+      >
+        <ng-container *ngFor="let recolector of usuario">
+          <ion-select-option
+            *ngIf="recolector.tipoUsuario === 'Recolector'"
+            [value]="recolector.nombre"
+            >{{recolector.nombreUsuario}}</ion-select-option
+          >
+        </ng-container>
       </ion-select>
     </div>
     <div *ngFor="let error of errorMessages.recolectorAsignado">
@@ -43,12 +57,16 @@
       <label for="">Cliente a asignar</label>
       <ion-select
         formControlName="clienteAsignado"
-        [(ngModel)]=" data.clienteAsignado">
-        <ng-container *ngFor = "let cliente of usuario">
+        [(ngModel)]=" data.clienteAsignado"
+        okText="Confirmar"
+        cancelText="Cancelar"
+      >
+        <ng-container *ngFor="let cliente of usuario">
           <ion-select-option
-            *ngIf = "cliente.tipoUsuario === 'Cliente'"
+            *ngIf="cliente.tipoUsuario === 'Cliente'"
             [value]="cliente.nombreUsuario"
-            >{{cliente.nombreUsuario}}</ion-select-option>
+            >{{cliente.nombreUsuario}}</ion-select-option
+          >
         </ng-container>
       </ion-select>
     </div>
