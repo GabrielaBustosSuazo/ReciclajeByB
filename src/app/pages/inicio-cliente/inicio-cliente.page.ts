@@ -55,6 +55,10 @@ export class InicioClientePage implements OnInit {
     this.router.navigate(['/notificaciones']);
   }
 
+  lectorQr(){
+    this.router.navigate(['/confirmar-recoleccion'])
+  }
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Salir',

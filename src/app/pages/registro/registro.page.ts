@@ -171,6 +171,7 @@ export class RegistroPage implements OnInit {
       const uid = await this.firestoreauth.getUid();
       this.usuario.uid = uid;
       this.crearUsuarios();
+      this.firestoreauth.logout();
       this.usuario.email = '';
       this.usuario.password = '';
       this.usuario.nombreUsuario = '';

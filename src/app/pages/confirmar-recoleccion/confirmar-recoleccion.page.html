@@ -1,0 +1,36 @@
+<ion-header>
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Confirmar recolección</ion-title>
+    <div id="nav-icon3" (click)="abrirMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="dropdown" class="dropdown">
+        <li class="dropdown-title">
+            <h3>Menu cliente</h3>
+        </li>
+        <li>
+            <img src="../../../assets/icon/fa_rutasw.png" alt="" />
+            <a href="#">Confirmar Recolección</a>
+        </li>
+        <li>
+            <img (click)="gotoNotifications()" src="../../../assets/icon/fa_bellw.png" alt="" />
+            <a (click)="gotoNotifications()">Revisar Notificaciones</a>
+        </li>
+        <li class="logout">
+            <button (click)="logout()">
+        <img class="" src="../../../assets/icon/fa_logout.png" />
+        Cerrar sesión
+      </button>
+        </li>
+    </ul>
+</ion-header>
+
+<ion-content>
+    <div class="textQR">
+        <h1>Confirma que los datos están correctos</h1>
+        <p>{{qrData}}</p>
+    </div>
+</ion-content>
