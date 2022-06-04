@@ -16,20 +16,28 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { DatePipe } from '@angular/common';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
-
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-            FormsModule, AngularFireModule.initializeApp(environment.firebaseConfig),
-            AngularFireAuthModule,
-            AngularFirestoreModule,
-            AngularFireStorageModule,
-            NgxQRCodeModule
-            
-],
-  providers: [BarcodeScanner, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePipe],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    NgxQRCodeModule,
+  ],
+  providers: [
+    BarcodeScanner,
+    EmailComposer,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    DatePipe,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

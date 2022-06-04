@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
 import { Evidencias, Usuario } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -50,7 +51,8 @@ export class IngresoEvidenciaPage implements OnInit {
     private firestoreauth: FirestoreauthService,
     private firestorage: FirestorageService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private emailComposer: EmailComposer
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -63,13 +65,11 @@ export class IngresoEvidenciaPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
       cli: string;
-  };
+    };
     this.cliente = state.cli;
   }
-  
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getUserInfo(uid: string) {
     const path = 'Usuarios';
@@ -78,21 +78,34 @@ export class IngresoEvidenciaPage implements OnInit {
       console.log('respuesta ->', respuesta);
       this.recolectorAsignado = respuesta.nombreUsuario;
       this.camionDesignado = respuesta.camionDesignado;
-      
-      console.log(this.evidencia.recolectorAsignado + ' ' + this.evidencia.recolectorAsignado);
+
+      console.log(
+        this.evidencia.recolectorAsignado +
+          ' ' +
+          this.evidencia.recolectorAsignado
+      );
     });
   }
 
- 
-
   async crearEvidencia() {
+    const email = {
+      to: 'jbecofla@gmail.com',
+      cc: 'jbecofla@gmail.com',
+      bcc: [],
+      attachments: [],
+      subject: 'Cordova Icons',
+      body: 'How are you? Nice greetings from Leipzig',
+      isHtml: true,
+    };
+    this.emailComposer.open(email);
+
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Evidencia';
     const id = this.firestore.getId();
     this.evidencia.id = id;
-    this.evidencia.camionAsignado = this.camionDesignado
+    this.evidencia.camionAsignado = this.camionDesignado;
     this.evidencia.recolectorAsignado = this.recolectorAsignado;
-    this.evidencia.clienteAsignado = this.cliente
+    this.evidencia.clienteAsignado = this.cliente;
     const nombre = id;
     if (this.newFile !== undefined) {
       const res = await this.firestorage.uploadImage(
