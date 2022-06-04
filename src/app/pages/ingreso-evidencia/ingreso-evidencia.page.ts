@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Evidencias, Usuario } from 'src/app/models/models';
+import { Evidencias, Rutas, Usuario } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -17,6 +17,8 @@ export class IngresoEvidenciaPage implements OnInit {
   cliente: any;
   recolectorAsignado: string;
   camionDesignado: string;
+  estado: string;
+  id: string;
   imageuploaded = '';
   newFile: any;
   evidencia: Evidencias = {
@@ -63,12 +65,18 @@ export class IngresoEvidenciaPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
       cli: string;
+      estado: string;
+      id: string;
   };
     this.cliente = state.cli;
+    this.estado = state.estado;
+    this.id = state.id;
+
   }
   
 
   ngOnInit() {
+    console.log('hola' + this.estado)
   }
 
   getUserInfo(uid: string) {
@@ -101,8 +109,7 @@ export class IngresoEvidenciaPage implements OnInit {
         nombre
       );
       this.evidencia.foto = res;
-    }
-
+      }
     this.firestore.createDoc(this.evidencia, this.path, id).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Evidencia cargada exitosamente');
@@ -110,7 +117,12 @@ export class IngresoEvidenciaPage implements OnInit {
 
     this.evidencia.foto = '';
     this.evidencia.comentario = '';
+    const path2 = 'Rutas';
+    this.estado = 'Finalizado';
+    this.firestore.updateDoc(this.estado, path2, this.id)
+    this.router.navigate(['/rutas'])
   }
+  
 
   newImage(event: any) {
     if (event.target.files && event.target.files[0]) {
