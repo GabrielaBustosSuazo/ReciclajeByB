@@ -76,7 +76,6 @@ export class IngresoEvidenciaPage implements OnInit {
   
 
   ngOnInit() {
-    console.log('hola' + this.estado)
   }
 
   getUserInfo(uid: string) {

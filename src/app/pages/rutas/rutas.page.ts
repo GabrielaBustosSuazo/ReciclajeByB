@@ -166,7 +166,6 @@ export class RutasPage implements OnInit {
                 cli: this.datosCliente,
                 estado: this.rutaActualizada.estado,
                 id: this.rutaActualizada.id,
-                ruta: this.rutaActualizada
               }
             };
             this.router.navigate(['/ingreso-evidencia'], navigationExtras);
