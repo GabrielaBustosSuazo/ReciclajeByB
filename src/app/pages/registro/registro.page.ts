@@ -83,6 +83,7 @@ export class RegistroPage implements OnInit {
     telefono: [
       { type: 'required', message: 'Teléfono no puede estar vacío' },
       { type: 'minlength', message: 'Teléfono debe tener 8 numeros' },
+      { type: 'pattern', message: 'Teléfono no puede contener letras' },
     ],
     comuna: [{ type: 'required', message: 'Comuna no puede estar vacía' }],
     tipoUsuario: [
@@ -119,7 +120,8 @@ export class RegistroPage implements OnInit {
     ],
     nombre: ['', [Validators.required]],
     direccion: ['', [Validators.required]],
-    telefono: ['', [Validators.required, Validators.minLength(8)]],
+    telefono: ['', [Validators.required,
+                    Validators.pattern(/^[0-9]*$/)]],
     comuna: ['', [Validators.required]],
   });
 

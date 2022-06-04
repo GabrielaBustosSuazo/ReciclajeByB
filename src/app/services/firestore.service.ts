@@ -16,6 +16,13 @@ export class FirestoreService {
 
   }
 
+  updateDoc(data: string, path: string, id: string,){
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).update({
+        "estado" : data
+    });
+  }
+
   getId(){
     return this.firestore.createId()
   }
