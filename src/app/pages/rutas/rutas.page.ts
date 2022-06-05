@@ -101,11 +101,12 @@ export class RutasPage implements OnInit {
           text: 'Permitir',
           handler: () => {
             this.createdCode = [
-              this.rutaActualizada.hora,
-              this.rutaActualizada.clienteAsignado,
-              this.rutaActualizada.direccion,
-              this.rutaActualizada.recolectorAsignado,
+              this.rutaActualizada.hora + ',',
+              this.rutaActualizada.clienteAsignado + ',',
+              this.rutaActualizada.direccion + ',',
+              this.rutaActualizada.recolectorAsignado + ',',
             ];
+            console.log(this.createdCode);
 
             codigoQR.classList.add('absolute');
           },
@@ -156,17 +157,20 @@ export class RutasPage implements OnInit {
               hora: '',
               id: '',
               estado: '',
-            }
-        
+            };
+
             this.rutaActualizada = rut;
-            this.datosCliente = "La evidencia pertenece al cliente " + this.rutaActualizada.clienteAsignado + " de la dirección " +
-            this.rutaActualizada.direccion
+            this.datosCliente =
+              'La evidencia pertenece al cliente ' +
+              this.rutaActualizada.clienteAsignado +
+              ' de la dirección ' +
+              this.rutaActualizada.direccion;
             const navigationExtras: NavigationExtras = {
               state: {
                 cli: this.datosCliente,
                 estado: this.rutaActualizada.estado,
                 id: this.rutaActualizada.id,
-              }
+              },
             };
             this.router.navigate(['/ingreso-evidencia'], navigationExtras);
           },

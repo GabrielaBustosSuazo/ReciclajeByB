@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
-
 import { Evidencias, Rutas, Usuario } from 'src/app/models/models';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -55,7 +53,6 @@ export class IngresoEvidenciaPage implements OnInit {
     private firestorage: FirestorageService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private emailComposer: EmailComposer
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -95,16 +92,7 @@ export class IngresoEvidenciaPage implements OnInit {
   }
 
   async crearEvidencia() {
-    const email = {
-      to: 'jbecofla@gmail.com',
-      cc: 'jbecofla@gmail.com',
-      bcc: [],
-      attachments: [],
-      subject: 'Cordova Icons',
-      body: 'How are you? Nice greetings from Leipzig',
-      isHtml: true,
-    };
-    this.emailComposer.open(email);
+    
 
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Evidencia';

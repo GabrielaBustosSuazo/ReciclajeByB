@@ -33,19 +33,37 @@
 </ion-header>
 
 <ion-content>
+  <div class="pantalla-carga"></div>
   <div class="textQR">
-    <h2>Información de la recolecciónnnnnnn</h2>
-    <div class="informacion-qr">
-      <p class="datos-qr">{{qrData}}</p>
-    </div>
-    <div class="informacion-qr">
-      <ion-input type="text" [(ngModel)]="encodeData"></ion-input>
-      <button ion-button (click)="encodeText()">Encode Text</button>
-    </div>
+    <h2>Información de la recolección</h2>
+    <p>
+      Por favor, revisa que Información a continuación esté con los datos
+      correspondientes.
+    </p>
+
+    <table style="width: 100%">
+      <tr>
+        <th scope="col">Hora</th>
+        <td>{{qrDataSplit1}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Cliente</th>
+        <td>{{qrDataSplit2}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Dirección</th>
+        <td>{{qrDataSplit3}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Recolector</th>
+        <td>{{qrDataSplit4}}</td>
+      </tr>
+    </table>
+
     <p>¿Los datos son correctos?</p>
     <div class="botones">
-      <button (click)="cancelar()">No, son incorrectos</button>
-      <button (click)="confirmacion()">Si, son correctos</button>
+      <button (click)="cancelar()">Incorrectos</button>
+      <button (click)="confirmacion()">Correctos</button>
     </div>
   </div>
 </ion-content>

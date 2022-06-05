@@ -1,159 +1,226 @@
 <ion-content>
-    <form [formGroup]="usuariosForm">
-        <div class="form-item ">
-            <label for=" ">Email</label>
-            <input formControlName="email" [(ngModel)]="usuario.email" type="text" name="email" />
-        </div>
-        <div *ngFor="let error of errorMessages.email">
-            <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Nombre de usuario</label>
-            <input formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" type="text" name="nombreUsuario" />
-        </div>
-        <div *ngFor="let error of errorMessages.nombreUsuario">
-            <ng-container *ngIf="nombreUsuario.hasError(error.type) && (nombreUsuario.dirty || nombreUsuario.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item ">
-            <label for=" ">Contraseña</label>
-            <input formControlName="password" [(ngModel)]="usuario.password" type="password" name="password" maxlength="7" />
-        </div>
-        <div *ngFor="let error of errorMessages.password">
-            <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item">
-            <label for="">Run</label>
-            <input formControlName="run" [(ngModel)]="usuario.run" type="text" maxlength="12" id="rut" name="rut" required />
-        </div>
-        <div *ngFor="let error of errorMessages.run">
-            <ng-container *ngIf="run.hasError(error.type) && (run.dirty || run.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small
-              >
-            </ng-container>
-          </div>
-          <div class="form-item">
-            <label for="">Dirección</label>
-            <input
-              formControlName="direccion"
-              [(ngModel)]="usuario.direccion"
-              maxlength="50"
-              name="direccion"
-              type="text"
-              required
-            />
-          </div>
-          <div *ngFor="let error of errorMessages.direccion">
-            <ng-container
-              *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)"
-            >
-              <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small
-              >
-            </ng-container>
-          </div>
-          <div class="form-item">
-            <label for="">Comuna</label>
-            <input
-              formControlName="comuna"
-              [(ngModel)]="usuario.comuna"
-              maxlength="30"
-              name="comuna"
-              type="text"
-              required
-            />
-          </div>
-          <div *ngFor="let error of errorMessages.comuna">
-            <ng-container
-              *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)"
-            >
-              <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small
-              >
-            </ng-container>
-          </div>
-          <div class="form-item telefono">
-            <label for="">Teléfono</label>
-            <input
-              formControlName="telefono"
-              [(ngModel)]="usuario.telefono"
-              name="telefono"
-              type="tel"
-              maxlength="8"
-              required
-            />
-          </div>
-          <div *ngFor="let error of errorMessages.telefono">
-            <ng-container
-              *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)"
-            >
-              <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small
-              >
-            </ng-container>
-          </div>
-        <div class="form-item">
-            <label for="">Tipo usuario</label>
-            <ion-select formControlName="tipoUsuario" [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario">
-                <ion-select-option>Cliente</ion-select-option>
-                <ion-select-option>Recolector</ion-select-option>
-            </ion-select>
-        </div>
-        <div *ngFor="let error of errorMessages.tipoUsuario">
-            <ng-container *ngIf="tipoUsuario.hasError(error.type) && (tipoUsuario.dirty || tipoUsuario.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div *ngIf="usuario.tipoUsuario === 'Cliente'" class="form-item">
-            <label for="">Tipo plan</label>
-            <ion-select formControlName="tipoPlan" [(ngModel)]="usuario.tipoPlan" name="tipoPlan">
-                <ion-select-option>1 día</ion-select-option>
-                <ion-select-option>2 días</ion-select-option>
-            </ion-select>
-        </div>
-        <div *ngFor="let error of errorMessages.tipoPlan">
-            <ng-container *ngIf="tipoPlan.hasError(error.type) && (tipoPlan.dirty || tipoPlan.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div *ngIf="usuario.tipoUsuario==='Recolector'" class="form-item ">
-            <label for="">Camion Designado</label>
-            <ion-select formControlName="camionDesignado" [(ngModel)]="usuario.camionDesignado" name="camionDesignado">
-                <ion-select-option *ngFor="let camion of camiones" [value]="camion.patente">{{camion.patente}}</ion-select-option>
-            </ion-select>
-        </div>
-        <div *ngFor="let error of errorMessages.camionDesignado">
-            <ng-container *ngIf="camionDesignado.hasError(error.type) && (camionDesignado.dirty || camionDesignado.touched)">
-                <small class="error-message">
-                <img src="../../../assets/icon/fa_errorform.png" alt="" />
-                {{error.message}}</small>
-            </ng-container>
-        </div>
-        <div class="form-item-button">
-            <button (click)="registrar()">Registrar
-            <img class="lock-img " src="../../../assets/icon/fa_lockw.png" alt=" " />
-            <img class="check-img " src="../../../assets/icon/fa_check.png" alt=" " />
-            </button>
-        </div>
-    </form>
+  <form [formGroup]="usuariosForm">
+    <div class="form-item">
+      <label for=" ">Email</label>
+      <input
+        formControlName="email"
+        [(ngModel)]="usuario.email"
+        type="text"
+        name="email"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container
+        *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Nombre de usuario</label>
+      <input
+        formControlName="nombreUsuario"
+        [(ngModel)]="usuario.nombreUsuario"
+        type="text"
+        name="nombreUsuario"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.nombreUsuario">
+      <ng-container
+        *ngIf="nombreUsuario.hasError(error.type) && (nombreUsuario.dirty || nombreUsuario.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for=" ">Contraseña</label>
+      <input
+        formControlName="password"
+        [(ngModel)]="usuario.password"
+        type="password"
+        name="password"
+        maxlength="7"
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.password">
+      <ng-container
+        *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Run</label>
+      <input
+        formControlName="run"
+        [(ngModel)]="usuario.run"
+        type="text"
+        maxlength="12"
+        id="rut"
+        name="rut"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.run">
+      <ng-container
+        *ngIf="run.hasError(error.type) && (run.dirty || run.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Dirección</label>
+      <input
+        formControlName="direccion"
+        [(ngModel)]="usuario.direccion"
+        maxlength="50"
+        name="direccion"
+        type="text"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.direccion">
+      <ng-container
+        *ngIf="direccion.hasError(error.type) && (direccion.dirty || direccion.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Comuna</label>
+      <input
+        formControlName="comuna"
+        [(ngModel)]="usuario.comuna"
+        maxlength="30"
+        name="comuna"
+        type="text"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.comuna">
+      <ng-container
+        *ngIf="comuna.hasError(error.type) && (comuna.dirty || comuna.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item telefono">
+      <label for="">Teléfono</label>
+      <input
+        formControlName="telefono"
+        [(ngModel)]="usuario.telefono"
+        name="telefono"
+        type="tel"
+        maxlength="8"
+        required
+      />
+    </div>
+    <div *ngFor="let error of errorMessages.telefono">
+      <ng-container
+        *ngIf="telefono.hasError(error.type) && (telefono.dirty || telefono.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item">
+      <label for="">Tipo usuario</label>
+      <ion-select
+        formControlName="tipoUsuario"
+        [(ngModel)]="usuario.tipoUsuario"
+        name="tipoUsuario"
+        okText="Confirmar"
+        cancelText="Cancelar"
+      >
+        <ion-select-option>Cliente</ion-select-option>
+        <ion-select-option>Recolector</ion-select-option>
+      </ion-select>
+    </div>
+    <div *ngFor="let error of errorMessages.tipoUsuario">
+      <ng-container
+        *ngIf="tipoUsuario.hasError(error.type) && (tipoUsuario.dirty || tipoUsuario.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div *ngIf="usuario.tipoUsuario === 'Cliente'" class="form-item">
+      <label for="">Tipo plan</label>
+      <ion-select
+        formControlName="tipoPlan"
+        [(ngModel)]="usuario.tipoPlan"
+        name="tipoPlan"
+      >
+        <ion-select-option>1 día</ion-select-option>
+        <ion-select-option>2 días</ion-select-option>
+      </ion-select>
+    </div>
+    <div *ngFor="let error of errorMessages.tipoPlan">
+      <ng-container
+        *ngIf="tipoPlan.hasError(error.type) && (tipoPlan.dirty || tipoPlan.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div *ngIf="usuario.tipoUsuario==='Recolector'" class="form-item">
+      <label for="">Camion Designado</label>
+      <ion-select
+        formControlName="camionDesignado"
+        [(ngModel)]="usuario.camionDesignado"
+        name="camionDesignado"
+      >
+        <ion-select-option
+          *ngFor="let camion of camiones"
+          [value]="camion.patente"
+          >{{camion.patente}}</ion-select-option
+        >
+      </ion-select>
+    </div>
+    <div *ngFor="let error of errorMessages.camionDesignado">
+      <ng-container
+        *ngIf="camionDesignado.hasError(error.type) && (camionDesignado.dirty || camionDesignado.touched)"
+      >
+        <small class="error-message">
+          <img src="../../../assets/icon/fa_errorform.png" alt="" />
+          {{error.message}}</small
+        >
+      </ng-container>
+    </div>
+    <div class="form-item-button">
+      <button (click)="registrar()">
+        Registrar
+        <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt=" " />
+        <img
+          class="check-img"
+          src="../../../assets/icon/fa_check.png"
+          alt=" "
+        />
+      </button>
+    </div>
+  </form>
 </ion-content>

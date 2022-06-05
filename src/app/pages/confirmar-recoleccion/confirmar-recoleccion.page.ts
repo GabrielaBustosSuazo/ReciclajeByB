@@ -10,8 +10,12 @@ import { ToastController } from '@ionic/angular';
 })
 export class ConfirmarRecoleccionPage implements OnInit {
   qrData: any;
-  encodeData: string;
-  encodedData: any;
+  qrDataSplit: any;
+  qrDataSplit1: any;
+  qrDataSplit2: any;
+  qrDataSplit3: any;
+  qrDataSplit4: any;
+
   constructor(
     private barcodeScanner: BarcodeScanner,
     private toastController: ToastController,
@@ -19,15 +23,26 @@ export class ConfirmarRecoleccionPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    setTimeout(function () {
+      const pantallaCarga = document.querySelector('.pantalla-carga');
+      pantallaCarga.classList.toggle('mostrar');
+    }, 3000);
+
     this.barcodeScanner
       .scan()
       .then((barcodeData) => {
-        console.log('Barcode data', barcodeData);
         this.qrData = barcodeData.text;
+        this.qrDataSplit = this.qrData.split(',');
+        this.qrDataSplit1 = this.qrDataSplit[0];
+        this.qrDataSplit2 = this.qrDataSplit[1];
+        this.qrDataSplit3 = this.qrDataSplit[2];
+        this.qrDataSplit4 = this.qrDataSplit[3];
       })
       .catch((err) => {
         console.log('Error', err);
       });
+
+    console.log(typeof this.barcodeScanner);
   }
 
   cancelar() {
@@ -35,7 +50,6 @@ export class ConfirmarRecoleccionPage implements OnInit {
       .scan()
       .then((barcodeData) => {
         this.qrData = barcodeData.text;
-        console.log('Barcode data', this.qrData);
       })
       .catch((err) => {
         console.log('Error', err);
@@ -44,24 +58,10 @@ export class ConfirmarRecoleccionPage implements OnInit {
 
   async confirmacion() {
     const toast = await this.toastController.create({
-      message: 'Registro de asistencia exitoso',
-      duration: 2500,
+      message: 'Tu recolección ha sido confirmada',
+      duration: 3000,
     });
     toast.present();
     this.router.navigate(['/inicio-cliente']);
-  }
-
-  encodeText() {
-    this.barcodeScanner
-      .encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData)
-      .then(
-        (encodedData) => {
-          console.log(encodedData);
-          this.encodedData = encodedData;
-        },
-        (err) => {
-          console.log('Error occured : ' + err);
-        }
-      );
   }
 }
