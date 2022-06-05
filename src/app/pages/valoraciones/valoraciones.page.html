@@ -1,28 +1,59 @@
 <ion-header>
-    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-    <ion-title mode="ios">Valoración</ion-title>
-    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
+  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+  <ion-title mode="ios">Valoración</ion-title>
+  <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
 </ion-header>
-
 
 <ion-content>
   <ion-grid>
-      <ion-row class="parrafo__valoracion">
-          <p>Gracias por confirmar que la recolección se efectuó. Te invitamos a evaluar como fué tu experiencia</p>
-      </ion-row>
-      <div class="separador">
-          <div class="linea__izq"></div>
-          <div class="img__separador"><img src="../../../assets/img/LogoPequennopng.png"></div>
-          <div class="linea__der"></div>
+    <ion-row class="parrafo__valoracion">
+      <p>
+        Gracias por confirmar que la recolección se efectuó. Te invitamos a
+        evaluar como fué tu experiencia
+      </p>
+    </ion-row>
+    
+    <div class="estrellas">
+      <div class="estrella-item1" (click)="rating1()">
+        <img src="../../../assets/icon/fa_star.png" />
+        <div class="estrella-fill1 hidden">
+          <img src="../../../assets/icon/fa_fullstar.png" />
+        </div>
       </div>
-      <ion-row class="parrafo__valoracion">
-          <p>¿Tuviste algún problema? Comentanos qué sucedió:</p>
-      </ion-row>
-      <ion-item lines="none" class="ion-no-padding">
-          <ion-textarea color="blanco"></ion-textarea>
-      </ion-item>
-      <ion-button type="submit" color="verde" size="small">Confirmar y terminar
-      </ion-button>
+      <div class="estrella-item2" (click)="rating2()">
+        <img src="../../../assets/icon/fa_star.png" />
+        <div class="estrella-fill2 hidden">
+          <img src="../../../assets/icon/fa_fullstar.png" />
+        </div>
+      </div>
+      <div class="estrella-item3" (click)="rating3()">
+        <img src="../../../assets/icon/fa_star.png" />
+        <div class="estrella-fill3 hidden">
+          <img src="../../../assets/icon/fa_fullstar.png" />
+        </div>
+      </div>
+      <div class="estrella-item4" (click)="rating4()">
+        <img src="../../../assets/icon/fa_star.png" />
+        <div class="estrella-fill4 hidden">
+          <img src="../../../assets/icon/fa_fullstar.png" />
+        </div>
+      </div>
+      <div class="estrella-item5" (click)="rating5()">
+        <img src="../../../assets/icon/fa_star.png" />
+        <div class="estrella-fill5 hidden">
+          <img src="../../../assets/icon/fa_fullstar.png" />
+        </div>
+      </div>
+    </div>
+
+    <ion-row class="parrafo__valoracion">
+      <p>¿Tuviste algún problema? Comentanos qué sucedió:</p>
+    </ion-row>
+    <ion-item lines="none" class="ion-no-padding">
+      <textarea color="blanco"></textarea>
+    </ion-item>
+    <button type="submit" color="verde" size="small"
+      >Confirmar y terminar
+    </button>
   </ion-grid>
 </ion-content>
-
