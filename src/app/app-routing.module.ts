@@ -43,8 +43,8 @@ const routes: Routes = [
       import('./pages/inicio-administrador/inicio-administrador.module').then(
         (m) => m.InicioAdministradorPageModule
       ),
-      canActivate:[IngresadoGuard],
-      ...canActivate(onlyAdmin) 
+      ...canActivate(onlyAdmin),
+      canActivate:[IngresadoGuard]
   },
   {
     path: 'inicio-cliente',
@@ -76,7 +76,6 @@ const routes: Routes = [
       import('./pages/seguimiento-planillas/seguimiento-planillas.module').then(
         (m) => m.SeguimientoPlanillasPageModule, 
       ),
-      canActivate:[IngresadoGuard],
       ...canActivate(onlyAdmin) 
       
   },
@@ -87,7 +86,6 @@ const routes: Routes = [
         './pages/seguimiento-evidencias/seguimiento-evidencias.module').then(
           (m) => m.SeguimientoEvidenciasPageModule
         ),
-        canActivate:[IngresadoGuard],
         ...canActivate(onlyAdmin) 
   },
   {
@@ -117,7 +115,6 @@ const routes: Routes = [
       import('./pages/gestion-camiones/gestion-camiones.module').then(
         (m) => m.GestionCamionesPageModule
       ),
-      canActivate:[IngresadoGuard],
       ...canActivate(onlyAdmin) 
   },
   {
@@ -126,7 +123,6 @@ const routes: Routes = [
       import('./pages/gestion-ruta/gestion-ruta.module').then(
         (m) => m.GestionRutaPageModule
       ),
-      canActivate:[IngresadoGuard],
       ...canActivate(onlyAdmin) 
   },
   {
@@ -135,7 +131,6 @@ const routes: Routes = [
       import('./pages/gestion-usuarios/gestion-usuarios.module').then(
         (m) => m.GestionUsuariosPageModule
       ),
-      canActivate:[IngresadoGuard],
       ...canActivate(onlyAdmin) 
   },
   {
