@@ -1,17 +1,17 @@
 <ion-header>
-    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-    <ion-title mode="ios">Ingreso evidencias</ion-title>
-    <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
+  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+  <ion-title mode="ios">Ingreso evidencias</ion-title>
+  <img class="menu-icon" src="../../../assets/icon/fa_menu.png" />
 </ion-header>
 
 <ion-content>
-    <form [formGroup]="evidenciasForms">
-        <p class="indicaciones">{{ cliente }}</p>
-        <p class="indicaciones">
-            Por favor, adjunta imagenes y comentarios para poder analizar lo sucedido:
-        </p>
-        <span class="adjuntarImg-title">Imagenes</span>
-        <button class="adjuntarImg">
+  <form [formGroup]="evidenciasForms">
+    <p class="indicaciones">{{ cliente }}</p>
+    <p class="indicaciones">
+      Por favor, adjunta imagenes y comentarios para poder analizar lo sucedido:
+    </p>
+    <span class="adjuntarImg-title">Imagenes</span>
+    <button class="adjuntarImg">
       <label for="file-upload">
         <img class="" src="../../../assets/icon/fa_attach.png" />
 
@@ -26,26 +26,44 @@
         accept="image/*"
       />
     </button>
-        <div *ngFor="let error of errorMessages.foto">
-            <ng-container *ngIf="foto.hasError(error.type) && (foto.dirty || foto.touched)">
-                <small class="error-message">{{error.message}}</small>
-            </ng-container>
-        </div>
-        <img [src]="evidencia.foto" />
+    <div *ngFor="let error of errorMessages.foto">
+      <ng-container
+        *ngIf="foto.hasError(error.type) && (foto.dirty || foto.touched)"
+      >
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+    <img [src]="evidencia.foto" />
 
-        <label for="comentarios">Comentarios:</label>
-        <textarea formControlName="comentario" maxlength="200" [(ngModel)]="evidencia.comentario" class="comentarios" name="comentarios" rows="6" cols="33" minlength="50">
+    <label for="comentarios">Comentarios:</label>
+    <textarea
+      formControlName="comentario"
+      maxlength="200"
+      [(ngModel)]="evidencia.comentario"
+      class="comentarios"
+      name="comentarios"
+      rows="6"
+      cols="33"
+      minlength="50"
+    >
     </textarea>
-        <div *ngFor="let error of errorMessages.comentario">
-            <ng-container *ngIf="comentario.hasError(error.type) && (comentario.dirty || comentario.touched)">
-                <small class="error-message">{{error.message}}</small>
-            </ng-container>
-        </div>
+    <div *ngFor="let error of errorMessages.comentario">
+      <ng-container
+        *ngIf="comentario.hasError(error.type) && (comentario.dirty || comentario.touched)"
+      >
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
 
-        <button type="submit" [disabled]="!evidenciasForms.valid" (click)="crearEvidencia()" class="enviar-evidencias">
+    <button
+      type="submit"
+      [disabled]="!evidenciasForms.valid"
+      (click)="crearEvidencia()"
+      class="enviar-evidencias"
+    >
       <img class="lock-img" src="../../../assets/icon/fa_lockw.png" alt="" />
       <img class="check-img" src="../../../assets/icon/fa_check.png" alt="" />
-      Ingresar Evidencias
+      Ingresar Evidenciaas
     </button>
-    </form>
+  </form>
 </ion-content>
