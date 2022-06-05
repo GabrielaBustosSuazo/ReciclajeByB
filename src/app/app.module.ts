@@ -16,7 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { DatePipe } from '@angular/common';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
-import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +34,6 @@ import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
   ],
   providers: [
     BarcodeScanner,
-    EmailComposer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DatePipe,
   ],
