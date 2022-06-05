@@ -62,6 +62,6 @@ export class ConfirmarRecoleccionPage implements OnInit {
       duration: 3000,
     });
     toast.present();
-    this.router.navigate(['/inicio-cliente']);
+    this.router.navigate(['/valoraciones']);
   }
 }
