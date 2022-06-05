@@ -53,6 +53,7 @@ export class IngresoEvidenciaPage implements OnInit {
     private firestorage: FirestorageService,
     private formBuilder: FormBuilder,
     private router: Router,
+    
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -93,6 +94,7 @@ export class IngresoEvidenciaPage implements OnInit {
 
   async crearEvidencia() {
     
+ 
 
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Evidencia';
