@@ -135,3 +135,57 @@ button {
   gap: 10px;
   align-items: center;
 }
+
+.planillas__cta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: stretch;
+}
+
+.planillas__date {
+  border-radius: 0.5rem;
+  color: #fff;
+  width: 50%;
+  position: relative;
+
+  span {
+    font-size: 14px;
+  }
+
+  input {
+    background-color: var(--ion-color-negro);
+    color: #fff !important;
+    border: none;
+    position: relative;
+    width: 156px;
+    border: 1px solid #fff;
+  }
+
+  .arrow-down {
+    position: absolute;
+    top: 2.45rem;
+    right: 2.6rem;
+    z-index: 1;
+  }
+}
+
+.planillas__download {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  background: var(--ion-color-negro);
+  height: 100% !important;
+  margin-top: auto;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 10px;
+  }
+}
