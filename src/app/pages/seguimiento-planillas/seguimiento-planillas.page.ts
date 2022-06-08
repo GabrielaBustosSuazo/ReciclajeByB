@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecoleccionExitosa } from 'src/app/models/models';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-seguimiento-planillas',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeguimientoPlanillasPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private database: FirestoreService) { }
+  recoleccionExitosa: RecoleccionExitosa[] = [];
   ngOnInit() {
+    this.getRecoleccionesExitosas();
+  }
+
+  getRecoleccionesExitosas() {
+    this.database.getCollection<RecoleccionExitosa>('Recoleccion Exitosa').subscribe((res) => {
+      if (res) {
+        this.recoleccionExitosa = res;
+      }
+    });
   }
 
 }

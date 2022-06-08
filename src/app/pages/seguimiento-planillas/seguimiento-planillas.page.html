@@ -1,33 +1,29 @@
 <ion-content>
-    <table style="width: 100%">
+    <table style="width: 100%" *ngFor="let recoleccion of recoleccionExitosa">
         <tr>
             <th scope="col">Hora</th>
-            <td></td>
+            <td>{{recoleccion.hora}}</td>
         </tr>
         <tr>
             <!-- CFecha -->
             <th scope="col">Fecha</th>
-            <td></td>
+            <td>{{recoleccion.fecha}}</td>
         </tr>
         <tr>
-            <th scope="col">Dirección</th>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="col">Cliente</th>
-            <td></td>
+            <th scope="col">Cliente + Dirección</th>
+            <td>{{recoleccion.cliente}}</td>
         </tr>
         <tr>
             <!-- Conductor + patente -->
             <th scope="col">Conductor</th>
-            <td></td>
+            <td>{{recoleccion.recolector}} <br> {{recoleccion.camion}}</td>
         </tr>
 
         <tr>
             <th scope="col">Acciones</th>
             <td class="acciones">
                 <span class="fallida">
-          <img class="" src="../../../assets/icon/fa_x.png" />
+          <img class="" src="../../../assets/icon/fa_check.png" />
           R. Exitosa</span
         >
         <button class="evidencia boton-acciones">Descargar</button>
