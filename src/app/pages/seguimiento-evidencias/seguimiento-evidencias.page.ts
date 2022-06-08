@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Evidencias } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-seguimiento-evidencias',
@@ -8,12 +10,30 @@ import { FirestoreService } from 'src/app/services/firestore.service';
   styleUrls: ['./seguimiento-evidencias.page.scss'],
 })
 export class SeguimientoEvidenciasPage implements OnInit {
+  
 
-  constructor(private database: FirestoreService) { }
+  fechaElegida: string; 
+  formatedDate: string;
+ 
+  
+  constructor(private database: FirestoreService,
+              ) {
+                
+
+ 
+  }
   evidencias: Evidencias[] = [];
+
   ngOnInit() {
     this.getEvidencias();
+    
   }
+
+  SendDataonChange(event: any) {
+      this.formatedDate = formatDate(this.fechaElegida, 'dd/MM/yyyy', 'en');
+      console.log(this.formatedDate)
+    }
+  
 
   getEvidencias() {
     this.database.getCollection<Evidencias>('Evidencias').subscribe((res) => {
