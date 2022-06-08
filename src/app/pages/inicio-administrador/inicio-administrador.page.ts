@@ -53,7 +53,7 @@ export class InicioAdministradorPage implements OnInit {
   }
 
   seguimientoPlanillas(){
-    this.router.navigate(['/seguimiento-planillas']);
+    this.router.navigate(['/gestion-planillas']);
   }
 
   agregarUsuarios(){

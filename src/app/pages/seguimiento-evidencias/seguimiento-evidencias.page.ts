@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Evidencias } from 'src/app/models/models';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-seguimiento-evidencias',
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeguimientoEvidenciasPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private database: FirestoreService) { }
+  evidencias: Evidencias[] = [];
   ngOnInit() {
+    this.getEvidencias();
   }
 
-  myFunction() {
-    return false;
+  getEvidencias() {
+    this.database.getCollection<Evidencias>('Evidencias').subscribe((res) => {
+      if (res) {
+        this.evidencias = res;
+      }
+    });
   }
 }

@@ -14,6 +14,8 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 })
 export class IngresoEvidenciaPage implements OnInit {
   private path = 'Evidencias/';
+  fecha: any;
+  hora: string;
   cliente: any;
   recolectorAsignado: string;
   camionDesignado: string;
@@ -28,6 +30,8 @@ export class IngresoEvidenciaPage implements OnInit {
     clienteAsignado: '',
     recolectorAsignado: '',
     camionAsignado: '',
+    fecha: '',
+    hora: ''
   };
 
   get foto() {
@@ -68,13 +72,19 @@ export class IngresoEvidenciaPage implements OnInit {
       cli: string;
       estado: string;
       id: string;
+      fecha: any;
+      hora: string;
     };
     this.cliente = state.cli;
     this.estado = state.estado;
     this.id = state.id;
+    this.fecha = state.fecha;
+    this.hora = state.hora;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   getUserInfo(uid: string) {
     const path = 'Usuarios';
@@ -103,6 +113,8 @@ export class IngresoEvidenciaPage implements OnInit {
     this.evidencia.camionAsignado = this.camionDesignado;
     this.evidencia.recolectorAsignado = this.recolectorAsignado;
     this.evidencia.clienteAsignado = this.cliente;
+    this.evidencia.fecha = this.fecha;
+    this.evidencia.hora = this.hora;
     const nombre = id;
     if (this.newFile !== undefined) {
       const res = await this.firestorage.uploadImage(

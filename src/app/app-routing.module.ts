@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { canActivate } from '@angular/fire/compat/auth-guard';
-import { NoingresadoGuard } from './noingresado.guard';
+import { NoIngresadoGuard } from './noingresado.guard';
 import { IngresadoGuard } from './ingresado.guard';
 
 
@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
-      canActivate:[NoingresadoGuard]
+      canActivate:[NoIngresadoGuard]
   },
   {
     path: 'valoraciones',
@@ -140,7 +140,11 @@ const routes: Routes = [
       ),
       canActivate:[IngresadoGuard]
 
+  },  {
+    path: 'gestion-planillas',
+    loadChildren: () => import('./pages/gestion-planillas/gestion-planillas.module').then( m => m.GestionPlanillasPageModule)
   },
+
 
 ];
 

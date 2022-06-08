@@ -170,6 +170,8 @@ export class RutasPage implements OnInit {
                 cli: this.datosCliente,
                 estado: this.rutaActualizada.estado,
                 id: this.rutaActualizada.id,
+                fecha: this.rutaActualizada.fecha,
+                hora: this.rutaActualizada.hora
               },
             };
             this.router.navigate(['/ingreso-evidencia'], navigationExtras);

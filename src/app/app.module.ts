@@ -18,6 +18,7 @@ import { DatePipe } from '@angular/common';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

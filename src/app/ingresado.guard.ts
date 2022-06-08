@@ -36,16 +36,12 @@ export class IngresadoGuard implements CanActivate {
       canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        if(this.flag){
-          console.log('Sesion iniciada, debes cerrar sesion para volver al login.');
-            return true;
-        }
-        else{
+        if(!this.flag){
           this.router.navigate(['/login']);
           console.log('No tienes los permisos para acceder a esta pagina.');
           return false;
-        }
       }
+      return true;
     }
-    
+  }
     
