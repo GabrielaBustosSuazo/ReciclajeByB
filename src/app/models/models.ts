@@ -33,7 +33,7 @@ export interface Usuario {
   uid: string;
   email: string;
   password: string;
-  run: string,
+  run: string;
   nombreUsuario: string;
   tipoUsuario: string;
   direccion: string;
@@ -42,4 +42,13 @@ export interface Usuario {
   comuna: string;
   tipoPlan: any;
   camionDesignado: any;
+}
+
+export interface RecoleccionExitosa {
+  id: string;
+  hora: string;
+  fecha: any;
+  cliente: string;
+  recolector: string;
+  camion: string;
 }

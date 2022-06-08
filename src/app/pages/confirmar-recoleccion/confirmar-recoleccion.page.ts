@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { ToastController } from '@ionic/angular';
+import { RecoleccionExitosa } from 'src/app/models/models';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-confirmar-recoleccion',
@@ -15,11 +17,20 @@ export class ConfirmarRecoleccionPage implements OnInit {
   qrDataSplit2: any;
   qrDataSplit3: any;
   qrDataSplit4: any;
+  recoleccionExitosa: RecoleccionExitosa = {
+    id: '',
+    hora: '',
+    fecha: '',
+    cliente: '',
+    recolector: '',
+    camion: '',
+  };
 
   constructor(
     private barcodeScanner: BarcodeScanner,
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private database: FirestoreService
   ) {}
 
   ngOnInit() {
@@ -57,6 +68,21 @@ export class ConfirmarRecoleccionPage implements OnInit {
   }
 
   async confirmacion() {
+    const path = 'Recoleccion Exitosa';
+    const id = this.database.getId();
+    this.recoleccionExitosa.id = id;
+    this.recoleccionExitosa.cliente =
+      'La recolección pertenece al cliente ' +
+      this.qrDataSplit2 +
+      ' de la dirección ' +
+      this.qrDataSplit3;
+    this.recoleccionExitosa.hora = this.qrDataSplit1;
+    this.recoleccionExitosa.recolector = this.qrDataSplit4;
+
+    this.database.createDoc(this.recoleccionExitosa, path, id).then(() => {
+      console.log('Guardado con exito');
+    });
+
     const toast = await this.toastController.create({
       message: 'Tu recolección ha sido confirmada',
       duration: 3000,
