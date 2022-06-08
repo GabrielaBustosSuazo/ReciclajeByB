@@ -1,0 +1,192 @@
+.indicaciones,
+span,
+label {
+  color: #fff;
+}
+
+.adjuntarImg-title {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.adjuntarImg {
+  background-color: #037bff;
+  padding: 0.5rem 1.5rem;
+  font-size: inherit;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.adjuntarImg > * {
+  cursor: pointer;
+}
+
+.adjuntarImg label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 7px;
+}
+
+.adjuntarImg label img {
+  width: 20px;
+  height: 20px;
+}
+
+.comentarios {
+  margin-top: 0.5rem;
+  max-width: 100%;
+  color: var(--ion-color-negro);
+  background-color: #fff;
+}
+
+ion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-icon {
+  width: 20px !important;
+  height: 15px;
+  cursor: pointer;
+}
+
+ion-title {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+ion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--ion-color-negro);
+}
+
+.menu-icon {
+  width: 20px !important;
+  height: 15px;
+  cursor: pointer;
+}
+
+ion-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.enviar-evidencias {
+  background: -webkit-gradient(linear, left top, right top, from(#1a8f2d), color-stop(90%, #2cd332));
+  background: linear-gradient(90deg, #1a8f2d 0%, #2cd332 90%);
+  padding: 0.7rem 1.5rem;
+  font-size: inherit;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+
+ion-content {
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --ion-background-color: var(--ion-color-negroOscuro);
+}
+
+ion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1a1a1a;
+}
+
+.error-message {
+  color: #f74646;
+}
+
+input.ng-touched,
+textarea.ng-touched {
+  border: 1px solid #f74646;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+button[disabled] {
+  background: -webkit-gradient(linear, left top, right top, from(#8f1a1a), color-stop(90%, #dc3545));
+  background: linear-gradient(90deg, #8f1a1a 0%, #dc3545 90%);
+}
+
+button[disabled] .lock-img {
+  display: block;
+}
+
+button[disabled] .check-img {
+  display: none;
+}
+
+button .lock-img {
+  display: none;
+}
+/*# sourceMappingURL=ingreso-evidencia.page.css.map */

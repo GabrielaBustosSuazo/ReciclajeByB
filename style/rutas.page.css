@@ -1,0 +1,303 @@
+ion-content {
+  --padding-top: 1.5rem;
+  --padding-bottom: 1.5rem;
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+  --ion-background-color: #282828;
+  position: relative;
+  z-index: 10;
+}
+
+table {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #fff;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+th {
+  background: var(--ion-color-negro);
+  padding: 0.5rem 0.5rem;
+  width: 70px;
+}
+
+.acciones {
+  border: none;
+}
+
+td {
+  background-color: #222222;
+  padding: 0.5rem 0.5rem;
+}
+
+.actions-top,
+.actions-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.actions-bottom {
+  margin-top: 5px;
+}
+
+.actions-icon {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+ion-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1a1a1a;
+}
+
+.menu-icon {
+  width: 20px !important;
+  height: 15px;
+  cursor: pointer;
+}
+
+ion-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.acciones {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.preacciones {
+  min-width: 100%;
+  display: inline;
+}
+
+.boton-acciones {
+  background-color: #fff;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-size: 12px;
+  gap: 10px;
+}
+
+.boton-acciones img {
+  width: 24px;
+  height: 24px;
+}
+
+.ruta {
+  background: -webkit-gradient(linear, left top, right top, from(#037bff), color-stop(90%, #0056ff));
+  background: linear-gradient(90deg, #037bff 0%, #0056ff 90%);
+}
+
+.confirmar {
+  background: -webkit-gradient(linear, left top, right top, from(#1a8f2d), color-stop(90%, #18b92f));
+  background: linear-gradient(90deg, #1a8f2d 0%, #18b92f 90%);
+}
+
+.fallida {
+  background: -webkit-gradient(linear, left top, right top, from(#8f1a1a), color-stop(90%, #dc3545));
+  background: linear-gradient(90deg, #8f1a1a 0%, #dc3545 90%);
+}
+
+.notificaciones {
+  background: -webkit-gradient(linear, left top, right top, from(#280e5a), color-stop(90%, #6e3bd0));
+  background: linear-gradient(90deg, #280e5a 0%, #6e3bd0 90%);
+}
+
+.separator {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+}
+
+.separator .left-line {
+  height: 1px;
+  background-color: #fff;
+  width: 40%;
+}
+
+.separator .right-line {
+  height: 1px;
+  background-color: #fff;
+  width: 40%;
+}
+
+.separator-icon {
+  width: 30px;
+  height: 35px;
+  width: 12%;
+}
+
+.codigo-qr {
+  height: 0;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  z-index: -1;
+}
+
+.codigo-qr.absolute {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  z-index: 99;
+  display: block;
+}
+
+.codigo-qr.absolute .codigo-qr-container {
+  display: block;
+}
+
+.codigo-qr-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 99;
+}
+
+.codigo-qr-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  width: 250px;
+}
+
+.codigo-qr-card p {
+  margin: 0 auto;
+}
+
+.codigo-qr-card .botones-qr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.codigo-qr-card button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+}
+
+.codigo-qr-card > * {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.separator {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 0;
+}
+
+.separator .left-line {
+  height: 1px;
+  background-color: #fff;
+  width: 40%;
+}
+
+.separator .right-line {
+  height: 1px;
+  background-color: #fff;
+  width: 40%;
+}
+
+.separator-icon {
+  width: 30px;
+  height: 30px;
+}
+/*# sourceMappingURL=rutas.page.css.map */

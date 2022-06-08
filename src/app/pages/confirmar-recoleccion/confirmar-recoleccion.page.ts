@@ -17,6 +17,8 @@ export class ConfirmarRecoleccionPage implements OnInit {
   qrDataSplit2: any;
   qrDataSplit3: any;
   qrDataSplit4: any;
+  qrDataSplit5: any;
+  qrDataSplit6: any;
   recoleccionExitosa: RecoleccionExitosa = {
     id: '',
     hora: '',
@@ -48,6 +50,8 @@ export class ConfirmarRecoleccionPage implements OnInit {
         this.qrDataSplit2 = this.qrDataSplit[1];
         this.qrDataSplit3 = this.qrDataSplit[2];
         this.qrDataSplit4 = this.qrDataSplit[3];
+        this.qrDataSplit5 = this.qrDataSplit[4];
+        this.qrDataSplit6 = this.qrDataSplit[5];
       })
       .catch((err) => {
         console.log('Error', err);
@@ -77,7 +81,9 @@ export class ConfirmarRecoleccionPage implements OnInit {
       ' de la dirección ' +
       this.qrDataSplit3;
     this.recoleccionExitosa.hora = this.qrDataSplit1;
+    this.recoleccionExitosa.fecha = this.qrDataSplit6;
     this.recoleccionExitosa.recolector = this.qrDataSplit4;
+    this.recoleccionExitosa.camion = this.qrDataSplit5;
 
     this.database.createDoc(this.recoleccionExitosa, path, id).then(() => {
       console.log('Guardado con exito');

@@ -1,36 +1,52 @@
 <ion-content>
-    <table style="width: 100%" *ngFor="let evidencia of evidencias">
-        <tr>
-            <th scope="col">Hora</th>
-            <td>{{evidencia.hora}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Fecha</th>
-            <td>{{evidencia.fecha}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Cliente + Dirección</th>
-            <td>{{evidencia.clienteAsignado}}</td>
-        </tr>
-        <tr>
-            <!-- Conductor + patente -->
-            <th scope="col">Conductor</th>
-            <td>{{evidencia.recolectorAsignado}} <br> {{evidencia.camionAsignado}}</td>
-        </tr>
-        <tr>
-            <!-- Comentario -->
-            <th scope="col">Comentario</th>
-            <td>{{evidencia.comentario}}</td>
-        </tr>
-        <tr>
-            <th scope="col">Acciones</th>
-            <td class="acciones">
-                <span class="fallida">
-        <img class="" src="../../../assets/icon/fa_x.png" />
-        R. Fallida</span
-      >
-      <button class="evidencia boton-acciones">Descargar</button>
-    </td>
-  </tr>
-</table>
+  <div class="planillas__cta">
+    <div class="planillas__date">
+      <span>Seleccione una fecha: </span>
+      <input type="date" name="trip-start" />
+      <img class="arrow-down" src="../../../assets/icon/fa_arrowdowng.png" />
+    </div>
+    <div class="planillas__download">
+      <div class="wrapper">
+        <img class="" src="../../../assets/icon/fa_download.png" />
+        <span>Descargar</span>
+      </div>
+    </div>
+  </div>
+  <table class="test" *ngFor="let evidencia of evidencias">
+    <tr>
+      <th scope="col">Hora</th>
+      <td>{{evidencia.hora}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Fecha</th>
+      <td>{{evidencia.fecha}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Cliente / Dirección</th>
+      <td>{{evidencia.clienteAsignado}}</td>
+    </tr>
+    <tr>
+      <!-- Conductor + patente -->
+      <th scope="col">Conductor</th>
+      <td>
+        {{evidencia.recolectorAsignado}} <br />
+        {{evidencia.camionAsignado}}
+      </td>
+    </tr>
+    <tr>
+      <!-- Comentario -->
+      <th scope="col">Comentario</th>
+      <td>{{evidencia.comentario}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Acciones</th>
+      <td class="acciones">
+        <span class="fallida">
+          <img class="" src="../../../assets/icon/fa_x.png" />
+          R. Fallida</span
+        >
+        <button class="evidencia boton-acciones">Descargar</button>
+      </td>
+    </tr>
+  </table>
 </ion-content>
