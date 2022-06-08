@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-valoraciones',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValoracionesPage implements OnInit {
 
-  constructor() {}
+  constructor(private toastController: ToastController,
+    private router: Router) {}
 
   ngOnInit() {
     
@@ -78,5 +81,15 @@ export class ValoracionesPage implements OnInit {
     estrellaLlena3.classList.remove('hidden');
     estrellaLlena4.classList.remove('hidden');
     estrellaLlena5.classList.remove('hidden');
+  }
+
+
+  async confirmacion() {
+    const toast = await this.toastController.create({
+      message: 'Gracias por tus comentarios.',
+      duration: 3000,
+    });
+    toast.present();
+    this.router.navigate(['/inicio-cliente']);
   }
 }
