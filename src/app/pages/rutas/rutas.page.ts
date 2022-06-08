@@ -17,7 +17,7 @@ export class RutasPage implements OnInit {
   rutaActualizada: Rutas;
   cliente: string;
   datosCliente: string;
-  createdCode: [string, string, string, string];
+  createdCode: [string, string, string, string,string,string];
   usuario: Usuario[] = [];
   nombreUsuario: string;
   flag: boolean;
@@ -105,6 +105,8 @@ export class RutasPage implements OnInit {
               this.rutaActualizada.clienteAsignado + ',',
               this.rutaActualizada.direccion + ',',
               this.rutaActualizada.recolectorAsignado + ',',
+              this.rutaActualizada.camionAsignado + ',',
+              this.rutaActualizada.fecha + ','
             ];
             console.log(this.createdCode);
 
