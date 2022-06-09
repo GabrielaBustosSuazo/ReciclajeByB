@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { allowedNodeEnvironmentFlags } from 'process';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio-administrador',
@@ -19,7 +21,8 @@ export class InicioAdministradorPage implements OnInit {
               private auth: FirestoreauthService,
               private userinterface: UserInteractionService,
               public alertController: AlertController,
-              private firestore: FirestoreService) { 
+              private firestore: FirestoreService,
+              private platform: Platform) { 
                 this.auth.stateUser().subscribe( resp => {
                   if(resp){
                     this.getUserInfo(resp.uid)
@@ -28,6 +31,10 @@ export class InicioAdministradorPage implements OnInit {
                   else{
                     console.log('no esta logeado')
                   }
+              })
+
+              this.platform.backButton.subscribeWithPriority(1, () => {
+                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
               })
 
               }
@@ -95,4 +102,5 @@ export class InicioAdministradorPage implements OnInit {
         this.nombreUsuario = respuesta.nombreUsuario
         })
   }
+
 }

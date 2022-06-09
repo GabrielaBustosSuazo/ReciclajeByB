@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio-cliente',
@@ -19,7 +20,8 @@ export class InicioClientePage implements OnInit {
     public auth: FirestoreauthService,
     public userinterface: UserInteractionService,
     public alertController: AlertController,
-    public firestore: FirestoreService
+    public firestore: FirestoreService,
+    private platform: Platform,
   ) {
     this.auth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -29,6 +31,8 @@ export class InicioClientePage implements OnInit {
         console.log('no esta logeado');
       }
     });
+
+    
   }
 
   ngOnInit() {}
@@ -95,4 +99,28 @@ export class InicioClientePage implements OnInit {
       this.direccion = respuesta.direccion;
     });
   }
+
+  
+//  async restriccion(){
+//    this.platform.backButton.subscribe((e) => {
+//      const alert = await this.alertController.create({
+//        header:'Accion no permitida',
+//        message:'No puedes volver atras sin cerrar sesion',
+//        buttons: [
+//          {
+//            text: 'Yes',
+//            handler: () => {
+
+//            }
+//          }, {
+//            text: 'No',
+//            handler: () => {
+//              e.prevent();
+//            }
+//          }
+//        ]
+//      })
+//    })
+//  }
+
 }

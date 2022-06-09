@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { canActivate } from '@angular/fire/compat/auth-guard';
-import { NoIngresadoGuard } from './noingresado.guard';
-import { IngresadoGuard } from './ingresado.guard';
+
 
 
 const uidAdmin = 'skozV1H3vhZex1kC027MgO4Alef1';
@@ -18,7 +17,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
-      canActivate:[NoIngresadoGuard]
+    
   },
   {
     path: 'valoraciones',
@@ -26,7 +25,7 @@ const routes: Routes = [
       import('./pages/valoraciones/valoraciones.module').then(
         (m) => m.ValoracionesPageModule
       ),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'ingreso-evidencia',
@@ -34,7 +33,7 @@ const routes: Routes = [
       import('./pages/ingreso-evidencia/ingreso-evidencia.module').then(
         (m) => m.IngresoEvidenciaPageModule
       ),
-      canActivate:[IngresadoGuard]
+      
   },
 
   {
@@ -44,7 +43,7 @@ const routes: Routes = [
         (m) => m.InicioAdministradorPageModule
       ),
       ...canActivate(onlyAdmin),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'inicio-cliente',
@@ -52,7 +51,7 @@ const routes: Routes = [
       import('./pages/inicio-cliente/inicio-cliente.module').then(
         (m) => m.InicioClientePageModule
       ),
-      canActivate: [IngresadoGuard]
+    
   },
   {
     path: 'inicio-recolector',
@@ -60,7 +59,7 @@ const routes: Routes = [
       import('./pages/inicio-recolector/inicio-recolector.module').then(
         (m) => m.InicioRecolectorPageModule
       ),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'notificaciones',
@@ -68,7 +67,7 @@ const routes: Routes = [
       import('./pages/notificaciones/notificaciones.module').then(
         (m) => m.NotificacionesPageModule
       ),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'seguimiento-planillas',
@@ -92,7 +91,7 @@ const routes: Routes = [
     path: 'rutas',
     loadChildren: () =>
       import('./pages/rutas/rutas.module').then((m) => m.RutasPageModule),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'notificaciones-enviadas',
@@ -100,7 +99,7 @@ const routes: Routes = [
       import(
         './pages/notificaciones-enviadas/notificaciones-enviadas.module'
       ).then((m) => m.NotificacionesEnviadasPageModule),
-      canActivate:[IngresadoGuard]
+      
   },
   {
     path: 'recuperar-contrasena',
@@ -138,9 +137,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/confirmar-recoleccion/confirmar-recoleccion.module').then( 
       m => m.ConfirmarRecoleccionPageModule
       ),
-      canActivate:[IngresadoGuard]
+      
 
-  },  {
+  },
+  {
     path: 'gestion-planillas',
     loadChildren: () => import('./pages/gestion-planillas/gestion-planillas.module').then( m => m.GestionPlanillasPageModule)
   },

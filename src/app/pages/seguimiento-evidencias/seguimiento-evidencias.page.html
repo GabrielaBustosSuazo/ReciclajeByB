@@ -5,16 +5,16 @@
             <input (change)="SendDataonChange($event)" type="date" name="fechaElegida" [(ngModel)]="fechaElegida" />
             <img class="arrow-down" src="../../../assets/icon/fa_arrowdowng.png" />
         </div>
-        <div class="planillas__download">
+        <div class="planillas__download" (click)="limpiar()">
             <div class="wrapper">
                 <img class="" src="../../../assets/icon/fa_download.png" />
-                <span>Descargar</span>
+                <span>Mostrar todas</span>
             </div>
         </div>
     </div>
 
-    <ng-container *ngFor="let evidencia of evidencias ">
-        <table class="test " *ngIf="evidencia.fecha === formatedDate ">
+    <ng-container *ngFor="let evidencia of evidencias">
+        <table class="test" *ngIf="evidencia.fecha === formatedDate">
             <tr>
                 <th scope="col ">Hora</th>
                 <td>{{evidencia.hora}}</td>
@@ -46,9 +46,47 @@
           <img class=" " src="../../../assets/icon/fa_x.png " />
           R. Fallida</span
         >
-        <button class="evidencia boton-acciones ">Descargar</button>
+        <button class="evidencia boton-acciones">Ver detalles</button>
       </td>
     </tr>
   </table>
+</ng-container>
+<ng-container *ngIf="formatedDate === undefined">
+  <table class="test " *ngFor="let evidencia of evidencias">
+      <tr>
+          <th scope="col ">Hora</th>
+          <td>{{evidencia.hora}}</td>
+      </tr>
+      <tr>
+          <th scope="col ">Fecha</th>
+          <td>{{evidencia.fecha}}</td>
+      </tr>
+      <tr>
+          <th scope="col ">Cliente / Dirección</th>
+          <td>{{evidencia.clienteAsignado}}</td>
+      </tr>
+      <tr>
+          <!-- Conductor + patente -->
+          <th scope="col ">Conductor</th>
+          <td>
+              {{evidencia.recolectorAsignado}} <br /> {{evidencia.camionAsignado}}
+          </td>
+      </tr>
+      <tr>
+          <!-- Comentario -->
+          <th scope="col ">Comentario</th>
+          <td>{{evidencia.comentario}}</td>
+      </tr>
+      <tr>
+          <th scope="col ">Acciones</th>
+          <td class="acciones ">
+              <span class="fallida ">
+    <img class=" " src="../../../assets/icon/fa_x.png " />
+    R. Fallida</span
+  >
+  <button class="evidencia boton-acciones ">Descargar</button>
+</td>
+</tr>
+</table>
 </ng-container>
 </ion-content>

@@ -29,6 +29,14 @@ export class SeguimientoEvidenciasPage implements OnInit {
     
   }
 
+  limpiar(){
+    this.fechaElegida = undefined;
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
+    console.log(this.fechaElegida)
+  }
+
   SendDataonChange(event: any) {
       this.formatedDate = formatDate(this.fechaElegida, 'dd/MM/yyyy', 'en');
       console.log(this.formatedDate)
