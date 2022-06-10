@@ -41,6 +41,21 @@ export class InicioAdministradorPage implements OnInit {
 
   ngOnInit() {
     this.today = Date.now();
+    this.platform.backButton.subscribeWithPriority(10, async() => {
+      const alert = await this.alertController.create({
+        header:'Acción no permitida',
+        message:'No puedes volver atrás sin cerrar sesión',
+        buttons: [
+          {
+            text: 'Volver a la app',
+            handler: () => {
+              this.router.navigate(['/inicio-administrador'])
+            }
+          }
+        ]
+      })
+      await alert.present();
+    })
   }
 
   agregarRutas() {

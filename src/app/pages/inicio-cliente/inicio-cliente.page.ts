@@ -7,6 +7,7 @@ import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 import { Platform } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-inicio-cliente',
   templateUrl: './inicio-cliente.page.html',
@@ -22,6 +23,7 @@ export class InicioClientePage implements OnInit {
     public alertController: AlertController,
     public firestore: FirestoreService,
     private platform: Platform,
+ 
   ) {
     this.auth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -35,7 +37,23 @@ export class InicioClientePage implements OnInit {
     
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.platform.backButton.subscribeWithPriority(10, async() => {
+      const alert = await this.alertController.create({
+        header:'Acción no permitida',
+        message:'No puedes volver atrás sin cerrar sesión',
+        buttons: [
+          {
+            text: 'Volver a la app',
+            handler: () => {
+              this.router.navigate(['/inicio-cliente'])
+            }
+          }
+        ]
+      })
+      await alert.present();
+    })
+  }
 
   abrirMenu() {
     const menu = document.getElementById('nav-icon3');
@@ -101,26 +119,8 @@ export class InicioClientePage implements OnInit {
   }
 
   
-//  async restriccion(){
-//    this.platform.backButton.subscribe((e) => {
-//      const alert = await this.alertController.create({
-//        header:'Accion no permitida',
-//        message:'No puedes volver atras sin cerrar sesion',
-//        buttons: [
-//          {
-//            text: 'Yes',
-//            handler: () => {
+ 
+   
+ }
 
-//            }
-//          }, {
-//            text: 'No',
-//            handler: () => {
-//              e.prevent();
-//            }
-//          }
-//        ]
-//      })
-//    })
-//  }
 
-}
