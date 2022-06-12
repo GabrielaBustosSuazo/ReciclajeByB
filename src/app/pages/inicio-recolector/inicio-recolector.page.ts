@@ -59,8 +59,34 @@ export class InicioRecolectorPage implements OnInit {
   
   }
 
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon3');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('open');
+  }
+
+  option = {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    pager: true,
+    spaceBetween: 10,
+    autoplay: { delay: 5000 },
+    speed: 2000,
+  };
+
+  gotoRutas(){
+    this.router.navigate(['/rutas']);
+  }
+
   gotoRevisarRutas() {
     this.router.navigate(['/rutas']);
+  }
+
+  gotoNotifications(){
+    this.router.navigate(['/notificaciones-enviadas']);
   }
 
   gotoRevisarNotificaciones() {
