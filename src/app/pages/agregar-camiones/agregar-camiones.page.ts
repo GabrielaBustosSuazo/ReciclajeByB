@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { Camiones } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-camiones',
@@ -81,10 +84,15 @@ export class AgregarCamionesPage implements OnInit {
   constructor(
     private database: FirestoreService,
     private userInteraction: UserInteractionService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+
+  
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
+
 
   crearCamion() {
     this.userInteraction.presentLoading('Guardando...');

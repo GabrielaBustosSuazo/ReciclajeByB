@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-inicio-cliente',
@@ -19,7 +21,10 @@ export class InicioClientePage implements OnInit {
     public auth: FirestoreauthService,
     public userinterface: UserInteractionService,
     public alertController: AlertController,
-    public firestore: FirestoreService
+    public firestore: FirestoreService,
+    private platform: Platform,
+    private navController: NavController
+ 
   ) {
     this.auth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -29,9 +34,35 @@ export class InicioClientePage implements OnInit {
         console.log('no esta logeado');
       }
     });
+
+    
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.platform.backButton.subscribeWithPriority(10, async() => {
+      const currenturl = this.router.url;
+      if (currenturl === "/inicio-cliente"){
+      const alert = await this.alertController.create({
+        header:'Acción no permitida',
+        message:'No puedes volver atrás sin cerrar sesión',
+        buttons: [
+          {
+            text: 'Volver a la app',
+            handler: () => {
+              this.router.navigate(['/inicio-cliente'])
+            }
+          }
+        ]
+      })
+    
+      await alert.present();
+    }
+      else{
+        this.navController.back();
+      }
+    
+    })
+  }
 
   abrirMenu() {
     const menu = document.getElementById('nav-icon3');
@@ -95,4 +126,10 @@ export class InicioClientePage implements OnInit {
       this.direccion = respuesta.direccion;
     });
   }
-}
+
+  
+ 
+   
+ }
+
+

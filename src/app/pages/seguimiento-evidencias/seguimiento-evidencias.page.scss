@@ -152,11 +152,9 @@ button {
   color: #fff;
   width: 50%;
   position: relative;
-
   span {
     font-size: 14px;
   }
-
   input {
     background-color: var(--ion-color-negro);
     color: #fff !important;
@@ -165,7 +163,6 @@ button {
     width: 156px;
     border: 1px solid #fff;
   }
-
   .arrow-down {
     position: absolute;
     top: 2.45rem;
@@ -179,19 +176,9 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: #fff;
-  background: var(--ion-color-negro);
-  height: 100% !important;
-  margin-top: auto;
-
-  .wrapper {
-    display: flex;
-    align-items: center;
-    align-self: flex-end;
-    gap: 10px;
-  }
+  align-items: center;
+  align-self: flex-end;
+  gap: 10px;
 }
 
 .mensaje-error {

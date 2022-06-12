@@ -71,7 +71,8 @@ export class ListarCamionesPage implements OnInit {
   constructor(
     private database: FirestoreService,
     private userInteraction: UserInteractionService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   ) {}
 
   ngOnInit() {
@@ -79,6 +80,7 @@ export class ListarCamionesPage implements OnInit {
 
     const card = document.querySelector('ion-card');
     card.style.display = 'none';
+   
   }
 
   getCamiones() {

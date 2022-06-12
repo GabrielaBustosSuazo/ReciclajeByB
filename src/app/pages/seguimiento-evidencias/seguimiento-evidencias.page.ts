@@ -19,6 +19,14 @@ export class SeguimientoEvidenciasPage implements OnInit {
     this.getEvidencias();
   }
 
+  limpiar(){
+    this.fechaElegida = undefined;
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
+    console.log(this.fechaElegida)
+  }
+
   SendDataonChange(event: any) {
     const contenedor = document.querySelector('.mensaje-error');
 

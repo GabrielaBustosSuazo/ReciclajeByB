@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio-administrador',
@@ -19,7 +20,9 @@ export class InicioAdministradorPage implements OnInit {
               private auth: FirestoreauthService,
               private userinterface: UserInteractionService,
               public alertController: AlertController,
-              private firestore: FirestoreService) { 
+              private firestore: FirestoreService,
+              private platform: Platform,
+              private navController: NavController) { 
                 this.auth.stateUser().subscribe( resp => {
                   if(resp){
                     this.getUserInfo(resp.uid)
@@ -30,10 +33,33 @@ export class InicioAdministradorPage implements OnInit {
                   }
               })
 
-              }
+            }
 
   ngOnInit() {
     this.today = Date.now();
+    this.platform.backButton.subscribeWithPriority(10, async() => {
+      const currenturl = this.router.url;
+      if (currenturl === "/inicio-administrador"){
+      const alert = await this.alertController.create({
+        header:'Acción no permitida',
+        message:'No puedes volver atrás sin cerrar sesión',
+        buttons: [
+          {
+            text: 'Volver a la app',
+            handler: () => {
+              this.router.navigate(['/inicio-administrador'])
+            }
+          }
+        ]
+      })
+    
+      await alert.present();
+    }
+      else{
+        this.navController.back();
+      }
+    
+    })
   }
 
   agregarRutas() {
@@ -95,4 +121,5 @@ export class InicioAdministradorPage implements OnInit {
         this.nombreUsuario = respuesta.nombreUsuario
         })
   }
+
 }

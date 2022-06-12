@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, MinLengthValidator, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { Camiones, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -134,6 +135,7 @@ export class RegistroPage implements OnInit {
 
   async ngOnInit() {
     this.getCamiones();
+  
   }
 
   getCamiones() {
