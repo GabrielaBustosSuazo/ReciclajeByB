@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { allowedNodeEnvironmentFlags } from 'process';
+import { AlertController, NavController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -22,7 +21,8 @@ export class InicioAdministradorPage implements OnInit {
               private userinterface: UserInteractionService,
               public alertController: AlertController,
               private firestore: FirestoreService,
-              private platform: Platform) { 
+              private platform: Platform,
+              private navController: NavController) { 
                 this.auth.stateUser().subscribe( resp => {
                   if(resp){
                     this.getUserInfo(resp.uid)
@@ -33,15 +33,13 @@ export class InicioAdministradorPage implements OnInit {
                   }
               })
 
-              this.platform.backButton.subscribeWithPriority(1, () => {
-                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-              })
-
-              }
+            }
 
   ngOnInit() {
     this.today = Date.now();
     this.platform.backButton.subscribeWithPriority(10, async() => {
+      const currenturl = this.router.url;
+      if (currenturl === "/inicio-administrador"){
       const alert = await this.alertController.create({
         header:'Acción no permitida',
         message:'No puedes volver atrás sin cerrar sesión',
@@ -54,7 +52,13 @@ export class InicioAdministradorPage implements OnInit {
           }
         ]
       })
+    
       await alert.present();
+    }
+      else{
+        this.navController.back();
+      }
+    
     })
   }
 

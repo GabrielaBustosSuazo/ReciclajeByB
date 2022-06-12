@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
@@ -11,10 +12,12 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
 export class ListarUsuariosPage implements OnInit {
   data: Usuario[] = [];
   constructor(private database: FirestoreService,
-    private userInteraction: UserInteractionService,) { }
+              private userInteraction: UserInteractionService,
+              ) { }
 
   ngOnInit() {
     this.getUsuarios();
+
   }
 
   getUsuarios() {

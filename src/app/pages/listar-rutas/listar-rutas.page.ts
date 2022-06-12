@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { Rutas } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
@@ -14,10 +15,12 @@ export class ListarRutasPage implements OnInit {
   rutas: Rutas;
 
   constructor(private database: FirestoreService,
-              private userInteraction: UserInteractionService) { }
+              private userInteraction: UserInteractionService,
+              ) { }
 
   ngOnInit() {
     this.getRutas()
+    
   }
 
   getRutas(){

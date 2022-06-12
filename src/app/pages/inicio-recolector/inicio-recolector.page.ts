@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, NavController, Platform } from '@ionic/angular';
 import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
@@ -19,7 +19,8 @@ export class InicioRecolectorPage implements OnInit {
               private userinterface: UserInteractionService,
               public alertController: AlertController,
               public firestore: FirestoreService,
-              public platform: Platform) {
+              public platform: Platform,
+              public navController: NavController) {
                 this.auth.stateUser().subscribe( resp => {
                   if(resp){
                     this.getUserInfo(resp.uid)
@@ -33,6 +34,8 @@ export class InicioRecolectorPage implements OnInit {
 
   ngOnInit() {
     this.platform.backButton.subscribeWithPriority(10, async() => {
+      const currenturl = this.router.url;
+      if (currenturl === "/inicio-recolector"){
       const alert = await this.alertController.create({
         header:'Acción no permitida',
         message:'No puedes volver atrás sin cerrar sesión',
@@ -45,8 +48,15 @@ export class InicioRecolectorPage implements OnInit {
           }
         ]
       })
+    
       await alert.present();
+    }
+      else{
+        this.navController.back();
+      }
+    
     })
+  
   }
 
   gotoRevisarRutas() {
