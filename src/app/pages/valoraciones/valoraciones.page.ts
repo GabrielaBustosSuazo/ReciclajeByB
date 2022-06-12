@@ -8,15 +8,28 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./valoraciones.page.scss'],
 })
 export class ValoracionesPage implements OnInit {
+  constructor(
+    private toastController: ToastController,
+    private router: Router
+  ) {}
 
-  constructor(private toastController: ToastController,
-    private router: Router) {}
+  ngOnInit() {}
 
-  ngOnInit() {
-    
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon3');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('open');
   }
 
-  
+  gotoNotifications() {
+    this.router.navigate(['/notificaciones']);
+  }
+  gotoConfirmar() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
+
   rating1() {
     const estrellaLlena1 = document.querySelector('.estrella-fill1');
     const estrellaLlena2 = document.querySelector('.estrella-fill2');
@@ -82,7 +95,6 @@ export class ValoracionesPage implements OnInit {
     estrellaLlena4.classList.remove('hidden');
     estrellaLlena5.classList.remove('hidden');
   }
-
 
   async confirmacion() {
     const toast = await this.toastController.create({

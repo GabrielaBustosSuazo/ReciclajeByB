@@ -19,26 +19,15 @@ export class SeguimientoEvidenciasPage implements OnInit {
     this.getEvidencias();
   }
 
-  limpiar(){
+  limpiar() {
     this.fechaElegida = undefined;
     setTimeout(function () {
       location.reload();
     }, 2000);
-    console.log(this.fechaElegida)
+    console.log(this.fechaElegida);
   }
 
   SendDataonChange(event: any) {
-    const contenedor = document.querySelector('.mensaje-error');
-
-    const tabla = document.querySelector('.test');
-    if (tabla != null) {
-      contenedor.classList.remove('hidden');
-      console.log(tabla != null, 'se ve');
-    } else {
-      console.log(tabla == null, 'no se ve');
-
-      contenedor.classList.add('hidden');
-    }
     this.formatedDate = formatDate(this.fechaElegida, 'dd/MM/yyyy', 'en');
     console.log(this.formatedDate);
   }
@@ -47,7 +36,6 @@ export class SeguimientoEvidenciasPage implements OnInit {
     this.database.getCollection<Evidencias>('Evidencias').subscribe((res) => {
       if (res) {
         this.evidencias = res;
-        console.log(this.evidencias);
       }
     });
   }

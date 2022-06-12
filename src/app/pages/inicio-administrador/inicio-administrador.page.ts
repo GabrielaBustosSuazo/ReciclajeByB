@@ -16,50 +16,56 @@ export class InicioAdministradorPage implements OnInit {
   today: any;
   nombreUsuario = '';
 
-  constructor(private router:Router,
-              private auth: FirestoreauthService,
-              private userinterface: UserInteractionService,
-              public alertController: AlertController,
-              private firestore: FirestoreService,
-              private platform: Platform,
-              private navController: NavController) { 
-                this.auth.stateUser().subscribe( resp => {
-                  if(resp){
-                    this.getUserInfo(resp.uid)
-                    console.log('esta logeado')
-                  }
-                  else{
-                    console.log('no esta logeado')
-                  }
-              })
-
-            }
+  constructor(
+    private router: Router,
+    private auth: FirestoreauthService,
+    private userinterface: UserInteractionService,
+    public alertController: AlertController,
+    private firestore: FirestoreService,
+    private platform: Platform,
+    private navController: NavController
+  ) {
+    this.auth.stateUser().subscribe((resp) => {
+      if (resp) {
+        this.getUserInfo(resp.uid);
+        console.log('esta logeado');
+      } else {
+        console.log('no esta logeado');
+      }
+    });
+  }
 
   ngOnInit() {
     this.today = Date.now();
-    this.platform.backButton.subscribeWithPriority(10, async() => {
+    this.platform.backButton.subscribeWithPriority(10, async () => {
       const currenturl = this.router.url;
-      if (currenturl === "/inicio-administrador"){
-      const alert = await this.alertController.create({
-        header:'Acción no permitida',
-        message:'No puedes volver atrás sin cerrar sesión',
-        buttons: [
-          {
-            text: 'Volver a la app',
-            handler: () => {
-              this.router.navigate(['/inicio-administrador'])
-            }
-          }
-        ]
-      })
-    
-      await alert.present();
-    }
-      else{
+      if (currenturl === '/inicio-administrador') {
+        const alert = await this.alertController.create({
+          header: 'Acción no permitida',
+          message: 'No puedes volver atrás sin cerrar sesión',
+          buttons: [
+            {
+              text: 'Volver a la app',
+              handler: () => {
+                this.router.navigate(['/inicio-administrador']);
+              },
+            },
+          ],
+        });
+
+        await alert.present();
+      } else {
         this.navController.back();
       }
-    
-    })
+    });
+  }
+
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon3');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('open');
   }
 
   agregarRutas() {
@@ -78,11 +84,11 @@ export class InicioAdministradorPage implements OnInit {
     this.router.navigate(['/gestion-camiones']);
   }
 
-  seguimientoPlanillas(){
+  seguimientoPlanillas() {
     this.router.navigate(['/gestion-planillas']);
   }
 
-  agregarUsuarios(){
+  agregarUsuarios() {
     this.router.navigate(['/gestion-usuarios']);
   }
 
@@ -91,35 +97,35 @@ export class InicioAdministradorPage implements OnInit {
       header: 'Salir',
       message: '¿Deseas cerrar sesión?',
       buttons: [
-          {
-            text: 'Denegar',
-            handler: (blah) => {
-              console.log('Confirma Permiso Denegado: yes');
-            }
-          }, {
-            text: 'Permitir',
-            handler: () => {
-              setTimeout(function () {
-                location.reload();
-              }, 100);
-              this.auth.logout();
-              this.userinterface.presentToast("Cerrando sesión...")
-              this.router.navigate(['/login'])
-              console.log('Confirma Permiso Permitido: yes');
-            }
-          }
-        ]
-      });
-      await alert.present();
+        {
+          text: 'Denegar',
+          handler: (blah) => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+        {
+          text: 'Permitir',
+          handler: () => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.auth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 
-  getUserInfo(uid: string){
-    const path = 'Usuarios'
-        const id = uid;
-        this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
-        console.log('respuesta ->', respuesta)
-        this.nombreUsuario = respuesta.nombreUsuario
-        })
+  getUserInfo(uid: string) {
+    const path = 'Usuarios';
+    const id = uid;
+    this.firestore.getUserInfo<Usuario>(path, id).subscribe((respuesta) => {
+      console.log('respuesta ->', respuesta);
+      this.nombreUsuario = respuesta.nombreUsuario;
+    });
   }
-
 }

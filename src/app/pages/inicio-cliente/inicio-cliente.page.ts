@@ -7,7 +7,6 @@ import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
 import { Platform } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-inicio-cliente',
   templateUrl: './inicio-cliente.page.html',
@@ -24,7 +23,6 @@ export class InicioClientePage implements OnInit {
     public firestore: FirestoreService,
     private platform: Platform,
     private navController: NavController
- 
   ) {
     this.auth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -34,34 +32,30 @@ export class InicioClientePage implements OnInit {
         console.log('no esta logeado');
       }
     });
-
-    
   }
 
   ngOnInit() {
-    this.platform.backButton.subscribeWithPriority(10, async() => {
+    this.platform.backButton.subscribeWithPriority(10, async () => {
       const currenturl = this.router.url;
-      if (currenturl === "/inicio-cliente"){
-      const alert = await this.alertController.create({
-        header:'Acción no permitida',
-        message:'No puedes volver atrás sin cerrar sesión',
-        buttons: [
-          {
-            text: 'Volver a la app',
-            handler: () => {
-              this.router.navigate(['/inicio-cliente'])
-            }
-          }
-        ]
-      })
-    
-      await alert.present();
-    }
-      else{
+      if (currenturl === '/inicio-cliente') {
+        const alert = await this.alertController.create({
+          header: 'Acción no permitida',
+          message: 'No puedes volver atrás sin cerrar sesión',
+          buttons: [
+            {
+              text: 'Volver a la app',
+              handler: () => {
+                this.router.navigate(['/inicio-cliente']);
+              },
+            },
+          ],
+        });
+
+        await alert.present();
+      } else {
         this.navController.back();
       }
-    
-    })
+    });
   }
 
   abrirMenu() {
@@ -85,9 +79,12 @@ export class InicioClientePage implements OnInit {
   gotoNotifications() {
     this.router.navigate(['/notificaciones']);
   }
+  gotoConfirmar() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
 
-  lectorQr(){
-    this.router.navigate(['/confirmar-recoleccion'])
+  lectorQr() {
+    this.router.navigate(['/confirmar-recoleccion']);
   }
 
   async logout() {
@@ -126,10 +123,4 @@ export class InicioClientePage implements OnInit {
       this.direccion = respuesta.direccion;
     });
   }
-
-  
- 
-   
- }
-
-
+}

@@ -60,6 +60,21 @@ export class ConfirmarRecoleccionPage implements OnInit {
     console.log(typeof this.barcodeScanner);
   }
 
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon3');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('open');
+  }
+
+  gotoNotifications() {
+    this.router.navigate(['/notificaciones']);
+  }
+  gotoConfirmar() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
+
   cancelar() {
     this.barcodeScanner
       .scan()

@@ -12,7 +12,7 @@ table {
 }
 
 td {
-  max-width: 268px !important;
+  max-width: 278px;
 }
 
 table,
@@ -176,17 +176,16 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   display: flex;
-  align-items: center;
-  align-self: flex-end;
-  gap: 10px;
-}
-
-.mensaje-error {
-  p {
-    color: #dc3545;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  background: var(--ion-color-negro);
+  height: 100% !important;
+  margin-top: auto;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 10px;
   }
-}
-
-.hidden {
-  display: none;
 }

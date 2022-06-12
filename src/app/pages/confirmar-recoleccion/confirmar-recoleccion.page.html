@@ -8,27 +8,28 @@
     <span></span>
   </div>
   <ul id="dropdown" class="dropdown">
-    <li class="dropdown-title">
-      <h3>Menu cliente</h3>
+    <li class="dropdown-img-container">
+      <div class="dropdown-img">
+        <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
+      </div>
     </li>
-    <li>
+    <li (click)="gotoConfirmar()">
       <img src="../../../assets/icon/fa_rutasw.png" alt="" />
       <a href="#">Confirmar Recolección</a>
     </li>
-    <li>
+    <li (click)="gotoNotifications()">
+      <img src="../../../assets/icon/fa_bell.png" alt="" />
+      <a>Revisar Notificaciones</a>
+    </li>
+    <li class="logout" (click)="logout()">
       <img
-        (click)="gotoNotifications()"
-        src="../../../assets/icon/fa_bellw.png"
-        alt=""
+        class=""
+        src="../../../assets/icon/fa_power-off.png
+      "
       />
-      <a (click)="gotoNotifications()">Revisar Notificaciones</a>
+      <a>Cerrar Sesión</a>
     </li>
-    <li class="logout">
-      <button (click)="logout()">
-        <img class="" src="../../../assets/icon/fa_logout.png" />
-        Cerrar sesión
-      </button>
-    </li>
+    <li class="version">Versión 1.0</li>
   </ul>
 </ion-header>
 
