@@ -59,6 +59,32 @@ export class RutasPage implements OnInit {
     this.cliente = this.rutaActualizada.clienteAsignado;
   }
 
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon4');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown1');
+    dropdown.classList.toggle('open');
+  }
+
+  option = {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    pager: true,
+    spaceBetween: 10,
+    autoplay: { delay: 5000 },
+    speed: 2000,
+  };
+
+  gotoRutas(){
+    this.router.navigate(['/rutas'])
+  }
+
+  gotoNotifications(){
+    this.router.navigate(['/notificaciones-enviadas'])
+  }
+
   getUsuarios() {
     this.database.getCollection<Usuario>('Usuarios').subscribe((res) => {
       if (res) {
