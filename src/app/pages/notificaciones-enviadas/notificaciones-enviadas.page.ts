@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-notificaciones-enviadas',
@@ -8,9 +11,40 @@ import { Router } from '@angular/router';
 })
 export class NotificacionesEnviadasPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private alertController: AlertController,
+    private userinterface: UserInteractionService,
+    private auth: FirestoreauthService) { }
 
   ngOnInit() {
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+          {
+            text: 'Denegar',
+            handler: (blah) => {
+              console.log('Confirma Permiso Denegado: yes');
+            }
+          }, {
+            text: 'Permitir',
+            handler: () => {
+              setTimeout(function () {
+                location.reload();
+              }, 100);
+              this.auth.logout();
+              this.userinterface.presentToast("Cerrando sesión...")
+              this.router.navigate(['/login'])
+              console.log('Confirma Permiso Permitido: yes');
+            }
+          }
+        ]
+      });
+      await alert.present();
+  
   }
 
   

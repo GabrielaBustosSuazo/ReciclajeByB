@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { RecoleccionExitosa } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-confirmar-recoleccion',
@@ -32,7 +34,10 @@ export class ConfirmarRecoleccionPage implements OnInit {
     private barcodeScanner: BarcodeScanner,
     private toastController: ToastController,
     private router: Router,
-    private database: FirestoreService
+    private database: FirestoreService,
+    private alertController: AlertController,
+    private auth: FirestoreauthService,
+    private userinterface: UserInteractionService
   ) {}
 
   ngOnInit() {
@@ -61,10 +66,10 @@ export class ConfirmarRecoleccionPage implements OnInit {
   }
 
   abrirMenu() {
-    const menu = document.getElementById('nav-icon3');
+    const menu = document.getElementById('nav-icon4');
     menu.classList.toggle('open');
 
-    const dropdown = document.getElementById('dropdown');
+    const dropdown = document.getElementById('dropdown2');
     dropdown.classList.toggle('open');
   }
 
@@ -72,6 +77,7 @@ export class ConfirmarRecoleccionPage implements OnInit {
     this.router.navigate(['/notificaciones']);
   }
   gotoConfirmar() {
+    this.abrirMenu();
     this.router.navigate(['/confirmar-recoleccion']);
   }
 
@@ -110,5 +116,33 @@ export class ConfirmarRecoleccionPage implements OnInit {
     });
     toast.present();
     this.router.navigate(['/valoraciones']);
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Denegar',
+          handler: (blah) => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+        {
+          text: 'Permitir',
+          handler: () => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.auth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, NavController, Platform } from '@ionic/angular';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-gestion-planillas',
@@ -12,7 +14,9 @@ export class GestionPlanillasPage implements OnInit {
     private platform: Platform,
     private navController: NavController,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private auth: FirestoreauthService,
+    private userinterface: UserInteractionService
   ) {}
 
   ngOnInit() {
@@ -40,11 +44,39 @@ export class GestionPlanillasPage implements OnInit {
   }
 
   abrirMenu() {
-    const menu = document.getElementById('nav-icon3');
+    const menu = document.getElementById('nav-icon4');
     menu.classList.toggle('open');
 
-    const dropdown = document.getElementById('dropdown');
+    const dropdown = document.getElementById('dropdown2');
     dropdown.classList.toggle('open');
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+          {
+            text: 'Denegar',
+            handler: (blah) => {
+              console.log('Confirma Permiso Denegado: yes');
+            }
+          }, {
+            text: 'Permitir',
+            handler: () => {
+              setTimeout(function () {
+                location.reload();
+              }, 100);
+              this.auth.logout();
+              this.userinterface.presentToast("Cerrando sesión...")
+              this.router.navigate(['/login'])
+              console.log('Confirma Permiso Permitido: yes');
+            }
+          }
+        ]
+      });
+      await alert.present();
+  
   }
 
   agregarRutas() {

@@ -1,101 +1,93 @@
 <ion-header>
-  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-  <ion-title mode="ios">Inicio</ion-title>
-  <div id="nav-icon3" (click)="abrirMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul id="dropdown" class="dropdown">
-    <li class="dropdown-img-container">
-      <div class="dropdown-img">
-        <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
-      </div>
-    </li>
-    <li (click)="gotoNotifications()">
-      <img src="../../../assets/icon/fa_rutasw.png" alt="" />
-      <a>Confirmar Recolección</a>
-    </li>
-    <li (click)="gotoNotifications()">
-      <img src="../../../assets/icon/fa_bell.png" alt="" />
-      <a (click)="gotoNotifications()">Revisar Notificaciones</a>
-    </li>
-    <li class="logout" (click)="logout()">
-      <img
-        class=""
-        src="../../../assets/icon/fa_power-off.png
-      "
-      />
-      <a>Cerrar Sesión</a>
-    </li>
-    <li class="version">Versión 1.0</li>
-  </ul>
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Inicio</ion-title>
+    <div id="nav-icon3" (click)="abrirMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="dropdown" class="dropdown">
+        <li class="dropdown-img-container">
+            <div class="dropdown-img">
+                <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
+            </div>
+        </li>
+        <li (click)="gotoConfirmar()">
+            <img src="../../../assets/icon/fa_rutasw.png" alt="" />
+            <a>Confirmar Recolección</a>
+        </li>
+        <li (click)="gotoNotifications()">
+            <img src="../../../assets/icon/fa_bell.png" alt="" />
+            <a (click)="gotoNotifications()">Revisar Notificaciones</a>
+        </li>
+        <li class="logout" (click)="logout()">
+            <img class="" src="../../../assets/icon/fa_power-off.png
+      " />
+            <a>Cerrar Sesión</a>
+        </li>
+        <li class="version">Versión 1.0</li>
+    </ul>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="banner">
-    <ion-row class="banner-top">
-      <p class="msg-bienvenida">
-        Bienvenido<br /><span>{{nombreUsuario}}</span>
-      </p>
-      <img class="" src="../../../assets/icon/fa_hand.png" />
-    </ion-row>
-    <ion-row class="banner-bottom">
-      <img
-        class="banner-bottom-icon"
-        src="../../../assets/icon/fa_locationw.png"
-      />
-      <p>{{direccion}}</p>
-    </ion-row>
-  </ion-grid>
+    <ion-grid class="banner">
+        <ion-row class="banner-top">
+            <p class="msg-bienvenida">
+                Bienvenido<br /><span>{{nombreUsuario}}</span>
+            </p>
+            <img class="" src="../../../assets/icon/fa_hand.png" />
+        </ion-row>
+        <ion-row class="banner-bottom">
+            <img class="banner-bottom-icon" src="../../../assets/icon/fa_locationw.png" />
+            <p>{{direccion}}</p>
+        </ion-row>
+    </ion-grid>
 
-  <ion-slides [options]="option" class="ion-margin-top">
-    <ion-slide>
-      <ion-card>
-        <img src="../../../assets/img/slider1.png" alt="" />
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card>
-        <img src="../../../assets/img/slider1.png" alt="" />
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card>
-        <img src="../../../assets/img/slider1.png" alt="" />
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+    <ion-slides [options]="option" class="ion-margin-top">
+        <ion-slide>
+            <ion-card>
+                <img src="../../../assets/img/slider1.png" alt="" />
+            </ion-card>
+        </ion-slide>
+        <ion-slide>
+            <ion-card>
+                <img src="../../../assets/img/slider1.png" alt="" />
+            </ion-card>
+        </ion-slide>
+        <ion-slide>
+            <ion-card>
+                <img src="../../../assets/img/slider1.png" alt="" />
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
 
-  <div class="menu-inicio">
-    <div class="menu-item">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_rutasw.png" />
-      </div>
-      <div (click)="lectorQr()" class="menu-item__text">
-        <p>
-          Confirmar <br />
-          Recolección
-        </p>
-      </div>
-    </div>
-    <div class="menu-item" (click)="gotoNotifications()">
-      <div class="menu-item__icon">
-        <img class="" src="../../../assets/icon/fa_bellw.png" />
-      </div>
-      <div class="menu-item__text">
-        <p>
-          Revisar <br />
-          Notificaciones
-        </p>
-      </div>
-    </div>
-    <div class="logout">
-      <button (click)="logout()">
+    <div class="menu-inicio">
+        <div class="menu-item">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_rutasw.png" />
+            </div>
+            <div (click)="lectorQr()" class="menu-item__text">
+                <p>
+                    Confirmar <br /> Recolección
+                </p>
+            </div>
+        </div>
+        <div class="menu-item" (click)="gotoNotifications()">
+            <div class="menu-item__icon">
+                <img class="" src="../../../assets/icon/fa_bellw.png" />
+            </div>
+            <div class="menu-item__text">
+                <p>
+                    Revisar <br /> Notificaciones
+                </p>
+            </div>
+        </div>
+        <div class="logout">
+            <button (click)="logout()">
         <img class="" src="../../../assets/icon/fa_logout.png" />
         Cerrar sesión
       </button>
+        </div>
     </div>
-  </div>
 </ion-content>
