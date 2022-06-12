@@ -12,7 +12,7 @@ table {
 }
 
 td {
-  max-width: 278px;
+  max-width: 268px !important;
 }
 
 table,
@@ -192,4 +192,14 @@ button {
     align-self: flex-end;
     gap: 10px;
   }
+}
+
+.mensaje-error {
+  p {
+    color: #dc3545;
+  }
+}
+
+.hidden {
+  display: none;
 }
