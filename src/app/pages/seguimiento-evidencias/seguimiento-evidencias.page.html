@@ -1,53 +1,47 @@
 <ion-content>
-  <div class="planillas__cta">
-    <div class="planillas__date">
-      <span>Seleccione una fecha: </span>
-      <input
-        (change)="SendDataonChange($event)"
-        type="date"
-        name="fechaElegida"
-        [(ngModel)]="fechaElegida"
-      />
+    <div class="planillas__cta">
+        <div class="planillas__date">
+            <span>Seleccione una fecha: </span>
+            <input (change)="SendDataonChange($event)" type="date" name="fechaElegida" [(ngModel)]="fechaElegida" />
+        </div>
+        <div class="planillas__download" (click)="limpiar()">
+            <div class="wrapper">
+                <img class="" src="../../../assets/icon/fa_download.png" />
+                <span>Mostrar todas</span>
+            </div>
+        </div>
     </div>
-    <div class="planillas__download" (click)="limpiar()">
-      <div class="wrapper">
-        <img class="" src="../../../assets/icon/fa_download.png" />
-        <span>Mostrar todas</span>
-      </div>
-    </div>
-  </div>
 
-  <ng-container *ngFor="let evidencia of evidencias">
-    <table class="test" *ngIf="evidencia.fecha === formatedDate">
-      <tr>
-        <th scope="col ">Hora</th>
-        <td>{{evidencia.hora}}</td>
-      </tr>
-      <tr>
-        <th scope="col ">Fecha</th>
-        <td>{{evidencia.fecha}}</td>
-      </tr>
-      <tr>
-        <th scope="col ">Cliente / Dirección</th>
-        <td>{{evidencia.clienteAsignado}}</td>
-      </tr>
-      <tr>
-        <!-- Conductor + patente -->
-        <th scope="col ">Conductor</th>
-        <td>
-          {{evidencia.recolectorAsignado}} <br />
-          {{evidencia.camionAsignado}}
-        </td>
-      </tr>
-      <tr>
-        <!-- Comentario -->
-        <th scope="col ">Comentario</th>
-        <td>{{evidencia.comentario}}</td>
-      </tr>
-      <tr>
-        <th scope="col ">Acciones</th>
-        <td class="acciones">
-          <span class="fallida">
+    <ng-container *ngFor="let evidencia of evidencias">
+        <table class="test" *ngIf="evidencia.fecha === formatedDate">
+            <tr>
+                <th scope="col ">Hora</th>
+                <td>{{evidencia.hora}}</td>
+            </tr>
+            <tr>
+                <th scope="col ">Fecha</th>
+                <td>{{evidencia.fecha}}</td>
+            </tr>
+            <tr>
+                <th scope="col ">Cliente / Dirección</th>
+                <td>{{evidencia.clienteAsignado}}</td>
+            </tr>
+            <tr>
+                <!-- Conductor + patente -->
+                <th scope="col ">Conductor</th>
+                <td>
+                    {{evidencia.recolectorAsignado}} <br /> {{evidencia.camionAsignado}}
+                </td>
+            </tr>
+            <tr>
+                <!-- Comentario -->
+                <th scope="col ">Comentario</th>
+                <td>{{evidencia.comentario}}</td>
+            </tr>
+            <tr>
+                <th scope="col ">Acciones</th>
+                <td class="acciones">
+                    <span class="fallida">
             <img class=" " src="../../../assets/icon/fa_x.png " />
             R. Fallida</span
           >
@@ -90,21 +84,21 @@
             <img class=" " src="../../../assets/icon/fa_x.png " />
             R. Fallida</span
           >
-          <button (click)="yaravi()">Yaravi</button>
-          <div class="evidencia__container">
-            <div class="evidencia__container-img">
-              <p>Evidencia perteneciente a</p>
-              <img [src]="evidencia.foto" />
-              <img
-                (click)="evidenciaClose()"
-                class="evidencia__close"
-                src="../../../assets/icon/fa_x.png"
-                alt=""
-              />
-            </div>
-          </div>
+          <button (click)="showImage(evidencia)">Ver Imagen</button>
         </td>
       </tr>
     </table>
   </ng-container>
+  <div class="evidencia__container">
+    <div class="evidencia__container-img">
+      <p>{{ cliente }}</p>
+      <img [src]="foto" />
+      <img
+        (click)="evidenciaClose()"
+        class="evidencia__close"
+        src="../../../assets/icon/fa_x.png"
+        alt=""
+      />
+    </div>
+  </div>
 </ion-content>

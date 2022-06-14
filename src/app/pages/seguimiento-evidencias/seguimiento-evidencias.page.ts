@@ -11,9 +11,14 @@ import { formatDate } from '@angular/common';
 export class SeguimientoEvidenciasPage implements OnInit {
   fechaElegida: string;
   formatedDate: string;
+  evidencia: Evidencias;
+  cliente: string;
+  foto: any;
+  
 
   constructor(private database: FirestoreService) {}
   evidencias: Evidencias[] = [];
+  
 
   ngOnInit() {
     this.getEvidencias();
@@ -40,7 +45,20 @@ export class SeguimientoEvidenciasPage implements OnInit {
     });
   }
 
-  yaravi() {
+  showImage(ev: Evidencias) {
+    this.evidencia = {
+      foto: '',
+      comentario: '',
+      id: '',
+      clienteAsignado: '',
+      recolectorAsignado: '',
+      camionAsignado: '',
+      fecha: '',
+      hora: '',
+    }
+    this.evidencia = ev
+    this.foto = this.evidencia.foto
+    this.cliente = this.evidencia.clienteAsignado
     const imagen = document.querySelector('.evidencia__container');
     imagen.classList.toggle('absolute');
   }
