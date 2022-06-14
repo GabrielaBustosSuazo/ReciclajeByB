@@ -189,3 +189,49 @@ button {
     gap: 10px;
   }
 }
+
+ng-container {
+  position: relative;
+}
+
+.evidencia__container {
+  height: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: -1;
+}
+
+.evidencia__container.absolute {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  opacity: 1;
+  z-index: 99;
+  display: block;
+
+  .evidencia__container-img {
+    padding: 1rem;
+    margin: 3rem;
+    padding-top: 1.5rem;
+    border-radius: 1rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #000;
+  }
+
+  .evidencia__close {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    z-index: 99;
+    height: 20px;
+    width: 20px;
+  }
+}

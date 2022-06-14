@@ -1,13 +1,13 @@
 <ion-header>
     <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
     <ion-title mode="ios">Rutas</ion-title>
-    <div id="nav-icon4" (click)="abrirMenu()">
+    <div id="nav-icon33" (click)="abrirMenu()">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <ul id="dropdown1" class="dropdown">
+    <ul id="dropdown33" class="dropdown">
         <li class="dropdown-img-container">
             <div class="dropdown-img">
                 <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
@@ -23,12 +23,13 @@
         </li>
         <li class="logout" (click)="logout()">
             <img class="" src="../../../assets/icon/fa_power-off.png
-      " />
+        " />
             <a (click)="logout()">Cerrar Sesión</a>
         </li>
         <li class="version">Versión 1.0</li>
     </ul>
 </ion-header>
+
 <ion-content>
     <span class="number"></span>
     <ng-container *ngFor="let ruta of rutas">
@@ -87,11 +88,11 @@
                 <ngx-qrcode [value]="createdCode"> </ngx-qrcode>
                 <div class="botones-qr">
                     <button (click)="cancelarQr()" class="fallida boton-acciones">
-                <small>Cancelar</small>
-              </button>
+            <small>Cancelar</small>
+          </button>
                     <button (click)="desaparecerRuta()" class="confirmar boton-acciones">
-                <small>Confirmar</small>
-              </button>
+            <small>Confirmar</small>
+          </button>
                 </div>
             </div>
         </div>

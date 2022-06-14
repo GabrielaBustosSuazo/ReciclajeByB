@@ -39,4 +39,14 @@ export class SeguimientoEvidenciasPage implements OnInit {
       }
     });
   }
+
+  yaravi() {
+    const imagen = document.querySelector('.evidencia__container');
+    imagen.classList.toggle('absolute');
+  }
+
+  evidenciaClose() {
+    const imagen = document.querySelector('.evidencia__container');
+    imagen.classList.remove('absolute');
+  }
 }

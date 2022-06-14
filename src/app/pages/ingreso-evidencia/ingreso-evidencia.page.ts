@@ -31,7 +31,7 @@ export class IngresoEvidenciaPage implements OnInit {
     recolectorAsignado: '',
     camionAsignado: '',
     fecha: '',
-    hora: ''
+    hora: '',
   };
 
   get foto() {
@@ -39,6 +39,21 @@ export class IngresoEvidenciaPage implements OnInit {
   }
   get comentario() {
     return this.evidenciasForms.get('comentario');
+  }
+
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon3');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('open');
+  }
+
+  gotoNotifications() {
+    this.router.navigate(['/notificaciones']);
+  }
+  gotoConfirmar() {
+    this.router.navigate(['/confirmar-recoleccion']);
   }
 
   public errorMessages = {
@@ -56,8 +71,7 @@ export class IngresoEvidenciaPage implements OnInit {
     private firestoreauth: FirestoreauthService,
     private firestorage: FirestorageService,
     private formBuilder: FormBuilder,
-    private router: Router,
-    
+    private router: Router
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -82,9 +96,7 @@ export class IngresoEvidenciaPage implements OnInit {
     this.hora = state.hora;
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   getUserInfo(uid: string) {
     const path = 'Usuarios';
@@ -103,9 +115,6 @@ export class IngresoEvidenciaPage implements OnInit {
   }
 
   async crearEvidencia() {
-    
- 
-
     this.userInteraction.presentLoading('Guardando...');
     const path = 'Evidencia';
     const id = this.firestore.getId();
