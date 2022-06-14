@@ -17,7 +17,7 @@ export class RutasPage implements OnInit {
   rutaActualizada: Rutas;
   cliente: string;
   datosCliente: string;
-  createdCode: [string, string, string, string,string,string];
+  createdCode: [string, string, string, string, string, string];
   usuario: Usuario[] = [];
   nombreUsuario: string;
   flag: boolean;
@@ -60,14 +60,6 @@ export class RutasPage implements OnInit {
     this.cliente = this.rutaActualizada.clienteAsignado;
   }
 
-  abrirMenu() {
-    const menu = document.getElementById('nav-icon4');
-    menu.classList.toggle('open');
-
-    const dropdown = document.getElementById('dropdown1');
-    dropdown.classList.toggle('open');
-  }
-
   option = {
     slidesPerView: 1,
     centeredSlides: true,
@@ -77,14 +69,6 @@ export class RutasPage implements OnInit {
     autoplay: { delay: 5000 },
     speed: 2000,
   };
-
-  gotoRutas(){
-    this.router.navigate(['/rutas'])
-  }
-
-  gotoNotifications(){
-    this.router.navigate(['/notificaciones-enviadas'])
-  }
 
   getUsuarios() {
     this.database.getCollection<Usuario>('Usuarios').subscribe((res) => {
@@ -133,7 +117,7 @@ export class RutasPage implements OnInit {
               this.rutaActualizada.direccion + ',',
               this.rutaActualizada.recolectorAsignado + ',',
               this.rutaActualizada.camionAsignado + ',',
-              this.rutaActualizada.fecha + ','
+              this.rutaActualizada.fecha + ',',
             ];
             console.log(this.createdCode);
 
@@ -145,32 +129,56 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 
+  abrirMenu() {
+    const menu = document.getElementById('nav-icon33');
+    menu.classList.toggle('open');
+
+    const dropdown = document.getElementById('dropdown33');
+    dropdown.classList.toggle('open');
+  }
+
+  gotoRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
+  gotoRevisarRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
+  gotoNotifications() {
+    this.router.navigate(['/notificaciones-enviadas']);
+  }
+
+  gotoRevisarNotificaciones() {
+    this.router.navigate(['/notificaciones-enviadas']);
+  }
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Salir',
       message: '¿Deseas cerrar sesión?',
       buttons: [
-          {
-            text: 'Denegar',
-            handler: (blah) => {
-              console.log('Confirma Permiso Denegado: yes');
-            }
-          }, {
-            text: 'Permitir',
-            handler: () => {
-              setTimeout(function () {
-                location.reload();
-              }, 100);
-              this.firestoreauth.logout();
-              this.userinterface.presentToast("Cerrando sesión...")
-              this.router.navigate(['/login'])
-              console.log('Confirma Permiso Permitido: yes');
-            }
-          }
-        ]
-      });
-      await alert.present();
-  
+        {
+          text: 'Denegar',
+          handler: (blah) => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+        {
+          text: 'Permitir',
+          handler: () => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.firestoreauth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 
   cancelarQr() {
@@ -228,7 +236,7 @@ export class RutasPage implements OnInit {
                 estado: this.rutaActualizada.estado,
                 id: this.rutaActualizada.id,
                 fecha: this.rutaActualizada.fecha,
-                hora: this.rutaActualizada.hora
+                hora: this.rutaActualizada.hora,
               },
             };
             this.router.navigate(['/ingreso-evidencia'], navigationExtras);
