@@ -238,4 +238,27 @@ export class RutasPage implements OnInit {
     });
     await alert.present();
   }
+
+  enviarDireccion(rut: Rutas){
+    this.rutaActualizada = {
+      camionAsignado: '',
+      recolectorAsignado: '',
+      clienteAsignado: '',
+      direccion: '',
+      comuna: '',
+      fecha: '',
+      hora: '',
+      id: '',
+      estado: '',
+    };
+    this.rutaActualizada = rut;
+    const navigationExtras: NavigationExtras = {
+      state: {
+       dir: this.rutaActualizada.direccion
+      },
+    };
+    this.router.navigate(['/googlemaps'], navigationExtras);
+
+  }
 }
+

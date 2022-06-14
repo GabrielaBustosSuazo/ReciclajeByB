@@ -142,8 +142,12 @@ const routes: Routes = [
   },
   {
     path: 'gestion-planillas',
-    loadChildren: () => import('./pages/gestion-planillas/gestion-planillas.module').then( m => m.GestionPlanillasPageModule)
+    loadChildren: () => import('./pages/gestion-planillas/gestion-planillas.module').then( m => m.GestionPlanillasPageModule
+    ),
+      ...canActivate(onlyAdmin) 
+    
   },
+
 
 
 ];
