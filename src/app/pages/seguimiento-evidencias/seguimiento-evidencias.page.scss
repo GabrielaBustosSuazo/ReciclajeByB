@@ -108,8 +108,9 @@ select {
 }
 
 button {
-  background-color: var(--ion-color-verde);
-  padding: 0.5rem 1.5rem;
+  background-color: #037bff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.2rem;
   font-size: inherit;
 }
 
@@ -201,6 +202,10 @@ ng-container {
   z-index: -1;
 }
 
+.evidencia__container-img {
+  display: none;
+}
+
 .evidencia__container.absolute {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: absolute;
@@ -214,9 +219,9 @@ ng-container {
   display: block;
 
   .evidencia__container-img {
-    padding: 1rem;
+    opacity: 1;
     margin: 3rem;
-    padding-top: 1.5rem;
+    padding: 1rem;
     border-radius: 1rem;
     background: white;
     display: flex;
@@ -224,6 +229,15 @@ ng-container {
     align-items: center;
     gap: 1rem;
     color: #000;
+    text-align: center;
+
+    button {
+      background: linear-gradient(
+        90deg,
+        rgba(143, 26, 26, 1) 0%,
+        rgba(220, 53, 69, 1) 90%
+      );
+    }
   }
 
   .evidencia__close {

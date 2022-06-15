@@ -226,9 +226,9 @@ export class RutasPage implements OnInit {
 
             this.rutaActualizada = rut;
             this.datosCliente =
-              'La evidencia pertenece al cliente ' +
+              'Evidencia perteneciente al cliente ' +
               this.rutaActualizada.clienteAsignado +
-              ' de la dirección ' +
+              ', con dirección en' +
               this.rutaActualizada.direccion;
             const navigationExtras: NavigationExtras = {
               state: {
@@ -247,7 +247,7 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 
-  enviarDireccion(rut: Rutas){
+  enviarDireccion(rut: Rutas) {
     this.rutaActualizada = {
       camionAsignado: '',
       recolectorAsignado: '',
@@ -262,11 +262,9 @@ export class RutasPage implements OnInit {
     this.rutaActualizada = rut;
     const navigationExtras: NavigationExtras = {
       state: {
-       dir: this.rutaActualizada.direccion
+        dir: this.rutaActualizada.direccion,
       },
     };
     this.router.navigate(['/googlemaps'], navigationExtras);
-
   }
 }
-
