@@ -99,7 +99,7 @@ export class ConfirmarRecoleccionPage implements OnInit {
     this.recoleccionExitosa.cliente =
       'La recolección pertenece al cliente ' +
       this.qrDataSplit2 +
-      ' de la dirección ' +
+      ', con dirección en ' +
       this.qrDataSplit3;
     this.recoleccionExitosa.hora = this.qrDataSplit1;
     this.recoleccionExitosa.fecha = this.qrDataSplit6;
