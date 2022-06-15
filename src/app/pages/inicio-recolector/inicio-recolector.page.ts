@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-inicio-recolector',
@@ -12,30 +13,31 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./inicio-recolector.page.scss'],
 })
 export class InicioRecolectorPage implements OnInit {
-  nombreUsuario = ''
-  patente = ''
+  nombreUsuario = '';
+  patente = '';
   constructor(private router: Router,
               private auth: FirestoreauthService,
               private userinterface: UserInteractionService,
               public alertController: AlertController,
               public firestore: FirestoreService,
               public platform: Platform,
-              public navController: NavController) {
+              public navController: NavController,
+              ) {
                 this.auth.stateUser().subscribe( resp => {
                   if(resp){
-                    this.getUserInfo(resp.uid)
-                    console.log('esta logeado')
+                    this.getUserInfo(resp.uid);
+                    console.log('esta logeado');
                   }
                   else{
-                    console.log('no esta logeado')
+                    console.log('no esta logeado');
                   }
-              })
+              });
                }
 
   ngOnInit() {
-    this.platform.backButton.subscribeWithPriority(10, async() => {
+    this.platform.backButton.subscribeWithPriority(10, async () => {
       const currenturl = this.router.url;
-      if (currenturl === "/inicio-recolector"){
+      if (currenturl === '/inicio-recolector'){
       const alert = await this.alertController.create({
         header:'Acción no permitida',
         message:'No puedes volver atrás sin cerrar sesión',
@@ -43,20 +45,20 @@ export class InicioRecolectorPage implements OnInit {
           {
             text: 'Volver a la app',
             handler: () => {
-              this.router.navigate(['/inicio-recolector'])
+              this.router.navigate(['/inicio-recolector']);
             }
           }
         ]
-      })
-    
+      });
+
       await alert.present();
     }
       else{
         this.navController.back();
       }
-    
-    })
-  
+
+    });
+
   }
 
   abrirMenu() {
@@ -93,6 +95,8 @@ export class InicioRecolectorPage implements OnInit {
     this.router.navigate(['/notificaciones-enviadas']);
   }
 
+
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Salir',
@@ -106,28 +110,39 @@ export class InicioRecolectorPage implements OnInit {
           }, {
             text: 'Permitir',
             handler: () => {
-              setTimeout(function () {
+              setTimeout(function() {
                 location.reload();
               }, 100);
               this.auth.logout();
-              this.userinterface.presentToast("Cerrando sesión...")
-              this.router.navigate(['/login'])
+              this.userinterface.presentToast('Cerrando sesión...');
+              this.router.navigate(['/login']);
               console.log('Confirma Permiso Permitido: yes');
             }
           }
         ]
       });
       await alert.present();
-  
+
   }
   getUserInfo(uid: string){
-    const path = 'Usuarios'
+    const path = 'Usuarios';
         const id = uid;
         this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
-        console.log('respuesta ->', respuesta)
-        this.nombreUsuario = respuesta.nombreUsuario
-        this.patente = respuesta.camionDesignado
-        })
+        console.log('respuesta ->', respuesta);
+        this.nombreUsuario = respuesta.nombreUsuario;
+        this.patente = respuesta.camionDesignado;
+        });
   }
 
+}
+
+interface INotification {
+  data: any;
+  tokens: string[];
+  notification: any
+}
+
+
+interface Res {
+  respuesta: string;
 }

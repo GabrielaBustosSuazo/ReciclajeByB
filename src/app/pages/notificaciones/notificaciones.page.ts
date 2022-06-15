@@ -58,7 +58,7 @@ export class NotificacionesPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            setTimeout(function () {
+            setTimeout(function() {
               location.reload();
             }, 100);
             this.auth.logout();

@@ -19,12 +19,22 @@ export class FirestoreService {
   updateDoc(data: string, path: string, id: string,){
     const collection = this.firestore.collection(path);
     return collection.doc(id).update({
-        "estado" : data
+        estado : data
     });
   }
 
+  getDoc<tipo>(path: string, id: string) {
+    const collection = this.firestore.collection<tipo>(path);
+    return collection.doc(id).valueChanges();
+  }
+
+  update(data: any, path: string, id: string) {
+    const collection = this.firestore.collection(path);
+    return collection.doc(id).update(data);
+  }
+
   getId(){
-    return this.firestore.createId()
+    return this.firestore.createId();
   }
 
   getCollection<tipo>(path: string){
@@ -34,10 +44,13 @@ export class FirestoreService {
 
 
   getUserInfo<tipo>(path: string, id: string){
-    return this.firestore.collection(path).doc<tipo>(id).valueChanges()
+    return this.firestore.collection(path).doc<tipo>(id).valueChanges();
   }
 
   deleteDoc(path: string, id: string){
     return this.firestore.collection(path).doc(id).delete();
   }
+
 }
+
+

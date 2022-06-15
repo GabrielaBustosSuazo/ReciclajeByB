@@ -10,7 +10,7 @@ import { AgregarCamionesPage } from './agregar-camiones.page';
 
 @NgModule({
   imports: [
-    CommonModule,  
+    CommonModule,
     IonicModule,
     AgregarCamionesPageRoutingModule,
     ReactiveFormsModule,

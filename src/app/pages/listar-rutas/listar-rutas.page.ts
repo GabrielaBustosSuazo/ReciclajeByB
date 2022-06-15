@@ -19,15 +19,15 @@ export class ListarRutasPage implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.getRutas()
-    
+    this.getRutas();
+
   }
 
   getRutas(){
     this.database.getCollection<Rutas>('Rutas').subscribe ( res => {
       if (res){
         this.data = res;
-      }   
+      }
     });
   }
 
@@ -41,26 +41,26 @@ export class ListarRutasPage implements OnInit {
       hora: '',
       id: ''
       }
-    
+
     this.rutas = rut;
-    
+
   }
 
   async guardar(){
     await this.userInteraction.presentLoading('Guardando...');
-    const path = 'Rutas' 
+    const path = 'Rutas'
 
     await this.database.createDoc(this.rutas, path, this.rutas.id);
     this.userInteraction.closeLoading();
     this.userInteraction.presentToast('Ruta modificada exitosamente');
   }
   */
-  
+
 
   async eliminarRuta(rut: Rutas){
-    const res = await this.userInteraction.presentAlert("Alerta", "¿Seguro que deseas eliminar esta ruta?")
+    const res = await this.userInteraction.presentAlert('Alerta', '¿Seguro que deseas eliminar esta ruta?');
     if (res) {
-      const path = 'Rutas' 
+      const path = 'Rutas';
       await this.database.deleteDoc(path, rut.id);
       this.userInteraction.presentToast('Ruta eliminada exitosamente');
     }

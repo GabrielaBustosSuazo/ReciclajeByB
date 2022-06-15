@@ -14,11 +14,11 @@ export class SeguimientoEvidenciasPage implements OnInit {
   evidencia: Evidencias;
   cliente: string;
   foto: any;
-  
+
 
   constructor(private database: FirestoreService) {}
   evidencias: Evidencias[] = [];
-  
+
 
   ngOnInit() {
     this.getEvidencias();
@@ -26,7 +26,7 @@ export class SeguimientoEvidenciasPage implements OnInit {
 
   limpiar() {
     this.fechaElegida = undefined;
-    setTimeout(function () {
+    setTimeout(function() {
       location.reload();
     }, 2000);
     console.log(this.fechaElegida);
@@ -55,10 +55,10 @@ export class SeguimientoEvidenciasPage implements OnInit {
       camionAsignado: '',
       fecha: '',
       hora: '',
-    }
-    this.evidencia = ev
-    this.foto = this.evidencia.foto
-    this.cliente = this.evidencia.clienteAsignado
+    };
+    this.evidencia = ev;
+    this.foto = this.evidencia.foto;
+    this.cliente = this.evidencia.clienteAsignado;
     const imagen = document.querySelector('.evidencia__container');
     imagen.classList.toggle('absolute');
   }

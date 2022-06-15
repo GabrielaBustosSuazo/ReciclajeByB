@@ -13,7 +13,7 @@ const routes: Routes = [
         children: [
           {
           path: '',
-          loadChildren: () => import('../agregar-camiones/agregar-camiones.module').then( m => m.AgregarCamionesPageModule) 
+          loadChildren: () => import('../agregar-camiones/agregar-camiones.module').then( m => m.AgregarCamionesPageModule)
       }
     ]
   },

@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   credenciales = {
     email: null,
     password: null
-  }
+  };
 
   get email() {
     return this.usuariosForm.get('email');
@@ -49,23 +49,23 @@ usuariosForm = this.formBuilder.group({
 
 });
 
-  
+
 
   constructor(public firestoreauth: FirestoreauthService,
               public userinteraction: UserInteractionService,
               public firestore: FirestoreService,
               public router: Router,
               public formBuilder: FormBuilder) {
-              
+
                 this.firestoreauth.stateUser().subscribe( resp => {
                     if(resp){
-                      this.getUserInfo(resp.uid)
-                      console.log('esta logeado')
+                      this.getUserInfo(resp.uid);
+                      console.log('esta logeado');
                     }
                     else{
-                      console.log('no esta logeado')
+                      console.log('no esta logeado');
                     }
-                })
+                });
                }
 
   ngOnInit() {
@@ -73,42 +73,42 @@ usuariosForm = this.formBuilder.group({
   }
 
   async login(){
-    await this.userinteraction.presentLoading("Iniciando sesión...")
+    await this.userinteraction.presentLoading('Iniciando sesión...');
     const res = await this.firestoreauth.login(this.credenciales.email, this.credenciales.password).catch (error => {
-      this.userinteraction.closeLoading()  
-      this.userinteraction.presentToast("Email o contraseña inválidos")
+      this.userinteraction.closeLoading();
+      this.userinteraction.presentToast('Email o contraseña inválidos');
 
-    })
+    });
 
     if(res){
-      console.log('res ->', res)
+      console.log('res ->', res);
     }
   }
 
 
 getUserInfo(uid: string){
-  const path = 'Usuarios'
+  const path = 'Usuarios';
       const id = uid;
       this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
-      console.log('respuesta ->', respuesta)
+      console.log('respuesta ->', respuesta);
       if(respuesta){
-        this.tipoUsuario = respuesta.tipoUsuario
-        if (this.tipoUsuario === "Cliente"){
-          this.router.navigate(['/inicio-cliente'])
-          this.userinteraction.closeLoading()  
-          this.userinteraction.presentToast("Ingresado exitosamente")
+        this.tipoUsuario = respuesta.tipoUsuario;
+        if (this.tipoUsuario === 'Cliente'){
+          this.router.navigate(['/inicio-cliente']);
+          this.userinteraction.closeLoading();
+          this.userinteraction.presentToast('Ingresado exitosamente');
         }
-        if (this.tipoUsuario === "Recolector"){
-          this.router.navigate(['/inicio-recolector'])
-          this.userinteraction.closeLoading()  
-          this.userinteraction.presentToast("Ingresado exitosamente")
+        if (this.tipoUsuario === 'Recolector'){
+          this.router.navigate(['/inicio-recolector']);
+          this.userinteraction.closeLoading();
+          this.userinteraction.presentToast('Ingresado exitosamente');
         }
-        if (this.tipoUsuario === "Admin"){
-          this.router.navigate(['/inicio-administrador'])
-          this.userinteraction.closeLoading()  
-          this.userinteraction.presentToast("Ingresado exitosamente")
+        if (this.tipoUsuario === 'Admin'){
+          this.router.navigate(['/inicio-administrador']);
+          this.userinteraction.closeLoading();
+          this.userinteraction.presentToast('Ingresado exitosamente');
         }
       }
-    })
+    });
     }
 }

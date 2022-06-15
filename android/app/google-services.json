@@ -1,0 +1,31 @@
+{
+    "project_info": {
+        "project_number": "208039570057",
+        "project_id": "reciclaje-bybbd",
+        "storage_bucket": "reciclaje-bybbd.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:208039570057:android:ed99bef13b4e2c653c7458",
+            "android_client_info": {
+                "package_name": "com.reciclajebyb.duoc"
+            }
+        },
+        "oauth_client": [{
+            "client_id": "208039570057-6k4toimjmr3le6eq0abbjhpfpjt5rqh4.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyC0cix4yh_9JGjfptQaoGQsc2X03liYjXU"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "208039570057-6k4toimjmr3le6eq0abbjhpfpjt5rqh4.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}

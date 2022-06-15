@@ -23,7 +23,7 @@ export class FirestoreauthService {
   registrar(email: string, password: string){
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
- 
+
 
   async getUid() {
     const user = await this.auth.currentUser;
@@ -35,7 +35,7 @@ export class FirestoreauthService {
  }
 
  stateUser(){
-   return this.auth.authState
+   return this.auth.authState;
  }
 
 

@@ -104,7 +104,7 @@ export class AgregarRutasPage implements OnInit {
       (this.data.comuna = ''),
       (this.data.hora = '');
 
-    setTimeout(function () {
+    setTimeout(function() {
       const errores = document.querySelectorAll('.error-message');
       const input = document.querySelectorAll('input');
       const ionSelect = document.querySelectorAll('ion-select');
@@ -120,7 +120,7 @@ export class AgregarRutasPage implements OnInit {
       });
     }, 0);
 
-    setTimeout(function () {
+    setTimeout(function() {
       location.reload();
     }, 2000);
   }
@@ -140,6 +140,6 @@ export class AgregarRutasPage implements OnInit {
       }
     });
   }
- 
+
 
 }

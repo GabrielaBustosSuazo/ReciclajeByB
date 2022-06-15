@@ -72,7 +72,7 @@ export class ListarCamionesPage implements OnInit {
     private database: FirestoreService,
     private userInteraction: UserInteractionService,
     private formBuilder: FormBuilder,
-    
+
   ) {}
 
   ngOnInit() {
@@ -80,7 +80,7 @@ export class ListarCamionesPage implements OnInit {
 
     const card = document.querySelector('ion-card');
     card.style.display = 'none';
-   
+
   }
 
   getCamiones() {
@@ -101,7 +101,7 @@ export class ListarCamionesPage implements OnInit {
     };
     this.camion = cam;
 
-    setTimeout(function () {
+    setTimeout(function() {
       document.getElementById(element).scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -124,7 +124,7 @@ export class ListarCamionesPage implements OnInit {
     const card = document.querySelector('ion-card');
     card.style.display = 'none';
 
-    setTimeout(function () {
+    setTimeout(function() {
       document.getElementById(test).scrollIntoView({
         behavior: 'smooth',
         block: 'start',

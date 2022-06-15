@@ -32,22 +32,22 @@ export class NotificacionesEnviadasPage implements OnInit {
           }, {
             text: 'Permitir',
             handler: () => {
-              setTimeout(function () {
+              setTimeout(function() {
                 location.reload();
               }, 100);
               this.auth.logout();
-              this.userinterface.presentToast("Cerrando sesión...")
-              this.router.navigate(['/login'])
+              this.userinterface.presentToast('Cerrando sesión...');
+              this.router.navigate(['/login']);
               console.log('Confirma Permiso Permitido: yes');
             }
           }
         ]
       });
       await alert.present();
-  
+
   }
 
-  
+
   abrirMenu() {
     const menu = document.getElementById('nav-icon5');
     menu.classList.toggle('open');

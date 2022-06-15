@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FirestoreauthService } from './services/firestoreauth.service';
+import { NotificacionesService } from './services/notificaciones.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import { FirestoreauthService } from './services/firestoreauth.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private firestoreauthservice: FirestoreauthService) {}
+  constructor(private firestoreauthservice: FirestoreauthService,
+              private notificationsService: NotificacionesService
+              ) {
+                
+              }
 }
