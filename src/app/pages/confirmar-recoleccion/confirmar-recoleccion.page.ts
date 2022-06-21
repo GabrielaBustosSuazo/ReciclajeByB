@@ -41,7 +41,7 @@ export class ConfirmarRecoleccionPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    setTimeout(function () {
+    setTimeout(function() {
       const pantallaCarga = document.querySelector('.pantalla-carga');
       pantallaCarga.classList.toggle('mostrar');
     }, 3000);
@@ -132,7 +132,7 @@ export class ConfirmarRecoleccionPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            setTimeout(function () {
+            setTimeout(function() {
               location.reload();
             }, 100);
             this.auth.logout();

@@ -106,7 +106,7 @@ export class InicioAdministradorPage implements OnInit {
         {
           text: 'Permitir',
           handler: () => {
-            setTimeout(function () {
+            setTimeout(function() {
               location.reload();
             }, 100);
             this.auth.logout();

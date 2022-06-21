@@ -86,11 +86,11 @@ export class AgregarCamionesPage implements OnInit {
     private userInteraction: UserInteractionService,
     private formBuilder: FormBuilder,
 
-  
+
   ) {}
 
   ngOnInit() {
-    
+
   }
 
 
@@ -110,7 +110,7 @@ export class AgregarCamionesPage implements OnInit {
     this.data.modelo = '';
     this.data.anno = '';
 
-    setTimeout(function () {
+    setTimeout(function() {
       const errores = document.querySelectorAll('.error-message');
       const input = document.querySelectorAll('input');
       const ionSelect = document.querySelectorAll('ion-select');
@@ -126,7 +126,7 @@ export class AgregarCamionesPage implements OnInit {
       });
     }, 0);
 
-    setTimeout(function () {
+    setTimeout(function() {
       location.reload();
     }, 2000);
   }

@@ -1,6 +1,8 @@
 {
   "projects": {
-    "reciclaje-bybbd": "reciclaje-bybbd"
+    "reciclaje-bybbd": "reciclaje-bybbd",
+    "default": "reciclaje-bybbd",
+    "reciclajebd": "reciclaje-bybbd"
   },
   "targets": {}
 }

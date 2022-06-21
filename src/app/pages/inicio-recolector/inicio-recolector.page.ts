@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-inicio-recolector',
@@ -57,15 +58,23 @@ export class InicioRecolectorPage implements OnInit {
     });
   }
 
-  option = {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    pager: true,
-    spaceBetween: 10,
-    autoplay: { delay: 5000 },
-    speed: 2000,
-  };
+  getUserInfo(uid: string) {
+    const path = 'Usuarios';
+    const id = uid;
+    this.firestore.getUserInfo<Usuario>(path, id).subscribe((respuesta) => {
+      console.log('respuesta ->', respuesta);
+      this.nombreUsuario = respuesta.nombreUsuario;
+      this.patente = respuesta.camionDesignado;
+    });
+  }
+
+  gotoRevisarRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
+  gotoRevisarNotificaciones() {
+    this.router.navigate(['/notificaciones-enviadas']);
+  }
 
   async logout() {
     const alert = await this.alertController.create({
@@ -103,12 +112,14 @@ export class InicioRecolectorPage implements OnInit {
       this.patente = respuesta.camionDesignado;
     });
   }
+}
 
-  gotoRevisarRutas() {
-    this.router.navigate(['/rutas']);
-  }
+interface INotification {
+  data: any;
+  tokens: string[];
+  notification: any;
+}
 
-  gotoRevisarNotificaciones() {
-    this.router.navigate(['/notificaciones-enviadas']);
-  }
+interface Res {
+  respuesta: string;
 }

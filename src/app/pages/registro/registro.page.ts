@@ -12,7 +12,7 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  rol : string;
+  rol: string;
   camiones: Camiones[] = [];
   usuario: Usuario = {
     uid: '',
@@ -37,27 +37,27 @@ export class RegistroPage implements OnInit {
   get password() {
     return this.usuariosForm.get('password');
   }
-  
+
   get run() {
-    return this.usuariosForm.get('run')
+    return this.usuariosForm.get('run');
   }
   get direccion() {
-    return this.usuariosForm.get('direccion')
+    return this.usuariosForm.get('direccion');
   }
   get comuna(){
-    return this.usuariosForm.get('comuna')
+    return this.usuariosForm.get('comuna');
   }
   get telefono(){
-    return this.usuariosForm.get('telefono')
+    return this.usuariosForm.get('telefono');
   }
   get tipoUsuario() {
     return this.usuariosForm.get('tipoUsuario');
   }
   get tipoPlan(){
-    return this.usuariosForm.get('tipoPlan')
+    return this.usuariosForm.get('tipoPlan');
   }
   get camionDesignado(){
-    return this.usuariosForm.get('camionDesignado')
+    return this.usuariosForm.get('camionDesignado');
   }
 
 
@@ -135,7 +135,7 @@ export class RegistroPage implements OnInit {
 
   async ngOnInit() {
     this.getCamiones();
-  
+
   }
 
   getCamiones() {
@@ -185,7 +185,7 @@ export class RegistroPage implements OnInit {
       this.usuario.run = '';
       this.usuario.telefono = '';
 
-      setTimeout(function () {
+      setTimeout(function() {
         const errores = document.querySelectorAll('.error-message');
         const input = document.querySelectorAll('input');
         const ionSelect = document.querySelectorAll('ion-select');
@@ -201,7 +201,7 @@ export class RegistroPage implements OnInit {
         });
       }, 0);
 
-      setTimeout(function () {
+      setTimeout(function() {
         location.reload();
       }, 2000);
     }
@@ -213,12 +213,12 @@ export class RegistroPage implements OnInit {
     this.usuario.password = null;
     this.usuario.telefono = this.usuario.prefijo + this.usuario.telefono;
     if (this.usuario.camionDesignado === ''){
-      this.usuario.camionDesignado = 'No aplica'
+      this.usuario.camionDesignado = 'No aplica';
     }
     if (this.usuario.tipoPlan === ''){
-      this.usuario.tipoPlan = 'No aplica'
+      this.usuario.tipoPlan = 'No aplica';
     }
-    console.log(this.usuario.camionDesignado)
+    console.log(this.usuario.camionDesignado);
     this.firestore.createDoc(this.usuario, path, this.usuario.uid).then(() => {
       this.userInteraction.closeLoading();
       this.userInteraction.presentToast('Usuario registrado exitosamente');
@@ -226,12 +226,12 @@ export class RegistroPage implements OnInit {
   }
 
   getUserInfo(uid: string){
-    const path = 'Usuarios'
+    const path = 'Usuarios';
         const id = uid;
         this.firestore.getUserInfo<Usuario>(path, id).subscribe(respuesta => {
-        console.log('respuesta ->', respuesta)
-        this.rol = respuesta.tipoUsuario
-        })
+        console.log('respuesta ->', respuesta);
+        this.rol = respuesta.tipoUsuario;
+        });
   }
 
 }

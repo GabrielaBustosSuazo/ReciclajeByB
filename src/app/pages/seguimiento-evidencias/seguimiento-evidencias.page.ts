@@ -58,7 +58,6 @@ export class SeguimientoEvidenciasPage implements OnInit {
       fecha: '',
       hora: '',
     };
-
     this.evidencia = ev;
     this.foto = this.evidencia.foto;
     this.cliente = this.evidencia.clienteAsignado;

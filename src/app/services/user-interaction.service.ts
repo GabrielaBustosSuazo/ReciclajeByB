@@ -35,7 +35,7 @@ export class UserInteractionService {
       this.loading.dismiss();
     }
   }
-  
+
   async closeLoading(){
     await this.loading.dismiss();
   }
@@ -44,13 +44,13 @@ export class UserInteractionService {
     let aceptar = false;
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: header,
-      message: message,
+      header,
+      message,
       buttons: [
          {
           text: 'Aceptar',
           handler: () => {
-            aceptar = true
+            aceptar = true;
           }
         },
         {
@@ -62,7 +62,7 @@ export class UserInteractionService {
     });
 
     await alert.present();
-    await alert.onDidDismiss(); 
+    await alert.onDidDismiss();
     return aceptar;
   }
 }

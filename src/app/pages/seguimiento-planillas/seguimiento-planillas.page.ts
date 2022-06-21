@@ -9,7 +9,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./seguimiento-planillas.page.scss'],
 })
 export class SeguimientoPlanillasPage implements OnInit {
-  fechaElegida: string; 
+  fechaElegida: string;
   formatedDate: string;
   constructor(private database: FirestoreService) { }
   recoleccionExitosa: RecoleccionExitosa[] = [];
@@ -19,15 +19,15 @@ export class SeguimientoPlanillasPage implements OnInit {
 
   limpiar(){
     this.fechaElegida = undefined;
-    setTimeout(function () {
+    setTimeout(function() {
       location.reload();
     }, 2000);
-    console.log(this.fechaElegida)
+    console.log(this.fechaElegida);
   }
 
   SendDataonChange(event: any) {
     this.formatedDate = formatDate(this.fechaElegida, 'dd/MM/yyyy', 'en');
-    console.log(this.formatedDate)
+    console.log(this.formatedDate);
   }
 
   getRecoleccionesExitosas() {

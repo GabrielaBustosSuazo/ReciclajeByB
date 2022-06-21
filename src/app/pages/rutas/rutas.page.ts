@@ -6,6 +6,7 @@ import { Rutas, Usuario } from 'src/app/models/models';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-rutas',
@@ -26,7 +27,8 @@ export class RutasPage implements OnInit {
     private alertController: AlertController,
     private firestoreauth: FirestoreauthService,
     private router: Router,
-    private userinterface: UserInteractionService
+    private userinterface: UserInteractionService,
+    private http: HttpClient
   ) {
     this.firestoreauth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -83,6 +85,35 @@ export class RutasPage implements OnInit {
       console.log('respuesta ->', respuesta);
       this.nombreUsuario = respuesta.nombreUsuario;
       console.log(this.nombreUsuario);
+    });
+  }
+
+  newNotification() {
+    const receptor = 'AIMkkbZzzwSVukwsbXLO4qxk6EI3';
+    const path = 'Usuarios/';
+    this.database.getDoc<any>(path, receptor).subscribe((res) => {
+      if (res) {
+        const token = res.token;
+        const dataNotification = {
+          enlace: '/rutas',
+        };
+        const notification = {
+          title: 'Recolector va en camino',
+          body: 'Prepara tu reciclaje porque el recolector va en camino',
+        };
+        const data: INotification = {
+          data: dataNotification,
+          tokens: [token],
+          notification,
+        };
+        console.log(data);
+        const url =
+          'https://us-central1-reciclaje-bybbd.cloudfunctions.net/newNotification';
+        return this.http.post<Res>(url, { data }).subscribe((res) => {
+          this.userinterface.presentToast('Notificación enviada correctamente');
+          console.log('respuesta newNotication() -> ', res);
+        });
+      }
     });
   }
 
@@ -215,4 +246,14 @@ export class RutasPage implements OnInit {
     };
     this.router.navigate(['/googlemaps'], navigationExtras);
   }
+}
+
+interface INotification {
+  data: any;
+  tokens: string[];
+  notification: any;
+}
+
+interface Res {
+  respuesta: string;
 }

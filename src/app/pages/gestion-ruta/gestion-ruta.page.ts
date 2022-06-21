@@ -64,19 +64,19 @@ export class GestionRutaPage implements OnInit {
           }, {
             text: 'Permitir',
             handler: () => {
-              setTimeout(function () {
+              setTimeout(function() {
                 location.reload();
               }, 100);
               this.auth.logout();
-              this.userinterface.presentToast("Cerrando sesión...")
-              this.router.navigate(['/login'])
+              this.userinterface.presentToast('Cerrando sesión...');
+              this.router.navigate(['/login']);
               console.log('Confirma Permiso Permitido: yes');
             }
           }
         ]
       });
       await alert.present();
-  
+
   }
 
   agregarRutas() {

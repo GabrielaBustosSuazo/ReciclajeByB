@@ -79,27 +79,6 @@ export class ListarCamionesPage implements OnInit {
 
     const card = document.querySelector('ion-card');
     card.style.display = 'none';
-
-    const modalContainer = document.getElementById('modal-container');
-    setTimeout(function () {
-      modalContainer.style.display = 'none';
-    }, 100);
-  }
-
-  openModal() {
-    const ionContent = document.querySelector('ion-content');
-    const modalContainer = document.getElementById('modal-container');
-    ionContent.classList.add('modal-active');
-    modalContainer.classList.remove('out');
-    console.log('abriendo');
-  }
-
-  closeModal() {
-    const ionContent = document.querySelector('ion-content');
-    const modalContainer = document.getElementById('modal-container');
-    ionContent.classList.remove('modal-active');
-    modalContainer.classList.add('out');
-    console.log('asdasdsadsdasdadsa');
   }
 
   getCamiones() {

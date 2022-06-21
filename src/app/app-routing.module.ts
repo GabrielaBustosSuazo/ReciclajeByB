@@ -17,7 +17,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
-    
+
   },
   {
     path: 'valoraciones',
@@ -25,7 +25,7 @@ const routes: Routes = [
       import('./pages/valoraciones/valoraciones.module').then(
         (m) => m.ValoracionesPageModule
       ),
-      
+
   },
   {
     path: 'ingreso-evidencia',
@@ -33,7 +33,7 @@ const routes: Routes = [
       import('./pages/ingreso-evidencia/ingreso-evidencia.module').then(
         (m) => m.IngresoEvidenciaPageModule
       ),
-      
+
   },
 
   {
@@ -43,7 +43,7 @@ const routes: Routes = [
         (m) => m.InicioAdministradorPageModule
       ),
       ...canActivate(onlyAdmin),
-      
+
   },
   {
     path: 'inicio-cliente',
@@ -51,7 +51,7 @@ const routes: Routes = [
       import('./pages/inicio-cliente/inicio-cliente.module').then(
         (m) => m.InicioClientePageModule
       ),
-    
+
   },
   {
     path: 'inicio-recolector',
@@ -59,7 +59,7 @@ const routes: Routes = [
       import('./pages/inicio-recolector/inicio-recolector.module').then(
         (m) => m.InicioRecolectorPageModule
       ),
-      
+
   },
   {
     path: 'notificaciones',
@@ -67,16 +67,16 @@ const routes: Routes = [
       import('./pages/notificaciones/notificaciones.module').then(
         (m) => m.NotificacionesPageModule
       ),
-      
+
   },
   {
     path: 'seguimiento-planillas',
     loadChildren: () =>
       import('./pages/seguimiento-planillas/seguimiento-planillas.module').then(
-        (m) => m.SeguimientoPlanillasPageModule, 
+        (m) => m.SeguimientoPlanillasPageModule,
       ),
-      ...canActivate(onlyAdmin) 
-      
+      ...canActivate(onlyAdmin)
+
   },
   {
     path: 'seguimiento-evidencias',
@@ -85,13 +85,13 @@ const routes: Routes = [
         './pages/seguimiento-evidencias/seguimiento-evidencias.module').then(
           (m) => m.SeguimientoEvidenciasPageModule
         ),
-        ...canActivate(onlyAdmin) 
+        ...canActivate(onlyAdmin)
   },
   {
     path: 'rutas',
     loadChildren: () =>
       import('./pages/rutas/rutas.module').then((m) => m.RutasPageModule),
-      
+
   },
   {
     path: 'notificaciones-enviadas',
@@ -99,7 +99,7 @@ const routes: Routes = [
       import(
         './pages/notificaciones-enviadas/notificaciones-enviadas.module'
       ).then((m) => m.NotificacionesEnviadasPageModule),
-      
+
   },
   {
     path: 'recuperar-contrasena',
@@ -114,7 +114,7 @@ const routes: Routes = [
       import('./pages/gestion-camiones/gestion-camiones.module').then(
         (m) => m.GestionCamionesPageModule
       ),
-      ...canActivate(onlyAdmin) 
+      ...canActivate(onlyAdmin)
   },
   {
     path: 'gestion-ruta',
@@ -122,7 +122,7 @@ const routes: Routes = [
       import('./pages/gestion-ruta/gestion-ruta.module').then(
         (m) => m.GestionRutaPageModule
       ),
-      ...canActivate(onlyAdmin) 
+      ...canActivate(onlyAdmin)
   },
   {
     path: 'gestion-usuarios',
@@ -130,22 +130,22 @@ const routes: Routes = [
       import('./pages/gestion-usuarios/gestion-usuarios.module').then(
         (m) => m.GestionUsuariosPageModule
       ),
-      ...canActivate(onlyAdmin) 
+      ...canActivate(onlyAdmin)
   },
   {
     path: 'confirmar-recoleccion',
-    loadChildren: () => import('./pages/confirmar-recoleccion/confirmar-recoleccion.module').then( 
+    loadChildren: () => import('./pages/confirmar-recoleccion/confirmar-recoleccion.module').then(
       m => m.ConfirmarRecoleccionPageModule
       ),
-      
+
 
   },
   {
     path: 'gestion-planillas',
     loadChildren: () => import('./pages/gestion-planillas/gestion-planillas.module').then( m => m.GestionPlanillasPageModule
     ),
-      ...canActivate(onlyAdmin) 
-    
+      ...canActivate(onlyAdmin)
+
   },
 
 
