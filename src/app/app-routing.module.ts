@@ -146,17 +146,7 @@ const routes: Routes = [
     ),
       ...canActivate(onlyAdmin)
 
-  },  {
-    path: 'inicio-cliente',
-    loadChildren: () => import('./pages/inicio-cliente/inicio-cliente.module').then( m => m.InicioClientePageModule)
   },
-  {
-    path: 'inicio-cliente',
-    loadChildren: () => import('./pages/inicio-cliente/inicio-cliente.module').then( m => m.InicioClientePageModule)
-  },
-
-
-
 
 ];
 

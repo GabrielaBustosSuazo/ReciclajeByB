@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { InicioClientePageRoutingModule } from './inicio-cliente-routing.module';
-
-import { InicioClientePage } from './inicio-cliente.page';
+import { InicioClientePage } from './inicio-cliente.page'
+import { MenuClienteComponent } from 'src/app/components/menu-cliente/menu-cliente.component';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { InicioClientePage } from './inicio-cliente.page';
     IonicModule,
     InicioClientePageRoutingModule
   ],
-  declarations: [InicioClientePage]
+  declarations: [InicioClientePage, MenuClienteComponent]
 })
 export class InicioClientePageModule {}

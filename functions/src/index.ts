@@ -15,8 +15,8 @@ const sendNotification = (notification: INotification) => {
       notification: notification.notification,
       android: {
         notification: {
-          icon: "../../../assets/img/LogoPequennopng.png",
-          color: "#EB9234",
+          icon: "/LogoPequennopng.png",
+          color: "#282828",
         },
       },
       apns: {
