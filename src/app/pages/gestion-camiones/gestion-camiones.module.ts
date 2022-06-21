@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GestionCamionesPageRoutingModule } from './gestion-camiones-routing.module';
 
 import { GestionCamionesPage } from './gestion-camiones.page';
+import { MenuAdminComponent } from 'src/app/components/menu-admin/menu-admin.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GestionCamionesPageRoutingModule
+    GestionCamionesPageRoutingModule,
   ],
-  declarations: [GestionCamionesPage]
+  declarations: [GestionCamionesPage, MenuAdminComponent],
 })
 export class GestionCamionesPageModule {}

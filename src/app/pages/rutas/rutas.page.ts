@@ -60,16 +60,6 @@ export class RutasPage implements OnInit {
     this.cliente = this.rutaActualizada.clienteAsignado;
   }
 
-  option = {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    pager: true,
-    spaceBetween: 10,
-    autoplay: { delay: 5000 },
-    speed: 2000,
-  };
-
   getUsuarios() {
     this.database.getCollection<Usuario>('Usuarios').subscribe((res) => {
       if (res) {
@@ -97,7 +87,8 @@ export class RutasPage implements OnInit {
   }
 
   async confirmarRecoleccion() {
-    const codigoQR = document.querySelector('.codigo-qr');
+    const codigoQR = document.querySelector('.modal-container');
+    const pantalla = document.querySelector('.pantalla-modal');
     const alert = await this.alertController.create({
       header: 'Confirmar recolección',
       message: '¿Deseas confirmar la recolección?',
@@ -121,7 +112,8 @@ export class RutasPage implements OnInit {
             ];
             console.log(this.createdCode);
 
-            codigoQR.classList.add('absolute');
+            codigoQR.classList.add('modal-active');
+            pantalla.classList.add('modal-active__background');
           },
         },
       ],
@@ -129,57 +121,13 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 
-  abrirMenu() {
-    const menu = document.getElementById('nav-icon33');
-    menu.classList.toggle('open');
-
-    const dropdown = document.getElementById('dropdown33');
-    dropdown.classList.toggle('open');
+  cerrarModal() {
+    const codigoQR = document.querySelector('.modal-container');
+    const pantalla = document.querySelector('.pantalla-modal');
+    codigoQR.classList.remove('modal-active');
+    pantalla.classList.remove('modal-active__background');
   }
-
-  gotoRutas() {
-    this.router.navigate(['/rutas']);
-  }
-
-  gotoRevisarRutas() {
-    this.router.navigate(['/rutas']);
-  }
-
-  gotoNotifications() {
-    this.router.navigate(['/notificaciones-enviadas']);
-  }
-
-  gotoRevisarNotificaciones() {
-    this.router.navigate(['/notificaciones-enviadas']);
-  }
-
-  async logout() {
-    const alert = await this.alertController.create({
-      header: 'Salir',
-      message: '¿Deseas cerrar sesión?',
-      buttons: [
-        {
-          text: 'Denegar',
-          handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
-            setTimeout(function () {
-              location.reload();
-            }, 100);
-            this.firestoreauth.logout();
-            this.userinterface.presentToast('Cerrando sesión...');
-            this.router.navigate(['/login']);
-            console.log('Confirma Permiso Permitido: yes');
-          },
-        },
-      ],
-    });
-    await alert.present();
-  }
+  z;
 
   cancelarQr() {
     const codigoQR = document.querySelector('.codigo-qr');
@@ -228,7 +176,7 @@ export class RutasPage implements OnInit {
             this.datosCliente =
               'Evidencia perteneciente al cliente ' +
               this.rutaActualizada.clienteAsignado +
-              ', con dirección en' +
+              ', con dirección en ' +
               this.rutaActualizada.direccion;
             const navigationExtras: NavigationExtras = {
               state: {

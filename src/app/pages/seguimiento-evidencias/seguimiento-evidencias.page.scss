@@ -209,9 +209,10 @@ ng-container {
 .evidencia__container.absolute {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: absolute;
+  overflow-y: scroll;
   top: 15%;
   left: 0;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background-color: hsla(0, 0%, 0%, 0.5);
   opacity: 1;
@@ -221,14 +222,14 @@ ng-container {
   .evidencia__container-img {
     opacity: 1;
     margin: 3rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
-    background: white;
+    background: var(--ion-color-negro);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    color: #000;
+    color: #fff;
     text-align: center;
 
     button {

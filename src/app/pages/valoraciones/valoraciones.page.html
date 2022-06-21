@@ -1,36 +1,7 @@
 <ion-header>
   <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
   <ion-title mode="ios">Valoracion</ion-title>
-  <div id="nav-icon3" (click)="abrirMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul id="dropdown" class="dropdown">
-    <li class="dropdown-img-container">
-      <div class="dropdown-img">
-        <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
-      </div>
-    </li>
-    <li (click)="gotoConfirmar()">
-      <img src="../../../assets/icon/fa_confirmarreco1g.png" alt="" />
-      <a href="#">Confirmar Recolección</a>
-    </li>
-    <li (click)="gotoNotifications()">
-      <img src="../../../assets/icon/fa_bell.png" alt="" />
-      <a>Revisar Notificaciones</a>
-    </li>
-    <li class="logout" (click)="logout()">
-      <img
-        class=""
-        src="../../../assets/icon/fa_power-off.png
-      "
-      />
-      <a>Cerrar Sesión</a>
-    </li>
-    <li class="version">Versión 1.0</li>
-  </ul>
+  <app-menu-cliente></app-menu-cliente>
 </ion-header>
 
 <ion-content>

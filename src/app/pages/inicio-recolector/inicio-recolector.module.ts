@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { InicioRecolectorPageRoutingModule } from './inicio-recolector-routing.module';
 
 import { InicioRecolectorPage } from './inicio-recolector.page';
+import { MenuRecolectorComponent } from 'src/app/components/menu-recolector/menu-recolector.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InicioRecolectorPageRoutingModule
+    InicioRecolectorPageRoutingModule,
   ],
-  declarations: [InicioRecolectorPage]
+  declarations: [InicioRecolectorPage, MenuRecolectorComponent],
 })
 export class InicioRecolectorPageModule {}

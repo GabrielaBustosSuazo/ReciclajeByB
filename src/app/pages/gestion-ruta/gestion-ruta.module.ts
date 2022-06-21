@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GestionRutaPageRoutingModule } from './gestion-ruta-routing.module';
 
 import { GestionRutaPage } from './gestion-ruta.page';
+import { MenuAdminComponent } from 'src/app/components/menu-admin/menu-admin.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GestionRutaPageRoutingModule
+    GestionRutaPageRoutingModule,
   ],
-  declarations: [GestionRutaPage]
+  declarations: [GestionRutaPage, MenuAdminComponent],
 })
 export class GestionRutaPageModule {}

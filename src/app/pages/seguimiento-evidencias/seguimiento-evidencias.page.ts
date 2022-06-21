@@ -14,14 +14,16 @@ export class SeguimientoEvidenciasPage implements OnInit {
   evidencia: Evidencias;
   cliente: string;
   foto: any;
-  
 
   constructor(private database: FirestoreService) {}
   evidencias: Evidencias[] = [];
-  
 
   ngOnInit() {
     this.getEvidencias();
+  }
+
+  gotoAnchor() {
+    document.querySelector('.planillas__cta').scrollIntoView();
   }
 
   limpiar() {
@@ -55,10 +57,11 @@ export class SeguimientoEvidenciasPage implements OnInit {
       camionAsignado: '',
       fecha: '',
       hora: '',
-    }
-    this.evidencia = ev
-    this.foto = this.evidencia.foto
-    this.cliente = this.evidencia.clienteAsignado
+    };
+
+    this.evidencia = ev;
+    this.foto = this.evidencia.foto;
+    this.cliente = this.evidencia.clienteAsignado;
     const imagen = document.querySelector('.evidencia__container');
     imagen.classList.toggle('absolute');
   }

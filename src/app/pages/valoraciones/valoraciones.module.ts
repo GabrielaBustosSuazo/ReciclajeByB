@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ValoracionesPageRoutingModule } from './valoraciones-routing.module';
+import { MenuClienteComponent } from 'src/app/components/menu-cliente/menu-cliente.component';
 
 import { ValoracionesPage } from './valoraciones.page';
 
@@ -13,8 +14,8 @@ import { ValoracionesPage } from './valoraciones.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ValoracionesPageRoutingModule
+    ValoracionesPageRoutingModule,
   ],
-  declarations: [ValoracionesPage]
+  declarations: [ValoracionesPage, MenuClienteComponent],
 })
 export class ValoracionesPageModule {}

@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content name="top">
   <div class="planillas__cta">
     <div class="planillas__date">
       <span>Seleccione una fecha: </span>
@@ -87,7 +87,9 @@
       <tr>
         <th scope="col ">Acciones</th>
         <td class="acciones">
-          <button (click)="showImage(evidencia)">Ver Imagen</button>
+          <button (click)="showImage(evidencia); gotoAnchor()">
+            Ver Imagen
+          </button>
         </td>
       </tr>
     </table>

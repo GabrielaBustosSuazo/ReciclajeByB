@@ -58,14 +58,6 @@ export class InicioClientePage implements OnInit {
     });
   }
 
-  abrirMenu() {
-    const menu = document.getElementById('nav-icon3');
-    menu.classList.toggle('open');
-
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('open');
-  }
-
   option = {
     slidesPerView: 1,
     centeredSlides: true,
