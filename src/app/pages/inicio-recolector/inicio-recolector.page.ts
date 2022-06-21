@@ -58,16 +58,6 @@ export class InicioRecolectorPage implements OnInit {
     });
   }
 
-  getUserInfo(uid: string) {
-    const path = 'Usuarios';
-    const id = uid;
-    this.firestore.getUserInfo<Usuario>(path, id).subscribe((respuesta) => {
-      console.log('respuesta ->', respuesta);
-      this.nombreUsuario = respuesta.nombreUsuario;
-      this.patente = respuesta.camionDesignado;
-    });
-  }
-
   gotoRevisarRutas() {
     this.router.navigate(['/rutas']);
   }
