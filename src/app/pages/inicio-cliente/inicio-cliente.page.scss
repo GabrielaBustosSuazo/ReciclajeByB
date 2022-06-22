@@ -140,7 +140,7 @@ ion-header {
 
 .logout button {
   padding: 0.6rem 2rem;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   border-radius: 5px;
   background: linear-gradient(
@@ -162,24 +162,16 @@ ion-header {
 
 .logout {
   position: relative;
-  width: 100%;
-  margin-top: 2rem;
-  padding-top: 0.8rem;
+  width: 90%;
+  margin-inline: auto;
+  padding: 1rem;
+  justify-content: center;
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-.logout::after {
-  position: absolute;
-  content: "";
-  left: -5%;
-  top: 0;
   background-color: var(--ion-color-negro);
-  width: 109%;
-  height: 4rem;
-  z-index: -1;
-  border-radius: 50px 50px 0 0;
+  border-radius: 15px 15px 0 0;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
 }
 
 .msg-bienvenida {
@@ -198,6 +190,7 @@ ion-header {
   border-radius: 2rem;
   color: #fff;
   margin: 0.9rem auto;
+
   text-align: center;
 
   p {
@@ -211,7 +204,7 @@ ion-header {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 
   &__item {
     display: flex;
@@ -224,6 +217,7 @@ ion-header {
 
     &-top {
       padding: 0.5rem;
+      padding-top: 1rem;
       border-radius: 5px 5px 0 0;
       display: flex;
       gap: 10px;
@@ -244,7 +238,9 @@ ion-header {
       font-size: 12px;
 
       p {
-        margin: 0.5rem;
+        max-width: 100px;
+        padding-inline: 0.5rem;
+        margin: 0.5rem auto;
       }
     }
   }
@@ -252,8 +248,9 @@ ion-header {
   .widget-title {
     padding: 0.5rem 1.2rem;
     background-color: var(--ion-color-negroOscuro);
-    font-size: 12px;
+    font-size: 11px;
     border-radius: 1rem;
+    text-align: center;
     margin-bottom: 0.5rem;
   }
 
