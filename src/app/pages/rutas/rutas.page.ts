@@ -127,12 +127,6 @@ export class RutasPage implements OnInit {
         {
           text: 'Denegar',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
             this.createdCode = [
               this.rutaActualizada.hora + ',',
               this.rutaActualizada.clienteAsignado + ',',
@@ -147,6 +141,12 @@ export class RutasPage implements OnInit {
             pantalla.classList.add('modal-active__background');
           },
         },
+        {
+          text: 'Permitir',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
       ],
     });
     await alert.present();
@@ -158,7 +158,6 @@ export class RutasPage implements OnInit {
     codigoQR.classList.remove('modal-active');
     pantalla.classList.remove('modal-active__background');
   }
-  z;
 
   cancelarQr() {
     const codigoQR = document.querySelector('.codigo-qr');
@@ -183,14 +182,8 @@ export class RutasPage implements OnInit {
       message: '¿La recolección fue fallida?',
       buttons: [
         {
-          text: 'Denegar',
-          handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
           text: 'Permitir',
-          handler: () => {
+          handler: (blah) => {
             this.rutaActualizada = {
               camionAsignado: '',
               recolectorAsignado: '',
@@ -219,6 +212,12 @@ export class RutasPage implements OnInit {
               },
             };
             this.router.navigate(['/ingreso-evidencia'], navigationExtras);
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
           },
         },
       ],
