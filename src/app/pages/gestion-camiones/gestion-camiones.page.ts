@@ -43,10 +43,10 @@ export class GestionCamionesPage implements OnInit {
     });
   }
   abrirMenu() {
-    const menu = document.getElementById('nav-icon5');
+    const menu = document.getElementById('nav-icon');
     menu.classList.toggle('open');
 
-    const dropdown = document.getElementById('dropdown1');
+    const dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('open');
   }
 
@@ -55,27 +55,27 @@ export class GestionCamionesPage implements OnInit {
       header: 'Salir',
       message: '¿Deseas cerrar sesión?',
       buttons: [
-          {
-            text: 'Denegar',
-            handler: (blah) => {
-              console.log('Confirma Permiso Denegado: yes');
-            }
-          }, {
-            text: 'Permitir',
-            handler: () => {
-              setTimeout(function() {
-                location.reload();
-              }, 100);
-              this.auth.logout();
-              this.userinterface.presentToast('Cerrando sesión...');
-              this.router.navigate(['/login']);
-              console.log('Confirma Permiso Permitido: yes');
-            }
-          }
-        ]
-      });
-      await alert.present();
-
+        {
+          text: 'Denegar',
+          handler: (blah) => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+        {
+          text: 'Permitir',
+          handler: () => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.auth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 
   agregarRutas() {

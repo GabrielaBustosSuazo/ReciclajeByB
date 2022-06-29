@@ -239,23 +239,27 @@ ion-alert {
   }
 
   .alert-button {
-    background: linear-gradient(
-      90deg,
-      rgba(143, 26, 26, 1) 0%,
-      rgba(220, 53, 69, 1) 90%
-    ) !important;
     border-radius: 5px !important;
     color: #fff !important;
     margin-bottom: 0.5rem !important;
   }
 
-  .alert-button:last-child {
+  .alert-button:nth-child(2) {
+    background: linear-gradient(
+      90deg,
+      rgba(143, 26, 26, 1) 0%,
+      rgba(220, 53, 69, 1) 90%
+    );
+  }
+
+  .alert-button:nth-child(1) {
     background: linear-gradient(
       90deg,
       rgba(26, 143, 45, 1) 0%,
       rgba(24, 185, 47, 1) 90%
-    ) !important;
+    );
   }
+
   .alert-radio-label {
     color: #fff !important;
   }
@@ -289,5 +293,26 @@ ion-content {
     width: 30px;
     height: 35px;
     width: 12%;
+  }
+}
+
+.single-select-alert {
+  .alert-button:nth-child(2) {
+    background: linear-gradient(
+      90deg,
+      rgba(26, 143, 45, 1) 0%,
+      rgba(24, 185, 47, 1) 90%
+    );
+    border-radius: 5px !important;
+    color: #fff !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .alert-button:nth-child(1) {
+    background: linear-gradient(
+      90deg,
+      rgba(143, 26, 26, 1) 0%,
+      rgba(220, 53, 69, 1) 90%
+    ) !important;
   }
 }

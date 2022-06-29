@@ -17,14 +17,26 @@ export class MenuAdminComponent implements OnInit {
     public alertController: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const menu = document.querySelector('.nav-icon');
+    const dropdown = document.getElementById('dropdown');
+    menu.classList.remove('open');
+    dropdown.classList.remove('open');
+  }
 
   abrirMenu() {
     const menu = document.querySelector('.nav-icon');
-    menu.classList.toggle('open');
+    const dropdown = document.querySelector('.dropdown');
 
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('open');
+    if (!menu.classList.contains('open')) {
+      menu.classList.add('open');
+      dropdown.classList.add('open');
+      console.log('abriendo');
+    } else {
+      menu.classList.remove('open');
+      dropdown.classList.remove('open');
+      console.log('cerrando');
+    }
   }
 
   agregarRutas() {
@@ -49,6 +61,9 @@ export class MenuAdminComponent implements OnInit {
 
   agregarUsuarios() {
     this.router.navigate(['/gestion-usuarios']);
+  }
+  iralHome() {
+    this.router.navigate(['/inicio-administrador']);
   }
 
   async logout() {
