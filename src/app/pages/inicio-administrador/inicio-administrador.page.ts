@@ -98,14 +98,8 @@ export class InicioAdministradorPage implements OnInit {
       message: '¿Deseas cerrar sesión?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir ',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
             setTimeout(function () {
               location.reload();
             }, 100);
@@ -113,6 +107,12 @@ export class InicioAdministradorPage implements OnInit {
             this.userinterface.presentToast('Cerrando sesión...');
             this.router.navigate(['/login']);
             console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
           },
         },
       ],

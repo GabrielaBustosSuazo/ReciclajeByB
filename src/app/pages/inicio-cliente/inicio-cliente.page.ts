@@ -30,7 +30,7 @@ export class InicioClientePage implements OnInit {
     public alertController: AlertController,
     public firestore: FirestoreService,
     private platform: Platform,
-    private navController: NavController,
+    private navController: NavController
   ) {
     this.auth.stateUser().subscribe((resp) => {
       if (resp) {
@@ -40,7 +40,6 @@ export class InicioClientePage implements OnInit {
         console.log('no esta logeado');
       }
     });
-
   }
 
   ngOnInit() {
@@ -65,10 +64,10 @@ export class InicioClientePage implements OnInit {
         this.navController.back();
       }
     });
-  // Request permission to use push notifications
+    // Request permission to use push notifications
     // iOS will prompt user and return if they granted permission or not
     // Android will just grant without prompting
-    PushNotifications.requestPermissions().then(result => {
+    PushNotifications.requestPermissions().then((result) => {
       if (result.receive === 'granted') {
         // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
@@ -78,22 +77,19 @@ export class InicioClientePage implements OnInit {
     });
 
     // On success, we should be able to receive notifications
-    PushNotifications.addListener('registration',
-      (token: Token) => {
-        console.log('Push registration success, token: ' + token.value);
-        this.guadarToken(token.value);
-      }
-    );
+    PushNotifications.addListener('registration', (token: Token) => {
+      console.log('Push registration success, token: ' + token.value);
+      this.guadarToken(token.value);
+    });
 
     // Some issue with our setup and push will not work
-    PushNotifications.addListener('registrationError',
-      (error: any) => {
-        console.log('Error on registration: ' + JSON.stringify(error));
-      }
-    );
+    PushNotifications.addListener('registrationError', (error: any) => {
+      console.log('Error on registration: ' + JSON.stringify(error));
+    });
 
     // Show us the notification payload if the app is open on our device
-    PushNotifications.addListener('pushNotificationReceived',
+    PushNotifications.addListener(
+      'pushNotificationReceived',
       (notification: PushNotificationSchema) => {
         console.log('Push received: ' + JSON.stringify(notification));
         LocalNotifications.schedule({
@@ -107,36 +103,30 @@ export class InicioClientePage implements OnInit {
         });
       }
     );
-    
 
     // Method called when tapping on a notification
-    PushNotifications.addListener('pushNotificationActionPerformed',
+    PushNotifications.addListener(
+      'pushNotificationActionPerformed',
       (notification: ActionPerformed) => {
         console.log('Push action performed: ' + JSON.stringify(notification));
       }
     );
-    
-  
-
   }
 
   async guadarToken(token: any) {
-
     const Uid = await this.auth.getUid();
 
     if (Uid) {
-        console.log('guardar Token Firebase ->', Uid);
-        const path = '/Usuarios/';
-        const userUpdate = {
-          token: token,
-        };
-        this.firestore.update(userUpdate, path, Uid);
-        console.log('guardar TokenFirebase()->', userUpdate, path, Uid);
+      console.log('guardar Token Firebase ->', Uid);
+      const path = '/Usuarios/';
+      const userUpdate = {
+        token: token,
+      };
+      this.firestore.update(userUpdate, path, Uid);
+      console.log('guardar TokenFirebase()->', userUpdate, path, Uid);
     }
-}
-  
+  }
 
- 
   option = {
     slidesPerView: 1,
     centeredSlides: true,
@@ -164,21 +154,21 @@ export class InicioClientePage implements OnInit {
       message: '¿Deseas cerrar sesión?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir ',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
-            setTimeout(function() {
+            setTimeout(function () {
               location.reload();
             }, 100);
             this.auth.logout();
             this.userinterface.presentToast('Cerrando sesión...');
             this.router.navigate(['/login']);
             console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
           },
         },
       ],
