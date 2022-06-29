@@ -17,7 +17,14 @@ export class MenuClienteComponent implements OnInit {
     public alertController: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload');
+      location.reload();
+    } else {
+      localStorage.removeItem('foo');
+    }
+  }
 
   gotoNotifications() {
     this.router.navigate(['/notificaciones']);
@@ -30,12 +37,23 @@ export class MenuClienteComponent implements OnInit {
     this.router.navigate(['/confirmar-recoleccion']);
   }
 
+  iralHome() {
+    this.router.navigate(['/inicio-cliente']);
+  }
+
   abrirMenu() {
     const menu = document.querySelector('.nav-icon');
-    menu.classList.toggle('open');
+    const dropdown = document.querySelector('.dropdown');
 
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('open');
+    if (!menu.classList.contains('open')) {
+      menu.classList.add('open');
+      dropdown.classList.add('open');
+      console.log('abriendo');
+    } else {
+      menu.classList.remove('open');
+      dropdown.classList.remove('open');
+      console.log('cerrando');
+    }
   }
 
   async logout() {
@@ -44,14 +62,8 @@ export class MenuClienteComponent implements OnInit {
       message: '¿Deseas cerrar sesión?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir ',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
             setTimeout(function () {
               location.reload();
             }, 100);
@@ -59,6 +71,12 @@ export class MenuClienteComponent implements OnInit {
             this.userinterface.presentToast('Cerrando sesión...');
             this.router.navigate(['/login']);
             console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
           },
         },
       ],

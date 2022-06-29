@@ -17,7 +17,14 @@ export class MenuRecolectorComponent implements OnInit {
     private auth: FirestoreauthService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload');
+      location.reload();
+    } else {
+      localStorage.removeItem('foo');
+    }
+  }
 
   async logout() {
     const alert = await this.alertController.create({
@@ -25,14 +32,8 @@ export class MenuRecolectorComponent implements OnInit {
       message: '¿Deseas cerrar sesión?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir ',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
             setTimeout(function () {
               location.reload();
             }, 100);
@@ -42,6 +43,12 @@ export class MenuRecolectorComponent implements OnInit {
             console.log('Confirma Permiso Permitido: yes');
           },
         },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
       ],
     });
     await alert.present();
@@ -49,10 +56,17 @@ export class MenuRecolectorComponent implements OnInit {
 
   abrirMenu() {
     const menu = document.querySelector('.nav-icon');
-    menu.classList.toggle('open');
+    const dropdown = document.querySelector('.dropdown');
 
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('open');
+    if (!menu.classList.contains('open')) {
+      menu.classList.add('open');
+      dropdown.classList.add('open');
+      console.log('abriendo');
+    } else {
+      menu.classList.remove('open');
+      dropdown.classList.remove('open');
+      console.log('cerrando');
+    }
   }
 
   gotoRutas() {
@@ -69,5 +83,9 @@ export class MenuRecolectorComponent implements OnInit {
 
   gotoRevisarNotificaciones() {
     this.router.navigate(['/notificaciones-enviadas']);
+  }
+
+  iralHome() {
+    this.router.navigate(['/inicio-recolector']);
   }
 }
