@@ -1,68 +1,56 @@
 <ion-header>
-  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-  <ion-title mode="ios">Rutas</ion-title>
-  <app-menu-recolector></app-menu-recolector>
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Rutas</ion-title>
+    <app-menu-recolector></app-menu-recolector>
 </ion-header>
 
 <ion-content>
-  <span class="number"></span>
-  <ng-container *ngFor="let ruta of rutas">
-    <table
-      style="width: 100%"
-      *ngIf="ruta.recolectorAsignado === nombreUsuario && (ruta.estado === 'no finalizado')"
-    >
-      <tr>
-        <th scope="col">Hora</th>
-        <td>{{ruta.hora}}</td>
-      </tr>
-      <tr>
-        <th scope="col">Fecha</th>
-        <td>{{ruta.fecha}}</td>
-      </tr>
-      <tr>
-        <th scope="col">Cliente</th>
-        <td>{{ruta.clienteAsignado}}</td>
-      </tr>
-      <tr>
-        <th scope="col">Dirección</th>
-        <td>{{ruta.direccion}}</td>
-      </tr>
-      <tr>
-        <th scope="col">Acciones</th>
-        <td class="acciones">
-          <button (click)="enviarDireccion(ruta)" class="ruta boton-acciones">
+    <span class="number"></span>
+    <ng-container *ngFor="let ruta of rutas">
+        <table style="width: 100%" *ngIf="ruta.recolectorAsignado === nombreUsuario && (ruta.estado === 'no finalizado')">
+            <tr>
+                <th scope="col">Hora</th>
+                <td>{{ruta.hora}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Fecha</th>
+                <td>{{ruta.fecha}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Cliente</th>
+                <td>{{ruta.clienteAsignado}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Dirección</th>
+                <td>{{ruta.direccion}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Acciones</th>
+                <td class="acciones">
+                    <button (click)="enviarDireccion(ruta); notFound()" class="ruta boton-acciones">
             <img class="" src="../../../assets/icon/fa_rutaw2.png" />
             <span>Mostrar Ruta</span>
           </button>
-          <a
-            class="acciones-item"
-            (click)="actualizarRuta(ruta); confirmarRecoleccion()"
-          >
-            <button class="confirmar boton-acciones">
+                    <a class="acciones-item" (click)="actualizarRuta(ruta); confirmarRecoleccion()">
+                        <button class="confirmar boton-acciones">
               <img class="" src="../../../assets/icon/fa_confirmar.png" />
               <span>Rec. Exitosa</span>
             </button>
-          </a>
+                    </a>
 
-          <button
-            class="fallida boton-acciones"
-            (click)="recoleccionFallida(ruta)"
-          >
+                    <button class="fallida boton-acciones" (click)="recoleccionFallida(ruta)">
             <img class="" src="../../../assets/icon/fa_fallida.png" />
             <span>Rec. Fallida</span>
           </button>
-          <button
-            class="notificaciones boton-acciones"
-            (click)="newNotification()"
-          >
+                    <button class="notificaciones boton-acciones" (click)="newNotification()">
             <img class="" src="../../../assets/icon/fa_noti.png" />
             <span>Notificar Cliente</span>
           </button>
-        </td>
-      </tr>
-    </table>
-  </ng-container>
-  <!-- <div class="codigo-qr">
+                </td>
+            </tr>
+        </table>
+    </ng-container>
+    <!-- <div class="codigo-qr">
         <div class="codigo-qr-container">
             <div class="codigo-qr-card">
                 <p>Por favor, muestra este código al cliente {{ cliente }}</p>
@@ -83,19 +71,19 @@
             </div>
         </div>
     </div> -->
-  <div class="pantalla-modal"></div>
-  <div id="modal-container" class="modal-container one">
-    <div class="modal-background">
-      <div class="modal">
-        <p>Por favor, muestra este código al cliente {{ cliente }}</p>
-        <div class="separator">
-          <div class="left-line"></div>
-          <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
-          <div class="right-line"></div>
+    <div class="pantalla-modal"></div>
+    <div id="modal-container" class="modal-container one">
+        <div class="modal-background">
+            <div class="modal">
+                <p>Por favor, muestra este código al cliente {{ cliente }}</p>
+                <div class="separator">
+                    <div class="left-line"></div>
+                    <img class="separator-icon" src="../../../assets/icon/LogoB&B.png" />
+                    <div class="right-line"></div>
+                </div>
+                <ngx-qrcode [value]="createdCode"> </ngx-qrcode>
+                <button (click)="cerrarModal()">Cerrar</button>
+            </div>
         </div>
-        <ngx-qrcode [value]="createdCode"> </ngx-qrcode>
-        <button (click)="cerrarModal()">Cerrar</button>
-      </div>
     </div>
-  </div>
 </ion-content>

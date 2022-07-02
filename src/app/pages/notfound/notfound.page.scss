@@ -1,0 +1,33 @@
+ion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem 1.6rem;
+    align-items: center;
+    background-color: #1a1a1a;
+}
+
+.menu-icon {
+    width: 20px !important;
+    height: 15px;
+    cursor: pointer;
+}
+
+.notFound__content {
+    text-align: center;
+    padding-top: 1rem;
+    color: white;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+button {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient( 90deg, rgba(143, 26, 26, 1) 0%, rgba(220, 53, 69, 1) 90%);
+    padding: 0.7rem 1.4rem;
+    width: 100%;
+}
