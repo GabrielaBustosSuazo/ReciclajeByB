@@ -1,7 +1,47 @@
 <ion-header>
   <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
   <ion-title mode="ios">Confirmar recolección</ion-title>
-  <app-menu-cliente></app-menu-cliente>
+  <div class="nav-icon2" (click)="abrirMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="dropdown2">
+    <li class="dropdown-img-container">
+      <div class="dropdown-img">
+        <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
+      </div>
+    </li>
+    <li (click)="iralHome()">
+      <img src="../../../assets/icon/fa_home.png" alt="" />
+      <a>Inicio</a>
+    </li>
+    <li (click)="gotoConfirmar()">
+      <img src="../../../assets/icon/fa_confirmarreco1g.png" alt="" />
+      <a>Confirmar Recolección</a>
+    </li>
+    <li (click)="logout()">
+      <img
+        class=""
+        src="../../../assets/icon/fa_power-off.png
+      "
+      />
+      <a>Cerrar Sesión</a>
+    </li>
+    <li class="menu-title-test">
+      <a>Servicio al cliente</a>
+    </li>
+    <li>
+      <img src="../../../assets/icon/fa_phone.png" alt="" />
+      <a>+532 2323 2344</a>
+    </li>
+    <li>
+      <img src="../../../assets/icon/fa_email.png" alt="" />
+      <a>admin@reciclajebyb.com</a>
+    </li>
+    <li class="version">Versión 1.0</li>
+  </ul>
 </ion-header>
 
 <ion-content>

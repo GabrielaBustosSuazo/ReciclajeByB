@@ -148,6 +148,10 @@ export class InicioClientePage implements OnInit {
     this.router.navigate(['/confirmar-recoleccion']);
   }
 
+  iralHome() {
+    this.router.navigate(['/inicio-cliente']);
+  }
+
   async logout() {
     const alert = await this.alertController.create({
       header: 'Salir',
@@ -175,6 +179,15 @@ export class InicioClientePage implements OnInit {
     });
     await alert.present();
   }
+
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon');
+    menu.classList.toggle('open');
+
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('open');
+  }
+
   getUserInfo(uid: string) {
     const path = 'Usuarios';
     const id = uid;
