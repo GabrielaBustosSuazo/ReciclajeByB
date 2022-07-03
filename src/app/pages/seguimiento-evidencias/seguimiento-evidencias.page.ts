@@ -61,12 +61,17 @@ export class SeguimientoEvidenciasPage implements OnInit {
     this.evidencia = ev;
     this.foto = this.evidencia.foto;
     this.cliente = this.evidencia.clienteAsignado;
-    const imagen = document.querySelector('.evidencia__container');
-    imagen.classList.toggle('absolute');
+
+    const codigoQR = document.querySelector('.modal-container');
+    const pantalla = document.querySelector('.pantalla-modal');
+    codigoQR.classList.add('modal-active');
+    pantalla.classList.add('modal-active__background');
   }
 
-  evidenciaClose() {
-    const imagen = document.querySelector('.evidencia__container');
-    imagen.classList.remove('absolute');
+  cerrarModal() {
+    const codigoQR = document.querySelector('.modal-container');
+    const pantalla = document.querySelector('.pantalla-modal');
+    codigoQR.classList.remove('modal-active');
+    pantalla.classList.remove('modal-active__background');
   }
 }

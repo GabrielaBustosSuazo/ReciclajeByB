@@ -94,11 +94,15 @@
       </tr>
     </table>
   </ng-container>
-  <div class="evidencia__container">
-    <div class="evidencia__container-img">
-      <p>{{ cliente }}</p>
-      <img [src]="foto" />
-      <button (click)="evidenciaClose()">Cerrar</button>
+
+  <div class="pantalla-modal"></div>
+  <div id="modal-container" class="modal-container one">
+    <div class="modal-background">
+      <div class="modal">
+        <p>{{ cliente }}</p>
+        <img [src]="foto" />
+        <button (click)="cerrarModal()">Cerrar</button>
+      </div>
     </div>
   </div>
 </ion-content>
