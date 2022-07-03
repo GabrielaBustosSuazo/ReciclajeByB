@@ -1,0 +1,102 @@
+$azulOscuro: #003B67;
+$amarillo: #F0AD1B;
+$white: #fff;
+$black: #1A1A1A;
+.splash-content {
+    height: 100vh;
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #1a1a1a;
+}
+
+.fade-in {
+    animation: fade-in 1s cubic-bezier(.39, .575, .565, 1.000) both
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.fade-out {
+    -webkit-animation: fade-out 0.5s ease-out 3.5s both;
+    animation: fade-out 0.5s ease-out 3.5s both;
+}
+
+@-webkit-keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.splash-card {
+    background-color: $black;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    &:before {
+        position: absolute;
+        content: "";
+        background-image: url('../../../assets/img/login-img.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 58%;
+        opacity: 0.38;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-blend-mode: screen;
+    }
+    h1 {
+        margin-top: 120%;
+        font-size: 2rem;
+        color: #fff;
+    }
+    img {
+        margin-top: -20px;
+        transform: scale(0.7);
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.scene {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+    }
+}

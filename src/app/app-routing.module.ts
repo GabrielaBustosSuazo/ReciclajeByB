@@ -10,7 +10,7 @@ const onlyAdmin = () => map( ( user: any ) => !!user && (user.uid === uidAdmin))
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch: 'full',
   },
   {
@@ -146,9 +146,14 @@ const routes: Routes = [
     ),
       ...canActivate(onlyAdmin)
 
-  },  {
+  },
+  {
     path: 'notfound',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
   },
 
 
