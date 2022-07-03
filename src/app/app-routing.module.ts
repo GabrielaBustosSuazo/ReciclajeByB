@@ -146,7 +146,11 @@ const routes: Routes = [
     ),
       ...canActivate(onlyAdmin)
 
+  },  {
+    path: 'notfound',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
+
 
 ];
 

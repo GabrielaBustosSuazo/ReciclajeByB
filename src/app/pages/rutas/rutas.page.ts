@@ -125,7 +125,7 @@ export class RutasPage implements OnInit {
       message: '¿Deseas confirmar la recolección?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir',
           handler: (blah) => {
             this.createdCode = [
               this.rutaActualizada.hora + ',',
@@ -142,7 +142,7 @@ export class RutasPage implements OnInit {
           },
         },
         {
-          text: 'Permitir',
+          text: 'Denegar',
           handler: () => {
             console.log('Confirma Permiso Denegado: yes');
           },
@@ -223,6 +223,10 @@ export class RutasPage implements OnInit {
       ],
     });
     await alert.present();
+  }
+
+  notFound(){
+    this.router.navigate(['/notfound'])
   }
 
   enviarDireccion(rut: Rutas) {
