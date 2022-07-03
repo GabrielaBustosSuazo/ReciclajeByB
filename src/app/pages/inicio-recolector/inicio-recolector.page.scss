@@ -138,10 +138,14 @@ ion-header {
 
 .logout button {
   padding: 0.6rem 2rem;
-  width: 50%;
+  width: 95%;
   margin: 0 auto;
   border-radius: 5px;
-  background: linear-gradient(90deg, rgba(143, 26, 26, 1) 0%, #dc3545 90%);
+  background: linear-gradient(
+    90deg,
+    rgba(143, 26, 26, 1) 0%,
+    rgba(220, 53, 69, 1) 90%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,25 +159,17 @@ ion-header {
 }
 
 .logout {
-  margin-top: 2rem;
-  position: absolute;
+  position: relative;
   width: 100%;
-  padding: 0.8rem 0;
+  margin-inline: auto;
+  padding: 1rem;
+  justify-content: center;
   display: flex;
-  bottom: 0%;
-  left: 0;
-}
-
-.logout::after {
-  position: absolute;
-  content: "";
-  left: -5%;
-  top: 0;
+  align-items: center;
   background-color: var(--ion-color-negro);
-  width: 109%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 50px 50px 0 0;
+  border-radius: 15px 15px 0 0;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
 }
 
 .msg-bienvenida {

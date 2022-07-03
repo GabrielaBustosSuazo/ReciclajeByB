@@ -140,7 +140,7 @@ ion-header {
 
 .logout button {
   padding: 0.6rem 2rem;
-  width: 50%;
+  width: 95%;
   margin: 0 auto;
   border-radius: 5px;
   background: linear-gradient(
@@ -163,26 +163,16 @@ ion-header {
 .logout {
   position: relative;
   width: 100%;
-  margin-top: 2rem;
-  padding-top: 0.8rem;
+  margin-inline: auto;
+  padding: 1rem;
+  justify-content: center;
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-.logout::after {
-  position: absolute;
-  content: "";
-  left: -5%;
-  padding: 0.2rem 0;
-  top: 0;
   background-color: var(--ion-color-negro);
-  width: 109%;
-  height: 4rem;
-  z-index: -1;
-  border-radius: 50px 50px 0 0;
+  border-radius: 15px 15px 0 0;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
 }
-
 .msg-bienvenida {
   text-align: left;
 }
