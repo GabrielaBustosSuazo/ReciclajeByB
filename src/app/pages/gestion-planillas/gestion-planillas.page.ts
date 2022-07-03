@@ -42,4 +42,71 @@ export class GestionPlanillasPage implements OnInit {
       }
     });
   }
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon4');
+    menu.classList.toggle('open');
+
+    const dropdown = document.querySelector('.dropdown4');
+    dropdown.classList.toggle('open');
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Permitir ',
+          handler: (blah) => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.auth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  agregarRutas() {
+    this.router.navigate(['/gestion-ruta']);
+  }
+
+  agregarClientes() {
+    this.router.navigate(['/gestion-cliente']);
+  }
+
+  agregarRecolectores() {
+    this.router.navigate(['/gestion-recolector']);
+  }
+
+  agregarCamiones() {
+    this.router.navigate(['/gestion-camiones']);
+  }
+
+  seguimientoPlanillas() {
+    this.router.navigate(['/gestion-planillas']);
+  }
+
+  agregarUsuarios() {
+    this.router.navigate(['/gestion-usuarios']);
+  }
+
+  iralHome() {
+    this.router.navigate(['/inicio-administrador']);
+  }
 }
+
+
+
+
