@@ -225,8 +225,8 @@ export class RutasPage implements OnInit {
     await alert.present();
   }
 
-  notFound(){
-    this.router.navigate(['/notfound'])
+  notFound() {
+    this.router.navigate(['/notfound']);
   }
 
   enviarDireccion(rut: Rutas) {

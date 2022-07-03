@@ -58,12 +58,12 @@ export class InicioRecolectorPage implements OnInit {
     });
   }
 
-  gotoRevisarRutas() {
-    this.router.navigate(['/rutas']);
-  }
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon');
+    menu.classList.toggle('open');
 
-  gotoRevisarNotificaciones() {
-    this.router.navigate(['/notificaciones-enviadas']);
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('open');
   }
 
   async logout() {
