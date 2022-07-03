@@ -1,14 +1,46 @@
 <ion-header>
-    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-    <ion-title mode="ios">Página no encontrada</ion-title>
-    <app-menu-recolector></app-menu-recolector>
+  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+  <ion-title mode="ios">Página no encontrada</ion-title>
+  <div class="nav-icon3" (click)="abrirMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="dropdown3">
+    <li class="dropdown-img-container">
+      <div class="dropdown-img">
+        <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
+      </div>
+    </li>
+    <li (click)="iralHome()">
+      <img src="../../../assets/icon/fa_home.png" alt="" />
+      <a>Inicio</a>
+    </li>
+    <li (click)="gotoRutas()">
+      <img src="../../../assets/icon/fa_rutasg.png" alt="" />
+      <a (click)="gotoRutas()">Revisar Rutas</a>
+    </li>
+    <li (click)="logout()">
+      <img
+        class=""
+        src="../../../assets/icon/fa_power-off.png
+          "
+      />
+      <a (click)="logout()">Cerrar Sesión</a>
+    </li>
+    <li class="version">Versión 1.0</li>
+  </ul>
 </ion-header>
 
 <ion-content>
-    <div class="notFound__content">
-        <img src="./assets/img/underConstruction2.svg" alt="">
-        <h2>Página en construcción</h2>
-        <p>Estamos trabajando para que el mapa esté disponible a la brevedad, con el mejor diseño y estilo para ti. </p>
-        <button (click)="turnBack()">Volver al dashboard</button>
-    </div>
+  <div class="notFound__content">
+    <img src="./assets/img/underConstruction2.svg" alt="" />
+    <h2>Página en construcción</h2>
+    <p>
+      Estamos trabajando para que el mapa esté disponible a la brevedad, con el
+      mejor diseño y estilo para ti.
+    </p>
+    <button (click)="turnBack()">Volver al dashboard</button>
+  </div>
 </ion-content>
