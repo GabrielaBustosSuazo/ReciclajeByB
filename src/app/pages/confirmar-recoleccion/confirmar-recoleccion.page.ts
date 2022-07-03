@@ -41,7 +41,7 @@ export class ConfirmarRecoleccionPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    setTimeout(function() {
+    setTimeout(function () {
       const pantallaCarga = document.querySelector('.pantalla-carga');
       pantallaCarga.classList.toggle('mostrar');
     }, 3000);
@@ -65,20 +65,55 @@ export class ConfirmarRecoleccionPage implements OnInit {
     console.log(typeof this.barcodeScanner);
   }
 
-  abrirMenu() {
-    const menu = document.getElementById('nav-icon4');
-    menu.classList.toggle('open');
-
-    const dropdown = document.getElementById('dropdown2');
-    dropdown.classList.toggle('open');
-  }
-
   gotoNotifications() {
     this.router.navigate(['/notificaciones']);
   }
   gotoConfirmar() {
-    this.abrirMenu();
     this.router.navigate(['/confirmar-recoleccion']);
+  }
+
+  lectorQr() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
+
+  iralHome() {
+    this.router.navigate(['/inicio-cliente']);
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Permitir ',
+          handler: (blah) => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.auth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon2');
+    menu.classList.toggle('open');
+
+    const dropdown = document.querySelector('.dropdown2');
+    dropdown.classList.toggle('open');
   }
 
   cancelar() {
@@ -116,33 +151,5 @@ export class ConfirmarRecoleccionPage implements OnInit {
     });
     toast.present();
     this.router.navigate(['/valoraciones']);
-  }
-
-  async logout() {
-    const alert = await this.alertController.create({
-      header: 'Salir',
-      message: '¿Deseas cerrar sesión?',
-      buttons: [
-        {
-          text: 'Denegar',
-          handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
-            setTimeout(function() {
-              location.reload();
-            }, 100);
-            this.auth.logout();
-            this.userinterface.presentToast('Cerrando sesión...');
-            this.router.navigate(['/login']);
-            console.log('Confirma Permiso Permitido: yes');
-          },
-        },
-      ],
-    });
-    await alert.present();
   }
 }

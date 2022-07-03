@@ -229,6 +229,50 @@ export class RutasPage implements OnInit {
     this.router.navigate(['/notfound']);
   }
 
+  iralHome() {
+    this.router.navigate(['/inicio-recolector']);
+  }
+
+  gotoRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon2');
+    menu.classList.toggle('open');
+
+    const dropdown = document.querySelector('.dropdown2');
+    dropdown.classList.toggle('open');
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Permitir ',
+          handler: (blah) => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.firestoreauth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
   enviarDireccion(rut: Rutas) {
     this.rutaActualizada = {
       camionAsignado: '',

@@ -93,6 +93,15 @@ export class InicioRecolectorPage implements OnInit {
     });
     await alert.present();
   }
+
+  iralHome() {
+    this.router.navigate(['/inicio-recolector']);
+  }
+
+  gotoRutas() {
+    this.router.navigate(['/rutas']);
+  }
+
   getUserInfo(uid: string) {
     const path = 'Usuarios';
     const id = uid;

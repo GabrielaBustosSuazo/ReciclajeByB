@@ -1,20 +1,24 @@
 <ion-header>
   <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
   <ion-title mode="ios">Rutas</ion-title>
-  <div class="nav-icon" (click)="abrirMenu()">
+  <div class="nav-icon2" (click)="abrirMenu()">
     <span></span>
     <span></span>
     <span></span>
     <span></span>
   </div>
-  <ul class="dropdown" class="dropdown">
+  <ul class="dropdown2">
     <li class="dropdown-img-container">
       <div class="dropdown-img">
         <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
       </div>
     </li>
+    <li (click)="iralHome()">
+      <img src="../../../assets/icon/fa_home.png" alt="" />
+      <a>Inicio</a>
+    </li>
     <li (click)="gotoRutas()">
-      <img src="../../../assets/icon/fa_rutasw.png" alt="" />
+      <img src="../../../assets/icon/fa_rutasg.png" alt="" />
       <a (click)="gotoRutas()">Revisar Rutas</a>
     </li>
     <li (click)="logout()">
