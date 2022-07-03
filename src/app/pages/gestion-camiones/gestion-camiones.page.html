@@ -1,18 +1,57 @@
 <ion-header>
-  <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
-  <ion-title mode="ios">Gestion Camiones</ion-title>
-  <app-menu-admin></app-menu-admin>
+    <img class="logo-byb" src="../../../assets/icon/LogoB&B.png" />
+    <ion-title mode="ios">Gestion Camiones</ion-title>
+    <div class="nav-icon2" (click)="abrirMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="dropdown2">
+        <li class="dropdown-img-container">
+            <div class="dropdown-img">
+                <img class="logo-byb" src="../../../assets/img/LogoB&B.png" />
+            </div>
+        </li>
+        <li (click)="iralHome()">
+            <img src="../../../assets/icon/fa_home.png" alt="" />
+            <a>Inicio</a>
+        </li>
+        <li (click)="agregarRutas()">
+            <img src="../../../assets/icon/fa_gestionra.png" alt="" />
+            <a>Gestión de Rutas</a>
+        </li>
+        <li (click)="agregarCamiones()">
+            <img src="../../../assets/icon/fa_gestioncm.png" alt="" />
+            <a>Gestión de Camiones</a>
+        </li>
+        <li (click)="agregarUsuarios()">
+            <img src="../../../assets/icon/fa_usuariosv.png" alt="" />
+            <a>Gestión de Usuarios</a>
+        </li>
+        <li (click)="seguimientoPlanillas()">
+            <img src="../../../assets/icon/fa_seguimientob.png" alt="" />
+            <a>Seguimiento de planillas de ruta</a>
+        </li>
+
+        <li (click)="logout()">
+            <img class="" src="../../../assets/icon/fa_power-off.png
+" />
+            <a>Cerrar Sesión</a>
+        </li>
+        <li class="version">Versión 1.0</li>
+    </ul>
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="top">
-      <ion-tab-button tab="agregar-camiones">
-        <ion-label>Agregar</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="listar-camiones">
-        <ion-label>Listar</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+    <ion-tabs>
+        <ion-tab-bar slot="top">
+            <ion-tab-button tab="agregar-camiones">
+                <ion-label>Agregar</ion-label>
+            </ion-tab-button>
+            <ion-tab-button tab="listar-camiones">
+                <ion-label>Listar</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
 </ion-content>

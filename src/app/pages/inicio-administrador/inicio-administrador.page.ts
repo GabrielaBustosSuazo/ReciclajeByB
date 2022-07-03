@@ -61,10 +61,10 @@ export class InicioAdministradorPage implements OnInit {
   }
 
   abrirMenu() {
-    const menu = document.getElementById('nav-icon3');
+    const menu = document.querySelector('.nav-icon');
     menu.classList.toggle('open');
 
-    const dropdown = document.getElementById('dropdown');
+    const dropdown = document.querySelector('.dropdown');
     dropdown.classList.toggle('open');
   }
 

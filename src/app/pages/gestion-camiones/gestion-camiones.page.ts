@@ -43,10 +43,10 @@ export class GestionCamionesPage implements OnInit {
     });
   }
   abrirMenu() {
-    const menu = document.getElementById('nav-icon');
+    const menu = document.querySelector('.nav-icon2');
     menu.classList.toggle('open');
 
-    const dropdown = document.getElementById('dropdown');
+    const dropdown = document.querySelector('.dropdown2');
     dropdown.classList.toggle('open');
   }
 
@@ -56,14 +56,8 @@ export class GestionCamionesPage implements OnInit {
       message: '¿Deseas cerrar sesión?',
       buttons: [
         {
-          text: 'Denegar',
+          text: 'Permitir ',
           handler: (blah) => {
-            console.log('Confirma Permiso Denegado: yes');
-          },
-        },
-        {
-          text: 'Permitir',
-          handler: () => {
             setTimeout(function () {
               location.reload();
             }, 100);
@@ -71,6 +65,12 @@ export class GestionCamionesPage implements OnInit {
             this.userinterface.presentToast('Cerrando sesión...');
             this.router.navigate(['/login']);
             console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
           },
         },
       ],
@@ -100,5 +100,9 @@ export class GestionCamionesPage implements OnInit {
 
   agregarUsuarios() {
     this.router.navigate(['/gestion-usuarios']);
+  }
+
+  iralHome() {
+    this.router.navigate(['/inicio-administrador']);
   }
 }
