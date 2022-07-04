@@ -293,9 +293,16 @@ ion-card {
 }
 
 ion-slides,
-ion-card,
-ion-slide img {
+ion-card {
   border-radius: 5px !important;
+  width: 100%;
+  height: 180px;
+  margin-top: 0.4rem !important;
+}
+
+ion-slide img {
+  height: 100%;
+  border-radius: 5px;
 }
 
 .dropdown {

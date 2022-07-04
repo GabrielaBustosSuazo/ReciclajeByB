@@ -74,13 +74,15 @@ $black: #1a1a1a;
     z-index: -1;
     background-blend-mode: screen;
   }
-  h1 {
+
+  .content-splash {
     margin-top: 120%;
+  }
+  h1 {
     font-size: 2.5rem;
     color: #fff;
   }
   img {
-    margin-top: -20px;
     transform: scale(1.2);
     max-width: 100%;
     height: auto;
