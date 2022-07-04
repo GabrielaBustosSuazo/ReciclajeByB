@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
 import { UserInteractionService } from 'src/app/services/user-interaction.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-valoraciones',
@@ -10,15 +11,40 @@ import { UserInteractionService } from 'src/app/services/user-interaction.servic
   styleUrls: ['./valoraciones.page.scss'],
 })
 export class ValoracionesPage implements OnInit {
+  comentario: string;
   constructor(
     private toastController: ToastController,
     private router: Router,
     private alertController: AlertController,
     private firestoreauth: FirestoreauthService,
-    private userinterface: UserInteractionService
+    private userinterface: UserInteractionService,
+    private platform: Platform,
+    private navController: NavController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.platform.backButton.subscribeWithPriority(10, async () => {
+      const currenturl = this.router.url;
+      if (currenturl === '/valoraciones') {
+        const alert = await this.alertController.create({
+          header: 'Acción no permitida',
+          message: 'No puedes volver atrás',
+          buttons: [
+            {
+              text: 'Volver a valoraciones',
+              handler: () => {
+                this.router.navigate(['/valoraciones']);
+              },
+            },
+          ],
+        });
+
+        await alert.present();
+      } else {
+        this.navController.back();
+      }
+    });
+  }
 
   rating1() {
     const estrellaLlena1 = document.querySelector('.estrella-fill1');
@@ -143,6 +169,7 @@ export class ValoracionesPage implements OnInit {
       duration: 3000,
     });
     toast.present();
+    this.comentario = '';
     this.router.navigate(['/inicio-cliente']);
   }
 }
