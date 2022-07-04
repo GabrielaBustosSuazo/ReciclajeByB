@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
+import { FirestoreauthService } from 'src/app/services/firestoreauth.service';
+import { UserInteractionService } from 'src/app/services/user-interaction.service';
 
 @Component({
   selector: 'app-valoraciones',
@@ -10,25 +12,13 @@ import { ToastController } from '@ionic/angular';
 export class ValoracionesPage implements OnInit {
   constructor(
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController,
+    private firestoreauth: FirestoreauthService,
+    private userinterface: UserInteractionService
   ) {}
 
   ngOnInit() {}
-
-  abrirMenu() {
-    const menu = document.getElementById('nav-icon3');
-    menu.classList.toggle('open');
-
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('open');
-  }
-
-  gotoNotifications() {
-    this.router.navigate(['/notificaciones']);
-  }
-  gotoConfirmar() {
-    this.router.navigate(['/confirmar-recoleccion']);
-  }
 
   rating1() {
     const estrellaLlena1 = document.querySelector('.estrella-fill1');
@@ -94,6 +84,57 @@ export class ValoracionesPage implements OnInit {
     estrellaLlena3.classList.remove('hidden');
     estrellaLlena4.classList.remove('hidden');
     estrellaLlena5.classList.remove('hidden');
+  }
+
+  gotoNotifications() {
+    this.router.navigate(['/notificaciones']);
+  }
+  gotoConfirmar() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
+
+  lectorQr() {
+    this.router.navigate(['/confirmar-recoleccion']);
+  }
+
+  iralHome() {
+    this.router.navigate(['/inicio-cliente']);
+  }
+
+  async logout() {
+    const alert = await this.alertController.create({
+      header: 'Salir',
+      message: '¿Deseas cerrar sesión?',
+      buttons: [
+        {
+          text: 'Permitir ',
+          handler: (blah) => {
+            setTimeout(function () {
+              location.reload();
+            }, 100);
+            this.firestoreauth.logout();
+            this.userinterface.presentToast('Cerrando sesión...');
+            this.router.navigate(['/login']);
+            console.log('Confirma Permiso Permitido: yes');
+          },
+        },
+        {
+          text: 'Denegar',
+          handler: () => {
+            console.log('Confirma Permiso Denegado: yes');
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  abrirMenu() {
+    const menu = document.querySelector('.nav-icon4');
+    menu.classList.toggle('open');
+
+    const dropdown = document.querySelector('.dropdown4');
+    dropdown.classList.toggle('open');
   }
 
   async confirmacion() {

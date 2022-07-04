@@ -131,7 +131,7 @@ textarea {
   padding: 0.5rem;
 }
 
-#nav-icon3 {
+.nav-icon4 {
   width: 28px;
   height: 30px;
   position: relative;
@@ -149,11 +149,11 @@ textarea {
   z-index: 999;
 }
 
-#nav-icon3.open span {
+.nav-icon4.open span {
   background: white;
 }
 
-#nav-icon3 span {
+.nav-icon4 span {
   display: block;
   position: absolute;
   height: 3px;
@@ -175,47 +175,48 @@ textarea {
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
-#nav-icon3 span:nth-child(1) {
+
+.nav-icon4 span:nth-child(1) {
   top: 5px;
 }
 
-#nav-icon3 span:nth-child(2),
-#nav-icon3 span:nth-child(3) {
+.nav-icon4 span:nth-child(2),
+.nav-icon4 span:nth-child(3) {
   top: 13px;
 }
 
-#nav-icon3 span:nth-child(4) {
+.nav-icon4 span:nth-child(4) {
   top: 21px;
 }
 
-#nav-icon3.open span:nth-child(1) {
+.nav-icon4.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
 
-#nav-icon3.open span:nth-child(2) {
+.nav-icon4.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-#nav-icon3.open span:nth-child(3) {
+.nav-icon4.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
-#nav-icon3.open span:nth-child(4) {
+.nav-icon4.open span:nth-child(4) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
 
 // Menu lateral
-.dropdown {
+.dropdown4 {
   position: absolute;
   background-color: #2d3436;
   background-image: linear-gradient(315deg, #1a1a1a 0%, #282828 74%);
@@ -228,18 +229,16 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
   li {
     display: none;
   }
-
   li img {
     width: 25px;
     height: 25px;
   }
 }
 
-.dropdown.open {
+.dropdown4.open {
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -248,16 +247,13 @@ textarea {
   height: auto;
   padding: 0;
   border-top: none;
-
   li {
     display: flex;
     gap: 20px;
     padding: 1rem 2rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important
-    ;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
     background-color: var(--ion-color-negro);
   }
-
   li:last-child {
     display: flex;
     justify-content: center;
@@ -298,7 +294,7 @@ a:visited {
   z-index: -1;
 }
 
-.dropdown button {
+.dropdown4 button {
   margin-bottom: 1rem;
 }
 
