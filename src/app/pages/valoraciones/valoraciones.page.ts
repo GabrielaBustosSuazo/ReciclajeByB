@@ -28,7 +28,7 @@ export class ValoracionesPage implements OnInit {
       if (currenturl === '/valoraciones') {
         const alert = await this.alertController.create({
           header: 'Acción no permitida',
-          message: 'No puedes volver atrás',
+          message: 'Por favor confirma y termina el proceso',
           buttons: [
             {
               text: 'Volver a valoraciones',
