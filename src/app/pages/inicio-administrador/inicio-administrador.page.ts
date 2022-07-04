@@ -102,7 +102,7 @@ export class InicioAdministradorPage implements OnInit {
           handler: (blah) => {
             setTimeout(function () {
               location.reload();
-            }, 100);
+            }, 500);
             this.auth.logout();
             this.userinterface.presentToast('Cerrando sesión...');
             this.router.navigate(['/login']);

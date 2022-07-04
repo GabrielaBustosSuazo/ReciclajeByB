@@ -37,7 +37,8 @@ export class ConfirmarRecoleccionPage implements OnInit {
     private database: FirestoreService,
     private alertController: AlertController,
     private auth: FirestoreauthService,
-    private userinterface: UserInteractionService
+    private userinterface: UserInteractionService,
+   
   ) {}
 
   ngOnInit() {
@@ -57,9 +58,6 @@ export class ConfirmarRecoleccionPage implements OnInit {
         this.qrDataSplit4 = this.qrDataSplit[3];
         this.qrDataSplit5 = this.qrDataSplit[4];
         this.qrDataSplit6 = this.qrDataSplit[5];
-      })
-      .catch((err) => {
-        console.log('Error', err);
       });
 
     console.log(typeof this.barcodeScanner);
@@ -118,13 +116,19 @@ export class ConfirmarRecoleccionPage implements OnInit {
 
   cancelar() {
     this.barcodeScanner
-      .scan()
-      .then((barcodeData) => {
-        this.qrData = barcodeData.text;
-      })
-      .catch((err) => {
-        console.log('Error', err);
-      });
+    .scan()
+    .then((barcodeData) => {
+      this.qrData = barcodeData.text;
+      this.qrDataSplit = this.qrData.split(',');
+      this.qrDataSplit1 = this.qrDataSplit[0];
+      this.qrDataSplit2 = this.qrDataSplit[1];
+      this.qrDataSplit3 = this.qrDataSplit[2];
+      this.qrDataSplit4 = this.qrDataSplit[3];
+      this.qrDataSplit5 = this.qrDataSplit[4];
+      this.qrDataSplit6 = this.qrDataSplit[5];
+    });
+
+  console.log(typeof this.barcodeScanner);
   }
 
   async confirmacion() {
