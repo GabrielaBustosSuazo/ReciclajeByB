@@ -20,7 +20,7 @@ export class NotfoundPage implements OnInit {
   ngOnInit() {}
 
   turnBack() {
-    this.router.navigate(['/inicio-recolector']);
+    this.router.navigate(['/rutas']);
   }
 
   notFound() {
