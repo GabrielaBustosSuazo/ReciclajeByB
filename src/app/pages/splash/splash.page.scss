@@ -52,7 +52,9 @@ $black: #1a1a1a;
   padding: 0 !important;
   margin: 0 !important;
   position: absolute;
+  width: 100%;
   left: 0;
+  top: 0;
   right: 0;
   display: flex;
   align-items: center;
@@ -60,6 +62,7 @@ $black: #1a1a1a;
   justify-content: center;
   z-index: 1;
   &:before {
+    top: -20%;
     position: absolute;
     content: "";
     background-image: url("../../../assets/img/login-img.jpg");
@@ -68,7 +71,7 @@ $black: #1a1a1a;
     background-position: 58%;
     opacity: 0.38;
     width: 100%;
-    height: 100%;
+    height: 120%;
     z-index: -1;
     background-blend-mode: screen;
   }
@@ -80,7 +83,7 @@ $black: #1a1a1a;
   flex-direction: column;
   margin-bottom: 0.5rem;
   gap: 0;
-  margin-top: 80%;
+  margin-top: 85%;
 
   h1 {
     font-size: 2.5rem;
@@ -92,16 +95,19 @@ $black: #1a1a1a;
     }
   }
   img {
-    width: 85px;
+    width: 75px;
     margin: 0 auto;
   }
 }
 
 .scene {
   width: 100%;
+  position: absolute;
+  bottom: -6%;
+  left: 49%;
+  transform: translate(-50%, -50%);
   display: flex;
   z-index: 99999;
-  align-items: center;
   justify-content: center;
   svg {
     display: flex;

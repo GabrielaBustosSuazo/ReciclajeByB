@@ -87,7 +87,11 @@
       <tr>
         <th scope="col ">Acciones</th>
         <td class="acciones">
-          <button (click)="showImage(evidencia); gotoAnchor()">
+          <button
+            class="boton-img"
+            (click)="showImage(evidencia); gotoAnchor()"
+          >
+            <img src="../../../assets/icon/fa_eye.png " />
             Ver Imagen
           </button>
         </td>

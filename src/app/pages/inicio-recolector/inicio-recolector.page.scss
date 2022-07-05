@@ -4,7 +4,6 @@ ion-content {
   --padding-start: 1rem;
   --padding-end: 1rem;
   --ion-background-color: var(--ion-color-negroOscuro);
-  position: relative;
 }
 
 .separator {
@@ -159,17 +158,20 @@ ion-header {
 }
 
 .logout {
-  position: relative;
-  width: 100%;
-  margin-inline: auto;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   justify-content: center;
   display: flex;
   align-items: center;
   background-color: var(--ion-color-negro);
-  border-radius: 15px 15px 0 0;
-  margin-top: 2rem;
+  border-radius: 25px 15px 0 0;
   margin-bottom: -1rem;
+  width: 92%;
+  margin: 0 auto;
+  --background: none;
+}
+
+ion-footer {
+  background: var(--ion-color-negroOscuro) !important;
 }
 
 .msg-bienvenida {
