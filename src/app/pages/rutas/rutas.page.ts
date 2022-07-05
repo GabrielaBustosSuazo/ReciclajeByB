@@ -22,6 +22,7 @@ export class RutasPage implements OnInit {
   usuario: Usuario[] = [];
   nombreUsuario: string;
   flag: boolean;
+  id: any;
   constructor(
     private database: FirestoreService,
     private alertController: AlertController,
@@ -60,6 +61,7 @@ export class RutasPage implements OnInit {
 
     this.rutaActualizada = rut;
     this.cliente = this.rutaActualizada.clienteAsignado;
+    this.id = this.rutaActualizada.id
   }
 
   getUsuarios() {
@@ -89,7 +91,7 @@ export class RutasPage implements OnInit {
   }
 
   newNotification() {
-    const receptor = 'nPTinN820Rh9L9HkTvUn0AbNYUo1';
+    var receptor = 'AIMkkbZzzwSVukwsbXLO4qxk6EI3';
     const path = 'Usuarios/';
     this.database.getDoc<any>(path, receptor).subscribe((res) => {
       if (res) {
@@ -98,8 +100,8 @@ export class RutasPage implements OnInit {
           enlace: '/rutas',
         };
         const notification = {
-          title: 'Recolector va en camino',
-          body: 'Prepara tu reciclaje porque el recolector va en camino',
+          title: 'Tu recolector va en camino',
+          body: 'Prepara tu reciclaje porque el camión de recolección se dirige a tu dirección.',
         };
         const data: INotification = {
           data: dataNotification,
