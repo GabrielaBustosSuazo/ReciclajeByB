@@ -89,7 +89,7 @@ export class RutasPage implements OnInit {
   }
 
   newNotification() {
-    const receptor = 'AIMkkbZzzwSVukwsbXLO4qxk6EI3';
+    const receptor = 'nPTinN820Rh9L9HkTvUn0AbNYUo1';
     const path = 'Usuarios/';
     this.database.getDoc<any>(path, receptor).subscribe((res) => {
       if (res) {
@@ -165,8 +165,7 @@ export class RutasPage implements OnInit {
   }
 
   desaparecerRuta() {
-    const codigoQR = document.querySelector('.codigo-qr');
-    codigoQR.classList.toggle('absolute');
+    console.log("entra")
     const path = 'Rutas';
     this.rutaActualizada.estado = 'Finalizado';
     this.database
